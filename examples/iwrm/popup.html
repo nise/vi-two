@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <title>IWRM-education: Integrated Water Ressources Management</title>
+    <link type="text/css" href="style/ui-lightness/jquery-ui-1.7.2.custom.css" rel="stylesheet" />
+		<link type="text/css" href="style/vi2.main.css" rel="stylesheet" >
+  	<link type="text/css" href="style/vi2.videoplayer.css" rel="stylesheet">
+  
+  	<style>
+  		iframe {border:none;}
+  		.ui-widget-header {border:none;}
+  		.ui-dialog-titlebar { background-color:#003366; background-image:none;}
+  		.ui-dialog .ui-dialog-content { padding:0;}
+  	</style>
+		<script src="js/jquery-1.5.2.js"></script> 
+		<script src="vi-two.min.js"></script>	
+	<script language ="javascript">	
+		function getURLParameter(name) {
+  	  return decodeURI(
+       	(RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+    	);	
+		}
+		$(document).ready(function(){	   
+	 		$('a.popup').text(getURLParameter('title')+'__'+getURLParameter('lecturer'));
+			$('a.popup').click(function() {                
+		  	var dialog = $('<div style="display:hidden"></div>').appendTo('body');  
+		  	var dialog_options = {
+		  	 	autoOpen: false,
+					height: '640', 
+					width: '955', 
+					//modal:true, 
+					draggable: false,
+					closeOnEscape: true,
+					resizable: false,
+					title: "IWRM Education",// + ' to ' + $(this).attr('title'),
+					//position:[0,0], 
+					colseText:'x',
+					zIndex:200000,
+					open: function(){
+					 dialog.append($('<iframe class="iwrm-iframe" src="http://127.0.0.1/elearning/vi2/_attachments/embed.html#'+getURLParameter('id')+'" width="935" height="610"></iframe>'));	 	
+					},
+					close: function(){ 
+						//dialoge.remove(); 
+						$('iframe').attr('src', 'blank.htm').remove();
+					}
+				};	
+				dialog.dialog(dialog_options);                             
+		  	dialog.dialog('open');        
+		  	//prevent the browser to follow the link            
+		  	return false;        
+			});    
+		});
+	</script>
+  </head>
+  <body class="embed-body">
+  
+   <a class="popup" href="#">ssssss</a>
+        
+	</body>
+</html>

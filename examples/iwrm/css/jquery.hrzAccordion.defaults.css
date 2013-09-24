@@ -1,0 +1,47 @@
+/* hide container until all is ready */
+.test, .test2,.test3,.test4{
+	display: none;
+}
+/*Main Container*/
+.container {
+	width:100%;	
+}
+.container ul{
+	list-style-type: none;
+	margin: 0;
+	padding:0;	
+}
+.container li{
+	display: inline;
+	margin: 0px;
+	padding:0px;
+}
+/*Content Container*/
+.contentContainer {
+	padding-left: 0px;	
+	float: left;
+	width:0px;
+	height: 310px;	
+	overflow:hidden;
+}
+.contentWrapper{	
+}
+.contentInnerWrapper{
+	text-align: justify;
+	padding: 10px;
+}
+/* Handle*/
+.handle{
+	float: left;
+	width: 38px;
+	height: 310px;
+	margin: 1px;
+	margin-right: -10px;
+	background:  url(../images/blade.png) no-repeat;
+}
+.handleOver{	
+	background: url(../images/blade_sel.png) no-repeat;
+}
+.handleSelected{	
+	background: url(../images/blade_sel.png) no-repeat;
+}
