@@ -5,6 +5,7 @@ The framework is completly written in Javascript but dedicated for use on the cl
 
 
 # Examples
-IWRM education
+
+* IWRM education
 
 
