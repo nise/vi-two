@@ -1,0 +1,79 @@
+
+
+.revisions{
+	min-height:10px;
+	max-height:80px;
+	overflow:auto;
+	background-color:#fff;
+	border: solid 1px #ccc;
+	padding:6px;
+	width:278px;
+	cursor:default;
+}
+
+.list-item {
+	cursor:pointer;	
+}
+
+.revisions-entry{
+	font-weight:normal;
+	font-size:10px;
+	overflow:hidden;
+	display:block;
+}
+
+.revisions .date{
+	color:#444;
+	padding: 2px 4px;
+	float:right;
+}
+
+.revisions .text{
+	top:0;
+	padding: 2px 2px;
+	color:#000;
+}
+
+.revisions .user-icon {
+	width:15px;
+	margin-right:4px;
+}
+
+.assessment-fill-in  .submit-fill-in {
+	font-weight:bold;
+	font-size:12px;
+	display:inline;
+	padding:2px 4px;
+	border-right:solid 1px #1c94c4;
+	border-top:solid 1px #1c94c4;
+	border-bottom:solid 1px #1c94c4;
+	background-color:#ccc;
+}
+
+.assessment-fill-in  .submit-fill-in:hover{
+	background-color:#1c94c4;
+	color: #fff;
+}
+
+.assessment-fill-in {
+	z-index:0;
+	opacity:1;
+	padding: 4px;
+	height:22px;
+	background-color:orange;
+}
+
+.assessment-fill-in:hover{
+	background-color:orange;
+}
+
+ul.assessment-fi-list{ padding:0px; list-style-type:circle; list-style-position: inside; margin:0;}
+ul.assessment-fi-list li { line-height:16px; display:list-item; margin: 4px 0; background-color: #eee; padding:2px 4px; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; }
+ul.assessment-fi-list li:hover { background-color: #ccc;}
+ul.assessment-fi-list li a { text-decoration:none; padding: 2px 1px 1px 3px; }
+
+.tassessment-fi{ width:12px; height:12px; bottom:15px; background-color: orange; opacity:0.7;}
+.tassessment-fi:hover { width:20px; background-color: orange;}
+
+
+

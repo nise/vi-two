@@ -43,10 +43,13 @@
 		addAnnotation : function(obj){ 					
 			if(this.isHook(obj.type)){   
 				this.annotations.push({
-						active:false, 
+						active:false,
+						author: obj.author,
+						width: obj.width, 
 						content: {
 								title: obj.title, 
-								target:obj.target
+								target:obj.target,
+								note:obj.note
 							}, 
 						linktype:obj.linktype, 
 						type: obj.type, 

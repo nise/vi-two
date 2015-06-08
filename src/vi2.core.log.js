@@ -2,24 +2,33 @@
 	author: niels.seidel@nise81.com
 	 
 	 
-	Input:
-	* client IP Adress via PHP
-	* client browser, operating system, 
-	* time in ms since 1970	
-	* clicks: tags, category, startpage, lecture 
-	* search terms
-	* video: seek on timeline, link clicks, seek2link, toc clicks
-	* 
+
 	
-	Output options
-	* debug
-	* log.txt via PHP
+	** standardisazion:
+	* https://sites.google.com/site/camschema/home
+	* http://sourceforge.net/p/role-project/svn/HEAD/tree/trunk/gadgets/cam_sjtu/CamInstance.js
+	* http://sourceforge.net/p/role-project/svn/HEAD/tree/trunk/gadgets/html5Video/videoGadget.xml
+	
+
 	 
 	*/
 
 	var Log = $.inherit(/** @lends Log# */{
 
 		/** 
+		*	Input:
+		* 	client IP Adress via server side request
+		* 	client browser, operating system, 
+		* 	time in ms since 1970	
+		* 	clicks: tags, category, startpage, lecture 
+		* 	search terms
+		* 	video: seek on timeline, link clicks, seek2link, toc clicks
+		* 
+		* Output options:
+		* 	dom #debug
+		* 	log.txt via PHP
+		* 	console.log (default)
+		*
 		*		@constructs 
 		*		@param {object} options An object containing the parameters
 		*		@param {String} options.output Output channel that could be a 'logfile' or a 'debug' panel
@@ -44,7 +53,7 @@
 		},
 		
 		name : 'log',
-		options : {output: 'logfile', debug_selector: '#debug', logfile:'log.txt', parameter: 'time,ip,msg,user', logger_path: '../php/ip.php'}, // output: debug/logfile
+		options : {output: 'logfile', debug_selector: '#debug', prefix: '', logfile:'log.txt', parameter: 'time,ip,msg,user', logger_path: '../php/ip.php'}, // output: debug/logfile
 		bucket : '',
 		ip : '',
 	
@@ -53,8 +62,13 @@
 		
 		/* -- */
 		add : function(msg){
-			var logEntry = this.getLogTime()+', '+this.getIP()+', '+msg+', '+this.getUser()+'\n';
+			//var logEntry = this.getLogTime()+', '+this.options.prefix+', '+this.getIP()+', '+msg+', '+this.getUser()+'\n';
+			var logEntry = this.getLogTime()+', '+vi2.currentVideo+', '+', '+vi2.currentGroup+', '+vi2.userData.id+', '+msg+', '+this.getUser()+'\n'; 
+			// buggy ::: vi2.userData.id
+			this.writeLog(logEntry);
 			
+			return;
+			/*
 			// handle output
 			switch(this.options.output){
 				case 'debug' :
@@ -63,10 +77,13 @@
 				case 'logfile' :
 					this.writeLog(logEntry);
 					break;
+				default :
+					console.log(logEntry);	
 			}
 			
 			// fill bucket for internal usage	
 			this.bucket += logEntry;
+			*/
 		},
 		
 		/* -- */
@@ -94,15 +111,17 @@
 						
 		/* -- */
 		getUser : function(){
-		 var ua = $.browser; //return '';
-  		return	navigator.userAgent;
+		 var ua = $.browser; 
+  		return	navigator.userAgent.replace(/,/g,';');
 		},
 		
 		/* -- */
-		writeLog : function (entry){
-			$.post('php/log.php', { entry:entry }); 
+		writeLog : function (entry){ 
+			//$.post('php/log.php', { entry:entry }); 
+			$.post(this.options.logger_path, { data:entry }, function(data){}); 
 		}					
 				
 	
 		
 	}); // end class Log
+	

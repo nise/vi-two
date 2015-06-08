@@ -1,0 +1,63 @@
+
+
+.overlay {
+	padding: 3px 4px 3px 28px;
+	height:18px;
+	border: 1px solid #ccc;
+	font-weight: bold;
+	background-color:#003366;
+	opacity: .85;
+	cursor:pointer;cursor:hand;	
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+
+span.overlay:hover{
+	/*background-color:lightblue;*/
+}
+
+span.overlay:hover a {
+	text-decoration:none;
+}
+
+
+.overlay.highlight-element{
+	background: url(../img/link-highlight.png) 2px 2px no-repeat;
+	border:none;
+	opacity:.5;
+	z-index:0;
+	color:#fff;
+}
+
+
+.highlight-list { padding:0px; list-style-type:none; margin:2px 0 0 0; }
+.highlight-list li{ padding:0; margin:0; line-height:20px; font-size:12px; display:block; cursor:pointer; padding: 2px 1px 1px 3px;}
+.highlight-list li:hover { position:relative; text-decoration:none; color:white; background-color: #ccc; -moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;}
+.highlight-list li:hover span.icon-bar { z-index:55000; position:absolute; left:-2px; top:-10px;}
+
+
+.highlight-timeline-entry{
+	cursor:pointer; 
+	position: absolute; 
+	display: block; 
+	width: 5px; 
+	height: 20px; 
+	left:0; 
+	margin: 0; 
+	padding: 0;
+}
+
+
+.highlight-timeline-entry { width:8px; height: 25px; top:-10px; background-color: #1C94C4; }
+
+
+/*
+span.highlight-timetag.ttag:hover{ width:12px;}
+span.highlight-timetag.tmedia{ width:4px; background-color: blue;}
+
+span.highlight-timetag.tlink{ width:7px; height:14px; bottom:11px; background-color: lightblue; opacity:0.7;}
+span.highlight-timetag.taccessment{ width:7px; height:8px; bottom:15px; background-color: green; opacity:0.7;}
+span.highlight-timetag.taccessment{ width:6px; background-color: green; opacity:0.6;}
+
+*/

@@ -56,12 +56,16 @@ function removeDuplicates (cat){
   return cat;     
 }
 
-/////////////////////////////
+
+/* Converts decimal time format into seconds */
 function deci2seconds(s){
 	if(Number(s) < 0 || s == null){ return 0; }
 	var arr = s.split(':');
 	return Number(arr[0])*3600+Number(arr[1])*60+Number(arr[2]);
 }
+
+
+
 
 /////////////////////////////
 Object.size = function(obj) {
@@ -73,5 +77,27 @@ Object.size = function(obj) {
 };
 
 
-//function void
+
+var Vi2_Utils = $.inherit(/** @lends PlaybackSpeed# */{
+
+	/** 
+	*		@constructs 
+	*		
+	*/
+	__constructor : function(options) { },
+	
+	name : 'utils',
+	
+	
+	/* Converts seconds into decimal format */
+	seconds2decimal : function(seconds) {
+		d = Number(seconds);
+		var h = Math.floor(d / 3600);
+		var m = Math.floor(d % 3600 / 60);
+		var s = Math.floor(d % 3600 % 60);
+		return ((h > 0 ? h + ":" : "") + (m > 0 ? (h > 0 && m < 10 ? "0" : "") + m + ":" : "00:") + (s < 10 ? "0" : "") + s); 
+	}
+	
+}); // end utils
+
 

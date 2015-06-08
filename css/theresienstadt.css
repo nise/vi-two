@@ -1,0 +1,568 @@
+
+
+/* scenes side nav*/
+
+
+.affix-top,.affix{
+ position: static;
+}
+
+	#scene-menu{
+		 max-height: calc( 100vh - 100px);
+		 overflow-y: auto; 
+	}
+
+ #scene-menu.affix-top {
+    position: static;
+  	margin-top:0px;
+  	width:228px;
+  }
+  
+  #scene-menu.affix {
+    position: fixed;
+    top:10px;
+    width:228px;
+  }
+
+ #scene-menu.affix-bottom {
+    position: static;
+  	margin-top:0px;
+  	width:228px;
+  }  
+
+
+
+ul.nav-tabs {
+	width: 200px;
+	margin-top: 50px;
+	padding:0;
+}
+ul.nav-tabs li {
+	margin: 0;
+	padding:0;
+	border-top: 1px solid #ddd;
+}
+ul.nav-tabs li:first-child {
+	border-top: none;
+}
+ul.nav-tabs li a {
+	margin: 0;
+	padding:0;
+	font-size:10px;
+}
+ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover {
+	color: #fff;
+	background: #0088cc;
+	border: 1px solid #0088cc;
+}
+
+ul.nav-tabs.affix {
+	/*top: 0px; Set the top position of pinned element */
+}
+
+header{
+margin-bottom:0;
+}
+
+
+/***********/
+
+
+
+#page {
+	display:block;
+	padding:0;
+	clear:both;	
+	position:relative;
+}
+
+
+
+.highlight {
+	background-color:#1C94C4;
+}
+
+
+th {
+text-align:left;
+cursor:pointer;
+}
+
+tr{
+}
+
+td {
+padding: 4px 14px 20px 4px;
+margin:0;
+border-top: 1px solid #ccc;
+vertical-align:top;
+font-size:12px;
+}
+
+
+table.ep tr td {
+font-size:10pt;
+padding:0pt;
+}
+
+h4.ep {
+width:100%; background-color:lightblue;
+margin-top:120px;
+padding:4px;
+}
+
+iframe.ep {
+position: fixed;
+right:0;
+top:40px;
+}
+
+
+h2, h3{ 
+font-family: Palatino,"Times New Roman", Times, serif;
+}
+
+
+.scene-view {
+margin:0 0;
+display:block;
+margin-bottom:10px;
+padding:10px;
+}
+
+.scene-view h3{
+margin-bottom:0px;
+float:left;
+width:100%;
+height:40px;
+
+}
+
+.scene-view .bim {
+overflow:hidden;
+padding:0;
+margin:0;
+
+}
+
+
+.scene-view .metadata {
+	font-size:11px;
+	color:#333;
+	padding-left:4px;
+	margin-bottom:4px;
+	border-left: solid 5px #555;
+}
+
+.scene-description , .lecturer, .tags {
+font-size:14px;
+line-height: 20px;
+}
+
+.scene-view .lecturer{
+font-weight:bold;
+}
+
+.scene-controls{
+	margin-top:6px;
+	float:right;
+	display:inline-block;
+}
+
+
+label {
+	padding:0;
+	margin:0;
+}
+
+
+/********************************/
+/* PERSONS */
+
+.side-panel{
+	position:fixed;
+	top:0px;
+	right:0;
+	border:solid red 1px;
+	background-color: #1C94C4;
+}
+
+
+
+.side-panel.affix-top {
+    position: static;
+  	margin-top:0px;
+  }
+  
+.side-panel.affix {
+    position: fixed;
+    top:60px;
+  }
+
+
+
+.bio-text{
+	font-size:12px;
+}
+
+
+
+/*************************/
+.hidden-link {
+	color:#555;
+	font-family:bold;
+}
+
+.hidden-link:hover{
+text-decoration:none;
+}
+
+
+.edit-form{
+	font-family: Arial;
+	clear:both;
+}
+
+.edit-form input {
+	width:500px;
+	font-size:18px;
+	padding:4px;
+	font-family: Arial;
+	 margin-top: 5px;
+    margin-bottom: 5px;
+    display:inline-block;
+    *display: inline;     /* for IE7*/
+    zoom:1;              /* for IE7*/
+    vertical-align:middle;
+    margin-left:20px;
+   border: 1px solid  #ccc;
+    border-radius: 5px;
+	
+}
+
+
+
+.edit-form textarea {
+	font-size:16px;
+	padding:4px;
+	width:500px;
+	height:300px;
+	font-family: Arial;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	display:inline-block;
+	*display: inline;     /* for IE7*/
+	zoom:1;              /* for IE7*/
+	vertical-align:top;
+	margin-left:20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color:#fff;
+	color:#000;
+}
+
+.edit-form label {
+	display: inline-block; width: 140px; text-align: right; color:#444; margin-right:6px; font-size:14px;
+}
+
+.edit-form label.assessment {
+	text-align: left;
+	font-size:16px;
+	width:500px;
+}
+
+.edit-form input[type=checkbox], .edit-form input[type=radio]{
+width:25px;
+padding-left:500px;
+vertical-align:top;
+margin:2px 4px 20px 0;
+
+}
+
+.edit-form input[type=checkbox] + label span, .edit-form input[type=radio] + label span{
+	float:left;
+	vertical-align:top;
+	text-align:left;
+	display:inline-block;
+	cursor:pointer;
+	width:19px;
+  margin:0px 4px 20px 0;
+}
+
+label.assessment{
+	margin-bottom:10px;
+}
+
+.edit-form .buttons{
+	margin:30px 0 0 160px;
+	width: 520px;
+}
+
+
+
+
+.edit-btn{
+padding:4px;margin-left:8px;
+}
+
+.question{
+border-top: dotted 3px #ccc;
+margin-bottom:40px;
+padding-top:5px;
+}
+
+.assessment-answers{
+	margin-top:10px;
+}
+
+.assessment-test{
+width:600px;
+}
+
+
+.xtable{
+	width:100%;
+	border: solid red 1px;
+}
+
+.xtable thead th {
+	cursor: pointer;
+	color:blue;
+	padding:1px 10px;
+}
+
+
+/*
+Design of Control Elements
+**/
+
+.title-img{
+	width:100%;
+	border: 4px white solid;
+	border-radius: 10px;
+}
+
+.left-panel{
+	
+	margin: 10px 10px 0 45px;
+	float:left;
+	z-index:1000;
+	position:absolute;
+}
+
+.alert-btn{
+	color:red;
+	float: right;
+	cursor: pointer;
+}
+
+.warning{
+	color:orange;
+}
+
+.well-done{
+	color:green;
+}
+
+
+
+
+#assessment-accordion .ui-accordion-header{
+width:100%;
+height:40px;
+font-size:25px;
+padding:4px;
+padding-left:40px;
+}
+
+/***************/
+
+.admin-menu-item{
+	display:block;
+	padding: 6px 10px;
+}
+
+.table-menu:hover .table-menu-entry{
+	visibility:visible;
+}
+
+.table-menu-entry{
+	visibility:hidden;
+	font-size:12px;
+}
+
+.xtable td, .xtable tr  {
+	min-height:60px;
+	border-bottom:dotted #ccc 2px;
+	text-align:left;
+}
+
+td.ep-table-cell {
+    vertical-align: top;
+}
+.bold{
+font-weight:bold;
+}
+
+
+
+/* BOOTstrap additions */
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+
+
+
+
+
+
+/* Video frame */
+
+.main{
+	background-color:#000;
+	width:100%;
+	height: 100vh !important;
+}
+
+#video1 {
+	width: auto;
+	height: calc( 100vh - 2px);
+	-webkit-transition-property: height, width;
+  -webkit-transition-duration: 1s;
+}
+
+.split {	
+	position:absolute;
+	top:0;
+	left:0;
+	width:50vw;
+	max-height:80vh;
+	display:block;
+	padding-bottom:100px;
+	padding-top:0;
+	-webkit-transition-property: height, width;
+  -webkit-transition-duration: 1s;
+}
+
+
+#seq {
+	display:inline;
+	position: relative;
+	float:left;
+	height: 100vh !important;
+}
+
+/* Accordion panel */
+#accordion {
+	background-color:#333;
+	margin-top:0px;
+	min-width:300px;
+	width:auto;
+	height: -moz-calc( 100vh - 50px);
+	max-height:100vh;
+	overflow:hidden;
+	position:absolute;
+	display:inline;
+	clear:both;
+	top:0;	
+}
+
+#accordion-resizer {
+	position:absolute;
+	top:50px;
+	right:-273px !important;
+  width: 300px;
+ 	height: 80vh;
+ 	overflow:hidden;
+ 	-moz-transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  transition-delay: .8s;
+}
+
+#accordion-resizer:hover{
+	right:0 !important;
+	-moz-transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  transition-delay: .3s;
+}
+
+.ui-widget-content{
+	border:none;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background-color: #555;
+    border: none;
+    color: #fff;
+    font-weight: normal;
+    font-family:Arial;
+}
+
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.ui-state-active a:hover, .ui-state-active a:link:hover, .ui-state-active a:visited:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {
+	color: #fff;
+}
+
+.video-container{
+	position:absolute;
+	bottom:0px;
+	left:10px;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+ /*   overflow-y: hidden; */
+}
+
+body > .container {
+  padding: 50px 15px;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+
+.footer {
+  clear: both;
+  margin-top:100px;
+	display:block;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+  padding:10px 0;
+}
+
+.footer img {
+	margin-left:4px;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+
+

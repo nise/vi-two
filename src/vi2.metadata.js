@@ -1,38 +1,68 @@
 /* Metadata
 	
-	- integrate it as a widget
+	- integrate it on server side
+	- do we really need a rendering funtion?
+	- complete metadata
+	- think about sitemap.xml and dbpedia
+	- bug: metadata width and height is Null since the video has not been loaded yet.
+	
 	*/
-var Metadata = $.inherit(/** @lends Metadata# */
+var Vi2_Metadata = $.inherit(/** @lends Metadata# */
 	{
 			/** 
 			*		@constructs 
 			*		@param {object} options An object containing the parameters
 			*/
-  		__constructor : function(options) {
-  			if(options){
-	  			this.options = $.extend(this.options, options);
-  			}
-  			this.render();
+  		__constructor : function( options ) {
+  			this.metadata = vi2.db.getMetadataById( vi2.observer.current_stream );
+  			this.options = $.extend(this.options, options);
+  			this.update();
   		},
   		
   		// defaults
-  		options : {selector:'#metadata', author: 'Niels Seidel', title: 'An Interactive Video', category: 'Prototype', date: '2011/06/01', rating: 5, titleselector:'.header'},
+  		options : { metatags: false, render:false },
   		labels : {author: 'Author:', title: 'Title:', category: 'Category:', date: 'Date:', rating: 'Rating:'},
+  		
+  		/* */
+  		update: function(){
+  			this.render(); 
+  			this.buildMetaTags();
+  		},
   		
   		/* ... */
   		render : function(){
-  			var _this = this;
-  			var data = $('<div></div>')
-  			$.each(this.labels, function(i, val){
-  				data.append('<strong>'+val+'</strong> '+_this.options[i]+'</br>');
-  			});	
-  			$('.meta-title').html(this.options.title);
-  			$('.meta-desc').html(this.options.author);
+  			if(this.options.render){
+					var _this = this;
+					var data = $('<div></div>')
+					$.each(this.labels, function(i, val){
+						data.append('<strong>'+val+'</strong> '+_this.metadata[i]+'</br>');
+					});	
+					$('.meta-title').html(this.metadata.title);
+					$('.meta-desc').html(this.metadata.author+' ('+this.metadata.institution+')');
 
-  			
-  			//$(this.options.selector).html(data);
-  			//$(this.options.selector).append(this.options.author);
-  		}
+					
+					//$(this.options.selector).html(data);
+					//$(this.options.selector).append(this.options.author);
+				}	
+  		},
+  		
+  		/* SEO ********************/
+			buildMetaTags : function(){
+				if( this.options.metatags ){ 
+				
+					$('head meta').each(function(i,val){ this.remove()});
+		
+					$('head')
+						.prepend('<meta itemprop="duration" content="'+this.metadata.length+'" />')
+						.prepend('<meta itemprop="height" content="'+ vi2.observer.player.height() +'" />')
+						.prepend('<meta itemprop="width" content="'+ vi2.observer.player.width() +'" />')
+						.prepend('<meta itemprop="uploadDate" content="'+this.metadata.date+'" />')
+						//.prepend('<meta itemprop="thumbnailUrl" content="'+vi2.page_url+'img/thumbnails/iwrm_'+vi2.observer.current_stream+'.jpg" />')
+						.prepend('<meta itemprop="contentURL" content="' + vi2.db.getStreamById( vi2.observer.current_stream ).video + '" />')
+						//.prepend('<meta itemprop="embedURL" content="'+vi2.page_url+'#!'+vi2.observer.current_stream+'" />')
+					; 
+				}	
+			}
 
 });
 

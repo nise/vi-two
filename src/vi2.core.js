@@ -50,7 +50,7 @@ var VI2 = $.inherit(/** @lends VI-TWO# */
 				videoWidth: 280, 
 				videoHeight:158, 
 				markupType:'html', 
-				wrapControls: '#container', 
+				videoControlsSelector: '.video-controls', 
 				theme:'simpledark', 
 				childtheme:'iwasbasicwhite'
 		});
@@ -117,15 +117,17 @@ var VI2 = $.inherit(/** @lends VI-TWO# */
 		this.viLog = new Log(); 
   	$(this).bind('log', function(e, msg){ _this.viLog.add(msg); }); 
 		
-		var viSearch = new Vi2_Playlist();
-		var viPlaylist = new Vi_Search();
+		var viSearch = new Vi2_Search();
+		var viPlaylist = new Vi_Playlist();
 		var viRelatedVideos = new Vi2_RelatedVideos();
 		var viVideoManager = new Vi2_VideoManager();
+;
 		var viAPI = new Vi2_API();
 		this.observer.addWidget( viSearch );
 		this.observer.addWidget( viPlaylist );
 		this.observer.addWidget( viRelatedVideos );
 		this.observer.addWidget( viVideoManager );
+		
 	
 				
 		
@@ -135,7 +137,6 @@ var VI2 = $.inherit(/** @lends VI-TWO# */
 		}else{
 			this.log(location.split('#')[0]);
 		}
-		
 		// build navigation 
 		this.buildNavigation();
 		this.buildFooter();
@@ -181,7 +182,7 @@ var VI2 = $.inherit(/** @lends VI-TWO# */
 		}else if(location.substr(0,4) == 'test'){
 			//this.observer.current_stream = location.substr(0,4);
 			this.getTestPage();
-			return;						
+			return;					
 		}else{
 			this.log('404-error:'+location.split('#')[0]);		
 			this.observer.current_stream = 'start';
@@ -274,7 +275,7 @@ var VI2 = $.inherit(/** @lends VI-TWO# */
 	tagss:'',
 	
 	/* ... */
-	buildSingleVideo : function(stream, selector, update){
+	buildSingleVideo : function(stream, selector, update){ 
 		if(stream == null){
 			stream = this.observer.current_stream;
 		}
@@ -302,7 +303,7 @@ var VI2 = $.inherit(/** @lends VI-TWO# */
 				videoWidth: 280, 
 				videoHeight:158, 
 				markupType:'html', 
-				wrapControls: '#container', 
+				videoControlsSelector: '.video-controls', 
 				theme:'simpledark', 
 				childtheme:'iwasbasicwhite'
 			});
@@ -313,21 +314,21 @@ var VI2 = $.inherit(/** @lends VI-TWO# */
 		$(this.dom).append(this.db.getVideoById(stream));
 		 
 		this.observer.init();	
-	
+
 		metadataa = new Metadata(this.db.getMetadataById(stream));
 		xlinkk = new XLink({target_selector:'#seq', vizOnTimeline: true, minDuration:'5'});
 		tocc = new TOC({selector:'#toc', vizOnTimeline: true}); 
 		tagss = new TemporalTagging({selector:'#tags', vizOnTimeline: false, max:20, sort:'freq'}, this.db.getTagsById(stream)); 
-		syncMedia = new Vi2_SyncMedia({selector:'#seq', vizOnTimeline: false, controls: false, path : 'slides/'});//, placeholder: 'slides/'+stream+'/'+stream+'_00001.jpg'}); 
+		syncMedia = new Vi2_SyncMedia({selector:'#syncMedia', vizOnTimeline: false, controls: false, path : 'slides/'});//, placeholder: 'slides/'+stream+'/'+stream+'_00001.jpg'}); 
 		//new Seq({selector:'#seq', width:620, height:450, path:'videos/iwrm_'+stream+'_slides.ogv'}); 
 		//	var seqv = new Seqv({selector:'#seq', width:620, height:450, path:'videos/iwrm_'+stream+'_slides.ogv'}); 
 		//this.observer.addWidget(seqv);
 	
-		this.observer.addWidget(xlinkk);
-		this.observer.addWidget(syncMedia);
+		this.observer.addWidget(xlinkk);  
+		this.observer.addWidget(syncMedia); 
 		this.observer.addWidget(tocc); 
 		this.observer.addWidget(tagss);
-		this.observer.addWidget(this.viLog);
+		this.observer.addWidget(this.viLog); 	
 		this.observer.parse('#hydro1', 'html');  //		main.parse('#markup', 'wiki');
 	},
 
@@ -353,7 +354,7 @@ var VI2 = $.inherit(/** @lends VI-TWO# */
 		$(this.dom).empty();
 		$(this.dom).append(this.db.getVideoById(stream));
 		
-		this.observer = new Observer({id:stream, selector:'#screen', clockInterval:500, videoSelector:'#video1', videoWidth: 780, videoHeight:400, markupType:'html', wrapControls: '#container', theme:'simpledark', childtheme:'iwasbasicwhite'});			
+		this.observer = new Observer({id:stream, selector:'#screen', clockInterval:500, videoSelector:'#video1', videoWidth: 780, videoHeight:400, markupType:'html', videoControlsSelector: '.video-controls', theme:'simpledark', childtheme:'iwasbasicwhite'});			
 		this.observer.parse('#hydro1', 'html');  //		main.parse('#markup', 'wiki');
 		
 	},

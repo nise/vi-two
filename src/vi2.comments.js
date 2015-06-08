@@ -9,48 +9,77 @@
 
 
 	/* class Comments **/ 
-	var Comments = $.inherit(/** @lends Comments# */{
+	var Comments = $.inherit(Annotation, /** @lends Comments# */{
 
 		/** 
 		*		@constructs 
 		*		@param {object} options An object containing the parameters
 		*/
   	__constructor : function(options) {
-  			this.options = $.extend(this.options, options);
+  			this.options = $.extend(this.options, options); 
 		},
 		
 		name : 'comments',
-		options : {selector: '#comments', vizOnTimeline: true},
+		type : 'annotation',
+		options : {selector: '#comments', vizOnTimeline: true, path: '/'},
 		player : null,
 		timelineSelector : 'div.vi2-video-seek',
 
 		/* ... */
 		init : function(ann){ 
 			var _this = this;
-			var comments = $('<ul></ul>').addClass('commentslist'); 
+			var comments = $('<ul></ul>').addClass('commentslist');
+			$(this.options.selector).html(comments); 
 			var li = function(author, title, target, time){
 				var a = $('<a></a>')
-					.text(author+': '+title)
-					.attr('href', '#'+main.options.id)
+					.text(title)
+					.addClass('id-'+time)
+					//.attr('href', '#'+vi2.options.id)
 					.click(function(){
+						vi2.observer.log('clickcommentfromlist:'+title +' '+author+' '+time);
 						_this.player.currentTime(time);
-					});				
-				return $('<li></li>').attr('id', 't'+target).html(a);
-			};
+					});	
+				var user = vi2.db.getUserById(author);				
+				return $('<li></li>')
+					.addClass('list-item')
+					.attr('author', author)
+					.attr('id', 't'+target)
+					.tooltip({delay: 2, showURL: false, bodyHandler: function() { return $('<span></span>').text('Kommentar von '+user.firstname+' '+user.name);} })
+					.css('list-style-image',  "url('"+_this.options.path+"user-"+author+".png')")
+					.html(a);
+			}; 
 			var e = {}; e.tags = []; e.tags.occ = [];
 			$.each(ann, function(i, val){
-				if(val.type == 'comment'){
-					comments.append(li(val.author, val.title /* +' ('+_this.formatTime(val.t1).replace(/-/, ':')+')'*/, _this.formatTime(val.t1), val.t1));
-					e.tags.push({name: val.title, occ:[val.t1]});
+				if(val.type == 'comment'){  
+					comments.append(li(val.author, val.title, _this.formatTime(val.t1), val.t1));
+					e.tags.push({name: val.title, occ:[val.t1]}); 
 				}
 			});
 
-			this.showTimelineComments(e);
+			this.showCommentsOnTimeline(e);
 			// sort list entries by time and append them
-			comments.find('li').tsort({attr:"id"}); 
-			$(_this.options.selector).html(comments);		
-						
-		},							
+			comments.find('li').tsort({attr:"id"}); 			
+		},	
+		
+					/* -- */
+		//<div type="toc" starttime=83 duration=1 id="">Objectives of the lecture</div>
+		//
+		appendToDOM : function(id){ 
+			var _this = this;
+			$(vi2.dom).find('[type="comments"]').each(function(i,val){ $(this).remove(); });
+			$.each(	vi2.db.getCommentsById(id), function( i, val ){ 
+				var comm = $('<div></div>')
+					.attr('type',"comments")
+					.attr('starttime', val.start)
+					.attr('duration', 10)
+					.attr('author', val.author)
+					.attr('date', val.date)
+					.attr('id', "")
+					.text(decodeURIComponent(val.comment))
+					.appendTo( vi2.dom )
+					;  
+			});
+		},						
 				
 		/* ... */
 		begin : function(e, id, obj){ 
@@ -69,7 +98,8 @@
 		end : function(e, id){ },
 		
 		/* ... */
-		showTimelineComments : function(e){
+		showCommentsOnTimeline : function(e){
+			if(! this.options.vizOnTimeline ){ return; }
 			var _this= this; 
 				// display tag occurence on timeline to motivate further selection
 				var f = function(_left, _name){

@@ -161,7 +161,7 @@ duration":178.378,"tracks":[
 				
 				$('#debug').html(jsoon);
     	},
-			error: function(e, msg, x){ alert('error at json import '+msg); },
+			error: function(e, msg, x){ alert('error at json import '+msg); }
 		});
 	},
 	
@@ -240,7 +240,7 @@ duration":178.378,"tracks":[
               		//popupManager.hidePopups();
               		//pm.importProject( data, document.getElementById( 'timeline-media-input-box' ).value );
     						},
-								error: function(e){ alert('error at json import'); },
+								error: function(e){ alert('error at json import'); }
 							});
           }
 	

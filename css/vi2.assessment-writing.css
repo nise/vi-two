@@ -1,0 +1,97 @@
+.assessment-written  .submit-writing {
+	display:block;
+	margin-bottom:0px;
+	float:right;
+}
+
+.assessment-written  .close-writing {
+	position:absolute;
+	top:4px;
+	right:4px;
+}
+	
+.assessment-written .button {	
+	font-weight:bold;
+	font-size:12px;
+	display:inline;
+	padding:2px 6px;
+	border:solid 1px #1c94c4;
+	background-color:#fff;
+	margin:4px;
+	color:#1c94c4;
+}
+
+.assessment-written .button:hover {
+	color:#fff;
+	background-color:#1c94c4;
+}
+
+.assessment-written  .submit-writing:hover{
+	background-color:#1c94c4;
+	color: #fff;
+}
+
+.assessment-written {
+	z-index:3;
+	opacity:1;
+	padding: 3px 6px;
+	min-height:22px;
+	max-height:400px;
+	min-width:22px;
+	max-width:665px;
+	background-color:white;
+	border: solid 3px orange;
+	overflow:auto;
+	cursor: default;
+}
+
+
+.assessment-written-user-icon{
+	width:20px;
+	height:20px;
+	cursor: pointer;
+}
+
+.assessment-written:hover {
+	min-height:27px;
+}
+
+
+
+.assessment-written-task{
+	z-index:2;
+	min-height:300px;
+	min-width:300px;
+	display:block;
+}
+
+.assessment-written .assignment{
+	
+	margin-left:34px;
+	font-weight:normal;
+	display:inline:
+	min-height:30px;
+	
+}
+
+.assessment-written-textarea {
+	margin-left:34px;
+	width:550px;
+	min-height:200px;
+	font-size:12px;
+	color:#111;
+	padding:4px;
+}
+
+
+
+
+
+ul.assessment-wr-list{ padding:0px; list-style-type:circle; list-style-position: inside; margin:0;}
+ul.assessment-wr-list li { line-height:16px; display:list-item; margin: 4px 0; background-color: #eee; padding:2px 4px; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; }
+ul.assessment-wr-list li:hover { background-color: #ccc;}
+ul.assessment-wr-list li a { text-decoration:none; padding: 2px 1px 1px 3px; }
+
+.tassessment-wr{ width:12px; height:12px; bottom:15px; background-color: orange; opacity:0.7;}
+.tassessment-wr:hover { width:20px; background-color: orange;}
+

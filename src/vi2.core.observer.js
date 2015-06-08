@@ -16,10 +16,10 @@
 	*		@constructs
 	*		@params {object} options  
 	*/
-	__constructor : function(options) {
+	__constructor : function(options) { 
 		this.options = $.extend(this.options, options);
 		this.widget_list = new Object(); // Assoc Array is an Object // Object.size(this.widget_list)
-		this.clock = new Clock({}, this.options.clockInterval);
+		this.clock = new Clock({}, this.options.clockInterval); 
 		//this.init();	
 
 		//this.testing();
@@ -27,7 +27,12 @@
 	
 	// defaults
 	name : 'observer',
-	options : {id: 'start', selector: '#screen', clockInterval: 500, videoSelector: '#video1', videoWidth:500, videoHeight:375, wrapControls:'#container', markupType: 'wiki', childtheme:''},
+	options : {
+		id: 'start', 
+		embed: true, 
+		thumbnail: '/vi-lab/img/placeholder.jpg',
+		selector: '#screen', 
+		clockInterval: 500, videoSelector: '#video1', videoWidth:500, videoHeight:375, videoControlsSelector:'.video-controls', markupType: 'wiki', childtheme:''},
 	pieList : $('<ul></ul>').attr('class', 'pieContextMenu').attr('id', 'menu'),
 	player : undefined,
 	clock : undefined,
@@ -37,6 +42,7 @@
 	hooks : [],
 	vid_arr : [],
 	current_stream : 'start',
+	parser : '',
 	
 	/* .. */
 	setCurrentStream : function(stream){ 
@@ -46,72 +52,85 @@
 			.append(vi2.db.getVideoById(stream)); 
 		this.annotationsToDOM();
 		this.clock.stopClock();
-		this.clock.reset();
+		this.clock.reset(); 
 		var metadataa = new Metadata(vi2.db.getMetadataById(stream));
 		var p = new Parser(vi2.dom, 'html'); // parse the DOM
 		this.vid_arr = p.run(); 
 	},
 
 	/* -- */
-	parse : function(selector, markupType){ 
+	parse : function(selector, markupType){  
 		this.parseSelector = selector;
-		var p = new Parser(selector, markupType == null ? this.markupType : markupType);
-		this.vid_arr = [];
-		this.vid_arr = p.run();
+		this.parser = new Parser(selector, markupType == null ? this.markupType : markupType);
+		this.vid_arr = []; 
+		this.vid_arr = this.parser.run();
 		this.clock.stopClock();
 		this.clock.reset(); 
 		this.player.loadSequence(this.vid_arr);  
 					
 	},
+	
 
 	/* -- */
-	init : function(){
-		var _this = this;
-		//this.checkVideo();
-		//var videoo = undefined;
-		//if(!!document.createElement('video').canPlayType){
+	init : function(seek){  
+		seek = seek == undefined ? 0 : seek;
+		var _this = this; 
 		var videoo = $('<video controls autobuffer></video>')
 				.attr('id', this.options.videoSelector.replace(/\#|./,''))
+				.attr('preload', "metadata")
+				.addClass('embed-responsive-item')
 				.text('Your Browser does not support either this video format or videos at all');
-		//}else{
-			
-		//}
-		$(this.options.selector).html(videoo);
-				
-		this.player = new Video({selector: this.options.videoSelector, width:this.options.videoWidth, height:this.options.videoHeight, wrapControls: this.options.wrapControls, theme:this.options.theme, childtheme:this.options.childtheme}, this);
+		$(this.options.selector)
+			.addClass('embed-responsive embed-responsive-16by9')
+			.html(videoo);
+		this.player = new Video({
+				embed: this.options.embed, 
+				selector: this.options.videoSelector, 
+				width:this.options.videoWidth, 
+				height:this.options.videoHeight, 
+				videoControlsSelector: this.options.videoControlsSelector, 
+				theme:this.options.theme, 
+				childtheme:this.options.childtheme,
+				thumbnail: this.options.thumbnail, 
+				seek:seek
+			}, this); 
+		this.clock.player = this.player;
 		
-		this.clock.player = this.player;// = new Clock(this.player, this.options.clockInterval);
-  	//
-  	$("div.dropdown").each(function(){ $(this).dropdown(); });		  		
-  	// some stuff
-  	$('body').append(this.pieList);
-		//$("video").pieMenu("ul#menu");
-		
-		
-		 // some event bindings hooks
-		 $(this).bind('player.ready', function(e, id, i){ 
-					_this.clock.annotations = [];
-//  				alert('pl readee:  '+_this.vid_arr[i]['annotation'].length);				
-					$.each(_this.vid_arr[i]['annotation'], function(i, val){
-					_this.clock.addAnnotation(val);
-				});
-			// xxx Abfrage, ob Widget geladen wurde	
-			_this.widget_list['xlink'].clear();
-			_this.widget_list['xlink'].init(_this.vid_arr[i]['annotation']);
-			_this.widget_list['toc'].init(_this.vid_arr[i]['annotation']);
-			_this.widget_list['syncMedia'].init();
+		// load some widgets
+		var viPlaybackSpeed = new Vi2_PlaybackSpeed({}, this);
+		this.addWidget( viPlaybackSpeed ); 
+
+		// some event bindings hooks
+		$(this).bind('player.ready', function(e, id, i){ 
+			_this.setAnnotations();
 		});
+	},
+	
+	
+	/**
+	*
+	*/
+	setAnnotations : function(){   
+		var _this = this; 
+		_this.clock.annotations = [];			 
+		_this.vid_arr = _this.parser.run(); 
 		
-		/* // doppelt
-		$(this).bind('player.ready', function(e, id, i){ _this.widget_list['xlink'].clear(); });
-		$(this).bind('player.ready', function(e, id, i){ _this.widget_list['xlink'].init(_this.vid_arr[i]['annotation']); });
-		$(this).bind('player.ready', function(e, id, i){ _this.widget_list['toc'].init(_this.vid_arr[i]['annotation']); });
-		*/
+		$.each(_this.vid_arr[0]['annotation'], function(i, val){ 		
+			_this.clock.addAnnotation(val); 
+		}); 
+		
+		// initiate widgets
+		$.each(_this.widget_list, function(j, val){ 
+			this.init( _this.vid_arr[0]['annotation'] );				
+		});
+		vi2.enableEditing('toc');
+		
 	},
   		
-	/* -- */
+  		
+	/** -- */
 	checkVideo : function(){
-	
+		// proof against available videos
 		if(!!document.createElement('video').canPlayType){
 			var vidTest = document.createElement("video");
 			oggTest = vidTest.canPlayType('video/ogg; codecs="theora, vorbis"');
@@ -152,97 +171,115 @@
   		  		
 /* WIDGETS *********/
 
-  		/* -- */
-  		isWidget : function(widget){
-  			return this.widget_list[widget] != null;	
-  		},
+	/* -- */ // - kill switch()!
+	addWidget : function(obj){ 
+		if(this.widget_list[obj.name] != null){ 
+			//return false;
+		}
+		var _this = this;   	
+		obj.player = this.player; 
+		this.clock.addHook(obj.name, obj);	
+
+		if(obj.type == 'annotation'){  
+			obj.appendToDOM(this.options.id);
+		}	
+
+		switch(obj.name){
+			case 'tags' : // no event bindings	
+				 $(this.player).bind('annotation.begin.'+obj.name, function(e, a, b){ obj.begin(e, a, b);});
+				 $(this.player).bind('annotation.end.'+obj.name, function(e, a){ obj.end(e, a);});
+				break;
+			case 'highlight' : // no event bindings	
+				$(this.player).bind('annotation.begin.'+obj.name, function(e, a, b){ obj.begin(e, a, b);});
+				$(this.player).bind('annotation.end.'+obj.name, function(e, a){ obj.end(e, a);});
+				
+				break;	
+			case 'xlink' : 
+				 $(this.player).bind('annotation.begin.'+obj.name, function(e, a, b){ obj.begin(e, a, b);});
+				 $(this.player).bind('annotation.end.'+obj.name, function(e, a){ obj.end(e, a);});
+				break;
+			case 'relatedVideos' :
+				$(this.player).bind('video.end', function(e, a){ obj.showLinkSummary(); });
+				break;  
+			case 'search' : 
+				// ...
+				break;
+			case 'playbackSpeed' :
+				break;		
+			case 'syncMedia' : 
+				 $(_this.player).bind('annotation.begin.'+obj.name, function(e, a, b){ obj.begin(e, a, b);});
+				 $(_this.player).bind('annotation.end.'+obj.name, function(e, a){ obj.end(e, a);});
+				//_this.addPieItem('tag', 'img/ff.png', 'alert("addSignal");');
+				break;	
+			case 'seqv' :
+				// bind to sync both videos
+				break;
+				case 'map' : // not fully implemented
+				 $(_this.player).bind('annotation.begin.'+obj.name, function(e, a, b){ obj.begin(e, a, b);});
+				 $(_this.player).bind('annotation.end.'+obj.name, function(e, a){ obj.end(e, a);});
+				break;
+			case 'assessment' :
+				$(this.player).bind('annotation.begin.'+obj.name, function(e, a, b){ obj.begin(e, a, b);});
+				$(this.player).bind('annotation.end.'+obj.name, function(e, a){ obj.end(e, a);});
+			 	break;	
+			case 'assessment-fill-in' : 
+				 $(this.player).bind('annotation.begin.'+obj.name, function(e, a, b){ obj.begin(e, a, b);});
+				 $(this.player).bind('annotation.end.'+obj.name, function(e, a){ obj.end(e, a);});
+				break;
+			case 'assessment-writing' : 
+				 $(this.player).bind('annotation.begin.'+obj.name, function(e, a, b){ obj.begin(e, a, b);});
+				 $(this.player).bind('annotation.end.'+obj.name, function(e, a){ obj.end(e, a);});
+				
+				break; 	 		
+			case 'toc' :
+				//obj.clock = this.clock; 
+				$(this.player).bind('annotation.begin.'+obj.name, function(e, a, b){ obj.begin(e, a, b);});
+				$(this.player).bind('annotation.end.'+obj.name, function(e, a){ obj.end(e, a);});
+				
+				break;
+			case 'log' :
+				$(this.player).bind('log', function(e, msg){ obj.add(msg); });
+				break;
+			//case 'trace' :
+				//break;	 
+
+		}
+	
+		// register widget	
+		this.widget_list[obj.name] = obj;   
+		return true; 
+	},
+	
+	
+	/* Returns true or false whether the given string is the name of an registered widget or not. */
+	isWidget : function(widget){
+		return this.widget_list[widget] != null;	
+	},
+	
+	/* Returns the widget object to the given name. */
+	getWidget : function(widget_name){
+		return this.widget_list[widget_name];
+	},
+	
+	/* -- */
+	removeWidget : function(widget_name){
+		// bugy?
+		this.widget_list[widget_name] = 0;
+	},
+	
+	
 
 
-  		/* -- */ // - kill switch()!
-  		addWidget : function(obj){ 
-   				if(this.widget_list[obj.name] != null){ 
-   					return false;
-   				}
-  				
-  				var _this = this;   	
-  				obj.player = this.player; 
-  				this.clock.addHook(obj.name, obj);	
-  				
-  				if(obj.type == 'annotation'){ 
-  					obj.appendToDOM(this.options.id);
-  				}	
 
-  				switch(obj.name){
-  					case 'tags' : // bugy
-							// no event bindings	
-  						//_this.addPieItem('tag', 'img/addTag.png', 'main.widget.addTags();');
-  						break;
-  					case 'xlink' : 
-  						 $(this.player).bind('annotation.begin.'+obj.name, function(e, a, b){ obj.begin(e, a, b);});
-  						 $(this.player).bind('annotation.end.'+obj.name, function(e, a){ obj.end(e, a);});
-  						//	_this.addPieItem('tag', 'img/ff.png', 'alert("addLink");'); // authoring mode
-  					  break;
-  					case 'relatedVideos' :
-  						$(this.player).bind('video.end', function(e, a){ obj.showLinkSummary(); });
-  						break;  
-  					case 'search' : 
-  						// ...
-  						break;	
-  					case 'syncMedia' : 
-  						 $(_this.player).bind('annotation.begin.'+obj.name, function(e, a, b){ obj.begin(e, a, b);});
-  						 $(_this.player).bind('annotation.end.'+obj.name, function(e, a){ obj.end(e, a);});
-  						//_this.addPieItem('tag', 'img/ff.png', 'alert("addSignal");');
-  					  break;	
-  				case 'seqv' :
-  						// bind to sync both videos
-  						break;
-  						case 'map' :
-  						 $(_this.player).bind('annotation.begin.'+obj.name, function(e, a, b){ obj.begin(e, a, b);});
-  						 $(_this.player).bind('annotation.end.'+obj.name, function(e, a){ obj.end(e, a);});
-  				  break;	
-  					case 'toc' :
-  					//obj.clock = this.clock; 
-  						$(this.player).bind('annotation.begin.'+obj.name, function(e, a, b){ obj.begin(e, a, b);});
-  						$(this.player).bind('annotation.end.'+obj.name, function(e, a){ obj.end(e, a);});
-  						//_this.addPieItem('tag', 'img/ff.png', 'alert("addSignal");');
-  					  break;
-  					case 'log' :
-  						$(this.player).bind('log', function(e, msg){ obj.add(msg); });
-  						break;
-  					case 'trace' :
-  						//..
-  						break;	
-  				 
-  				}
-  			
-  				// register widget	
-  				this.widget_list[obj.name] = obj; 
-  				return true; 
-  		},
-  			
-  		/* -- */
-  		removeWidget : function(widget_name){
-  			// bugy?
-  			this.widget_list[widget_name] = 0;
-  		},
-  		
-  		/* -- */
-  		isWidget : function(name){
-  			if(this.widget_list.indexOf("118") != -1){
-  				return true;
-  			}
-  			return false;
-  		},
-  		
-  		/* append annotation data of widgets to DOM */
-  		annotationsToDOM : function(){ 
-  			var _this = this;
-  			$.each(this.widget_list, function(i, widget){ 
-  				if(widget.type == 'annotation'){ 
-  					widget.appendToDOM(_this.current_stream);
-  				}
-  			});
-  		},
+	/* append annotation data of widgets to DOM */
+	annotationsToDOM : function(){ 
+		var _this = this; 
+		$.each(this.widget_list, function(i, widget){ 
+			if(widget.type == 'annotation'){ 
+				widget.appendToDOM(_this.current_stream);
+			}
+		});
+	},
   		  		
   		
   		
@@ -401,28 +438,6 @@
   		closeScreen : function(){
   			$('.screen').remove();
   			this.player.play();
-  		},	
- 
-  
-  
-  
-  
-  
-  
-	/* -- */
-  		testing : function(){
-  			// sequential videos
-  			var arr = [];
-				arr[0] = [];	arr[1] = []; arr[2] = [];
-				arr[2]['url'] = 'http://127.0.0.1/elearning/videos/Compi.ogg';
-				arr[1]['url'] = 'http://127.0.0.1/elearning/videos/bunny.ogg';
-				arr[0]['url'] = 'http://127.0.0.1/elearning/videos/type.ogv';
-				//this.player.loadSequence(arr);
-				
-				this.clock.annotations.push({content: {title: 'hallo', target:'1.JPG'}, linktype:'', type: 'seq', displayPosition: {x: 0, y: 0, t1: 0, t2: 5}});
-				this.clock.annotations.push({content: {title: 'hallo', target:'4.JPG'}, linktype:'', type: 'seq', displayPosition: {x: 0, y: 0, t1: 5, t2: 10}});
-				this.clock.annotations.push({content: {title: 'hallo', target:'3.JPG'}, linktype:'', type: 'seq', displayPosition: {x: 0, y: 0, t1: 10, t2: 15}});
-				//
   		}
   		
   });

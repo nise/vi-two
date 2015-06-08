@@ -24,12 +24,10 @@
 		*/
   	__constructor : function(options) {
   		this.options = $.extend(this.options, options); 
-  		this.observer = observer;
 		},
 				
 		name : 'xlink',
 		type : 'annotation',
-		observer : undefined,
 		
 		options : {target_selector:'#seq' ,selector: '#overlay', vizOnTimeline: true, minDuration: 5},
 		player : null,
@@ -40,6 +38,7 @@
 		/* ... */
 		init : function(ann){
 			var _this = this;
+			this.clear();
 			this.link_list = this.buildLinkList(ann);	
 			this.showTimelineXlink(this.link_list);
 		},		
@@ -48,6 +47,8 @@
 		// // <div type="xlink" starttime=297 duration=14 posx=32 posy=90 id="Using existing Videos" >bonk1</div>
 		appendToDOM : function(id){
 			var _this = this;
+			$(vi2.dom).find('[type="xlink"]').each(function(i,val){ $(this).remove(); });
+			$(vi2.dom).find('[type="cycle"]').each(function(i,val){ $(this).remove(); });
 			$.each(	vi2.db.getLinksById(id), function(val){ 
 				var links = $('<div></div>')
 				.attr('type', this.type) // former default: "xlink"

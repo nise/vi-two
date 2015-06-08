@@ -1,0 +1,18 @@
+
+
+
+
+.helper{
+float:right;
+width:48vw;
+margin: auto 1px auto 50vw;
+}
+
+.helper img {
+	width:100%;
+	height:auto;
+	-webkit-transition-property: height, width;
+  -webkit-transition-duration: 1s;
+  
+}
+
