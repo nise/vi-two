@@ -92,7 +92,10 @@ min: $(slides)
 # 1) JSDOCDIR="$HOME/Documents/www/elearning/vi2/vi-two/tools/jsdoc/jsdoc-toolkit"
 # 2) JSDOCTEMPLATEDIR="$JSDOCDIR/templates/jsdoc"
 # 3) make documentation
-documentation: $(vi2)
+
+# Manual: http://usejsdoc.org/tags-requires.html
+# Result: file:///home/abb/Documents/www2/vi-two/doc/symbols/VI-TWO.html
+doc: $(vi2)
 		#cat $^ > vi2doc.js
 		java -jar tools/jsdoc/jsdoc-toolkit/jsrun.jar tools/jsdoc/jsdoc-toolkit/app/run.js -a -t=tools/jsdoc/jsdoc-toolkit/templates/jsdoc $^ 
 		# copy docs to the dedicated folder

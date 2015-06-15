@@ -6,6 +6,9 @@
 - fin interne API zur Dokumentation
 - CSS je Widget :: responsive Design  ... query-based CSS ..
 
+- jquery tooltip, statt dem veralteten jquery.tooltip https://jqueryui.com/tooltip/#custom-style
+
+
 - ketten von videos
 - Widgets:
 -- rating

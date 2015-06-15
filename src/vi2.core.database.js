@@ -16,27 +16,23 @@
 		*		@param {object} options An object containing the parameters
 		*		@param {function} call_back Function that will be called after relevant data is available 
 		*/
-  	__constructor : function(options, call_back, fn, video_id) {  
+  	__constructor : function(options, call_back, fn) {  
   		this.call_back = call_back;
   		var _this = this;
-  		this.options = $.extend(this.options, options); 
   		this._d = 0;  
-  		this.jsonFiles_arr = [
-  			{path: this.options.path+'/json/videos/'+video_id, storage: 'json_data'}, 
-  			{path: this.options.path+'/groups', storage: 'json_group_data'},
-//  			{path: this.options.path+'data-slides.json', storage: 'json_slide_data'},
-  			{path: this.options.path+'/json/users', storage: 'json_user_data'}
-  		]; 
-  		$.each(this.jsonFiles_arr, function(key, file) { 
+  		
+  		this.options = $.extend(this.options, options); 
+  		
+  		$.each(this.options.files, function(key, file) { 
         console.log("making requst for " + file);  
         _this.loadJSON(file.path, file.storage, fn);
        });
 		},
 				
 		name : 'dataBase',
-		options : {path:'./'}, // ?
+		options : {files:[]}, // ?
 		call_back : {},
-		jsonFiles_arr : '',
+		
 		_d : 0,
 		json_data : {},
 		json_slide_data : {},
@@ -66,10 +62,14 @@
             
             //alert(JSON.stringify(_this.json_data))
             _this._d++; 
-            if (_this._d == Object.size(_this.jsonFiles_arr)){ 
+            if (_this._d == Object.size(_this.options.files)){ 
             	console.log('done'); 
             	// call
-            	_this.call_back[fn]();
+            	if(_this.call_back != undefined){
+            		_this.call_back[fn]();
+            	}else{
+            		fn();
+            	}
             	
             }
         },
@@ -96,20 +96,23 @@
 		
 	//get stream by id
 	getStreamById : function(id){ 
+		
+		/*
 		if(this.json_data == undefined){
 			return {}
 		}else{
 			return this.json_data;
-		}
+		}*/
 		/// old:
 		var stream = {}; 
-		$.each(this.json_data, function(i, val){ 
+		$.each(this.json_data.stream, function(i, val){ 
 			if (this.id == id){  
 				stream = this; 
 			}
 		});
 		return stream;
 	},
+	
 			
 
 

@@ -28,7 +28,11 @@
 		annotations : [],
 		hooks : [],
 		
-		/* ... */
+		/**
+		* Checks whether the provided type of annotation has been already added as a hook
+		* @param {String} type
+		* @return {boolean}
+		*/
   	isHook : function(type){
   		return this.hooks[type] != null;	
   	},
