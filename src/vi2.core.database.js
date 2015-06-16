@@ -174,10 +174,14 @@
 	/* - - */
 	getStreamsOfSameAuthor : function(id){
 		var author = this.getStreamById(id).metadata[0].author;  
-		var authors = [];
+		var authors = {};
 		$.each(this.json_data.stream, function(i, stream){  
 				if(stream.metadata[0].author === author && stream.id != id){ 
-					authors.push(stream.id); //$('#debug').val($('#debug').val() + stream.id);
+					if( stream.id in authors == false ){
+						authors[stream.id] = 0;
+					}
+					authors[stream.id] += 1; //$('#debug').val($('#debug').val() + stream.id);
+						
 				}
 		});
 		return authors;
@@ -223,11 +227,11 @@
 	
 	/* returns tags of the given stream */
 	getTagsById : function(id){
-		var tags = [];
+		var tags = []; 
 		$.each(this.json_data.stream, function(i, stream ){
-			if( stream.id === id ){
-				$.each( stream.tags, function(tag){
-					tags.push( tag.tagname );
+			if( stream.id == id ){   
+				$.each( stream.tags, function(i, tag){ 
+					tags[i] = stream.tags[i].tagname;
 				});	
 			}
 		});
@@ -237,45 +241,60 @@
 	/* -- */ 
 	getStreamsWithSameTag : function(id){
 		var _this = this;
-		var streams = [];
-		var tags = this.getTagsById(id).tags;
-		 
-		$.each(tags, function(i, the_tag_name){	
-			$.each(_this.json_data.stream, function(j, stream){  
-				$.each(stream.tags, function(k, tag){ 
-					if( this.tagname == the_tag_name.tagname ){  
-					 streams.push(stream.id); //$('#debug').val($('#debug').val() +' '+ stream.id);
-					}
-				});
-			});			
-		});
-		return streams;
+		var results = {};
+		var tags = this.getTagsById(id);
+		 	
+		$.each(_this.json_data.stream, function(j, stream){  
+			$.each(stream.tags, function(k, val){  
+				if( tags.indexOf( val.tagname ) != -1 && stream.id != id){
+					if( stream.id in results == false ){  
+						results[ stream.id ] = 0;
+					}//else if( results.hasOwnProperty(stream.id) ){ 
+						results[ stream.id ] += 1;  
+					//}
+				}
+			});
+		});		
+		return results;
 	},
 	
 	
 
 	/* LINKS */
 	
-		/* -- */
+	/**
+	* Determin all outgoing links for a given video stream
+	* @param id {String} Id of video stream
+	*/
 	getLinkTargetsById : function(id){
-		var links = []; 
-		$.each(	this.getStreamById(id).links, function(val){ 
-			links.push(this.target);  //$('#debug').val($('#debug').val() + this.target);
+		var results = {}; 
+		$.each(	this.getStreamById(id).links, function( i, stream ){ 
+			if( stream.id in results == false ){  
+				results[ stream.id ] = 0;
+			}
+			results[ stream.id ] += 1;
 		});
-		return	links;
+		return	results;
 	},
 	
-	/* -- */
-	getLinkSourcesById : function(id){
-		var links = [];	
-		$.each(this.json_data, function(i, stream){
+	/**
+	* Determine all incoming links for a given video stream without self references
+	* @param id {String} Id of video stream
+	*/
+	getLinkSourcesById : function(id){ 
+		var results = {};	
+		$.each(this.json_data.stream, function( i, stream ){ 
 			$.each(stream.links, function(i, link){
-				if(this.target == id){
-				 links.push(stream.id); //$('#debug').val($('#debug').val() +' '+ stream.id);
+				if(link.target == id && stream.id != id){
+					if( stream.id in results == false ){  
+						results[ stream.id ] = 0;
+					}
+					results[ stream.id ] += 1;
 				}
 			});
-		});			
-		return links;	
+		});		
+		//alert(JSON.stringify(results))	
+		return results;	
 	},
 	
 	/* -- */ 	

@@ -7,20 +7,22 @@ author: niels.seidel@nise81.com
 */
 
 
-Vi2.Search = $.inherit(/** @lends Search# */{
+Vi2.Search = $.inherit(/** @lends Vi2.Search# */{
 
 	/** 
 	*		@constructs 
 	*		
 	*/
-	__constructor : function() {// options
-			//this.options = $.extend(this.options, options);  
-			 
+	__constructor : function( options ) {
+			this.options = $.extend(this.options, options);   
 	},
 	
 	name : 'search',
-	options : {selector: '#null'},
-	content_selector : '#content',
+	options : {
+		resultSelector: '.search-results', 
+		term: "water",
+		limit: 25
+	},
 	total : 0,
 
 
@@ -117,11 +119,11 @@ Vi2.Search = $.inherit(/** @lends Search# */{
 					$.each(result, function(i, val){ if(this.total > 0) this.total = Math.ceil((100*this.total) / maxResult);});
 					var t = new Date(); t2 = t.getTime(); 
 					// render results, header and template
-					$(_this.content_selector).trigger('clear').empty().append($('<h2></h2>').text('Search results for "'+string+'"')).append('<span class="des">(search time: '+(t2-t1)+' ms)</span>');
+					$(_this.resultSelector).trigger('clear').empty().append($('<h2></h2>').text('Search results for "'+string+'"')).append('<span class="des">(search time: '+(t2-t1)+' ms)</span>');
 						var item =$('<div></div>')
 							.setTemplate($("#search-template").val())
 							.processTemplate({results:result}) // vi2.db.json_data.stream.stream
-							.appendTo($(_this.content_selector));
+							.appendTo($(_this.resultSelector));
 
 					// sort results
 					$('div.search-results > div').tsort('.res', {order:"desc"});

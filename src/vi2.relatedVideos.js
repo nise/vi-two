@@ -9,12 +9,14 @@
 
 
 	 
-Vi2.RelatedVideos = $.inherit(/** @lends RelatedVideos# */{
+Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 
 		/** 
 		*		@constructs 
 		*		@param {object} options 
 		*		@param {object} options.modes Object...
+		*		@param {Number} options.modes.weight Weight of the given criteria
+		*		@param {Number} options.limit Number of requestested related videos
 		*/
   	__constructor : function(options) { 
   		this.options = $.extend(this.options, options); 
@@ -24,6 +26,7 @@ Vi2.RelatedVideos = $.inherit(/** @lends RelatedVideos# */{
 		name : 'related-videos',
 		options : {
 			resultSelector:'.related-videos', 
+			limit : 10, 
 			modes: [ 
 				{ mode: 'incomming-links', weight:0.4 },
 				{ mode: 'outgoing-links', weight:0.8 },
@@ -47,87 +50,70 @@ Vi2.RelatedVideos = $.inherit(/** @lends RelatedVideos# */{
 			$.each( this.options.modes, function(i, mode){ 
 				switch(mode.mode){
 					case "incomming-links" :
-						streams.push(_this.getRelativesByIncommingLinks(id));
+						_this.weightResults( vi2.db.getLinkSourcesById(id), mode.weight )	
 						break;
 					case "outgoing-links" :
-						streams.push(_this.getRelativesByOutgoingLinks(id));
+						_this.weightResults( vi2.db.getLinkTargetsById(id), mode.weight )	
 						break;
 					case "same-author"	:
-						_this.weightResults( _this.getRelativesOfSameAuthor(id), mode.weight )	
+						_this.weightResults( vi2.db.getStreamsOfSameAuthor(id), mode.weight );	
 						break;
-					case "same-tags"	:
-						_this.weightResults( _this.getRelativesByTagRelation(id), mode.weight)	
+					case "same-tags"	: 
+						_this.weightResults( vi2.db.getStreamsWithSameTag(id), mode.weight);	
 						break;
 					default :
 						// do nothing			
 				}
 			}); 
-			return;
-			return streams;
-			// sort by occurance
-			for(var i = 0; i < streams.length; i++){
-				s[streams[i]]++;
-  		}	
-  		s.sort(); 
-  		return s;
+			// render results
+			this.showRelatedVideos();
 		},
 		
-		/***/
-		weightResults : function(res, weight){ 
+		
+		/*
+		* @res {object} {<stream-id>: <number of occurances>}
+		**/
+		weightResults : function(res, weight){  
 			var _this = this;
 			$.each(res, function(i, val){
-				if( val in _this.results == false ){  
-					_this.results[ val ] = 0;
-				}
-				_this.results[ val ] += weight;
+				if( i in _this.results == false ){  
+					_this.results[ i ] = 0;
+				} 
+				_this.results[ i ] += Math.floor(val * weight * 10)/10; // bug: strange floating number as result
 			});
-			alert(JSON.stringify(_this.results))
+			//alert(JSON.stringify(_this.results))
+		},
+		
+		/**
+		
+		*/
+		sortByRelevance : function(){
+			
 		},
 		
 		
 		/** 
-		
+		Renders results
 		*/
 		showRelatedVideos : function(id){
 			var _this = this;
-			$.each(this.determineRelatedLinks(id), function(i,val){
-				$(_this.options.resultSelector).append(val)
-				//$('#debug').val($('#debug').val() +' '+ i +'('+val+')');
+			// sort by relevance 
+			//this.results = this.results.tsort(); alert(this.results)
+			var ul = $('<ul></ul>')
+				.appendTo(_this.options.resultSelector);
+			var j = 0;	
+			$.each(this.results, function(i,val){
+				if( j < _this.options.limit ){
+					var li = $('<li></li>').text(i+' ('+val+')').appendTo(ul);	
+				}
+				j++;
 			});
 		},	
 		
 		
-		/* -- */
-		getRelativesByOutgoingLinks : function(id){
-			return vi2.db.getLinkTargetsById(id);	
-		},
-		
-		
-		/* -- */
-		getRelativesByIncommingLinks : function(id){
-			return vi2.db.getLinkSourcesById(id);	
-		},
-		
-		
-		/* -- */		
-		getRelativesByTagRelation : function(id, number){
-			return vi2.db.getStreamsWithSameTag(id);
-		},
-		
-		
-		/* -- */		
-		getRelativesOfSameAuthor : function(id){ 
-			return vi2.db.getStreamsOfSameAuthor(id);
-		},
-
-		
-		
-
-		
-		
 
 
-		/** */
+		/** deprecated ...  */
 		showLinkSummary : function(e){ return;
 		 var _this = this;
 			var screen = observer.openScreen(this.options.resultSelector);
