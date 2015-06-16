@@ -15,7 +15,6 @@ var VI2Core = $.inherit({
   },
   
   viLog : '',
-  observer:'',
   
   /**
   

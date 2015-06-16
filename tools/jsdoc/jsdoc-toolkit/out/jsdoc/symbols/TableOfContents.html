@@ -313,7 +313,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/TableOfContents.html#appendToDOM">appendToDOM</a></b>(id)
 								</div>
-								<div class="description">Loads toc date from database in order to generate corresponding DOM elements.</div>
+								<div class="description">Loads toc data from database in order to generate corresponding DOM elements.</div>
 							</td>
 						</tr>
 					
@@ -322,7 +322,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/TableOfContents.html#begin">begin</a></b>(e, id, obj)
 								</div>
-								<div class="description">During the playback corresponds with a toc entry, the entry gets highlighted in the menu.</div>
+								<div class="description">During the playback corresponding toc entries will be highlighted.</div>
 							</td>
 						</tr>
 					
@@ -331,16 +331,16 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/TableOfContents.html#buildMenu">buildMenu</a></b>(tocData)
 								</div>
-								<div class="description"></div>
+								<div class="description">Builds a menu of all entries of the table of content</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/TableOfContents.html#buildTimelineMarkers">buildTimelineMarkers</a></b>(e)
+								<div class="fixedFont"><b><a href="../symbols/TableOfContents.html#buildTimelineMarkers">buildTimelineMarkers</a></b>(tocData)
 								</div>
-								<div class="description">Displays table of contents as markers on the timeline</div>
+								<div class="description">Displays a table of content as markers on the timeline</div>
 							</td>
 						</tr>
 					
@@ -349,7 +349,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/TableOfContents.html#end">end</a></b>(e, id, obj)
 								</div>
-								<div class="description"></div>
+								<div class="description">Terminates time-depended toc entries</div>
 							</td>
 						</tr>
 					
@@ -358,7 +358,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/TableOfContents.html#init">init</a></b>(annotations)
 								</div>
-								<div class="description">Initializes the table of content</div>
+								<div class="description">Initializes the table of content and handles options</div>
 							</td>
 						</tr>
 					
@@ -422,6 +422,36 @@ ul.inheritsList
 							</dt>
 								<dd>An object containing the parameters</dd>
 						
+							<dt>
+								<span class="light fixedFont">{boolean}</span>  <b>options.hasTimelineMarker</b>
+								
+							</dt>
+								<dd>Whether the TOC should be annotated on the timeline or not.</dd>
+						
+							<dt>
+								<span class="light fixedFont">{boolean}</span>  <b>options.hasMenu</b>
+								
+							</dt>
+								<dd>Wether the TOC should be listed in a menu or not.</dd>
+						
+							<dt>
+								<span class="light fixedFont">{string}</span>  <b>options.menuSelector</b>
+								
+							</dt>
+								<dd>Class or id of the DOM element for the menu.</dd>
+						
+							<dt>
+								<span class="light fixedFont">{sring}</span>  <b>options.timelineSelector</b>
+								
+							</dt>
+								<dd>Class or id of the DOM element for the annotated timeline.</dd>
+						
+							<dt>
+								<span class="light fixedFont">{string}</span>  <b>options.path</b>
+								
+							</dt>
+								<dd>Path to folder where user icons are stored.</dd>
+						
 						</dl>
 					
 					
@@ -451,7 +481,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Loads toc date from database in order to generate corresponding DOM elements.
+						Loads toc data from database in order to generate corresponding DOM elements.
 						
 						
 					</div>
@@ -487,7 +517,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						During the playback corresponds with a toc entry, the entry gets highlighted in the menu.
+						During the playback corresponding toc entries will be highlighted.
 						
 						
 					</div>
@@ -535,7 +565,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						
+						Builds a menu of all entries of the table of content
 						
 						
 					</div>
@@ -567,11 +597,11 @@ ul.inheritsList
 					<div class="fixedFont">
 					
 					
-					<b>buildTimelineMarkers</b>(e)
+					<b>buildTimelineMarkers</b>(tocData)
 					
 					</div>
 					<div class="description">
-						Displays table of contents as markers on the timeline
+						Displays a table of content as markers on the timeline
 						
 						
 					</div>
@@ -583,7 +613,7 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>e</b>
+									<b>tocData</b>
 									
 								</dt>
 								<dd></dd>
@@ -607,7 +637,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						
+						Terminates time-depended toc entries
 						
 						
 					</div>
@@ -655,7 +685,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Initializes the table of content
+						Initializes the table of content and handles options
 						
 						
 					</div>
@@ -745,7 +775,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Tue Jun 16 2015 11:40:38 GMT+0200 (MESZ)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Tue Jun 16 2015 11:52:53 GMT+0200 (MESZ)
 		</div>
 	</body>
 </html>

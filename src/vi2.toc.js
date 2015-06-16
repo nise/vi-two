@@ -13,6 +13,11 @@
 		/** @constructs
 		*		@extends Annotation
 		*		@param {object} options An object containing the parameters
+		*		@param {boolean} options.hasTimelineMarker Whether the TOC should be annotated on the timeline or not.
+		*		@param {boolean} options.hasMenu Wether the TOC should be listed in a menu or not.
+		*		@param {string} options.menuSelector Class or id of the DOM element for the menu.
+		*		@param {sring} options.timelineSelector Class or id of the DOM element for the annotated timeline.
+		*		@param {string} options.path Path to folder where user icons are stored.
 		*/
   	__constructor : function(options) {
   			this.options = $.extend(this.options, options);  
@@ -21,17 +26,17 @@
 		name : 'toc',
 		type : 'annotation',
 		options : {
-			selector: '#toc', 
-			timelineSelector : '.vi2-video-seek',
 			hasTimelineMarker: true, 
 			hasMenu : true,
+			menuSelector: '#toc', 
+			timelineSelector : '.vi2-video-seek',
 			path:'/'
 		},
 		currentTocElement : 0,
 		elements : [],
 
 		/**
-		Initializes the table of content
+		Initializes the table of content and handles options
 		*/
 		init : function(annotations){
 			var _this = this;
@@ -57,15 +62,15 @@
 			// update toc highlight on time update
 			vi2.observer.player.video.addEventListener('timeupdate', function(e) { 
 				// reset highlight
-				//		$(_this.options.selector+' li').each(function(i, val){ $(this).removeClass('toc-hightlight');})
+				//		$(_this.options.menuSelector+' li').each(function(i, val){ $(this).removeClass('toc-hightlight');})
 				// highlight toc entry
-				//		$(_this.options.selector+ ' li#t'+this.formatTime(obj.content.target)).addClass('toc-highlight');
+				//		$(_this.options.menuSelector+ ' li#t'+this.formatTime(obj.content.target)).addClass('toc-highlight');
 			});
 		},		
 		
 		
 		/**
-		Loads toc date from database in order to generate corresponding DOM elements.
+		Loads toc data from database in order to generate corresponding DOM elements.
 		@ Resulting format of DOM element: <div type="toc" starttime=83 duration=1 id="">Objectives of the lecture</div>
 		*/
 		appendToDOM : function(id){ 
@@ -86,18 +91,18 @@
 		},					
 				
 		/** 
-		During the playback corresponds with a toc entry, the entry gets highlighted in the menu.	
+		During the playback corresponding toc entries will be highlighted.
 		*/
 		begin : function(e, id, obj){ 
 				// reset highlight
-				$(this.options.selector+' li').each(function(i, val){ $(this).removeClass('toc-highlight') ;})
+				$(this.options.menuSelector+' li').each(function(i, val){ $(this).removeClass('toc-highlight') ;})
 				// highlight toc entry
 				$('.toc-'+obj.displayPosition.t1).addClass('toc-highlight');
 			
 		},
 	
 		/** 
-		
+		Terminates time-depended toc entries
 		*/
 		end : function(e, id, obj){ 
 			//$('.toc-'+obj.displayPosition.t1).removeClass('toc-highlight');
@@ -105,7 +110,7 @@
 		
 		
 		/**
-		
+		Builds a menu of all entries of the table of content
 		*/
 		buildMenu : function(tocData){
 			var _this = this;
@@ -137,16 +142,17 @@
 			
 			
 			// sort list entries by time and append them
-			toc.find('li').tsort({attr:"id"});  // tsort is error prune under chromium
-			$(_this.options.selector).html(toc);		
+			toc
+				.find('li').tsort({attr:"id"});  // tsort is error prune under chromium
+				.appendTo(_this.options.menuSelector)		
 			
 		},
 		
 		
 		/** 
-		Displays table of contents as markers on the timeline
+		Displays a table of content as markers on the timeline
 		*/
-		buildTimelineMarkers : function(e){  
+		buildTimelineMarkers : function(tocData){  
 			var _this= this; 
 				// display toc occurence on timeline to motivate further selection
 				var f = function(_left, _name){ 
@@ -156,11 +162,11 @@
 						.tooltip({delay: 0, showURL: false, bodyHandler: function() { return $('<span></span>').text(_name);} });
 				};
 								
-				$.each(e.tags, function(){ 
+				$.each(tocData, function(i, val){ 
 					var progress = this.occ[0] / vi2.observer.player.duration();
 					progress = ((progress) * $(_this.options.timelineSelector).width());
   	    	if (isNaN(progress) || progress > $(_this.options.timelineSelector).width()) { return;}
-	 				$(_this.options.timelineSelector).append(f(progress, this.name));
+	 				$(_this.options.timelineSelector).append(f(progress, val.name));
  				});
 		},
 		
