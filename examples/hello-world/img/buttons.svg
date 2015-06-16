@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.1 r9760"
+   sodipodi:docname="buttons.svg">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient4410">
+      <stop
+         style="stop-color:#003366;stop-opacity:1;"
+         offset="0"
+         id="stop4412" />
+      <stop
+         id="stop4418"
+         offset="0.520926"
+         style="stop-color:#003366;stop-opacity:0.6769231;" />
+      <stop
+         style="stop-color:#003366;stop-opacity:1;"
+         offset="1"
+         id="stop4414" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4410"
+       id="linearGradient4416"
+       x1="169.28571"
+       y1="194.14789"
+       x2="169.64287"
+       y2="214.86218"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8"
+     inkscape:cx="136.44577"
+     inkscape:cy="826.93259"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="745"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect2985"
+       width="17.142857"
+       height="5.7142859"
+       x="40"
+       y="312.36218" />
+    <image
+       y="158.68376"
+       x="191.72081"
+       id="image3116"
+       xlink:href="file:///var/www/elearning/vi2/_attachments/img/pause-icon.png"
+       height="22"
+       width="22" />
+    <image
+       y="153.84418"
+       x="161.71579"
+       id="image3181"
+       xlink:href="file:///var/www/elearning/vi2/_attachments/img/play-icon.png"
+       height="22"
+       width="22" />
+    <image
+       y="233.24013"
+       x="74.862968"
+       id="image3530"
+       xlink:href="file:///var/www/elearning/vi2/_attachments/img/volume-full-icon.png"
+       height="22"
+       width="22" />
+    <image
+       y="238.29091"
+       x="149.61426"
+       id="image3595"
+       xlink:href="file:///var/www/elearning/vi2/_attachments/img/volume-mute-icon.png"
+       height="22"
+       width="22" />
+    <path
+       style="fill:url(#linearGradient4416);fill-opacity:1;stroke:none"
+       d="m 160.71429,194.86218 0,22.14286 19.64285,-11.78571 z"
+       id="path3600"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="/var/www/elearning/vi2/_attachments/img/play-icon.png"
+       inkscape:export-xdpi="81.29023"
+       inkscape:export-ydpi="81.29023" />
+    <rect
+       style="color:#000000;fill:#003366;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3602-7"
+       width="5.3571429"
+       height="17.857141"
+       x="119.46428"
+       y="165.43361"
+       inkscape:export-filename="/var/www/elearning/vi2/_attachments/img/pause-icon.png"
+       inkscape:export-xdpi="102.83"
+       inkscape:export-ydpi="102.83" />
+    <rect
+       style="color:#000000;fill:#003366;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3602-7-8"
+       width="5.3571429"
+       height="17.857141"
+       x="128.89285"
+       y="165.43361"
+       inkscape:export-filename="/var/www/elearning/vi2/_attachments/img/pause-icon.png"
+       inkscape:export-xdpi="102.83"
+       inkscape:export-ydpi="102.83" />
+  </g>
+</svg>

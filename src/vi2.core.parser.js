@@ -68,12 +68,12 @@ var Parser = $.inherit(/** @lends Parser# */
   			$('div'+this.selector+' div').each(function(i, val){ 
   				if($(this).attr('type') == "video"){ 
   					// video
-  					arr = [];
+  					arr = {}; 
   					arr['id'] = $(this).attr('id'); 
   					arr['url'] = $(this).text();
   					arr['seek'] = $(this).attr('starttime') == undefined ? 0 : $(this).attr('starttime');
   					arr['duration'] = $(this).attr('duration') == undefined ? 0 : $(this).attr('duration');
-  					arr['annotation'] = [];
+  					arr['annotation'] = []; 
 						v_id++; 
   					_this.vid_arr[v_id] = arr; 
   					
@@ -244,8 +244,9 @@ var Parser = $.inherit(/** @lends Parser# */
   					_this.vid_arr[v_id]['annotation'].push(obj);
   				}
   				
-  			});  		
-				return this.vid_arr; 	
+  			});  	
+  			
+				return _this.vid_arr; 	
 			},
   		
   		/* ... */ // all of that is quick & dirty and needs further testing / testing procedures

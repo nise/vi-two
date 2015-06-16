@@ -89,7 +89,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		this.video = document.getElementById( (this.options.selector).replace(/\#/,'') );  
   	//this.loadVideo( undefined, this.options.seek); // load nil video to build player interface
   	this.loadUI();
-  	
+
   },
 
 	name: 'video player',
@@ -147,10 +147,10 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 
 	/* load video */
 	// param: url= url of video; seek = time seek within video in seconds
-	loadVideo: function(url, seek) { 
+	loadVideo: function(url, seek) {   
 		var _this = this;
 		this.url = url;
-	  this.seek = seek == undefined ? 0 : seek; 
+	  this.seek = seek == undefined ? 0 : seek;
 		this.video = document.getElementById( ( this.options.selector ).replace(/\#/,'') );
 	  this.video.pause();
 		this.startSpinning(); 
@@ -257,10 +257,10 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 	},
 
 	/* load sequence */
-	loadSequence: function(sources, num) {   
+	loadSequence: function(sources, num) {  
 		this.seqList = sources;
 		this.isSequence = true;
-		if (num == null) {
+		if (num == undefined) {
 			this.seqNum = 0;
 		}else {
 			this.seqNum = num % this.seqList.length;

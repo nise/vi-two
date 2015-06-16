@@ -3,28 +3,39 @@
     <title>vi2 framework showcase</title>
     <link type="text/css" href="css/ui-lightness/jquery-ui-1.7.2.custom.css" rel="stylesheet" />
 		<link type="text/css" href="css/jquery.ui.autocomplete.custom.css" rel="stylesheet" />
-		<link type="text/css" href="css/vi2.main.css" rel="stylesheet" >
-  	<link type="text/css" href="css/vi2.videoplayer.css" rel="stylesheet">
-  	<link type="text/css" href="css/nyroModal.css" rel="stylesheet" media="screen" />
-  		<style>
 
-		.nu {
-			position:fixed; /* keeps the lightbox window in the current viewport */
-			top:0; 
-			left:0; 
-			z-index:-2;
-			display:block;
-			width:100%; 
-			height:100%; 
-			background-color:#ccc;
-			text-align:center;
-		}
-		#lightbox p {
-			text-align:right; 
-			color:#fff; 
-			margin-right:20px; 
-			font-size:12px; 
-		}
+<link type="text/css" href="../../css/vi2.assessment.css" rel="stylesheet" media="screen" />
+<link type="text/css" href="../../css/vi2.assessment-fill-in.css" rel="stylesheet" media="screen" />
+<link type="text/css" href="../../css/vi2.assessment-writing.css" rel="stylesheet" media="screen" />
+<link type="text/css" href="../../css/vi2.highlight.css" rel="stylesheet" media="screen" />
+<link type="text/css" href="../../css/vi2.main.css" rel="stylesheet" media="screen" />
+<link type="text/css" href="../../css/vi2.playback-speed.css" rel="stylesheet" media="screen" />
+<link type="text/css" href="../../css/vi2.syncMedia.css" rel="stylesheet" media="screen" />
+<link type="text/css" href="../../css/vi2.toc.css" rel="stylesheet" media="screen" />
+<link type="text/css" href="../../css/vi2.videoplayer.css" rel="stylesheet" media="screen" />
+  	
+  	
+<style>
+
+html, body {
+   max-width: 100%;
+   overflow-x: hidden;
+   position: relative;
+ 	 min-height: 100%;
+ 	 margin:0;
+ 	 padding:0;
+}
+#page {
+	display:block;
+	position:relative;
+	overflow:hidden;
+}
+#video1 {
+	width: auto;
+	height: calc( 100vh - 2px);
+	-webkit-transition-property: height, width;
+  -webkit-transition-duration: 1s;
+}
 		</style>
   		
 	<script src="../../lib/jquery-1.11.2.min.js"></script>
@@ -36,17 +47,17 @@
 	<script src="../../lib/jquery.piemenu.js"></script>
 	<script src="../../lib/jquery.tag-it.js"></script>
 	<script src="../../lib/jquery.jqupload.min.js"></script>
+	<script src='../../lib/jquery.spin.js'></script>
 
-
-
-	<script src="../../src/vi2.core.js"></script>
-	<script src="../../src/vi2.log.js"></script>
-	<script src="../../src/vi2.observer.js"></script>
+	<script src="main.js"></script>
+	<script src="../../src/vi2.core.log.js"></script>
+	<script src="../../src/vi2.core.observer.js"></script>
 	<script src="../../src/vi2.core.database.js"></script>
 	<script src="../../src/vi2.core.parser.js"></script>
 	<script src="../../src/vi2.core.utils.js"></script>
 	<script src="../../src/vi2.core.videoplayer.js"></script>
 	<script src="../../src/vi2.core.clock.js"></script>
+	<script src="../../src/vi2.playback-speed.js"></script>
 	<script src="../../src/vi2.annotation.js"></script>
 <!--	<script src="../../src/vi2.xlink.js"></script>
 	<script src="../../src/vi2.seq.js"></script>
@@ -56,104 +67,13 @@
 	
 	  	
 	<script language ="javascript">
-	
-	var main = null;
-	
+		var 
+			observer = undefined, 
+			vi2 = undefined, 
+			ocr = undefined;   
 	$(document).ready(function(){
-		openVideo();
+		var core = new VI2Core();	
 	});
-	
-	
-	/** Opens a vi-two video */
-	function openVideo(){
-	
-		var files = [
-  			{path: 'data.json', storage: 'json_data'}
-  	];
-		var tt = function(){  alert( JSON.stringify(db.getStreamById( 'seidel1' )) ) }
-		var db = new DataBase({path: '/', files: files}, undefined, tt); //this.server_url+this.plugin_dir
- 
-  	/*
-			this.videoData = this.db.getStreamById( this.currentVideo );
-		 
-	
-			this.viLog = new Log({logger_path:this.server_url+'/log'}); 
-  			
-  		
-  		vi2.utils = new Vi2_Utils();
-			
-	
-			this.observer.setAnnotations();
-	
-			
-			_this.observer = new Observer(options); 
-		 	_this.observer.init(seek);	 
-			
-  		//_this.viLog = new Log({path: _this.server_url+_this.plugin_dir+'/ip.php', prefix:'[wp_site:'+site_name+', wp_post:'+_this.post_id+', user:'+_this.wp_user+']'}); 
-  		//$(_this).bind('log', function(e, msg){ _this.viLog.add(msg); });
-			 
-			metadataa = new Vi2_Metadata( { metatags: true, render: false } );  
-			_this.observer.addWidget(_this.viLog); 	 
-			
-					_this.enableWidget(widget['name'], options); 
-			}); 
-			_this.observer.parse(_this.source_selector, 'html');
-					
-	
-		main = new Main({selector:'#screen', clockInterval:500, videoSelector:'#video1', markupType:'wiki', wrapControls: '#container', childtheme:''});
-		
-		var the_metadata = [];
-		the_metadata['hydro1'] = {
-			selector:'#metadata', 
-			author: 'Olivier Graefe', 
-			title: 'Gender Issues in Integrated Water Resource Management', 
-			category: 'Hydrology', 
-			date: '2011/06/01', 
-			rating: 5, 
-			titleselector:'h1'
-		};
-
-
-		var metadataa = new Metadata(the_metadata['hydro1']);
-//		var annotation = new Annotation();
-//		var xlinkk = new XLink({selector:'#overlay', vizOnTimeline: true, minDuration:'1'});
-//		var seqq = new Seq({selector:'#seq', vizOnTimeline: true, controls: true, path : 'slides/'}); 
-//		var tocc = new TOC({selector:'#toc', vizOnTimeline: true}); 
-		
-		the_tags = [];
-		the_tags['hydro1'] = [
-		{name:'fetching water', occ:[228.28, 325.8]},
-		{name:'water weight', occ:[262.921]},
-		{name:'gender differentiation', occ:[378.84]},
-		{name:'Dublin Principles', occ:[468.84]},
-		{name:'Agenda 21', occ:[563.08]},
-		{name:'Global Water Partnership', occ:[663.68]},
-		{name:'Human Right to Water and Sanitation', occ:[766.68]},
-		{name:'concept of gender', occ:[1058.8]},
-		];
-
-
-		var tagss = new TemporalTagging({selector:'#tags', vizOnTimeline: true, max:20, sort:'freq'}, the_tags['hydro1']); 
-
-		main.parse('#hydro1', 'html');
-	/*	main.addWidget(xlinkk);
-		main.addWidget(seqq);
-		main.addWidget(tocc);
-		main.addWidget(tagss);*/
-		
-		$('#showcode').css({cursor:'pointer', width:600}).toggle(
-			function(e){ $(this).html('hide source code').after($('<textarea></textarea>').attr('id','markup').val($(main.parseSelector).html())); },
-			function(e){ $('#markup').hide(); $(this).html('show source code').css({cursor:'pointer'}); }
-		);
-		
-	}
-	
-	
-
-	/** debug shortcut */
-	function de(s){
-		$('#debug').append(s);
-	}
 	</script>
 
 
@@ -161,24 +81,42 @@
   <body>
 
   <div id="page">
-    <h1>..</h1>
-    <div id="desc">Professor Olivier Graefe's lecture about 'Gender Issues in Integrated Water Resource Management' is an initial realisation of broad hypervideo lecture network of 37 videos. So fare this showcase demonstrates the synchronisation of lecturer video and slides. To enhance knowledge management a table of content and a tagcloud with temporal keywords is provided.</div>
-    </div>
-    <div id="container">
-   		<div id="screen"></div>    			
-   		<div id="seq"></div>
-			<div id="meta">
-    		<div id="accordion">    					
-    		  <h3><a href="#">Table of Content</a></h3>
-    			<div id="toc"></div>	
-    			<h3><a href="#">Meta Data</a></h3>
-		    	<div id="metadata"></div>
-    			<h3><a href="#">Tagcloud</a></h3>
-		    	<div id="tags"></div>
-				</div>	
-    	</div>
+  
+  
+  <div class="main">   
+	<div id="seq"></div>
+	<div id="overlay"></div>
+	<div id="split"></div>
+	<div id="accordion-resizer" class="ui-widget-content">
+		<div id="accordion"></div>
+	</div>
+</div>
+
+<div id="video-controls" class="video-controls">
+	<div class="timelines vi2-btn">
+		<div class="vi2-video-seeklink vi2-btn"></div>
+		<div class="vi2-video-seek vi2-btn"></div>
+		<div class="vi2-video-progress vi2-btn"></div>
+	</div>
+	<div class="control-bar">
+		<div class="vi2-skip-back vi2-btn" title="Skip Back">skip back</div>
+		<div class="vi2-video-play vi2-btn" title="Play/Pause"></div>
+		<div class="vi2-video-timer"></div>
+		<div class="vi2-btn-box"></div>
+		<div class="vi2-volume-box">
+			<div class="vi2-volume-slider2"></div>
+			<a class="vi2-volume-button vi2-btn" title="Mute/Unmute"></a>
 		</div>
-		<div id="showcode">show source code</div>
+	</div>
+</div>
+
+
+
+
+<div style="display:none; visibility:hidden;" id="vi2"></div>
+<div id="dialog3"></div>
+  
+  
 	</div> <!-- end page -->
 	
 	
@@ -187,45 +125,45 @@
 
 <!-- video annotations -->
 	<!-- first video -->
-	<div hidden id="hydro1">
+	<div hidden id="vi2">
 		<div type="video" starttime=0 duration=7 id="my video">http://www.iwrm-education.de/videos/iwrm_graefe.webm</div>
-		<div type="seq" starttime=0 duration=83 id=hello>hydro_graefe-0.jpg</div>
-		<div type="seq" starttime=83 duration=64 id=hello>hydro_graefe-1.jpg</div> 
-		<div type="seq" starttime=147 duration=51 id=hello>hydro_graefe-2.jpg</div>
-		<div type="seq" starttime=198 duration=18 id=hello>hydro_graefe-3.jpg</div> 
-		<div type="seq" starttime=316 duration=145 id=hello>hydro_graefe-4.jpg</div>  
-		<div type="seq" starttime=461 duration=97 id=hello>hydro_graefe-5.jpg</div>  
-		<div type="seq" starttime=558 duration=102 id=hello>hydro_graefe-6.jpg</div>  
-		<div type="seq" starttime=660 duration=42 id=hello>hydro_graefe-7.jpg</div>  
-		<div type="seq" starttime=702 duration=184 id=hello>hydro_graefe-8.jpg</div>  
-		<div type="seq" starttime=886 duration=214 id=hello>hydro_graefe-9.jpg</div>  
-		<div type="seq" starttime=1100 duration=244 id=hello>hydro_graefe-10.jpg</div>  
-		<div type="seq" starttime=1344 duration=165 id=hello>hydro_graefe-11.jpg</div>  
-		<div type="seq" starttime=1509 duration=45 id=hello>hydro_graefe-12.jpg</div>  
-		<div type="seq" starttime=1602 duration=33 id=hello>hydro_graefe-13.jpg</div>  
-		<div type="seq" starttime=1637 duration=63 id=hello>hydro_graefe-14.jpg</div>  
-		<div type="seq" starttime=1648 duration=34 id=hello>hydro_graefe-15.jpg</div>  
-		<div type="seq" starttime=1682 duration=15 id=hello>hydro_graefe-16.jpg</div>  
-		<div type="seq" starttime=1697 duration=20 id=hello>hydro_graefe-17.jpg</div>
-		<div type="seq" starttime=1717 duration=35 id=hello>hydro_graefe-18.jpg</div>  
-		<div type="seq" starttime=1753 duration=8 id=hello>hydro_graefe-19.jpg</div>  
-		<div type="seq" starttime=1741 duration=39 id=hello>hydro_graefe-20.jpg</div>  
-		<div type="seq" starttime=1780 duration=195 id=hello>hydro_graefe-21.jpg</div>  
-		<div type="seq" starttime=1975 duration=105 id=hello>hydro_graefe-22.jpg</div>  
-		<div type="seq" starttime=2080 duration=354 id=hello>hydro_graefe-23.jpg</div>  
-		<div type="seq" starttime=2432 duration=43 id=hello>hydro_graefe-24.jpg</div>  
-		<div type="seq" starttime=2475 duration=19 id=hello>hydro_graefe-22.jpg</div>  
-		<div type="seq" starttime=2494 duration=247 id=hello>hydro_graefe-23.jpg</div>  
-		<div type="seq" starttime=2741 duration=76 id=hello>hydro_graefe-24.jpg</div>  
-		<div type="seq" starttime=2817 duration=125 id=hello>hydro_graefe-25.jpg</div>  
-		<div type="seq" starttime=2942 duration=53 id=hello>hydro_graefe-26.jpg</div>  
-		<div type="seq" starttime=3040 duration=87 id=hello>hydro_graefe-27.jpg</div>  
-		<div type="seq" starttime=3082 duration=242 id=hello>hydro_graefe-28.jpg</div>  
-		<div type="seq" starttime=3324 duration=151 id=hello>hydro_graefe-29.jpg</div>  
-		<div type="seq" starttime=3475 duration=113 id=hello>hydro_graefe-30.jpg</div>  
-		<div type="seq" starttime=3588 duration=36 id=hello>hydro_graefe-31.jpg</div>  
-		<div type="seq" starttime=3670 duration=220 id=hello>hydro_graefe-32.jpg</div>  
-		<div type="seq" starttime=3844 duration=300 id=hello>hydro_graefe-33.jpg</div>  
+		<div type="syncMedia" starttime=0 duration=83 id=hello>hydro_graefe-0.jpg</div>
+		<div type="syncMedia" starttime=83 duration=64 id=hello>hydro_graefe-1.jpg</div> 
+		<div type="syncMedia" starttime=147 duration=51 id=hello>hydro_graefe-2.jpg</div>
+		<div type="syncMedia" starttime=198 duration=18 id=hello>hydro_graefe-3.jpg</div> 
+		<div type="syncMedia" starttime=316 duration=145 id=hello>hydro_graefe-4.jpg</div>  
+		<div type="syncMedia" starttime=461 duration=97 id=hello>hydro_graefe-5.jpg</div>  
+		<div type="syncMedia" starttime=558 duration=102 id=hello>hydro_graefe-6.jpg</div>  
+		<div type="syncMedia" starttime=660 duration=42 id=hello>hydro_graefe-7.jpg</div>  
+		<div type="syncMedia" starttime=702 duration=184 id=hello>hydro_graefe-8.jpg</div>  
+		<div type="syncMedia" starttime=886 duration=214 id=hello>hydro_graefe-9.jpg</div>  
+		<div type="syncMedia" starttime=1100 duration=244 id=hello>hydro_graefe-10.jpg</div>  
+		<div type="syncMedia" starttime=1344 duration=165 id=hello>hydro_graefe-11.jpg</div>  
+		<div type="syncMedia" starttime=1509 duration=45 id=hello>hydro_graefe-12.jpg</div>  
+		<div type="syncMedia" starttime=1602 duration=33 id=hello>hydro_graefe-13.jpg</div>  
+		<div type="syncMedia" starttime=1637 duration=63 id=hello>hydro_graefe-14.jpg</div>  
+		<div type="syncMedia" starttime=1648 duration=34 id=hello>hydro_graefe-15.jpg</div>  
+		<div type="syncMedia" starttime=1682 duration=15 id=hello>hydro_graefe-16.jpg</div>  
+		<div type="syncMedia" starttime=1697 duration=20 id=hello>hydro_graefe-17.jpg</div>
+		<div type="syncMedia" starttime=1717 duration=35 id=hello>hydro_graefe-18.jpg</div>  
+		<div type="syncMedia" starttime=1753 duration=8 id=hello>hydro_graefe-19.jpg</div>  
+		<div type="syncMedia" starttime=1741 duration=39 id=hello>hydro_graefe-20.jpg</div>  
+		<div type="syncMedia" starttime=1780 duration=195 id=hello>hydro_graefe-21.jpg</div>  
+		<div type="syncMedia" starttime=1975 duration=105 id=hello>hydro_graefe-22.jpg</div>  
+		<div type="syncMedia" starttime=2080 duration=354 id=hello>hydro_graefe-23.jpg</div>  
+		<div type="syncMedia" starttime=2432 duration=43 id=hello>hydro_graefe-24.jpg</div>  
+		<div type="syncMedia" starttime=2475 duration=19 id=hello>hydro_graefe-22.jpg</div>  
+		<div type="syncMedia" starttime=2494 duration=247 id=hello>hydro_graefe-23.jpg</div>  
+		<div type="syncMedia" starttime=2741 duration=76 id=hello>hydro_graefe-24.jpg</div>  
+		<div type="syncMedia" starttime=2817 duration=125 id=hello>hydro_graefe-25.jpg</div>  
+		<div type="syncMedia" starttime=2942 duration=53 id=hello>hydro_graefe-26.jpg</div>  
+		<div type="syncMedia" starttime=3040 duration=87 id=hello>hydro_graefe-27.jpg</div>  
+		<div type="syncMedia" starttime=3082 duration=242 id=hello>hydro_graefe-28.jpg</div>  
+		<div type="syncMedia" starttime=3324 duration=151 id=hello>hydro_graefe-29.jpg</div>  
+		<div type="syncMedia" starttime=3475 duration=113 id=hello>hydro_graefe-30.jpg</div>  
+		<div type="syncMedia" starttime=3588 duration=36 id=hello>hydro_graefe-31.jpg</div>  
+		<div type="syncMedia" starttime=3670 duration=220 id=hello>hydro_graefe-32.jpg</div>  
+		<div type="syncMedia" starttime=3844 duration=300 id=hello>hydro_graefe-33.jpg</div>  
 
 		<div type="toc" starttime=83 duration=1 id="">Objectives of the lecture</div> 
 		<div type="toc" starttime=198 duration=1 id="">1. Introduction: gendered water</div> 

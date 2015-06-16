@@ -163,7 +163,7 @@
 					"weight": 5,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_borchardt2.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_borchardt2.webm",
 				"tags": [
 					{"tagname":"IWRM","occ":[0]},
 					{"tagname":"sectors in water use","occ":[0]},
@@ -200,7 +200,7 @@
 					"weight": 5,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_userguide.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_userguide.webm",
 				"tags": [],
 				"toc": [],
 				"links":[]
@@ -219,7 +219,7 @@
 					"weight": 5,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_abebe.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_abebe.webm",
 				"tags": [
 					{"tagname":"drought","occ":[0]},
 					{"tagname":"El Nino","occ":[0]},
@@ -259,7 +259,7 @@
 					"weight": 5,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_albrecht.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_albrecht.webm",
 				"tags": [
 						{"tagname":"water law","occ":[0]},
 						{"tagname":"Floods Directive (FD)","occ":[0]},
@@ -302,7 +302,7 @@
 					"weight": 10,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_awulachew.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_awulachew.webm",
 				"tags": [
 					{"tagname":"soil erosion","occ":[0]},
 					{"tagname":"bed load","occ":[0]},
@@ -339,7 +339,7 @@
 					"weight": 4,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_ayenew1.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_ayenew1.webm",
 				"tags": [
 					{"tagname":"Ethiopia","occ":[0]},
 					{"tagname":"groundwater","occ":[0]},
@@ -380,7 +380,7 @@
 					"weight": 4,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_ayenew2.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_ayenew2.webm",
 				"tags": [
 					{"tagname":"Ethiopia","occ":[0]},
 					{"tagname":"groundwater flow model","occ":[0]},
@@ -428,7 +428,7 @@
 					"weight": 2,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_balke1.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_balke1.webm",
 				"tags": [
 					{"tagname":"groundwater recharge","occ":[0]},
 					{"tagname":"water harvesting","occ":[0]},
@@ -484,7 +484,7 @@
 					"weight": 3,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_balke2.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_balke2.webm",
 				"tags": [
 					{"tagname":"groundwater","occ":[0]},
 					{"tagname":"influent and effluent rivers","occ":[0]},
@@ -524,7 +524,7 @@
 					"weight": 8,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_berendonk.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_berendonk.webm",
 				"tags": [
 					{"tagname":"lake ecology","occ":[0]},
 					{"tagname":"Ukraine","occ":[0]},
@@ -562,7 +562,7 @@
 					"weight": 7,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_bernhofer.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_bernhofer.webm",
 				"tags": [
 					{"tagname":"climate system","occ":[0]},
 					{"tagname":"greenhouse effect","occ":[0]},
@@ -605,7 +605,7 @@
 					"weight": 5,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_bhaduri.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_bhaduri.webm",
 				"tags": [
 					{"tagname":"Ghana","occ":[0]},
 					{"tagname":"Burkina Faso","occ":[0]},
@@ -651,7 +651,7 @@
 					"weight": 6,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_bogardi.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_bogardi.webm",
 				"tags": 
 				[					
 					{"tagname":"vulnerability","occ":[0]},
@@ -701,7 +701,7 @@
 					"weight": 2,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_borchardt1.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_borchardt1.webm",
 				"tags": 
 				[					
 					{"tagname":"Water Framework Directive (WFD)","occ":[0]},
@@ -749,7 +749,7 @@
 					"weight": 6,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_cullmann.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_cullmann.webm",
 				"tags": [
 					{"tagname":"models","occ":[0]},
 					{"tagname":"Switzerland","occ":[0]},
@@ -803,7 +803,7 @@
 					"weight": 3,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_demydenko.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_demydenko.webm",
 				"tags": [
 					{"tagname":"Global Water Partnership","occ":[0]},
 					{"tagname":"sensible target","occ":[0]},
@@ -847,7 +847,7 @@
 					"weight": 2,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_dombrowsky.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_dombrowsky.webm",
 				"tags": 
 				[					
 					{"tagname":"economic analysis","occ":[0]},
@@ -893,7 +893,7 @@
 					"weight": 8,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_graefe.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_graefe.webm",
 				"tags": [
 					{"tagname":"gendered water","occ":[0]},
 					{"tagname":"Morocco","occ":[0]},
@@ -935,7 +935,7 @@
 					"weight": 1,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_huppert1.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_huppert1.webm",
 				"tags": [
 					{"tagname":"Compagnie d’Aménagement des Coteaux de Gascogne (CACG)","occ":[0]},
 					{"tagname":"actors/relations/order/means","occ":[0]},
@@ -973,7 +973,7 @@
 					"weight": 2,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_huppert2.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_huppert2.webm",
 				"tags": [
 					{"tagname":"water governance","occ":[0]},
 					{"tagname":"Haiti","occ":[0]},
@@ -1012,7 +1012,7 @@
 					"weight": 3,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_huppert3.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_huppert3.webm",
 				"tags": [
 					{"tagname":"technology and related governance requirements","occ":[0]},
 					{"tagname":"Bali","occ":[0]},
@@ -1044,7 +1044,7 @@
 					"weight": 4,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_huppert4.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_huppert4.webm",
 				"tags": [
 					{"tagname":"Jordan","occ":[0]},
 					{"tagname":"political economy","occ":[0]},
@@ -1084,7 +1084,7 @@
 					"weight": 5,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_jabir.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_jabir.webm",
 				"tags": [
 					{"tagname":"radioactive decay","occ":[0]},
 					{"tagname":"chemical reaction","occ":[0]},
@@ -1139,7 +1139,7 @@
 					"weight": 1,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_krebs.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_krebs.webm",
 				"tags": 
 				[					
 					{"tagname":"water supply system","occ":[0]},
@@ -1189,7 +1189,7 @@
 					"weight": 1,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_lehmann.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_lehmann.webm",
 				"tags": 
 				[					
 					{"tagname":"water pricing","occ":[0]},
@@ -1232,7 +1232,7 @@
 					"weight": 1,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_lennartz.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_lennartz.webm",
 				"tags": [
 					{"tagname":"hydrological cycle","occ":[0]},
 					{"tagname":"water balance","occ":[0]},
@@ -1282,7 +1282,7 @@
 					"weight": 1,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_liehr.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_liehr.webm",
 				"tags": [
 					{"tagname":"decision support system","occ":[0]},
 					{"tagname":"decision making","occ":[0]},
@@ -1343,7 +1343,7 @@
 					"weight": 1,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_magiera.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_magiera.webm",
 				"tags": [
 					{"tagname":"implementation of IWRM principles","occ":[0]},
 					{"tagname":"water master plan","occ":[0]},
@@ -1409,7 +1409,7 @@
 					"weight": 6,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_moss.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_moss.webm",
 				"tags": 
 				[					
 					{"tagname":"river basin management","occ":[0]},
@@ -1458,7 +1458,7 @@
 					"weight": 2,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_mueller.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_mueller.webm",
 				"tags": [
 						{"tagname":"wastewater treatment","occ":[0]},
 						{"tagname":"decentralized wastewater treatment","occ":[0]},
@@ -1496,7 +1496,7 @@
 					"weight": 2,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_mund.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_mund.webm",
 				"tags": [
 					{"tagname":"point data","occ":[0]},
 					{"tagname":"vector data","occ":[0]},
@@ -1539,7 +1539,7 @@
 					"weight": 7,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_newig.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_newig.webm",
 				"tags": [
 					{"tagname":"participation","occ":[0]},
 					{"tagname":"Water Framework Directive (WFD)","occ":[0]},
@@ -1602,7 +1602,7 @@
 					"weight": 9,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_niemann.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_niemann.webm",
 				"tags": 	
 				[					
 					{"tagname":"capacity","occ":[0]},
@@ -1650,7 +1650,7 @@
 					"weight": 3,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_ostrowski.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_ostrowski.webm",
 				"tags": [
 					{"tagname":"reservoir","occ":[0]},
 					{"tagname":"reservoir management","occ":[0]},
@@ -1695,7 +1695,7 @@
 					"weight": 11,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_petersen1.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_petersen1.webm",
 				"tags": [
 					{"tagname":"soil and water conservation policy issues","occ":[0]},
 					{"tagname":"soil and water conservation","occ":[0]},
@@ -1733,7 +1733,7 @@
 					"weight": 4,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_petersen2.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_petersen2.webm",
 				"tags": [
 					{"tagname":"flood management","occ":[0]},
 					{"tagname":"flood mitigation","occ":[0]},
@@ -1780,7 +1780,7 @@
 					"weight": 9,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_saliha1.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_saliha1.webm",
 				"tags": [
 					{"tagname":"reservoir operation","occ":[0]},
 					{"tagname":"Ethiopia","occ":[0]},
@@ -1816,7 +1816,7 @@
 					"weight": 3,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_saliha2.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_saliha2.webm",
 				"tags": [
 					{"tagname":"hydrological model","occ":[0]},
 					{"tagname":"Ethiopia","occ":[0]},
@@ -1855,7 +1855,7 @@
 					"weight": 7,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_schanze.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_schanze.webm",
 				"tags": [
 					{"tagname":"river basin","occ":[0]},
 					{"tagname":"management","occ":[0]},
@@ -1914,7 +1914,7 @@
 					"weight": 4,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_scheumann.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_scheumann.webm",
 				"tags": [
 					{"tagname":"Africa","occ":[0]},
 					{"tagname":"cost of non-cooperation","occ":[0]},
@@ -1965,7 +1965,7 @@
 					"weight": 4,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_seidel1.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_seidel1.webm",
 				"tags": [
 					{"tagname":"crop growth modelling","occ":[0]},
 					{"tagname":"deficit irrigation","occ":[0]},
@@ -2010,7 +2010,7 @@
 					"weight": 4,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_seidel2.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_seidel2.webm",
 				"tags": [
 					{"tagname":"experimental design","occ":[0]},
 					{"tagname":"data collection","occ":[0]},
@@ -2050,7 +2050,7 @@
 					"weight": 3,
 					"titleselector":"h2"
 				}],
-				"video": "videos/iwrm_tsegai.webm",
+				"video": "http://www.iwrm-education.de/videos/iwrm_tsegai.webm",
 				"tags": [
 					{"tagname":"economics","occ":[0]},
 					{"tagname":"South Africa","occ":[0]},

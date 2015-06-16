@@ -53,19 +53,19 @@
 		this.annotationsToDOM();
 		this.clock.stopClock();
 		this.clock.reset(); 
-		var metadataa = new Metadata(vi2.db.getMetadataById(stream));
+		var metadataa = new Vi2_Metadata( );
 		var p = new Parser(vi2.dom, 'html'); // parse the DOM
 		this.vid_arr = p.run(); 
 	},
 
 	/* -- */
-	parse : function(selector, markupType){  
+	parse : function(selector, markupType){ 
 		this.parseSelector = selector;
 		this.parser = new Parser(selector, markupType == null ? this.markupType : markupType);
-		this.vid_arr = []; 
-		this.vid_arr = this.parser.run();
+		this.vid_arr = [];  
+		this.vid_arr = this.parser.run(); 
 		this.clock.stopClock();
-		this.clock.reset(); 
+		this.clock.reset();  
 		this.player.loadSequence(this.vid_arr);  
 					
 	},
@@ -82,7 +82,7 @@
 				.text('Your Browser does not support either this video format or videos at all');
 		$(this.options.selector)
 			.addClass('embed-responsive embed-responsive-16by9')
-			.html(videoo);
+			.html(videoo); 
 		this.player = new Video({
 				embed: this.options.embed, 
 				selector: this.options.videoSelector, 
@@ -102,7 +102,7 @@
 
 		// some event bindings hooks
 		$(this).bind('player.ready', function(e, id, i){ 
-			_this.setAnnotations();
+			_this.setAnnotations(); 
 		});
 	},
 	
@@ -395,7 +395,7 @@
 			destroy : function(){
 				$('video').stop();
 				this.clock.reset();
-				$('#hydro1').empty();
+				$('#vi2').empty();
 			},
 			  		
 			

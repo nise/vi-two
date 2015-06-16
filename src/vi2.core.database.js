@@ -109,7 +109,7 @@
 			if (this.id == id){  
 				stream = this; 
 			}
-		});
+		}); 
 		return stream;
 	},
 	
