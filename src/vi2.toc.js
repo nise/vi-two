@@ -1,6 +1,7 @@
 	/* TOC
 	author: niels.seidel@nise81.com
 	
+	todo:
 	- highlight on skip ... this.player.video.addEventListener('timeupdat
 	- realize a toc for concatinated video clips
 	*/
