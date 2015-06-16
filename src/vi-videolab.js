@@ -125,7 +125,7 @@ var ViLab = $.inherit({
 	currentGroupVideoNum : 1,
 	phase : {grouplevel:1},
 	videoJSON : {},
-	db: {},
+	//db: {},
 	
 
   	/**
@@ -133,7 +133,7 @@ var ViLab = $.inherit({
   	*/
   	init : function(fn, video_id){
   		this.currentVideo = video_id; 
-			this.db = new DataBase({path: this.server_url}, this, fn, video_id); //this.server_url+this.plugin_dir
+			vi2.db = new DataBase({path: this.server_url}, this, fn, video_id); //this.server_url+this.plugin_dir
   	},
   	
   	/* Shortcut function to trigger a log entry */
@@ -153,7 +153,7 @@ var ViLab = $.inherit({
 			$('#screen').empty();
 			$('.vi2-video-controls').empty();
 			$('#accordion').empty(); 
-		 	this.userData = this.db.getUserById( this.wp_user );
+		 	this.userData = vi2.db.getUserById( this.wp_user );
 		 	  
 		 	if(this.userData.trace == 1){
 		 		$('input#tracing').attr('checked','checked');
@@ -173,10 +173,10 @@ var ViLab = $.inherit({
 			
 			
 		 	this.currentGroup = this.userData.groups[this.currentGroupVideoNum];   
-		 	this.groupData = this.db.getGroupById( this.currentGroup ); //alert('group:'+this.currentGroup)
+		 	this.groupData = vi2.db.getGroupById( this.currentGroup ); //alert('group:'+this.currentGroup)
 		 	//this.currentVideo = this.groupData.videos[this.currentGroupVideoNum]; //alert('group-video-index::'+this.currentGroupVideoNum)
 			//alert(this.currentVideo)
-			this.videoData = this.db.getStreamById( this.currentVideo );
+			this.videoData = vi2.db.getStreamById( this.currentVideo );
 		 
 		 	//this.socket.emit('registered user', { user_id: this.userData.id, group_id: this.currentGroup });
 		 	
@@ -246,7 +246,7 @@ var ViLab = $.inherit({
 		// get scripts settings from backend
 		$.get(this.server_url+'/json/script', function(res) {    
 		  _this.script = res;
-		  var phaseHasSlides = _this.db.hasSlides( _this.currentVideo );//res[0].phases[_this.current_phase].slides;  
+		  var phaseHasSlides = vi2.db.hasSlides( _this.currentVideo );//res[0].phases[_this.current_phase].slides;  
 			var options = {
 				id : _this.currentVideo,
 				embed:false,
@@ -256,7 +256,7 @@ var ViLab = $.inherit({
 				markupType:'html',  	
 				theme:'simpledark', 
 				childtheme:'iwasbasicwhite',
-				thumbnail: _this.db.getMetadataById(_this.currentVideo).thumbnail
+				thumbnail: vi2.db.getMetadataById(_this.currentVideo).thumbnail
 			};
 			$('#overlay').css('width', options.videoWidth - 35);
 		
@@ -369,7 +369,7 @@ var ViLab = $.inherit({
 				;
 		this.socket.on('broadcast-user-online', function(data){
 			users_online.empty();
-			$.each(_this.db.getUserByGroupId(data.group_id, _this.current_phase), function(i, val){
+			$.each( vi2.db.getUserByGroupId(data.group_id, _this.current_phase), function(i, val){
 				if(val.id != _this.userData.id){
 				var hs = val.hs == 'n' ? 'FH Nordhausen' : 'TUD / IHI Zittau';
 				var ol = data.user_id == val.id ? 'on' : 'op';
@@ -394,7 +394,7 @@ var ViLab = $.inherit({
       	$.get('/messages', function(data){
 					$.each(data, function(i, msg){
 						if(msg.type == 'test-result' && msg.content.videoid == _this.currentVideo){	
-							var user = _this.db.getUserById(msg.from);
+							var user = vi2.db.getUserById(msg.from);
 							var date = '';//new Date(msg.date*1000);
 							//date = date.getDay()+'.'+date.getMonth()+'.'+date.getFullYear()+', '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
 							var title = $('<div></div>')
@@ -418,7 +418,7 @@ var ViLab = $.inherit({
 							$.get('/messages', function(data){
 								$.each(data, function(i, fb){ 
 									if(fb.type == 'feedback' && fb.replyto == msg._id){ 
-										var user = _this.db.getUserById(fb.from);
+										var user = vi2.db.getUserById(fb.from);
 										feedback.append($('<div></div>')
 											.addClass('msg-feedback')
 											.css('background-image',  "url('img/user-icons/user-"+fb.from+".png')")

@@ -292,11 +292,7 @@
 	
 	/* returns table of content of the requested video */
 	getTocById : function(id){
-		if(this.json_data.toc==undefined){
-			return {}
-		}else{ 
-			return this.getStreamById(id).toc
-		}
+		return this.getStreamById(id).toc
 	},
 	
 		/* returns highlight of the requested video */

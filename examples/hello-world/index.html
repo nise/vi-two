@@ -4,130 +4,118 @@
     <link type="text/css" href="css/ui-lightness/jquery-ui-1.7.2.custom.css" rel="stylesheet" />
 		<link type="text/css" href="css/jquery.ui.autocomplete.custom.css" rel="stylesheet" />
 
-<link type="text/css" href="../../css/vi2.assessment.css" rel="stylesheet" media="screen" />
-<link type="text/css" href="../../css/vi2.assessment-fill-in.css" rel="stylesheet" media="screen" />
-<link type="text/css" href="../../css/vi2.assessment-writing.css" rel="stylesheet" media="screen" />
-<link type="text/css" href="../../css/vi2.highlight.css" rel="stylesheet" media="screen" />
-<link type="text/css" href="../../css/vi2.main.css" rel="stylesheet" media="screen" />
-<link type="text/css" href="../../css/vi2.playback-speed.css" rel="stylesheet" media="screen" />
-<link type="text/css" href="../../css/vi2.syncMedia.css" rel="stylesheet" media="screen" />
-<link type="text/css" href="../../css/vi2.toc.css" rel="stylesheet" media="screen" />
-<link type="text/css" href="../../css/vi2.videoplayer.css" rel="stylesheet" media="screen" />
-  	
-  	
-<style>
+		<link type="text/css" href="../../css/vi2.assessment.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.assessment-fill-in.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.assessment-writing.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.highlight.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.main.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.playback-speed.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.syncMedia.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.toc.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.videoplayer.css" rel="stylesheet" media="screen" />
+			
+			
+		<style>
 
-html, body {
-   max-width: 100%;
-   overflow-x: hidden;
-   position: relative;
- 	 min-height: 100%;
- 	 margin:0;
- 	 padding:0;
- 	 font-family: Arial;
- 	 font-size:12px;
-}
-#page {
-	display:block;
-	position:relative;
-	overflow:hidden;
-}
-#video1 {
-	width: auto;
-	height: calc( 100vh - 2px);
-	-webkit-transition-property: height, width;
-  -webkit-transition-duration: 1s;
-}
+			html, body {
+				 max-width: 100%;
+				 overflow-x: hidden;
+				 position: relative;
+			 	 min-height: 100%;
+			 	 margin:0;
+			 	 padding:0;
+			 	 font-family: Arial;
+			 	 font-size:12px;
+			}
+			#page {
+				display:block;
+				position:relative;
+				overflow:hidden;
+			}
+			#video1 {
+				width: auto;
+				height: calc( 100vh - 2px);
+				-webkit-transition-property: height, width;
+				-webkit-transition-duration: 1s;
+			}
 		</style>
-  		
-	<script src="../../lib/jquery-1.11.2.min.js"></script>
-	<script src="../../lib/jquery.json-2.2.min.js"></script>
-	<script src="../../lib/jquery-ui-1.10.3.custom.min.js"></script>
-	<script src="../../lib/jquery.inherit-1.1.1.js"></script>
-	<script src="../../lib/jquery.tinysort.js"></script>
-	<script src="../../lib/jquery.tooltip.js"></script>
-	<script src="../../lib/jquery.piemenu.js"></script>
-	<script src="../../lib/jquery.tag-it.js"></script>
-	<script src="../../lib/jquery.jqupload.min.js"></script>
-	<script src='../../lib/jquery.spin.js'></script>
-
-	<script src="main.js"></script>
-	<script src="../../src/vi2.core.log.js"></script>
-	<script src="../../src/vi2.core.observer.js"></script>
-	<script src="../../src/vi2.core.database.js"></script>
-	<script src="../../src/vi2.core.parser.js"></script>
-	<script src="../../src/vi2.core.utils.js"></script>
-	<script src="../../src/vi2.core.videoplayer.js"></script>
-	<script src="../../src/vi2.core.clock.js"></script>
-	<script src="../../src/vi2.playback-speed.js"></script>
-	<script src="../../src/vi2.annotation.js"></script>
-<!--	<script src="../../src/vi2.xlink.js"></script>
-	<script src="../../src/vi2.seq.js"></script>
-	<script src="../../src/vi2.tags.js"></script>
-	<script src="../../src/vi2.toc.js"></script>-->
-	<script src="../../src/vi2.metadata.js"></script>
+  
+		<!-- libs -->		
+		<script src="../../lib/jquery-1.11.2.min.js"></script>
+		<script src="../../lib/jquery.json-2.2.min.js"></script>
+		<script src="../../lib/jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="../../lib/jquery.inherit-1.1.1.js"></script>
+		<script src="../../lib/jquery.tinysort.js"></script>
+		<script src="../../lib/jquery.tooltip.js"></script>
+		<script src="../../lib/jquery.piemenu.js"></script>
+		<script src="../../lib/jquery.tag-it.js"></script>
+		<script src="../../lib/jquery.jqupload.min.js"></script>
+		<script src='../../lib/jquery.spin.js'></script>
 	
-	  	
-	<script language ="javascript">
-		var 
-			observer = undefined, 
-			vi2 = undefined, 
-			ocr = undefined;   
-	$(document).ready(function(){
-		var core = new VI2Core();	
-	});
-	</script>
-
-
-  </head>
-  <body>
-
-  <div id="page">
-  
-  
-  <div class="main">   
-	<div id="seq"></div>
-	<div id="overlay"></div>
-	<div id="split"></div>
-	<div id="accordion-resizer" class="ui-widget-content">
-		<div id="accordion"></div>
-	</div>
-</div>
-
-<div id="video-controls" class="video-controls">
-	<div class="timelines vi2-btn">
-		<div class="vi2-video-seeklink vi2-btn"></div>
-		<div class="vi2-video-seek vi2-btn"></div>
-		<div class="vi2-video-progress vi2-btn"></div>
-	</div>
-	<div class="control-bar">
-		<div class="vi2-skip-back vi2-btn" title="Skip Back">skip back</div>
-		<div class="vi2-video-play vi2-btn" title="Play/Pause"></div>
-		<div class="vi2-video-timer"></div>
-		<div class="vi2-btn-box"></div>
-		<div class="vi2-volume-box">
-			<div class="vi2-volume-slider2"></div>
-			<a class="vi2-volume-button vi2-btn" title="Mute/Unmute"></a>
+		<!-- vi-two -->
+		<script src="main.js"></script>
+		<script src="../../src/vi2.core.log.js"></script>
+		<script src="../../src/vi2.core.database.js"></script>
+		<script src="../../src/vi2.core.observer.js"></script>
+		<script src="../../src/vi2.core.parser.js"></script>
+		<script src="../../src/vi2.core.videoplayer.js"></script>
+		<script src="../../src/vi2.core.clock.js"></script>
+		<script src="../../src/vi2.core.annotation.js"></script>
+		<script src="../../src/vi2.core.utils.js"></script>
+		<script src="../../src/vi2.playback-speed.js"></script>
+		<script src="../../src/vi2.toc.js"></script>
+	<!--	<script src="../../src/vi2.xlink.js"></script>
+		<script src="../../src/vi2.seq.js"></script>
+		<script src="../../src/vi2.tags.js"></script>
+		<script src="../../src/vi2.toc.js"></script>-->
+		<script src="../../src/vi2.metadata.js"></script>
+	
+				
+		<script language ="javascript">
+			var 
+				observer = undefined, 
+				vi2 = undefined, 
+				ocr = undefined;   
+		$(document).ready(function(){
+			var core = new VI2Core();	
+		});
+		</script>
+	</head>
+<body>
+	<div id="page">
+		<div class="main">   
+			<div id="seq"></div>
+			<div id="overlay"></div>
+			<div id="split"></div>
+			<div id="accordion-resizer" class="ui-widget-content">
+				<div id="accordion"></div>
+			</div>
 		</div>
-	</div>
-</div>
+		<div id="video-controls" class="video-controls">
+			<div class="timelines vi2-btn">
+				<div class="vi2-video-seeklink vi2-btn"></div>
+				<div class="vi2-video-seek vi2-btn"></div>
+				<div class="vi2-video-progress vi2-btn"></div>
+			</div>
+			<div class="control-bar">
+				<div class="vi2-skip-back vi2-btn" title="Skip Back">skip back</div>
+				<div class="vi2-video-play vi2-btn" title="Play/Pause"></div>
+				<div class="vi2-video-timer"></div>
+				<div class="vi2-btn-box"></div>
+				<div class="vi2-volume-box">
+					<div class="vi2-volume-slider2"></div>
+					<a class="vi2-volume-button vi2-btn" title="Mute/Unmute"></a>
+				</div>
+			</div>
+		</div>
 
-
-
-
-<div style="display:none; visibility:hidden;" id="vi2"></div>
-<div id="dialog3"></div>
-  
-  
-	</div> <!-- end page -->
+		
+		
+ 	</div> <!-- end page -->
 	
-	
-
-
-
-<!-- video annotations -->
-	<!-- first video -->
-	<div hidden id="vi2"></div>
+	<!-- video annotations -->
+	<div style="display:none; visibility:hidden;" id="vi2"></div>
+	<div id="dialog3"></div>
 	
 	<div hidden id="vi22">
 		<div type="video" starttime=0 duration=7 id="my video">http://www.iwrm-education.de/videos/iwrm_graefe.webm</div>
@@ -177,8 +165,5 @@ html, body {
 		<div type="toc" starttime=3040 duration=1 id="">4.2 The dialectics of modern water: example 2</div>  
 		<div type="toc" starttime=3670 duration=1 id="">5. Conclusion</div>  
 	</div>
-
-
-	
-  </body>
- </html>
+</body>
+</html>

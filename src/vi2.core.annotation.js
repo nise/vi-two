@@ -32,7 +32,10 @@
 		end : function(e, id){},
 		
 		
-		/* ... */		
+		/** 
+		Formats time from seconds to decimal mm:ss
+		@todo: include hours
+		*/		
 		formatTime : function(secs){
 			var seconds = Math.round(secs);
     	var minutes = Math.floor(seconds / 60);

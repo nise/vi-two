@@ -46,7 +46,7 @@
 	
 	/* .. */
 	setCurrentStream : function(stream){ 
-		this.current_stream = stream; //alert(vi2.dom)
+		this.current_stream = stream; 
 		/*$(vi2.dom)
 			.empty()
 			.append(vi2.db.getVideoById(stream)); */
@@ -58,7 +58,7 @@
 				.attr('id', "myvideo")
 				.text(vi2.db.getStreamById(stream).video)
 				.appendTo('#vi2');	
-		this.annotationsToDOM();
+		//this.annotationsToDOM();
 		this.clock.stopClock();
 		this.clock.reset(); 
 		var metadataa = new Vi2_Metadata( );
@@ -189,7 +189,7 @@
 		this.clock.addHook(obj.name, obj);	
 
 		if(obj.type == 'annotation'){  
-			obj.appendToDOM(this.options.id);
+			obj.appendToDOM( this.current_stream ); // former: this.options.id
 		}	
 
 		switch(obj.name){
@@ -283,8 +283,8 @@
 	annotationsToDOM : function(){ 
 		var _this = this; 
 		$.each(this.widget_list, function(i, widget){ 
-			if(widget.type == 'annotation'){ 
-				widget.appendToDOM(_this.current_stream);
+			if(widget.type == 'annotation'){  
+				widget.appendToDOM(_this.current_stream); 
 			}
 		});
 	},

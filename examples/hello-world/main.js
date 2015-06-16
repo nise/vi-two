@@ -1,19 +1,19 @@
 
 
 
-/** class Vi-Lab **/ 
+/** class  **/ 
 var VI2Core = $.inherit({ 
 
   __constructor : function() { 
   	vi2 = this;
+  	vi2.dom = "#vi2";
   	var files = [
   			{path: 'data.json', storage: 'json_data'}
   	];
 		
-		this.db = new DataBase({path: '/', files: files}, this, 'init');
+		vi2.db = new DataBase({path: '/', files: files}, this, 'init');
   },
   
-  db : '',
   viLog : '',
   observer:'',
   
@@ -25,17 +25,16 @@ var VI2Core = $.inherit({
   			
   	vi2.utils = new Vi2_Utils();
   	
-  	this.observer = new Observer({selector:"#seq", videoWidth:"400px", videoHeight:"800px"}); 
-		this.observer.init(0);
-		this.observer.setCurrentStream('seidel1');
+  	vi2.observer = new Observer({selector:"#seq", videoWidth:"400px", videoHeight:"800px"}); 
+		vi2.observer.init(0);
+		vi2.observer.setCurrentStream('seidel1');
 		
 		
-		this.observer.parse('#vi2', 'html');
+		vi2.observer.parse(vi2.dom, 'html');
 		
-		//var widget = new TOC({vizOnTimeline: true, path: this.server_url+'/vi-lab/img/user-icons/'}); 
-		//this.observer.addWidget(widget); 
+		var widget = new TOC({hasTimelineMarker: true, hasMenu: true}); 
+		vi2.observer.addWidget(widget); 
   }
-  
-
+ 
 }); // class
 

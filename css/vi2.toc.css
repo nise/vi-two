@@ -1,27 +1,30 @@
 
-
-.toc-timetag{
-	cursor:pointer; 
+/* timeline marker */
+.toc-timeline-marker{
 	position: absolute; 
+	top:0px;
 	display: block; 
 	width: 5px; 
-	height: 20px; 
+	height: 14px; 
 	left:0; 
 	margin: 0; 
 	padding: 0;
+	z-index:200;
+	background-color:cyan;
 }
 
-span.timetag.ttoc{ width:4px; background-color: #003366; opacity:0.6;}
-ul.toclist{ padding:0px; list-style-type:none;  list-style-position: inside; margin:12px 0 0 0;}
-ul.toclist li {line-height:160%; display:list-item; margin: 4px 0; background-color: #eee; padding:2px 4px; cursor:pointer; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; }
-ul.toclist li:hover { background-color: #ccc;}
-ul.toclist li a { text-decoration:none; padding: 2px 1px 1px 3px; }
+/*span.timetag.ttoc{ width:4px; background-color: #003366; opacity:0.8; z-index:200;}*/
 
-.hightoc a {	color:red; }
+/* menu entries */
+.toc-list{ padding:0px; list-style-type:none;  list-style-position: inside; margin:12px 0 0 0;}
+.toc-list li {line-height:160%; display:list-item; margin: 4px 0; background-color: #eee; padding:2px 4px; cursor:pointer; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; }
+.toc-list li:hover { background-color: #ccc;}
+.toc-list li a { text-decoration:none; padding: 2px 1px 1px 3px; }
 
+/* highligh color*/
+.toc-highlight a {	color:red; }
 
-.icon-add-toc:hover{ background-color:red; }
-
+/* diabled menu entries*/
 .toc-disabled  {
 	opacity:.8;
 	cursor:default;
