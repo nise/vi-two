@@ -46,10 +46,18 @@
 	
 	/* .. */
 	setCurrentStream : function(stream){ 
-		this.current_stream = stream;
-		$(vi2.dom)
+		this.current_stream = stream; //alert(vi2.dom)
+		/*$(vi2.dom)
 			.empty()
-			.append(vi2.db.getVideoById(stream)); 
+			.append(vi2.db.getVideoById(stream)); */
+		// append video
+	  var video = $('<div></div>')
+				.attr('type',"video")
+				.attr('starttime',0)
+				.attr('duration',7)
+				.attr('id', "myvideo")
+				.text(vi2.db.getStreamById(stream).video)
+				.appendTo('#vi2');	
 		this.annotationsToDOM();
 		this.clock.stopClock();
 		this.clock.reset(); 
@@ -123,7 +131,7 @@
 		$.each(_this.widget_list, function(j, val){ 
 			this.init( _this.vid_arr[0]['annotation'] );				
 		});
-		vi2.enableEditing('toc');
+		//vi2.enableEditing('toc');
 		
 	},
   		

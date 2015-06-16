@@ -27,7 +27,9 @@ var VI2Core = $.inherit({
   	
   	this.observer = new Observer({selector:"#seq", videoWidth:"400px", videoHeight:"800px"}); 
 		this.observer.init(0);
-		//this.observer.setCurrentStream('seidel1');
+		this.observer.setCurrentStream('seidel1');
+		
+		
 		this.observer.parse('#vi2', 'html');
 		
 		//var widget = new TOC({vizOnTimeline: true, path: this.server_url+'/vi-lab/img/user-icons/'}); 

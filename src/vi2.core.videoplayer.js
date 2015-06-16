@@ -151,7 +151,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		var _this = this;
 		this.url = url;
 	  this.seek = seek == undefined ? 0 : seek;
-		this.video = document.getElementById( ( this.options.selector ).replace(/\#/,'') );
+	  this.video = document.getElementById( ( this.options.selector ).replace(/\#/,'') );
 	  this.video.pause();
 		this.startSpinning(); 
 		vi2.observer.log('loadvideo:'+url); 
