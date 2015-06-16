@@ -2,7 +2,6 @@
  		author: niels.seidel@nise81.com
 
  - bug: keydown binding vary in different browsers
- - good fullscreen / couch mode
  - @createVideoEmbed: build the video embed function as an optional feature. It is currently optimized for iwrm-education
  - @createVideoHiding: build function to turn of the video screen in order to listen to the audio only.
 
@@ -109,7 +108,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 	video: null,
 	observer: null,
 	url: '',
-	video_volume: 0.5,
+	video_volume: 0,
   video_container: null,
 	video_wrap: null,
 	play_btn: $(''),
@@ -286,7 +285,9 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 /* UI ******************************************/
 
 
-	/* load UI */
+	/** 
+	load UI 
+	*/
 	loadUI: function() { 
 		var _this = this;
 		this.play_btn = $('.vi2-video-play', this.video_container);
@@ -307,6 +308,8 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 			}, function() { 
 		  	$(_this.options.videoControlsSelector).removeClass("open-controls");
 		});
+		//$('#overlay').css('height', $('video').height() );
+		//$('#overlay').css('width', $('#video1').width() );
 
 		// load other ui elements
 		this.createVolumeControl();
@@ -573,8 +576,6 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 	// event handler: on duration change; trigger when duration is known
 	durationChangeHandler: function(e, seek) { //alert('should seek '+e.data.seek)
 		this.createSeekControl();
-		$('#overlay').css('height', $('#video1').height() );
-		$('#overlay').css('width', $('#video1').width() );
 		//$('#debug').append('seek  '+this.timeFormat(this.video.seekable.start(0))+' - '+this.timeFormat(this.video.seekable.end(0))+'\n');
 		if (Number(seek) > 0) { 
 			if(this.percentLoaded > (seek / this.duration())){

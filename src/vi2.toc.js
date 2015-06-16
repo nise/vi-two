@@ -7,8 +7,8 @@
 	*/
 
 
-	/* class TOC **/ 
-	var TOC = $.inherit(Annotation, /** @lends TableOfContents# */{ // 
+/* class TOC **/ 
+Vi2.TableOfContents = $.inherit(Annotation, /** @lends TableOfContents# */{ // 
 
 		/** @constructs
 		*		@extends Annotation
@@ -19,7 +19,7 @@
 		*		@param {sring} options.timelineSelector Class or id of the DOM element for the annotated timeline.
 		*		@param {string} options.path Path to folder where user icons are stored.
 		*/
-  	__constructor : function(options) {
+  	__constructor : function(options) { 
   			this.options = $.extend(this.options, options);  
 		},
 		
@@ -143,14 +143,15 @@
 			
 			// sort list entries by time and append them
 			toc
-				.find('li').tsort({attr:"id"});  // tsort is error prune under chromium
-				.appendTo(_this.options.menuSelector)		
+				.find('li').tsort( { attr:"id" } )  // tsort is error prune under chromium
+				.appendTo( this.options.menuSelector )		
 			
 		},
 		
 		
 		/** 
 		Displays a table of content as markers on the timeline
+		@todo this function could to be moved to the player or separated into a timeline class
 		*/
 		buildTimelineMarkers : function(tocData){  
 			var _this= this; 

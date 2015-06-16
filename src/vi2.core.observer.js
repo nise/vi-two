@@ -104,9 +104,7 @@
 			}, this); 
 		this.clock.player = this.player;
 		
-		// load some widgets
-		var viPlaybackSpeed = new Vi2_PlaybackSpeed({}, this);
-		this.addWidget( viPlaybackSpeed ); 
+		
 
 		// some event bindings hooks
 		$(this).bind('player.ready', function(e, id, i){ 

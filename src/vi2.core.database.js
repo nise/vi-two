@@ -173,10 +173,10 @@
 	
 	/* - - */
 	getStreamsOfSameAuthor : function(id){
-		var author = this.getMetadataById(id).author; 
+		var author = this.getStreamById(id).metadata[0].author;  
 		var authors = [];
-		$.each(this.json_data, function(i, stream){ 
-				if(stream.metadata[0].author == author && stream.id != id){ 
+		$.each(this.json_data.stream, function(i, stream){  
+				if(stream.metadata[0].author === author && stream.id != id){ 
 					authors.push(stream.id); //$('#debug').val($('#debug').val() + stream.id);
 				}
 		});
@@ -221,15 +221,29 @@
 		return tax;
 	},
 	
+	/* returns tags of the given stream */
+	getTagsById : function(id){
+		var tags = [];
+		$.each(this.json_data.stream, function(i, stream ){
+			if( stream.id === id ){
+				$.each( stream.tags, function(tag){
+					tags.push( tag.tagname );
+				});	
+			}
+		});
+		return tags;
+	},
+	
 	/* -- */ 
 	getStreamsWithSameTag : function(id){
 		var _this = this;
 		var streams = [];
-		var tags = this.getStreamById(id).tags; 
+		var tags = this.getTagsById(id).tags;
+		 
 		$.each(tags, function(i, the_tag_name){	
-			$.each(_this.json_data, function(j, stream){  
+			$.each(_this.json_data.stream, function(j, stream){  
 				$.each(stream.tags, function(k, tag){ 
-					if(this.tagname == the_tag_name.tagname){ 
+					if( this.tagname == the_tag_name.tagname ){  
 					 streams.push(stream.id); //$('#debug').val($('#debug').val() +' '+ stream.id);
 					}
 				});

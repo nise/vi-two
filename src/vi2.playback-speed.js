@@ -6,30 +6,26 @@ todo:
 
 */
 
-
-var Vi2_PlaybackSpeed = $.inherit(/** @lends PlaybackSpeed# */{
+/* class */
+Vi2.PlaybackSpeed = $.inherit(/** @lends Vi2.PlaybackSpeed# */{
 
 	/** 
 	*		@constructs 
 	*		
 	*/
-	__constructor : function(options, observer) { 
+	__constructor : function(options) { 
 			this.options = $.extend(this.options, options);
-			this.observer = observer;
-			this.player = this.observer.player;
-			this.video = document.getElementById( this.options.video_selector ); 
+			this.video = document.getElementById( this.options.videoSelector ); 
 			this.init();
 	},
 	
 	name : 'playbackSpeed',
 	options : {
-		video_selector : 'video1',
+		videoSelector : 'video1',
 		selector: '.control-bar',
 		speed_steps: [0.3,0.5,0.8,1.0,1.5,2.0,3.0,4.0]	
 	},
-	speed : 1,
-	observer : '',
-	player : '',
+	speed : 1, // default speed
 	video : '',	
 	speedIndex : 3,
 	
@@ -99,7 +95,7 @@ var Vi2_PlaybackSpeed = $.inherit(/** @lends PlaybackSpeed# */{
 			// close select menu
 			$('.speed-controls > ul').css('display','none');
 			// log it
-			vi2.observer.log( this.url + ' change_speed: ' + this.player.currentTime() + ' speed: ' + speed);
+			vi2.observer.log( this.url + ' change_speed: ' + vi2.observer.player.currentTime() + ' speed: ' + speed);
 		}	
 	},
 	

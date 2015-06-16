@@ -7,7 +7,7 @@
 /************************************************/
 #seq {
 	float:left;
-	width:692px;
+	width: -moz-min-content;
 	margin: 0 1px;
 	padding: 0;
 	z-index:3;
@@ -16,7 +16,7 @@
 }
 
 #overlay {
-	width:692px;
+	width:inherit;
 	padding-left:280px;
 	display:block;
 	position:relative;

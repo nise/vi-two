@@ -7,7 +7,7 @@ author: niels.seidel@nise81.com
 */
 
 
-var Vi_Search = $.inherit(/** @lends Search# */{
+Vi2.Search = $.inherit(/** @lends Search# */{
 
 	/** 
 	*		@constructs 
@@ -46,8 +46,8 @@ var Vi_Search = $.inherit(/** @lends Search# */{
 					var t = new Date(); t2 = t.getTime();
 					_this.ocr = res;
 		*/			
-				// split search string into words ==> buggy
-				$.each(string.split(" "), function(i, str){ 
+				// split search string into words by using an regex
+				$.each(string.split(/[^\s"]+|"([^"]*)"/gi;), function(i, str){ 
 						var expp = new RegExp(str, "gi");
 						// parse json completly 
 						$.each(vi2.db.json_data.stream, function(i, stream){ 
