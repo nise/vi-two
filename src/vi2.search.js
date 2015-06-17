@@ -13,14 +13,13 @@ Vi2.Search = $.inherit(/** @lends Vi2.Search# */{
 	*		@constructs 
 	*		
 	*/
-	__constructor : function( options ) {
+	__constructor : function( options ) { 
 			this.options = $.extend(this.options, options);   
 	},
 	
 	name : 'search',
 	options : {
 		resultSelector: '.search-results', 
-		term: "water",
 		limit: 25
 	},
 	total : 0,
@@ -30,7 +29,7 @@ Vi2.Search = $.inherit(/** @lends Vi2.Search# */{
 	find : function(string){
 		
 		if(ocr == undefined){ //alert(22);
-			window.setTimeout("vi2.observer.widget_list['search'].getStreamsBySearch('"+string+"')", 1000); // bug!!
+			window.setTimeout("vi2.observer.widget_list['search'].find('"+string+"')", 1000); // bug!!
 			return;
 		}else{
 			var t1 = 0, t2 = 0;
@@ -49,7 +48,7 @@ Vi2.Search = $.inherit(/** @lends Vi2.Search# */{
 					_this.ocr = res;
 		*/			
 				// split search string into words by using an regex
-				$.each(string.split(/[^\s"]+|"([^"]*)"/gi;), function(i, str){ 
+				$.each(string.split(/[^\s"]+|"([^"]*)"/gi), function(i, str){ 
 						var expp = new RegExp(str, "gi");
 						// parse json completly 
 						$.each(vi2.db.json_data.stream, function(i, stream){ 
@@ -71,17 +70,20 @@ Vi2.Search = $.inherit(/** @lends Vi2.Search# */{
 									result[i].ti = 1;
 								}else{
 									result[i].ti = 0;
-								}		
+								}
+										
 								// increment author-count in case it matches
 								if(stream.metadata[0].author.search(expp) != -1 ){
 									result[i].auth = 1;
 								}else{
 									result[i].auth = 0;
 								}		
+								
 								// increment abstract-count in case it matches
 								if(stream.metadata[0]['abstract'].search(expp) != -1 ){
 									result[i]['abstract'] += stream.metadata[0]['abstract'].match(expp).length;
 								}
+								
 								// increment tag-count in case one or more are matching
 								var t = '';
 
@@ -128,7 +130,6 @@ Vi2.Search = $.inherit(/** @lends Vi2.Search# */{
 					// sort results
 					$('div.search-results > div').tsort('.res', {order:"desc"});
 
-		
 		}
 		
 	}

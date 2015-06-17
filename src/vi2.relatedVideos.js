@@ -20,7 +20,6 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 		*/
   	__constructor : function(options) { 
   		this.options = $.extend(this.options, options); 
-  		this.determineModes( vi2.observer.current_stream );
 		},
 				
 		name : 'related-videos',
@@ -38,8 +37,9 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 		
 		/* ... */
 		init : function(ann){
-			var _this = this;
-			this.link_list = this.buildLinkList(ann);	
+			//var _this = this;
+			//this.link_list = this.buildLinkList(ann);	
+			this.determineModes( vi2.observer.current_stream );
 		},
 		
 		
@@ -87,8 +87,12 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 		/**
 		
 		*/
-		sortByRelevance : function(){
-			
+		sortByRelevance : function(arr){
+			var sortable = [];
+			for (var el in arr){
+						sortable.push([el, arr[el]]);
+			}			
+			return sortable.sort(function(a, b) {return  b[1] - a[1]})
 		},
 		
 		
@@ -98,13 +102,14 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 		showRelatedVideos : function(id){
 			var _this = this;
 			// sort by relevance 
-			//this.results = this.results.tsort(); alert(this.results)
+			this.results = this.sortByRelevance( this.results );
 			var ul = $('<ul></ul>')
 				.appendTo(_this.options.resultSelector);
 			var j = 0;	
 			$.each(this.results, function(i,val){
 				if( j < _this.options.limit ){
-					var li = $('<li></li>').text(i+' ('+val+')').appendTo(ul);	
+					var t = val.toString().split(',');
+					var li = $('<li></li>').text( t[0] + ' (' + t[1] + ')').appendTo(ul);	
 				}
 				j++;
 			});

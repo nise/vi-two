@@ -268,11 +268,11 @@
 	*/
 	getLinkTargetsById : function(id){
 		var results = {}; 
-		$.each(	this.getStreamById(id).links, function( i, stream ){ 
-			if( stream.id in results == false ){  
-				results[ stream.id ] = 0;
+		$.each(	this.getStreamById(id).links, function( i, link ){ 
+			if( link.target in results == false ){  
+				results[ link.target ] = 0;
 			}
-			results[ stream.id ] += 1;
+			results[ link.target ] += 1;
 		});
 		return	results;
 	},

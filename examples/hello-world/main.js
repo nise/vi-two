@@ -50,16 +50,19 @@ Vi2.Example = $.inherit({
 				{ mode: 'outgoing-links', weight:0.5 }
 				] 
 		} );
+		related.init();
 		
-		var search = new Vi2.Search({
+		var inVideoSearch = new Vi2.Search( {
 			resultSelector: '.search-results', 
-			term: "water",
 			limit: 25
 		});
+		inVideoSearch.find('water basin');
 		
 		
 		// add all the widgets
 		vi2.observer.addWidget( toc );	
+		vi2.observer.addWidget( related );
+		vi2.observer.addWidget( inVideoSearch );	
 		vi2.observer.addWidget( playbackSpeed );  
   }
  
