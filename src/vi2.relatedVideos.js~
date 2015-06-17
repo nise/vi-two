@@ -14,8 +14,8 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 		/** 
 		*		@constructs 
 		*		@param {object} options 
-		*		@param {object} options.modes Object...
-		*		@param {Number} options.modes.weight Weight of the given criteria
+		*		@param {object} options.criteria Object...
+		*		@param {Number} options.criteria.weight Weight of the given criteria
 		*		@param {Number} options.limit Number of requestested related videos
 		*/
   	__constructor : function(options) { 
@@ -26,12 +26,12 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 		options : {
 			resultSelector:'.related-videos', 
 			limit : 10, 
-			modes: [ 
-				{ mode: 'random-destructor', weight:0.4 },
-				{ mode: 'outgoing-links', weight:0.4 },
-				{ mode: 'incomming-links', weight:0.4 },
-				{ mode: 'outgoing-links', weight:0.8 },
-				{ mode: 'same-author', weight:0.8 }
+			criteria: [ 
+				{ criterion: 'random-destructor', weight:0.4 },
+				{ criterion: 'outgoing-links', weight:0.4 },
+				{ criterion: 'incomming-links', weight:0.4 },
+				{ criterion: 'outgoing-links', weight:0.8 },
+				{ criterion: 'same-author', weight:0.8 }
 				]
 			},
 		results : {},		
@@ -41,30 +41,30 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 		init : function(ann){
 			//var _this = this;
 			//this.link_list = this.buildLinkList(ann);	
-			this.determineModes( vi2.observer.current_stream );
+			this.determineCriteria( vi2.observer.current_stream );
 		},
 		
 		
 		/* -- */
-		determineModes : function(id){
+		determineCriteria : function(id){
 			var _this = this;
 			var streams = []; 
-			$.each( this.options.modes, function(i, mode){ 
-				switch(mode.mode){
+			$.each( this.options.criteria, function(i, criterion){ 
+				switch(criterion.criterion){
 					case "random-destructor":
-						_this.weightResults( vi2.db.getRandomStreams(id, _this.options.limit), mode.weight );	
+						_this.weightResults( vi2.db.getRandomStreams(id, _this.options.limit), criterion.weight );	
 						break;
 					case "incomming-links" :
-						_this.weightResults( vi2.db.getLinkSourcesById(id), mode.weight );	
+						_this.weightResults( vi2.db.getLinkSourcesById(id), criterion.weight );	
 						break;
 					case "outgoing-links" :
-						_this.weightResults( vi2.db.getLinkTargetsById(id), mode.weight );	
+						_this.weightResults( vi2.db.getLinkTargetsById(id), criterion.weight );	
 						break;
 					case "same-author"	:
-						_this.weightResults( vi2.db.getStreamsOfSameAuthor(id), mode.weight );	
+						_this.weightResults( vi2.db.getStreamsOfSameAuthor(id), criterion.weight );	
 						break;
 					case "same-tags"	: 
-						_this.weightResults( vi2.db.getStreamsWithSameTag(id), mode.weight);	
+						_this.weightResults( vi2.db.getStreamsWithSameTag(id), criterion.weight);	
 						break;
 					default :
 						// do nothing			
