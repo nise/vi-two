@@ -113,6 +113,36 @@
 		return stream;
 	},
 	
+	
+	/**
+	* Returns a given number of video stream ids that have been randomly selected
+	*/
+	getRandomStreams : function(exception, limit){ 
+		var 
+			array = [],
+			result = {};
+		// generate array with all stream ids  
+		$.each(this.json_data.stream, function(i, val){
+			if (val.id != exception){  
+				array.push(val.id); 
+			}
+		});
+		// now shuffle the array by using the Fisher-Yates shuffle algorithm
+		for (var i = array.length - 1; i > 0; i--) {
+			var j = Math.floor(Math.random() * (i + 1));
+			var temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
+		}
+		// reduce the number of elements regarding the given limit
+		array = array.slice(0, limit);
+		// resort keys and values
+		for(var i = 0; i < array.length; i++){
+			result[array[i]] = 1; 
+		}
+		return result;
+	},
+	
 			
 
 
@@ -272,7 +302,7 @@
 			if( link.target in results == false ){  
 				results[ link.target ] = 0;
 			}
-			results[ stream.id ] += 1;
+			results[ link.target ] += 1;
 		});
 		return	results;
 	},

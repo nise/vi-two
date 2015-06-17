@@ -41,16 +41,17 @@ Vi2.Example = $.inherit({
 		
 		
 		// With these widgets we make use of the video database
-		var related = new Vi2.RelatedVideos( { 
+		var relatedVideos = new Vi2.RelatedVideos( { 
 			resultSelector: '.related-videos', 
 			modes:[
+				{ mode: 'random-destructor', weight:0.8 }/*,
 				{ mode: 'same-author', weight:0.8 }, 
 				{ mode: 'same-tags', weight:0.6 },
 				{ mode: 'incomming-links', weight:0.5 },
-				{ mode: 'outgoing-links', weight:0.5 }
+				{ mode: 'outgoing-links', weight:0.5 }*/
 				] 
 		} );
-		related.init();
+		relatedVideos.init();
 		
 		var inVideoSearch = new Vi2.Search( {
 			resultSelector: '.search-results', 

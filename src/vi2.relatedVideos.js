@@ -27,6 +27,8 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 			resultSelector:'.related-videos', 
 			limit : 10, 
 			modes: [ 
+				{ mode: 'random-destructor', weight:0.4 },
+				{ mode: 'outgoing-links', weight:0.4 },
 				{ mode: 'incomming-links', weight:0.4 },
 				{ mode: 'outgoing-links', weight:0.8 },
 				{ mode: 'same-author', weight:0.8 }
@@ -46,14 +48,17 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 		/* -- */
 		determineModes : function(id){
 			var _this = this;
-			var streams = []; //alert(this.options.modes.split("+")[0])
+			var streams = []; 
 			$.each( this.options.modes, function(i, mode){ 
 				switch(mode.mode){
+					case "random-destructor":
+						_this.weightResults( vi2.db.getRandomStreams(id, _this.options.limit), mode.weight );	
+						break;
 					case "incomming-links" :
-						_this.weightResults( vi2.db.getLinkSourcesById(id), mode.weight )	
+						_this.weightResults( vi2.db.getLinkSourcesById(id), mode.weight );	
 						break;
 					case "outgoing-links" :
-						_this.weightResults( vi2.db.getLinkTargetsById(id), mode.weight )	
+						_this.weightResults( vi2.db.getLinkTargetsById(id), mode.weight );	
 						break;
 					case "same-author"	:
 						_this.weightResults( vi2.db.getStreamsOfSameAuthor(id), mode.weight );	
