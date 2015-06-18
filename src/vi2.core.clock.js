@@ -1,12 +1,21 @@
-/* Clock 
-	author: niels.seidel@nise81.com
-	 	- implement checkAnnotation in order to trigger certain events at the listenning instances
- 	- use timeUpdate insteate of setTimeOut or setIntervall: http://blog.gingertech.net/2009/08/19/jumping-to-time-offsets-in-videos/
+/* 
+*	name: Vi2.Clock
+*	author: niels.seidel@nise81.com
+*	description: Checks which annotations need to be activated or deactivated in given time intervall during video playback
+* license: 
+*	todo:
+*	 	- implement checkAnnotation in order to trigger certain events at the listenning instances
+* 		- use timeUpdate insteate of setTimeOut or setIntervall: http://blog.gingertech.net/2009/08/19/jumping-to-time-offsets-in-videos/
+http://stackoverflow.com/questions/3255/big-o-how-do-you-calculate-approximate-it
+https://de.wikipedia.org/wiki/Bin%C3%A4re_Suche#Intervallschachtelung
+https://de.wikipedia.org/wiki/Interpolationssuche
+https://en.wikipedia.org/wiki/Search_engine_indexing#Inverted_indices
+https://en.wikipedia.org/wiki/Inverted_index
+https://en.wikipedia.org/wiki/Index#Computer_science
 */
 	
 
-	/* class Clock */ 
-	var Clock = $.inherit(/** @lends Clock# */
+ Vi2.Clock = $.inherit(/** @lends Vi2.Clock# */
 	{
 			/** 
 			*		@constructs 
@@ -87,6 +96,8 @@
 			}
 		},
 		
+		
+		
 	/* Optimized algorithm, making advantage of indexing the time of appearance */
 		/* to do: 
 		-generate test data, 
@@ -124,6 +135,16 @@
 				}
 			});
 		},
+		
+		
+		// Another approach
+		/*
+		1. generate an inverted index where Index[ playbacktime_rounded ] = {annotation_1, annotation_2, ..., annotation_n}. The Index contains all annotations, that should be visible at time. 
+		2. at a given playbacktime just test whether the time in ms exists in the Index.
+		
+		Problem:: Size of Index
+		*/
+		
 							
 		/* ... */
 		startClock : function(){  

@@ -1,10 +1,10 @@
-	/* RelatedVideos
-	author: niels.seidel@nise81.com
-	
-	to-do
-	- destructor: man möchte ja nicht nur im eigenen Saft schwimmen (filter bubble), sondern auch auf andere Themen stoßen ... statt optimal match
-	- (server side) 	- users that have seen this video also took a look at ...
-
+	/* 
+	* name: Vi2.RelatedVideos
+	* author: niels.seidel@nise81.com
+	* description: 
+	* to-do
+	*  - destructor: man möchte ja nicht nur im eigenen Saft schwimmen (filter bubble), sondern auch auf andere Themen stoßen ... statt optimal match
+	*  - (server side) 	- users that have seen this video also took a look at ...
 	*/
 
 
