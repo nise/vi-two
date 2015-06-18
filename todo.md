@@ -26,3 +26,7 @@
 - hyperlinks
 - search
 - playlist
+
+
+# nice
+- make the docs look better
