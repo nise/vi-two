@@ -1,7 +1,15 @@
+/* 
+* name: Vi2.Example / Vi2.Main
+*	author: niels.seidel@nise81.com
+* license: 
+* description:
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+* todo: 	
+*/
 
 
-
-/** class  **/ 
 Vi2.Example = $.inherit({ 
 
   __constructor : function() { 
@@ -28,7 +36,7 @@ Vi2.Example = $.inherit({
   			
   	vi2.utils = new Vi2_Utils();
   	
-  	vi2.observer = new Observer({selector:"#seq", videoWidth:"400px", videoHeight:"800px"}); 
+  	vi2.observer = new Vi2.Observer({selector:"#seq", videoWidth:"400px", videoHeight:"800px"}); 
 		vi2.observer.init(0); 
 		vi2.observer.setCurrentStream('seidel1');
 		vi2.observer.parse(vi2.dom, 'html');

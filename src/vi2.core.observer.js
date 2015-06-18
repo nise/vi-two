@@ -1,16 +1,18 @@
-/* class Observer 
-	author: niels.seidel@nise81.com
-
-	- clear overlay-container and other at updateVideo()
-	- allow page back, offer bread crumb menu, ...
-	- RSS: http://code.google.com/apis/youtube/2.0/reference.html
-
-	code design
-	- use delegate(obj, func) instead of _this
-	- Error handling: throw new Error('...');
-
-	*/
-	var Observer = $.inherit(/** @lends Observer# */{
+/* 
+* name: Vi2.Observer 
+*	author: niels.seidel@nise81.com
+* license: 
+* description: 
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+*	todo:
+*	- clear overlay-container and other at updateVideo()
+*	- allow page back, offer bread crumb menu, ...
+*	- RSS: http://code.google.com/apis/youtube/2.0/reference.html
+*/
+	
+Vi2.Observer = $.inherit(/** @lends Observer# */{
 	
 	/** 
 	*		@constructs

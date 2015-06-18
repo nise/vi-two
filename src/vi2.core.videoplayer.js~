@@ -1,5 +1,12 @@
-/*	VideoPlayer
- 		author: niels.seidel@nise81.com
+/* 
+* name: Vi2.VideoPlayer 
+*	author: niels.seidel@nise81.com
+* license: 
+* description: 
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+*	todo:
 
  - bug: keydown binding vary in different browsers
  - @createVideoEmbed: build the video embed function as an optional feature. It is currently optimized for iwrm-education

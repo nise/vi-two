@@ -1,9 +1,14 @@
-/* Search within annotated video contents
-author: niels.seidel@nise81.com
-
-- parametrisierung, insb. gewichtung der ergebnisse, sortierung, suchparameter
-- pagination
-
+/* 
+* name: Vi2.Search 
+*	author: niels.seidel@nise81.com
+* license: 
+* description: Search within annotated video contents
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+*	todo:
+*  - parametrisierung, insb. gewichtung der ergebnisse, sortierung, suchparameter
+*  - pagination
 */
 
 
