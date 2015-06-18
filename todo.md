@@ -1,7 +1,9 @@
 
 # overall improvements
-- replace jquery.tooltip by the native jquery tooltip
 - fix player control bar
+- reduce dependencies: 
+ - replace jquery.tooltip by the native jquery tooltip
+ - avoid inherit-class
 - use a template engine, maybe ejs
 
 # new widgets
@@ -10,9 +12,8 @@
 - user notes
 - media fragments 
 - journaled naviagtion
-- follow revisions
+- follow revisions => server
 - loop
-- bookmarks
 - viewing history
 - zoom
 

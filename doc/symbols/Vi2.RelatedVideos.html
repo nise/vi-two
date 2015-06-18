@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>JsDoc Reference - Annotation</title>
+		<title>JsDoc Reference - Vi2.RelatedVideos</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -250,7 +250,7 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class Annotation
+				Class Vi2.RelatedVideos
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
@@ -261,13 +261,13 @@ ul.inheritsList
 				
 				
 				
-					<br /><i>Defined in: </i> <a href="../symbols/src/src_vi2.core.annotation.js.html">vi2.core.annotation.js</a>.
+					<br /><i>Defined in: </i> <a href="../symbols/src/src_vi2.relatedVideos.js.html">vi2.relatedVideos.js</a>.
 				
 			</p>
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class Annotation.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class Vi2.RelatedVideos.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -280,7 +280,7 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/Annotation.html#constructor">Annotation</a></b>(options)
+								<b><a href="../symbols/Vi2.RelatedVideos.html#constructor">Vi2.RelatedVideos</a></b>(options)
 							</div>
 							<div class="description"></div>
 						</td>
@@ -296,7 +296,7 @@ ul.inheritsList
 			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class Annotation.">
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class Vi2.RelatedVideos.">
 					<caption>Method Summary</caption>
 					<thead>
 						<tr>
@@ -309,7 +309,7 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/Annotation.html#appendToDOM">appendToDOM</a></b>(id)
+								<div class="fixedFont"><b><a href="../symbols/Vi2.RelatedVideos.html#determineCriteria">determineCriteria</a></b>(id)
 								</div>
 								<div class="description"></div>
 							</td>
@@ -318,7 +318,7 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/Annotation.html#begin">begin</a></b>(e, id, obj)
+								<div class="fixedFont"><b><a href="../symbols/Vi2.RelatedVideos.html#init">init</a></b>(ann)
 								</div>
 								<div class="description"></div>
 							</td>
@@ -327,7 +327,16 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/Annotation.html#end">end</a></b>(e, id)
+								<div class="fixedFont"><b><a href="../symbols/Vi2.RelatedVideos.html#showRelatedVideos">showRelatedVideos</a></b>(id)
+								</div>
+								<div class="description">Renders results</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Vi2.RelatedVideos.html#sortByRelevance">sortByRelevance</a></b>(arr)
 								</div>
 								<div class="description"></div>
 							</td>
@@ -336,16 +345,7 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/Annotation.html#formatTime">formatTime</a></b>(secs)
-								</div>
-								<div class="description">Formats time from seconds to decimal mm:ss</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/Annotation.html#init">init</a></b>(ann)
+								<div class="fixedFont"><b><a href="../symbols/Vi2.RelatedVideos.html#weightResults">weightResults</a></b>(res, weight)
 								</div>
 								<div class="description"></div>
 							</td>
@@ -368,7 +368,7 @@ ul.inheritsList
 				</div>
 				
 				<div class="fixedFont">
-						<b>Annotation</b>(options)
+						<b>Vi2.RelatedVideos</b>(options)
 				</div>
 				
 				<div class="description">
@@ -387,7 +387,25 @@ ul.inheritsList
 								<span class="light fixedFont">{object}</span>  <b>options</b>
 								
 							</dt>
-								<dd>An object containing the parameters</dd>
+								<dd></dd>
+						
+							<dt>
+								<span class="light fixedFont">{object}</span>  <b>options.criteria</b>
+								
+							</dt>
+								<dd>Object...</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Number}</span>  <b>options.criteria.weight</b>
+								
+							</dt>
+								<dd>Weight of the given criteria</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Number}</span>  <b>options.limit</b>
+								
+							</dt>
+								<dd>Number of requestested related videos</dd>
 						
 						</dl>
 					
@@ -410,11 +428,11 @@ ul.inheritsList
 					Method Detail
 				</div>
 				
-					<a name="appendToDOM"> </a>
+					<a name="determineCriteria"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>appendToDOM</b>(id)
+					<b>determineCriteria</b>(id)
 					
 					</div>
 					<div class="description">
@@ -431,132 +449,6 @@ ul.inheritsList
 							
 								<dt>
 									<b>id</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="begin"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>begin</b>(e, id, obj)
-					
-					</div>
-					<div class="description">
-						
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>e</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>id</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>obj</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="end"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>end</b>(e, id)
-					
-					</div>
-					<div class="description">
-						
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>e</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>id</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="formatTime"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>formatTime</b>(secs)
-					
-					</div>
-					<div class="description">
-						Formats time from seconds to decimal mm:ss
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>secs</b>
 									
 								</dt>
 								<dd></dd>
@@ -593,6 +485,120 @@ ul.inheritsList
 							
 								<dt>
 									<b>ann</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="showRelatedVideos"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>showRelatedVideos</b>(id)
+					
+					</div>
+					<div class="description">
+						Renders results
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>id</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="sortByRelevance"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>sortByRelevance</b>(arr)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>arr</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="weightResults"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>weightResults</b>(res, weight)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>res</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>weight</b>
 									
 								</dt>
 								<dd></dd>

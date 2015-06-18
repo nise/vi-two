@@ -201,15 +201,11 @@ ul.inheritsList
 	
 	<li><a href="../symbols/Assessment-writing.html">Assessment-writing</a></li>
 	
-	<li><a href="../symbols/Clock.html">Clock</a></li>
-	
 	<li><a href="../symbols/Comments.html">Comments</a></li>
 	
 	<li><a href="../symbols/DataBase.html">DataBase</a></li>
 	
 	<li><a href="../symbols/Log.html">Log</a></li>
-	
-	<li><a href="../symbols/Metadata.html">Metadata</a></li>
 	
 	<li><a href="../symbols/Object.html">Object</a></li>
 	
@@ -221,19 +217,23 @@ ul.inheritsList
 	
 	<li><a href="../symbols/Playlist.html">Playlist</a></li>
 	
-	<li><a href="../symbols/RelatedVideos.html">RelatedVideos</a></li>
-	
-	<li><a href="../symbols/Search.html">Search</a></li>
-	
-	<li><a href="../symbols/SyncMedia.html">SyncMedia</a></li>
-	
-	<li><a href="../symbols/TableOfContents.html">TableOfContents</a></li>
-	
 	<li><a href="../symbols/TemporalTagging.html">TemporalTagging</a></li>
 	
 	<li><a href="../symbols/Traces.html">Traces</a></li>
 	
 	<li><a href="../symbols/VI-TWO.html">VI-TWO</a></li>
+	
+	<li><a href="../symbols/vi2.core.Clock.html">vi2.core.Clock</a></li>
+	
+	<li><a href="../symbols/Vi2.Metadata.html">Vi2.Metadata</a></li>
+	
+	<li><a href="../symbols/Vi2.PlaybackSpeed.html">Vi2.PlaybackSpeed</a></li>
+	
+	<li><a href="../symbols/Vi2.RelatedVideos.html">Vi2.RelatedVideos</a></li>
+	
+	<li><a href="../symbols/Vi2.SyncMedia.html">Vi2.SyncMedia</a></li>
+	
+	<li><a href="../symbols/Vi2.TableOfContents.html">Vi2.TableOfContents</a></li>
 	
 	<li><a href="../symbols/VideoManager.html">VideoManager</a></li>
 	
@@ -410,7 +410,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/DataBase.html#getLinkSourcesById">getLinkSourcesById</a></b>(id)
 								</div>
-								<div class="description"></div>
+								<div class="description">Determine all incoming links for a given video stream without self references</div>
 							</td>
 						</tr>
 					
@@ -419,7 +419,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/DataBase.html#getLinkTargetsById">getLinkTargetsById</a></b>(id)
 								</div>
-								<div class="description"></div>
+								<div class="description">Determin all outgoing links for a given video stream</div>
 							</td>
 						</tr>
 					
@@ -435,9 +435,18 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DataBase.html#getRandomStreams">getRandomStreams</a></b>(exception, limit)
+								</div>
+								<div class="description">Returns a given number of video stream ids that have been randomly selected</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/DataBase.html#getSlidesById">getSlidesById</a></b>(Video)
 								</div>
-								<div class="description"></div>
+								<div class="description">Returns the slides data array either from the given stream object or from a separate json file containing all slide data.</div>
 							</td>
 						</tr>
 					
@@ -481,6 +490,15 @@ ul.inheritsList
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/DataBase.html#getTagsById">getTagsById</a></b>(id)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DataBase.html#getTagsById__xxx">getTagsById__xxx</a></b>(id)
 								</div>
 								<div class="description"></div>
 							</td>
@@ -1009,7 +1027,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						
+						Determine all incoming links for a given video stream without self references
 						
 						
 					</div>
@@ -1024,7 +1042,7 @@ ul.inheritsList
 									<b>id</b>
 									
 								</dt>
-								<dd></dd>
+								<dd>{String} Id of video stream</dd>
 							
 							</dl>
 						
@@ -1045,7 +1063,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						
+						Determin all outgoing links for a given video stream
 						
 						
 					</div>
@@ -1060,7 +1078,7 @@ ul.inheritsList
 									<b>id</b>
 									
 								</dt>
-								<dd></dd>
+								<dd>{String} Id of video stream</dd>
 							
 							</dl>
 						
@@ -1109,6 +1127,48 @@ ul.inheritsList
 
 					<hr />
 				
+					<a name="getRandomStreams"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getRandomStreams</b>(exception, limit)
+					
+					</div>
+					<div class="description">
+						Returns a given number of video stream ids that have been randomly selected
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>exception</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>limit</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
 					<a name="getSlidesById"> </a>
 					<div class="fixedFont">
 					
@@ -1117,7 +1177,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						
+						Returns the slides data array either from the given stream object or from a separate json file containing all slide data.
 						
 						
 					</div>
@@ -1290,6 +1350,42 @@ ul.inheritsList
 					
 					
 					<b>getTagsById</b>(id)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>id</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getTagsById__xxx"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getTagsById__xxx</b>(id)
 					
 					</div>
 					<div class="description">
@@ -1653,7 +1749,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Tue Jun 16 2015 11:52:53 GMT+0200 (MESZ)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Thu Jun 18 2015 22:57:34 GMT+0200 (MESZ)
 		</div>
 	</body>
 </html>

@@ -55,8 +55,9 @@ vi2 = ${srcdir}vi2.assessment.fill-in.js\
 			${srcdir}vi2.core.videoplayer.js\
 			${srcdir}vi2.highlight.js\
 			${srcdir}vi2.map.js\
-			${srcdir}vi2.metadata.js\
+			${srcdir}vi2.core.metadata.js\
 			${srcdir}vi2.playback-speed.js\
+			${srcdir}vi2.temporal-bookmarks.js\
 			${srcdir}vi2.playlist.js\
 			${srcdir}vi2.relatedVideos.js\
 			${srcdir}vi2.search.js\

@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>JsDoc Reference - Annotation</title>
+		<title>JsDoc Reference - Vi2.PlaybackSpeed</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -250,7 +250,7 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class Annotation
+				Class Vi2.PlaybackSpeed
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
@@ -261,13 +261,13 @@ ul.inheritsList
 				
 				
 				
-					<br /><i>Defined in: </i> <a href="../symbols/src/src_vi2.core.annotation.js.html">vi2.core.annotation.js</a>.
+					<br /><i>Defined in: </i> <a href="../symbols/src/src_vi2.playback-speed.js.html">vi2.playback-speed.js</a>.
 				
 			</p>
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class Annotation.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class Vi2.PlaybackSpeed.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -280,7 +280,7 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/Annotation.html#constructor">Annotation</a></b>(options)
+								<b><a href="../symbols/Vi2.PlaybackSpeed.html#constructor">Vi2.PlaybackSpeed</a></b>(options)
 							</div>
 							<div class="description"></div>
 						</td>
@@ -296,7 +296,7 @@ ul.inheritsList
 			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class Annotation.">
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class Vi2.PlaybackSpeed.">
 					<caption>Method Summary</caption>
 					<thead>
 						<tr>
@@ -309,45 +309,54 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/Annotation.html#appendToDOM">appendToDOM</a></b>(id)
+								<div class="fixedFont"><b><a href="../symbols/Vi2.PlaybackSpeed.html#decreaseSpeed">decreaseSpeed</a></b>()
 								</div>
-								<div class="description"></div>
+								<div class="description">Interface to decreases the playback speed by one step in the index of the given values</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/Annotation.html#begin">begin</a></b>(e, id, obj)
+								<div class="fixedFont"><b><a href="../symbols/Vi2.PlaybackSpeed.html#displaySpeed">displaySpeed</a></b>()
 								</div>
-								<div class="description"></div>
+								<div class="description">Shows the currently changed speed option inside the video frame.</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/Annotation.html#end">end</a></b>(e, id)
+								<div class="fixedFont"><b><a href="../symbols/Vi2.PlaybackSpeed.html#getCurrentSpeed">getCurrentSpeed</a></b>()
 								</div>
-								<div class="description"></div>
+								<div class="description">Interface that returns the current playback speed</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/Annotation.html#formatTime">formatTime</a></b>(secs)
+								<div class="fixedFont"><b><a href="../symbols/Vi2.PlaybackSpeed.html#increaseSpeed">increaseSpeed</a></b>()
 								</div>
-								<div class="description">Formats time from seconds to decimal mm:ss</div>
+								<div class="description">Interface to increases the playback speed by one step in the index of the given values</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/Annotation.html#init">init</a></b>(ann)
+								<div class="fixedFont"><b><a href="../symbols/Vi2.PlaybackSpeed.html#init">init</a></b>(selector)
 								</div>
-								<div class="description"></div>
+								<div class="description">Initializes the playback speed controls</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Vi2.PlaybackSpeed.html#setCurrentSpeed">setCurrentSpeed</a></b>(speed)
+								</div>
+								<div class="description">Interface to sets the playback speed</div>
 							</td>
 						</tr>
 					
@@ -368,7 +377,7 @@ ul.inheritsList
 				</div>
 				
 				<div class="fixedFont">
-						<b>Annotation</b>(options)
+						<b>Vi2.PlaybackSpeed</b>(options)
 				</div>
 				
 				<div class="description">
@@ -384,10 +393,28 @@ ul.inheritsList
 						<dt class="heading">Parameters:</dt>
 						
 							<dt>
-								<span class="light fixedFont">{object}</span>  <b>options</b>
+								 <b>options</b>
 								
 							</dt>
-								<dd>An object containing the parameters</dd>
+								<dd>{object}</dd>
+						
+							<dt>
+								 <b>options.selector</b>
+								
+							</dt>
+								<dd>{String}</dd>
+						
+							<dt>
+								 <b>options.videoSelector</b>
+								
+							</dt>
+								<dd>{String}</dd>
+						
+							<dt>
+								 <b>options.speed_steps</b>
+								
+							</dt>
+								<dd>{Array} Float array with the available steps to increase or decrease the playback speed</dd>
 						
 						</dl>
 					
@@ -410,32 +437,21 @@ ul.inheritsList
 					Method Detail
 				</div>
 				
-					<a name="appendToDOM"> </a>
+					<a name="decreaseSpeed"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>appendToDOM</b>(id)
+					<b>decreaseSpeed</b>()
 					
 					</div>
 					<div class="description">
-						
+						Interface to decreases the playback speed by one step in the index of the given values
 						
 						
 					</div>
 					
 					
 					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>id</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
 						
 						
 						
@@ -446,44 +462,21 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="begin"> </a>
+					<a name="displaySpeed"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>begin</b>(e, id, obj)
+					<b>displaySpeed</b>()
 					
 					</div>
 					<div class="description">
-						
+						Shows the currently changed speed option inside the video frame. This indicator disappears after a few seconds
 						
 						
 					</div>
 					
 					
 					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>e</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>id</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>obj</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
 						
 						
 						
@@ -494,38 +487,21 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="end"> </a>
+					<a name="getCurrentSpeed"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>end</b>(e, id)
+					<b>getCurrentSpeed</b>()
 					
 					</div>
 					<div class="description">
-						
+						Interface that returns the current playback speed
 						
 						
 					</div>
 					
 					
 					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>e</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>id</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
 						
 						
 						
@@ -536,32 +512,21 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="formatTime"> </a>
+					<a name="increaseSpeed"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>formatTime</b>(secs)
+					<b>increaseSpeed</b>()
 					
 					</div>
 					<div class="description">
-						Formats time from seconds to decimal mm:ss
+						Interface to increases the playback speed by one step in the index of the given values
 						
 						
 					</div>
 					
 					
 					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>secs</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
 						
 						
 						
@@ -576,11 +541,11 @@ ul.inheritsList
 					<div class="fixedFont">
 					
 					
-					<b>init</b>(ann)
+					<b>init</b>(selector)
 					
 					</div>
 					<div class="description">
-						
+						Initializes the playback speed controls
 						
 						
 					</div>
@@ -592,10 +557,46 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>ann</b>
+									<b>selector</b>
 									
 								</dt>
 								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setCurrentSpeed"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setCurrentSpeed</b>(speed)
+					
+					</div>
+					<div class="description">
+						Interface to sets the playback speed
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>speed</b>
+									
+								</dt>
+								<dd>{Number}</dd>
 							
 							</dl>
 						

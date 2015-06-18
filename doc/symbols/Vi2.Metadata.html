@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>JsDoc Reference - Annotation</title>
+		<title>JsDoc Reference - Vi2.Metadata</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -250,7 +250,7 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class Annotation
+				Class Vi2.Metadata
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
@@ -261,13 +261,13 @@ ul.inheritsList
 				
 				
 				
-					<br /><i>Defined in: </i> <a href="../symbols/src/src_vi2.core.annotation.js.html">vi2.core.annotation.js</a>.
+					<br /><i>Defined in: </i> <a href="../symbols/src/src_vi2.metadata.js.html">vi2.metadata.js</a>.
 				
 			</p>
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class Annotation.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class Vi2.Metadata.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -280,7 +280,7 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/Annotation.html#constructor">Annotation</a></b>(options)
+								<b><a href="../symbols/Vi2.Metadata.html#constructor">Vi2.Metadata</a></b>(options)
 							</div>
 							<div class="description"></div>
 						</td>
@@ -296,7 +296,7 @@ ul.inheritsList
 			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class Annotation.">
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class Vi2.Metadata.">
 					<caption>Method Summary</caption>
 					<thead>
 						<tr>
@@ -309,7 +309,7 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/Annotation.html#appendToDOM">appendToDOM</a></b>(id)
+								<div class="fixedFont"><b><a href="../symbols/Vi2.Metadata.html#buildMetaTags">buildMetaTags</a></b>()
 								</div>
 								<div class="description"></div>
 							</td>
@@ -318,7 +318,7 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/Annotation.html#begin">begin</a></b>(e, id, obj)
+								<div class="fixedFont"><b><a href="../symbols/Vi2.Metadata.html#render">render</a></b>()
 								</div>
 								<div class="description"></div>
 							</td>
@@ -327,25 +327,7 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/Annotation.html#end">end</a></b>(e, id)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/Annotation.html#formatTime">formatTime</a></b>(secs)
-								</div>
-								<div class="description">Formats time from seconds to decimal mm:ss</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/Annotation.html#init">init</a></b>(ann)
+								<div class="fixedFont"><b><a href="../symbols/Vi2.Metadata.html#update">update</a></b>()
 								</div>
 								<div class="description"></div>
 							</td>
@@ -368,7 +350,7 @@ ul.inheritsList
 				</div>
 				
 				<div class="fixedFont">
-						<b>Annotation</b>(options)
+						<b>Vi2.Metadata</b>(options)
 				</div>
 				
 				<div class="description">
@@ -410,11 +392,11 @@ ul.inheritsList
 					Method Detail
 				</div>
 				
-					<a name="appendToDOM"> </a>
+					<a name="buildMetaTags"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>appendToDOM</b>(id)
+					<b>buildMetaTags</b>()
 					
 					</div>
 					<div class="description">
@@ -425,17 +407,6 @@ ul.inheritsList
 					
 					
 					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>id</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
 						
 						
 						
@@ -446,11 +417,11 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="begin"> </a>
+					<a name="render"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>begin</b>(e, id, obj)
+					<b>render</b>()
 					
 					</div>
 					<div class="description">
@@ -461,29 +432,6 @@ ul.inheritsList
 					
 					
 					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>e</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>id</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>obj</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
 						
 						
 						
@@ -494,11 +442,11 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="end"> </a>
+					<a name="update"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>end</b>(e, id)
+					<b>update</b>()
 					
 					</div>
 					<div class="description">
@@ -509,95 +457,6 @@ ul.inheritsList
 					
 					
 					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>e</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>id</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="formatTime"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>formatTime</b>(secs)
-					
-					</div>
-					<div class="description">
-						Formats time from seconds to decimal mm:ss
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>secs</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="init"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>init</b>(ann)
-					
-					</div>
-					<div class="description">
-						
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>ann</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
 						
 						
 						

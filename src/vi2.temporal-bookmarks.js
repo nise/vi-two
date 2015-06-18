@@ -30,39 +30,48 @@ Vi2.TemporalBookmarks = $.inherit(/** @lends Vi2.TemporalBookmarks# */{ //
 		},
 
 		/**
-		Initializes the table of content and handles options
+		* Initializes the table of content and handles options
 		*/
-		init : function(annotations){  
-		
-			var url = window.location.href;
+		init : function(){  
+			// get the url
+			var url = window.location.href.slice(window.location.href.indexOf('#') + 1) + '#!t=npt:'  ;
 			
+			// get the title of the video from database
+			var title = vi2.db.getMetadataById( vi2.observer.current_stream ).title;
+
 			// add button to player control bar
 			var _this = this;
 			var container = $('<div></div>')
 				.append($('<div></div>').text( this.options.label ).addClass('bookmark-label'))
 				.addClass('bookmark-controls')
-				/*.bind('mouseenter', function(e){
-					$('.bookmark-controls > .select-bookmark').css('display','block');
-				})
+				.bind('mouseenter', function(e){
+					$('.select-bookmark > input').val( url + vi2.observer.player.currentTime() );
+				})/*
 				.bind('mouseleave', function(e){
 					$('.bookmark-controls > .select-bookmark').css('display','none');
 				})*/
 				.appendTo( this.options.selector);
-			//
-			var input = $('<input type="text" readonly aria-describedby="URL to the current playback position of the video." />')
-				.val( url )
-				.focus(function() { 
-					$(this).select(); 
-				} );
+			
 			var options = $('<div></div>')
-				.append( input )
 				.append( browserBookmark )			
 				.addClass('select-bookmark')
 				.appendTo(container);
 			
-			var browserBookmark = $('<span></span>')
+			var input = $('<input type="text" />')
+				.val( url )
+				.attr('readonly',true)
+				.attr('aria-describedby', 'URL to the current playback position of the video.')
+				.focus(function() { 
+					$(this).select(); 
+				} )
+				.appendTo( options );
+							
+			var browserBookmark = $('<a></a>')
 				.text('bookmark')
 				.addClass('vi2-btn')
+				.attr('rel', 'sidebar')
+				.attr('href','#')
+				.attr('title', title)
 				.click(function() {
 				  if (window.sidebar) { // Mozilla Firefox Bookmark
 				    window.sidebar.addPanel(location.href,document.title,"");
@@ -76,10 +85,4 @@ Vi2.TemporalBookmarks = $.inherit(/** @lends Vi2.TemporalBookmarks# */{ //
 	 			})
 	 			.appendTo(options);	
 		}
-
-
- 
-    
-  
-
 }); // end class  

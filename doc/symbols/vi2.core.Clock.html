@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>JsDoc Reference - Annotation</title>
+		<title>JsDoc Reference - vi2.core.Clock</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -250,7 +250,7 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class Annotation
+				Class vi2.core.Clock
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
@@ -261,13 +261,13 @@ ul.inheritsList
 				
 				
 				
-					<br /><i>Defined in: </i> <a href="../symbols/src/src_vi2.core.annotation.js.html">vi2.core.annotation.js</a>.
+					<br /><i>Defined in: </i> <a href="../symbols/src/src_vi2.core.clock.js.html">vi2.core.clock.js</a>.
 				
 			</p>
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class Annotation.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class vi2.core.Clock.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -280,7 +280,7 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/Annotation.html#constructor">Annotation</a></b>(options)
+								<b><a href="../symbols/vi2.core.Clock.html#constructor">vi2.core.Clock</a></b>(player, clockInterval)
 							</div>
 							<div class="description"></div>
 						</td>
@@ -296,7 +296,7 @@ ul.inheritsList
 			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class Annotation.">
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class vi2.core.Clock.">
 					<caption>Method Summary</caption>
 					<thead>
 						<tr>
@@ -309,7 +309,7 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/Annotation.html#appendToDOM">appendToDOM</a></b>(id)
+								<div class="fixedFont"><b><a href="../symbols/vi2.core.Clock.html#addAnnotation">addAnnotation</a></b>(obj)
 								</div>
 								<div class="description"></div>
 							</td>
@@ -318,7 +318,7 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/Annotation.html#begin">begin</a></b>(e, id, obj)
+								<div class="fixedFont"><b><a href="../symbols/vi2.core.Clock.html#addHook">addHook</a></b>(type, fn)
 								</div>
 								<div class="description"></div>
 							</td>
@@ -327,7 +327,7 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/Annotation.html#end">end</a></b>(e, id)
+								<div class="fixedFont"><b><a href="../symbols/vi2.core.Clock.html#buildAnnotationIndex">buildAnnotationIndex</a></b>()
 								</div>
 								<div class="description"></div>
 							</td>
@@ -336,16 +336,70 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/Annotation.html#formatTime">formatTime</a></b>(secs)
+								<div class="fixedFont"><b><a href="../symbols/vi2.core.Clock.html#checkAnnotation">checkAnnotation</a></b>()
 								</div>
-								<div class="description">Formats time from seconds to decimal mm:ss</div>
+								<div class="description"></div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/Annotation.html#init">init</a></b>(ann)
+								<div class="fixedFont"><b><a href="../symbols/vi2.core.Clock.html#checkAnnotation_new">checkAnnotation_new</a></b>()
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/vi2.core.Clock.html#getCurrentTime">getCurrentTime</a></b>()
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/vi2.core.Clock.html#isHook">isHook</a></b>(type)
+								</div>
+								<div class="description">Checks whether the provided type of annotation has been already added as a hook</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/vi2.core.Clock.html#parseTime">parseTime</a></b>(strTime)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/vi2.core.Clock.html#reset">reset</a></b>()
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/vi2.core.Clock.html#startClock">startClock</a></b>()
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/vi2.core.Clock.html#stopClock">stopClock</a></b>()
 								</div>
 								<div class="description"></div>
 							</td>
@@ -368,7 +422,7 @@ ul.inheritsList
 				</div>
 				
 				<div class="fixedFont">
-						<b>Annotation</b>(options)
+						<b>vi2.core.Clock</b>(player, clockInterval)
 				</div>
 				
 				<div class="description">
@@ -384,10 +438,16 @@ ul.inheritsList
 						<dt class="heading">Parameters:</dt>
 						
 							<dt>
-								<span class="light fixedFont">{object}</span>  <b>options</b>
+								<span class="light fixedFont">{Videoplayer}</span>  <b>player</b>
 								
 							</dt>
-								<dd>An object containing the parameters</dd>
+								<dd>Related video player</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Number}</span>  <b>clockInterval</b>
+								
+							</dt>
+								<dd>Interval of clock granularity in milliseconds</dd>
 						
 						</dl>
 					
@@ -410,11 +470,11 @@ ul.inheritsList
 					Method Detail
 				</div>
 				
-					<a name="appendToDOM"> </a>
+					<a name="addAnnotation"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>appendToDOM</b>(id)
+					<b>addAnnotation</b>(obj)
 					
 					</div>
 					<div class="description">
@@ -428,54 +488,6 @@ ul.inheritsList
 						
 							<dl class="detailList">
 							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>id</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="begin"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>begin</b>(e, id, obj)
-					
-					</div>
-					<div class="description">
-						
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>e</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>id</b>
-									
-								</dt>
-								<dd></dd>
 							
 								<dt>
 									<b>obj</b>
@@ -494,11 +506,11 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="end"> </a>
+					<a name="addHook"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>end</b>(e, id)
+					<b>addHook</b>(type, fn)
 					
 					</div>
 					<div class="description">
@@ -514,13 +526,13 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>e</b>
+									<b>type</b>
 									
 								</dt>
 								<dd></dd>
 							
 								<dt>
-									<b>id</b>
+									<b>fn</b>
 									
 								</dt>
 								<dd></dd>
@@ -536,15 +548,115 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="formatTime"> </a>
+					<a name="buildAnnotationIndex"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>formatTime</b>(secs)
+					<b>buildAnnotationIndex</b>()
 					
 					</div>
 					<div class="description">
-						Formats time from seconds to decimal mm:ss
+						
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="checkAnnotation"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>checkAnnotation</b>()
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="checkAnnotation_new"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>checkAnnotation_new</b>()
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getCurrentTime"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getCurrentTime</b>()
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="isHook"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>isHook</b>(type)
+					
+					</div>
+					<div class="description">
+						Checks whether the provided type of annotation has been already added as a hook
 						
 						
 					</div>
@@ -556,7 +668,50 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>secs</b>
+									<span class="light fixedFont">{String}</span> <b>type</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> </dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="parseTime"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>parseTime</b>(strTime)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>strTime</b>
 									
 								</dt>
 								<dd></dd>
@@ -572,11 +727,11 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="init"> </a>
+					<a name="reset"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>init</b>(ann)
+					<b>reset</b>()
 					
 					</div>
 					<div class="description">
@@ -588,16 +743,55 @@ ul.inheritsList
 					
 					
 						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>ann</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="startClock"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>startClock</b>()
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="stopClock"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>stopClock</b>()
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
 						
 						
 						
