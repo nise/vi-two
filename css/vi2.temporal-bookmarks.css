@@ -1,0 +1,39 @@
+.bookmark-controls {
+	position: absolute;
+  left: 248px;
+  top:6px; 
+  margin: 0;
+  padding: 2px 4px; 
+  border: 1px solid #003366; 
+  font-size:12px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+   cursor: pointer;
+   z-index:5000;
+   background-color:#555;
+   color:#fff;   
+}
+
+.select-bookmark {
+	display:none;
+	width:200px;
+	
+}
+
+.bookmark-controls:hover .select-bookmark { 
+	display: block; 
+	position:absolute; 
+	bottom:100%;
+	left:0px;
+	margin:0;
+	padding:0; 
+	background-color:#555; 
+	list-style:none;
+	line-height:12px;
+}
+.bookmark-controls:hover > .select-bookmark {  display: block; border: 1px solid #555; right:0px;}
+.bookmark-controls:hover > .select-bookmark > input { z-index:5000; padding:4px; }
+.bookmark-controls:hover > .select-bookmark > .vi-btn { z-index:5000; background: lightblue;}
+
+

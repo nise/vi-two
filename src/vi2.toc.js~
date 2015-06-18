@@ -113,7 +113,7 @@ Vi2.TableOfContents = $.inherit(Annotation, /** @lends Vi2.TableOfContents# */{ 
 		
 		
 		/**
-		Builds a menu of all entries of the table of content
+		Builds a list menu of all entries of the table of content
 		*/
 		buildMenu : function(tocData){
 			var _this = this;
@@ -194,4 +194,4 @@ Vi2.TableOfContents = $.inherit(Annotation, /** @lends Vi2.TableOfContents# */{ 
 			vi2.observer.player.currentTime( this.elements[ this.currentTocElement ] );
 		}
 		
-	}); // end class TOC
+	}); // end class

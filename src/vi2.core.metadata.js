@@ -4,7 +4,9 @@
 * license: 
 * description:
 * depends on:
-*  - embedded java script
+*  - lib: embedded java script
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
 * todo:	
 	- integrate it on server side
 	- do we really need a rendering funtion?
@@ -41,7 +43,6 @@ Vi2.Metadata = $.inherit(/** @lends Vi2.Metadata# */
   			if( this.options.requiresDisplay ){
   				this.displayMetadata();
   			}
-  			
   			if( this.options.requiresMetatags){	 
   				this.buildMetaTags();
   			}	

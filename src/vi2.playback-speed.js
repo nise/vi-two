@@ -1,17 +1,24 @@
-/* Adjust Playback Speed
-author: niels.seidel@nise81.com
-
-todo:
-- show speed changes on video frame
-
+/* 
+* name: Vi2.Playbackspeed
+* author: niels.seidel@nise81.com
+* license:
+* description:
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+* todo:
+* - show speed changes on video frame
 */
 
-/* class */
+
 Vi2.PlaybackSpeed = $.inherit(/** @lends Vi2.PlaybackSpeed# */{
 
 	/** 
-	*		@constructs 
-	*		
+	*	@constructs 
+	*	@param options {object}
+	* @param options.selector {String} 
+	* @param options.videoSelector {String} 	
+	* @param options.speed_steps {Array} Float array with the available steps to increase or decrease the playback speed 
 	*/
 	__constructor : function(options) { 
 			this.options = $.extend(this.options, options);
@@ -20,9 +27,10 @@ Vi2.PlaybackSpeed = $.inherit(/** @lends Vi2.PlaybackSpeed# */{
 	},
 	
 	name : 'playbackSpeed',
+	type : 'player-widget',
 	options : {
-		videoSelector : 'video1',
 		selector: '.control-bar',
+		videoSelector : 'video1',
 		speed_steps: [0.3,0.5,0.8,1.0,1.5,2.0,3.0,4.0]	
 	},
 	speed : 1, // default speed
@@ -30,8 +38,10 @@ Vi2.PlaybackSpeed = $.inherit(/** @lends Vi2.PlaybackSpeed# */{
 	speedIndex : 3,
 	
 
-	/* Initializes the playback speed controls */
-	init : function(selector){ 
+	/** 
+	*	Initializes the playback speed controls 
+	*/
+	init : function(selector){  
 		var _this = this;
 		var container = $('<div></div>')
 			.append($('<div></div>').text('1.0x').addClass('speed-label'))
@@ -68,21 +78,27 @@ Vi2.PlaybackSpeed = $.inherit(/** @lends Vi2.PlaybackSpeed# */{
 		})
 	},
 	
-	/* */
+	
+	/** 
+	* Shows the currently changed speed option inside the video frame. This indicator disappears after a few seconds
+	*/
 	displaySpeed : function(){
 		// need to be implemented
 	},
 	
 	
-	
-	/**** INTERFACES **********/
-	
-	/* Returns the current playback speed*/
+	/** 
+	* Interface that returns the current playback speed
+	*/
 	getCurrentSpeed : function(){
 		return this.speed;
 	},
 	
-	/* Sets the playback speed */ 
+	
+	/** 
+	* Interface to sets the playback speed
+	*	@param speed {Number} 	 
+	*/ 
 	setCurrentSpeed : function(speed){ 
 		if( this.options.speed_steps.indexOf( parseFloat(speed) ) != -1){
 			// set speed
@@ -99,14 +115,20 @@ Vi2.PlaybackSpeed = $.inherit(/** @lends Vi2.PlaybackSpeed# */{
 		}	
 	},
 	
-	/* Increases the playback speed by one step in the index of the given values */
+	
+	/**
+	* Interface to increases the playback speed by one step in the index of the given values 
+	*/
 	increaseSpeed : function(){ 
 		if( this.speedIndex < this.options.speed_steps.length ){
 			this.setCurrentSpeed( this.options.speed_steps[ this.speedIndex + 1 ] );
 		}	
 	},
 	
-	/* Decreases the playback speed by one step in the index of the given values */
+	
+	/** 
+	* Interface to decreases the playback speed by one step in the index of the given values 
+	*/
 	decreaseSpeed : function(){ 
 		if( this.speedIndex > 1 ){
 			this.setCurrentSpeed( this.options.speed_steps[ this.speedIndex -1 ] );

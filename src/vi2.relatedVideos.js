@@ -3,6 +3,9 @@
 * author: niels.seidel@nise81.com
 * license:
 * description: 
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
 * to-do:
 *  - (server side) 	- users that have seen this video also took a look at ...
 *  - check literature about other algorithms for recommender systems

@@ -7,13 +7,13 @@ Vi2.Example = $.inherit({
   __constructor : function() { 
   	vi2 = this;
   	vi2.dom = "#vi2";
-  	vi2.templatePath = "views";
+  	vi2.templatePath = "views/";
   	var files = [
   			{path: 'data.json', storage: 'json_data'},
   			{path: 'data-slides.min.json', storage: 'json_slide_data'}
   	];
 		
-		vi2.db = new DataBase({path: '/', files: files}, this, 'init');
+		vi2.db = new Vi2.DataBase( {path: '/', files: files }, this, 'init');
   },
   
   viLog : '',
@@ -34,9 +34,9 @@ Vi2.Example = $.inherit({
 		vi2.observer.parse(vi2.dom, 'html');
 		
 		
-		// At first we define some basic widgets
+		// At first we define some basic player widgets
 		var playbackSpeed = new Vi2.PlaybackSpeed();
-		
+		var temporalBookmarks = new Vi2.TemporalBookmarks();
 		
 		// Add an table of content
 	 	var toc = new Vi2.TableOfContents( { 
@@ -79,6 +79,7 @@ Vi2.Example = $.inherit({
 		//vi2.observer.addWidget( relatedVideos );
 		//vi2.observer.addWidget( inVideoSearch );	
 		vi2.observer.addWidget( playbackSpeed );  
+		vi2.observer.addWidget( temporalBookmarks );
   }
  
 }); // class

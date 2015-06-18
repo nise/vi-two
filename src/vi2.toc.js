@@ -5,6 +5,8 @@
 * description:
 * depends on:
 *  - embedded java script
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
 * todo:
 *  - highlight on skip ... this.player.video.addEventListener('timeupdat
 *  - realize a toc for concatinated video clips
@@ -194,4 +196,4 @@ Vi2.TableOfContents = $.inherit(Annotation, /** @lends Vi2.TableOfContents# */{ 
 			vi2.observer.player.currentTime( this.elements[ this.currentTocElement ] );
 		}
 		
-	}); // end class TOC
+	}); // end class

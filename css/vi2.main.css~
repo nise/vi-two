@@ -16,7 +16,7 @@
 }
 
 #overlay {
-	width:692px;
+	width:inherit;
 	padding-left:280px;
 	display:block;
 	position:relative;

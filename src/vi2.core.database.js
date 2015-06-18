@@ -2,6 +2,9 @@
 * name: DataBase
 *	author: niels.seidel@nise81.com
 * license: 
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
 * todo: 	
 *	 - call_back als Event umsetzen
 *	 - filenames as parameter
@@ -9,7 +12,7 @@
 */
 
 
-var DataBase = $.inherit(/** @lends DataBase# */{
+Vi2.DataBase = $.inherit(/** @lends DataBase# */{
 
 		/** 
 		*		@constructs

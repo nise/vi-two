@@ -3,6 +3,9 @@
 *	author: niels.seidel@nise81.com
 * license: 
 * description: Syncronizes images to the video playback
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
 *	todo:
 *	- showOnTimeline: viz on timeline by showing current slide
 *	- on/off controls .. sync, skip/browse slides

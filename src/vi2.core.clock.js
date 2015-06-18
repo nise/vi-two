@@ -3,6 +3,9 @@
 *	author: niels.seidel@nise81.com
 * license: 
 *	description: Checks which annotations need to be activated or deactivated in given time intervall during video playback
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
 *	todo:
 *	 	- implement checkAnnotation in order to trigger certain events at the listenning instances
 * 		- use timeUpdate insteate of setTimeOut or setIntervall: http://blog.gingertech.net/2009/08/19/jumping-to-time-offsets-in-videos/
@@ -12,6 +15,16 @@ https://de.wikipedia.org/wiki/Interpolationssuche
 https://en.wikipedia.org/wiki/Search_engine_indexing#Inverted_indices
 https://en.wikipedia.org/wiki/Inverted_index
 https://en.wikipedia.org/wiki/Index#Computer_science
+
+- Indexstruktur wird bei Änderungen (z.B. einer neuen Annotation) neu berechnet. Muss das so sein?
+- es handelt sich um eine eindimensionale Indexstruktur, in der die Anzeigezeit indiziert ist 
+- Alternative Implementierung: B-Baum
+- Ermittlung der optimalen Länge des Index  ... Abspielzeit in Minuten / Anzahl der Annotation ... Videolänger / Prüfungsintervall ??
+- Ziel müsste es sein, die Annotationen möglichst gleich auf die Indexeinträge zu verteilen, so dass in jedem Indexeintrag so wenig wie möglich und immer gleichviele Suchoperationen vorgenommen werden müssten.
+- Ein Nebenziel müsste sein, die Bestimmung des aktuellen Index so einfach wie möglich zu gestalten. 
+- Landau-Notation:: Man müsste Testfälle generieren, in dem man die Anzahl der Annotation verdoppelt, um dazu den Zeitaufwand misst. = Zeitkomplexität. Diese Messung müsste in verschiedenen Browsern durchgeführt werden.
+%http://de.wikipedia.org/wiki/Landau-Symbole#Beispiele_und_Notation 
+
 */
 	
 
