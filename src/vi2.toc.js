@@ -1,14 +1,17 @@
-	/* TOC
-	author: niels.seidel@nise81.com
-	
-	todo:
-	- highlight on skip ... this.player.video.addEventListener('timeupdat
-	- realize a toc for concatinated video clips
-	*/
+/* 
+* name: Vi2.TableOfContent
+* author: niels.seidel@nise81.com
+* license:
+* description:
+* depends on:
+*  - embedded java script
+* todo:
+*  - highlight on skip ... this.player.video.addEventListener('timeupdat
+*  - realize a toc for concatinated video clips
+*/
 
 
-/* class TOC **/ 
-Vi2.TableOfContents = $.inherit(Annotation, /** @lends TableOfContents# */{ // 
+Vi2.TableOfContents = $.inherit(Annotation, /** @lends Vi2.TableOfContents# */{ // 
 
 		/** @constructs
 		*		@extends Annotation
@@ -110,7 +113,7 @@ Vi2.TableOfContents = $.inherit(Annotation, /** @lends TableOfContents# */{ //
 		
 		
 		/**
-		Builds a menu of all entries of the table of content
+		Builds a list menu of all entries of the table of content
 		*/
 		buildMenu : function(tocData){
 			var _this = this;

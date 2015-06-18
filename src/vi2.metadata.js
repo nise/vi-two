@@ -1,13 +1,18 @@
-/* Metadata
-	
+/* 
+* name: Vi2.Metadata
+* author: niels.seidel@nse81.com
+* license: 
+* description:
+* todo:	
 	- integrate it on server side
 	- do we really need a rendering funtion?
 	- complete metadata
 	- think about sitemap.xml and dbpedia
 	- bug: metadata width and height is Null since the video has not been loaded yet.
-	
-	*/
-var Vi2_Metadata = $.inherit(/** @lends Metadata# */
+*/
+
+
+Vi2.Metadata = $.inherit(/** @lends Vi2.Metadata# */
 	{
 			/** 
 			*		@constructs 

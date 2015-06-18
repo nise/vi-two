@@ -303,7 +303,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		// keep the native HTML5 controls hidden
 		$(this.video).removeAttr('controls');
 
-		$("#video1, #overlay").hover(function() { 
+		$("#video1, #overlay").hover(function() {  
 		  	$(_this.options.videoControlsSelector).addClass("open-controls");
 			}, function() { 
 		  	$(_this.options.videoControlsSelector).removeClass("open-controls");

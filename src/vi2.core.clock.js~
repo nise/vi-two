@@ -1,8 +1,8 @@
 /* 
 *	name: Vi2.Clock
 *	author: niels.seidel@nise81.com
-*	description: Checks which annotations need to be activated or deactivated in given time intervall during video playback
 * license: 
+*	description: Checks which annotations need to be activated or deactivated in given time intervall during video playback
 *	todo:
 *	 	- implement checkAnnotation in order to trigger certain events at the listenning instances
 * 		- use timeUpdate insteate of setTimeOut or setIntervall: http://blog.gingertech.net/2009/08/19/jumping-to-time-offsets-in-videos/
@@ -15,7 +15,7 @@ https://en.wikipedia.org/wiki/Index#Computer_science
 */
 	
 
- Vi2.Clock = $.inherit(/** @lends Vi2.Clock# */
+Vi2.Clock = $.inherit(/** @lends vi2.core.Clock# */
 	{
 			/** 
 			*		@constructs 
@@ -43,7 +43,7 @@ https://en.wikipedia.org/wiki/Index#Computer_science
 		* @return {boolean}
 		*/
   	isHook : function(type){
-  		return this.hooks[type] != null;	
+  		return this.hooks[type] !== null;	
   	},
   	
   	/* ... */
@@ -84,7 +84,7 @@ https://en.wikipedia.org/wiki/Index#Computer_science
 
 			for (var i=0; i < this.annotations.length;i++){
 				var oAnn = this.annotations[i];
-				if(iTime >= oAnn.displayPosition.t1 && iTime < (new Number(oAnn.displayPosition.t1) + new Number(oAnn.displayPosition.t2))) {
+				if(iTime >= oAnn.displayPosition.t1 && iTime < (Number(oAnn.displayPosition.t1) + Number(oAnn.displayPosition.t2))) {
 					if(!oAnn.active){
 						oAnn.active = true; 
 	  				$(this.player).trigger('annotation.begin.'+oAnn.type, [i, oAnn]); 
@@ -124,7 +124,7 @@ https://en.wikipedia.org/wiki/Index#Computer_science
 			$('#debug').val(_this.prepAnno[x].length);	
 			$.each(_this.prepAnno[x], function(i, oAnn){
 				
-				if(iTime >= oAnn.displayPosition.t1 && iTime < (new Number(oAnn.displayPosition.t1) + new Number(oAnn.displayPosition.t2))) {
+				if(iTime >= oAnn.displayPosition.t1 && iTime < (Number(oAnn.displayPosition.t1) + Number(oAnn.displayPosition.t2))) {
 					if(!oAnn.active){
 						oAnn.active = true; 
 	  				$(_this.player).trigger('annotation.begin.'+oAnn.type, [i, oAnn]); 

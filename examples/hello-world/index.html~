@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>vi2 framework showcase</title>
@@ -55,6 +56,7 @@
 		<script src="../../lib/jquery.json-2.2.min.js"></script>
 		<script src="../../lib/jquery-ui-1.10.3.custom.min.js"></script>
 		<script src="../../lib/jquery.inherit-1.1.1.js"></script>
+		<script src='../../lib/ejs_production.js'></script>
 		<script src="../../lib/jquery.tinysort.js"></script>
 		<script src="../../lib/jquery.tooltip.js"></script>
 		<script src='../../lib/jquery.spin.js'></script>
@@ -65,14 +67,12 @@
 				vi2 = undefined, 
 				ocr = undefined
 				;
-		var Vi2 = {}; // set the Namespace
-		$(document).ready(function(){
-			var core = new Vi2.Example();	
-		});
+			var Vi2 = {}; // set the Namespace
+			$(document).ready(function(){
+				var core = new Vi2.Example();	
+			});
 		</script>
-		
 
-	
 		<!-- vi-two -->
 		<script src="main.js"></script>
 		<script src="../../src/vi2.core.log.js"></script>
@@ -81,19 +81,19 @@
 		<script src="../../src/vi2.core.parser.js"></script>
 		<script src="../../src/vi2.core.videoplayer.js"></script>
 		<script src="../../src/vi2.core.clock.js"></script>
+		<script src="../../src/vi2.core.metadata.js"></script>
 		<script src="../../src/vi2.core.annotation.js"></script>
 		<script src="../../src/vi2.core.utils.js"></script>
 		<script src="../../src/vi2.playback-speed.js"></script>
 		<script src="../../src/vi2.relatedVideos.js"></script>
 		<script src="../../src/vi2.search.js"></script>
 		<script src="../../src/vi2.toc.js"></script>
+		<script src="../../src/vi2.syncMedia.js"></script>
 	<!--	<script src="../../src/vi2.xlink.js"></script>
 		<script src="../../src/vi2.seq.js"></script>
 		<script src="../../src/vi2.tags.js"></script>
 		<script src="../../src/vi2.toc.js"></script>-->
-		<script src="../../src/vi2.metadata.js"></script>
 	
-		
 	</head>
 <body>
 	<div id="page">
@@ -101,7 +101,8 @@
 			<div id="seq"></div>
 			<div id="overlay"></div>
 			<div id="split"></div>
-			<div class="menu">
+			<div class="sidepanel">
+				<div class="metadata"></div>
 				<div class="toc">
 					<h3>Contents</h3>
 				</div>
@@ -111,6 +112,7 @@
 				<div class="search-results">
 					<h3>Search Results</h3>
 				</div>
+				<div class="syncMedia"></div>
 			</div>
 			
 			<div id="accordion-resizer" class="ui-widget-content">

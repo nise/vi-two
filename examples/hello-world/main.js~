@@ -7,8 +7,10 @@ Vi2.Example = $.inherit({
   __constructor : function() { 
   	vi2 = this;
   	vi2.dom = "#vi2";
+  	vi2.templatePath = "views";
   	var files = [
-  			{path: 'data.json', storage: 'json_data'}
+  			{path: 'data.json', storage: 'json_data'},
+  			{path: 'data-slides.min.json', storage: 'json_slide_data'}
   	];
 		
 		vi2.db = new DataBase({path: '/', files: files}, this, 'init');
@@ -27,18 +29,29 @@ Vi2.Example = $.inherit({
   	vi2.utils = new Vi2_Utils();
   	
   	vi2.observer = new Observer({selector:"#seq", videoWidth:"400px", videoHeight:"800px"}); 
-		vi2.observer.init(0);
+		vi2.observer.init(0); 
 		vi2.observer.setCurrentStream('seidel1');
-		//vi2.observer.parse(vi2.dom, 'html');
+		vi2.observer.parse(vi2.dom, 'html');
 		
 		
 		// At first we define some basic widgets
 		var playbackSpeed = new Vi2.PlaybackSpeed();
 		
 		
-		// now lets set up some annotation widgets.
-	 	var toc = new Vi2.TableOfContents( { hasTimelineMarker: true, hasMenu: true, menuSelector:'.toc' } );
+		// Add an table of content
+	 	var toc = new Vi2.TableOfContents( { 
+	 		hasTimelineMarker: true, 
+	 		hasMenu: true, 
+	 		menuSelector:'.toc' 
+	 	} );
 		
+		// Synchronize some presentation slides
+		var syncMedia = new Vi2.SyncronizeMedia( { 
+			selector: '.syncMedia', 
+			hasTimelineMarker: true, 
+			hasMenu: true, 
+			menuSelector:'.toc' 
+		} );
 		
 		// With these widgets we make use of the video database
 		var relatedVideos = new Vi2.RelatedVideos( { 
@@ -51,19 +64,20 @@ Vi2.Example = $.inherit({
 				{ criterion: 'outgoing-links', weight:0.5 }
 				] 
 		} );
-		relatedVideos.init();
+		//relatedVideos.init();
 		
 		var inVideoSearch = new Vi2.Search( {
 			resultSelector: '.search-results', 
 			limit: 25
-		});
-		inVideoSearch.find('water basin');
+		} );
+		//inVideoSearch.find('water basin');
 		
 		
 		// add all the widgets
-		vi2.observer.addWidget( toc );	
-		vi2.observer.addWidget( related );
-		vi2.observer.addWidget( inVideoSearch );	
+		vi2.observer.addWidget( toc );
+		vi2.observer.addWidget( syncMedia );	
+		//vi2.observer.addWidget( relatedVideos );
+		//vi2.observer.addWidget( inVideoSearch );	
 		vi2.observer.addWidget( playbackSpeed );  
   }
  

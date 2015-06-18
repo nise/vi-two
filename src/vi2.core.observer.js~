@@ -17,9 +17,9 @@
 	*		@params {object} options  
 	*/
 	__constructor : function(options) { 
-		this.options = $.extend(this.options, options);
-		this.widget_list = new Object(); // Assoc Array is an Object // Object.size(this.widget_list)
-		this.clock = new Clock({}, this.options.clockInterval); 
+		this.options = $.extend(this.options, options); 
+		this.widget_list = {}; // Assoc Array is an Object // Object.size(this.widget_list)
+		this.clock = new Vi2.Clock({}, this.options.clockInterval);  
 		//this.init();	
 
 		//this.testing();
@@ -59,17 +59,20 @@
 				.text(vi2.db.getStreamById(stream).video)
 				.appendTo('#vi2');	
 		//this.annotationsToDOM();
+		// 
 		this.clock.stopClock();
 		this.clock.reset(); 
-		var metadataa = new Vi2_Metadata( );
-		var p = new Parser(vi2.dom, 'html'); // parse the DOM
-		this.vid_arr = p.run(); 
+		// generate and render metadata
+		var metadata = new Vi2.Metadata();
+		// re-parse DOM
+		var parser = new Parser(vi2.dom, 'html');
+		this.vid_arr = parser.run(); 
 	},
 
 	/* -- */
 	parse : function(selector, markupType){ 
 		this.parseSelector = selector;
-		this.parser = new Parser(selector, markupType == null ? this.markupType : markupType);
+		this.parser = new Parser(selector, markupType === null ? this.markupType : markupType);
 		this.vid_arr = [];  
 		this.vid_arr = this.parser.run(); 
 		this.clock.stopClock();
@@ -81,7 +84,7 @@
 
 	/* -- */
 	init : function(seek){  
-		seek = seek == undefined ? 0 : seek;
+		seek = seek === undefined ? 0 : seek;
 		var _this = this; 
 		var videoo = $('<video controls autobuffer></video>')
 				.attr('id', this.options.videoSelector.replace(/\#|./,''))
@@ -104,9 +107,7 @@
 			}, this); 
 		this.clock.player = this.player;
 		
-		// load some widgets
-		var viPlaybackSpeed = new Vi2_PlaybackSpeed({}, this);
-		this.addWidget( viPlaybackSpeed ); 
+		
 
 		// some event bindings hooks
 		$(this).bind('player.ready', function(e, id, i){ 
@@ -123,13 +124,13 @@
 		_this.clock.annotations = [];			 
 		_this.vid_arr = _this.parser.run(); 
 		
-		$.each(_this.vid_arr[0]['annotation'], function(i, val){ 		
+		$.each(_this.vid_arr[0].annotation, function(i, val){ 		
 			_this.clock.addAnnotation(val); 
 		}); 
 		
 		// initiate widgets
 		$.each(_this.widget_list, function(j, val){ 
-			this.init( _this.vid_arr[0]['annotation'] );				
+			this.init( _this.vid_arr[0].annotation );				
 		});
 		//vi2.enableEditing('toc');
 		
@@ -147,14 +148,14 @@
 				if (!h264Test){
 					alert("Sorry. No video support.");
 				}else{
-					if (h264Test == "probably"){
+					if (h264Test === "probably"){
 						//document.getElementById("checkVideoResult").innerHTML="Yeah! Full support!";
 					}else{
 						//document.getElementById("checkVideoResult").innerHTML="Meh. Some support.";
 					}
 				}
 			}else{
-				if (oggTest == "probably"){
+				if (oggTest === "probably"){
 					//document.getElementById("checkVideoResult").innerHTML="Yeah! Full support!";
 				}else{
 					//document.getElementById("checkVideoResult").innerHTML="Meh. Some support.";
@@ -169,7 +170,7 @@
 	/* -- */
 	updateLocation : function(identifier, value){ 
 		// Exeption for IWRM Education
-		if(value == 'Introduction'){
+		if(value === 'Introduction'){
 			window.location.replace(window.location.href.split('#')[0]+'#!borchardt2');
 			return;
 		}
@@ -181,14 +182,14 @@
 
 	/* -- */ // - kill switch()!
 	addWidget : function(obj){ 
-		if(this.widget_list[obj.name] != null){ 
+		if(this.widget_list[obj.name] !== null){ 
 			//return false;
 		}
 		var _this = this;   	
 		obj.player = this.player; 
 		this.clock.addHook(obj.name, obj);	
 
-		if(obj.type == 'annotation'){  
+		if(obj.type === 'annotation'){  
 			obj.appendToDOM( this.current_stream ); // former: this.options.id
 		}	
 
@@ -261,7 +262,7 @@
 	
 	/* Returns true or false whether the given string is the name of an registered widget or not. */
 	isWidget : function(widget){
-		return this.widget_list[widget] != null;	
+		return this.widget_list[widget] !== null;	
 	},
 	
 	/* Returns the widget object to the given name. */
@@ -283,7 +284,7 @@
 	annotationsToDOM : function(){ 
 		var _this = this; 
 		$.each(this.widget_list, function(i, widget){ 
-			if(widget.type == 'annotation'){  
+			if(widget.type === 'annotation'){  
 				widget.appendToDOM(_this.current_stream); 
 			}
 		});
@@ -297,13 +298,14 @@
   		
   		/* -- */
   		isHook : function(widget, hook_name){
-  			return this.hooks[widget+'_'+hook_name] != null;	
+  			return this.hooks[widget+'_'+hook_name] !== null;	
   		},
 
   		
   		/* -- */
   		registerHook : function(widget, hook_name){
-  			return this.hooks[widget+'_'+hook_name] = [];	
+  			this.hooks[widget+'_'+hook_name] = [];
+  			return this.hooks[widget+'_'+hook_name];	
   		},
   		  		
   		/* not used anymore */
@@ -362,15 +364,15 @@
   				_this.clock.addAnnotation(val);
   			});
   			
-				if(_this.widget_list['xlink'] != null){
+				if(_this.widget_list['xlink'] !== null){
 	  			_this.widget_list['xlink'].clear();
   				_this.widget_list['xlink'].init(_this.vid_arr[i]['annotation']);
   			}
-  			if(_this.widget_list['toc'] != null){ 	  				
+  			if(_this.widget_list['toc'] !== null){ 	  				
 	  			_this.widget_list['toc'].init(_this.vid_arr[i]['annotation']);						
 	  		}
 	  		// if there is a sequential video, play it
-	  		if(_this.widget_list['seqv'] != null){ 	  				
+	  		if(_this.widget_list['seqv'] !== null){ 	  				
 	  			_this.widget_list['seqv'].init();//_this.vid_arr[i]['annotation']);						
 	  		}
 */
@@ -426,20 +428,22 @@
   		
   		/* -- */
   		openScreen : function(selector){ 
-  			if(selector == undefined){
+  			if(selector === undefined){
   				selector = '.vi2-video-player'; 
   			}
   			//this.player.pause();
-  			if($('.screen').length == 0){
-				var screen = $('<div></div>')
-					.addClass('screen');
+  			if($('.screen').length === 0){
+					var screen = $('<div></div>')
+					 .addClass('screen');
 					//.width($(selector).width()-18)
 					//.height($(selector).height()-10)
-				}
-				$('.screen').show()
-					.appendTo(selector);
+				
+					$('.screen')
+						.show()
+						.appendTo(selector);
 			
-  			return screen;
+  				return screen;
+  			}
   		},
   		
   		/* -- */

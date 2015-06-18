@@ -1,11 +1,12 @@
-	/* 
-	* name: Vi2.RelatedVideos
-	* author: niels.seidel@nise81.com
-	* description: 
-	* to-do
-	*  - destructor: man möchte ja nicht nur im eigenen Saft schwimmen (filter bubble), sondern auch auf andere Themen stoßen ... statt optimal match
-	*  - (server side) 	- users that have seen this video also took a look at ...
-	*/
+/* 
+* name: Vi2.RelatedVideos
+* author: niels.seidel@nise81.com
+* license:
+* description: 
+* to-do:
+*  - (server side) 	- users that have seen this video also took a look at ...
+*  - check literature about other algorithms for recommender systems
+*/
 
 
 Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
@@ -80,7 +81,7 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 		weightResults : function(res, weight){  
 			var _this = this;
 			$.each(res, function(i, val){
-				if( i in _this.results == false ){  
+				if( i in _this.results === false ){  
 					_this.results[ i ] = 0;
 				} 
 				_this.results[ i ] += Math.floor(val * weight * 10)/10; // bug: strange floating number as result
@@ -96,7 +97,9 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 			for (var el in arr){
 						sortable.push([el, arr[el]]);
 			}			
-			return sortable.sort(function(a, b) {return  b[1] - a[1]})
+			return sortable.sort(function(a, b) { 
+				return  b[1] - a[1]; 
+			});
 		},
 		
 		
@@ -117,12 +120,12 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 				}
 				j++;
 			});
-		},	
+		}	
 		
 		
 
 
-		/** deprecated ...  */
+		/** deprecated ... 
 		showLinkSummary : function(e){ return;
 		 var _this = this;
 			var screen = observer.openScreen(this.options.resultSelector);
@@ -142,6 +145,7 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 			screen.processTemplate(_this.link_list);
 			
 		}
+		 */
 		
 		
 	}); // end class RelatedVideos		

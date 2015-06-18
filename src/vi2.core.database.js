@@ -1,15 +1,15 @@
-	/* DataBase
-	author: niels.seidel@nise81.com
-	
-	- call_back als Event umsetzen
-	- filenames as parameter
-	- handle different data sets
-	
-	*/
+/* 
+* name: DataBase
+*	author: niels.seidel@nise81.com
+* license: 
+* todo: 	
+*	 - call_back als Event umsetzen
+*	 - filenames as parameter
+*	 - handle different data sets
+*/
 
 
-	/* class DataBase **/ 
-	var DataBase = $.inherit(/** @lends DataBase# */{
+var DataBase = $.inherit(/** @lends DataBase# */{
 
 		/** 
 		*		@constructs
@@ -62,10 +62,10 @@
             
             //alert(JSON.stringify(_this.json_data))
             _this._d++; 
-            if (_this._d == Object.size(_this.options.files)){ 
+            if (_this._d === Object.size(_this.options.files)){ 
             	console.log('done'); 
             	// call
-            	if(_this.call_back != undefined){
+            	if(_this.call_back !== undefined){
             		_this.call_back[fn]();
             	}else{
             		fn();
@@ -87,7 +87,7 @@
 	isStream : function(id){
 		var t = false;
 		$.each(this.json_data, function(val){
-			if (this.id == id){
+			if (this.id === id){
 				t = true;
 			}
 		});
@@ -98,7 +98,7 @@
 	getStreamById : function(id){ 
 		
 		/*
-		if(this.json_data == undefined){
+		if(this.json_data === undefined){
 			return {}
 		}else{
 			return this.json_data;
@@ -106,7 +106,7 @@
 		/// old:
 		var stream = {}; 
 		$.each(this.json_data.stream, function(i, val){ 
-			if (this.id == id){  
+			if (this.id === id){  
 				stream = this; 
 			}
 		}); 
@@ -137,8 +137,8 @@
 		// reduce the number of elements regarding the given limit
 		array = array.slice(0, limit);
 		// resort keys and values
-		for(var i = 0; i < array.length; i++){
-			result[array[i]] = 1; 
+		for(var k = 0; k < array.length; k++){
+			result[array[k]] = 1; 
 		}
 		return result;
 	},
@@ -156,7 +156,7 @@
 	
 	// returns ordered list of all categories
 	getCategoryTaxonomie : function(){
-		var cat = new Object();
+		var cat = {};
 		$.each(this.json_data.categories, function(i,val){ 
 				cat[this.pos] = {first_level: this.title, desc: this.desc};
 		}); 
@@ -168,7 +168,7 @@
 	getCategory : function(cat_name){
 		var data = {};
 		$.each(this.json_data.categories, function(i,val){ 
-			if(this.title == cat_name){
+			if(this.title === cat_name){
 				data = {first_level: this.title, desc: this.desc, pos: this.pos, link: this.link, icon:this.icon};
 			} 
 		}); 
@@ -207,7 +207,7 @@
 		var authors = {};
 		$.each(this.json_data.stream, function(i, stream){  
 				if(stream.metadata[0].author === author && stream.id != id){ 
-					if( stream.id in authors == false ){
+					if( stream.id in authors === false ){
 						authors[stream.id] = 0;
 					}
 					authors[stream.id] += 1; //$('#debug').val($('#debug').val() + stream.id);
@@ -222,9 +222,9 @@
 	/* TAGS */	
 
 	/* returns all tags of a video/stream **/
-	getTagsById : function(id){
-		if(this.json_data.tags==undefined){
-			return {}
+	getTagsById__xxx : function(id){
+		if(this.json_data.tags === undefined){
+			return {};
 		}else{
 			return this.getStreamById(id).tags;
 		}
@@ -259,7 +259,7 @@
 	getTagsById : function(id){
 		var tags = []; 
 		$.each(this.json_data.stream, function(i, stream ){
-			if( stream.id == id ){   
+			if( stream.id === id ){   
 				$.each( stream.tags, function(i, tag){ 
 					tags[i] = stream.tags[i].tagname;
 				});	
@@ -277,7 +277,7 @@
 		$.each(_this.json_data.stream, function(j, stream){  
 			$.each(stream.tags, function(k, val){  
 				if( tags.indexOf( val.tagname ) != -1 && stream.id != id){
-					if( stream.id in results == false ){  
+					if( stream.id in results === false ){  
 						results[ stream.id ] = 0;
 					}//else if( results.hasOwnProperty(stream.id) ){ 
 						results[ stream.id ] += 1;  
@@ -299,7 +299,7 @@
 	getLinkTargetsById : function(id){
 		var results = {}; 
 		$.each(	this.getStreamById(id).links, function( i, link ){ 
-			if( link.target in results == false ){  
+			if( link.target in results === false ){  
 				results[ link.target ] = 0;
 			}
 			results[ link.target ] += 1;
@@ -315,8 +315,8 @@
 		var results = {};	
 		$.each(this.json_data.stream, function( i, stream ){ 
 			$.each(stream.links, function(i, link){
-				if(link.target == id && stream.id != id){
-					if( stream.id in results == false ){  
+				if(link.target === id && stream.id != id){
+					if( stream.id in results === false ){  
 						results[ stream.id ] = 0;
 					}
 					results[ stream.id ] += 1;
@@ -344,8 +344,8 @@
 	
 	/* -- */ 	
 	getAssessmentById : function(id){
-		if(this.json_data.assessment == undefined){
-			return {}
+		if(this.json_data.assessment === undefined){
+			return {};
 		}else{	
 			return this.json_data.assessment; 
 			return this.getStreamById(id).assessment;
@@ -355,13 +355,13 @@
 	
 	/* returns table of content of the requested video */
 	getTocById : function(id){
-		return this.getStreamById(id).toc
+		return this.getStreamById(id).toc;
 	},
 	
 		/* returns highlight of the requested video */
 	getHighlightById : function(id){ 
-		if( this.json_data.highlight == undefined ){
-			return {}
+		if( this.json_data.highlight === undefined ){
+			return {};
 		}else{ 
 			return this.getStreamById(id).highlight;
 		}
@@ -369,30 +369,28 @@
 	
 	
 	/** 
+	* Returns the slides data array either from the given stream object or from a separate json file containing all slide data.
 	*	@param {String} Video id
 	*	@returns {Object} JSON object with temporal annotation of images/slides of video with the given id.
 	*/ 	  
 	getSlidesById : function(id){ 
-		//alert(JSON.stringify( this.getStreamById(id)['slides'] ))
-		return this.getStreamById(id)['slides']; 
-
-		if(this.json_data.slides == undefined){
-			return {};
+		if(this.json_slide_data === undefined){
+			return this.getStreamById(id).slides;
 		}else{
-			return this.json_data.slides;
+			var slides = {}; 
+			$.each(this.json_slide_data._slides, function(i, val){ 
+				if (this.id == id){  
+					slides = this.slides;
+				}
+			}); 
+			return slides;
 		}
-		
-		var slides = {}; 
-		$.each(this.json_data, function(i, val){ 
-			if (this._id == id){  
-				slides = this.slides;
-			}
-		}); 
-		return slides;
 	}, 
 	
+	
+	/***/
 	hasSlides : function(id){
-		return this.getStreamById(id).slides.length > 0 ? 1 : 0;
+		return this.getStreamById(id).slides.length > 0 ? 1 : 0; // xxx bugy for separate slides.json
 	},
 	
 	
@@ -402,7 +400,7 @@
 	getUserById : function(id){
 		var user = {}; 
 		$.each(this.json_user_data, function(i, val){ 
-			if (this.id == id){  
+			if (this.id === id){  
 				user = this;
 			}
 		}); 
@@ -416,7 +414,7 @@
 	getGroupById : function(id){
 		var group = {}; 
 		$.each(this.json_group_data, function(i, val){ 
-			if (this.id == id){  
+			if (this.id === id){  
 				group = this;
 			}
 		}); 
@@ -427,7 +425,7 @@
 	getUserByGroupId : function(group, pos){ //alert(group+'  '+pos)
 		var u = [];
 		$.each(this.json_user_data, function(i, val){ 
-			if (this.groups[pos] == group){  
+			if (this.groups[pos] === group){  
 				u.push(this);
 			}
 		});

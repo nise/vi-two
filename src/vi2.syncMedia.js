@@ -1,46 +1,52 @@
-/* SyncMedia  pdf3JPG:$ convert -resize 800 -quality 93 xxx.pdf slide.jpg
-	author: niels.seidel@nise81.com
-	
-	nth:
-	- showOnTimeline: viz on timeline by showing current slide
-	- on/off controls .. sync, skip/browse slides
-	- differ media types
+/* 
+* name: Vi2.SyncronizeMedia 
+*	author: niels.seidel@nise81.com
+* license: 
+* description: Syncronizes images to the video playback
+*	todo:
+*	- showOnTimeline: viz on timeline by showing current slide
+*	- on/off controls .. sync, skip/browse slides
+* - skip slides ... interface for next/previous 
+* - appendtodom in Annotations auslagern
+* - switch video and synMedia selector
+* - require absolut image path
+*	- differ media types
+*	remarks:
+*  - pdf2JPG:$ convert -resize 800 -quality 93 xxx.pdf slide.jpg
+*/
 
-	*/
 
-
-	/* class SyncMedia **/ 
-	var Vi2_SyncMedia = $.inherit(Annotation, /** @lends SyncMedia# */{
+Vi2.SyncronizeMedia = $.inherit(Annotation, /** @lends Vi2.SyncMedia# */{
 
 		/** @constructs 
 		*		@extends Annotation 
 		*		@param {object} options An object containing the parameters
 		*/
   	__constructor : function(options) { 
-  			this.options = $.extend(this.options, options);
-  			
+  			this.options = $.extend(this.options, options);	
   	},
   	
-  	/* Vars */
+  	/* class variables */
 		name : 'syncMedia',
 		type : 'annotation',
 		// defaults
-		options : {
-			selector: '#syncMedia', 
-			vizOnTimeline: true, 
+		options : {    //hasTimelineMarker: true, hasMenu: true, menuSelector:'.toc'
+			selector: '.syncMedia', 
+			hasTimelineMarker: true, 
 			controls: true, 
-			showOnTimeline: false,
-			showOnMenu: true,
-			path: '', 
-			sync: false, 
-			placeholder:'/vi-lab/img/placeholder.jpg'},
-		player : null,
+			hasTimelineMarker: true,
+			timelineSelector : 'div.vi2-video-seek',
+			hasMenu: true,
+			menuSelector:'.synMediaMenu',
+			prefix_path: 'slides/', 
+			sync: true, 
+			placeholder:'img/placeholder.jpg'
+		},
 		tag_obj : [],
 		currImgId : -1,
-		timelineSelector : 'div.vi2-video-seek',
-		width : 0,
+		
+		width : 0, // not needed
 		height : 0, 
-		o : null,	
 		
 		
 		/* Initialize */
@@ -72,8 +78,8 @@
 				.appendTo(this.options.selector);
   	
 			// handle special options
-			if( this.options.showOnTimeline ){ this.showTimelineSeq(e);	}
-			if( this.options.showOnMenu )	{ this.createMenu(); }
+			if( this.options.hasTimelineMarker ){ this.buildTimelineMarkers(this.tag_obj);	}
+			if( this.options.hasMenu )	{ this.createMenu(); }
 		},
 		
 		/** ... */
@@ -137,15 +143,15 @@
 		// <div type="syncMedia" starttime=1344 duration=165 id=hello>hydro_graefe-11.jpg</div>
 		appendToDOM : function(id){ 
 			$(vi2.dom).find('[type="syncMedia"]').each(function(i,val){ $(this).remove(); });
-			$.each(	vi2.db.getSlidesById(id), function(i, val){  
+			$.each(	vi2.db.getSlidesById(id), function(i, val){  //alert(JSON.stringify(val))
 				var slides = $('<div></div>')
 				.attr('type',"syncMedia")
-				.attr('starttime', this.occ[0].start )
-				.attr('duration', this.occ[0].duration)
+				.attr('starttime', val.starttime )//this.occ[0].start )
+				.attr('duration', val.duration )//this.occ[0].duration)
 				//.attr('seek', this.seek != null ? deci2seconds(this.seek) : 0)
 				//.attr('duration2', this.duration2 != null ? this.duration2 : 0)
-				.attr('id', this.id)
-				.attr('path', this.path )
+				.attr('id', val.id)
+				.attr('path', val.img ) // val.path
 				.text(this.tagname )
 				.appendTo( vi2.dom );
 			}); 
@@ -153,7 +159,7 @@
 		},
 
 		/* -- */
-		begin : function(e, id, obj){
+		begin : function(e, id, obj){ 
 			if( this.options.sync ){
 				this.placeMedia( e, id, obj )
 			} 
@@ -168,7 +174,7 @@
 				this.currImgId = obj.content.target;
 				var _this = this; 
 				var o = new Image();
-				o.src = this.options.path+''+obj.content.target; 
+				o.src = this.options.prefix_path+''+obj.content.target; 
 				$(o).addClass('slide');// ov-'+id);
 							
   	  	$(this.options.selector+' img').fadeOut(20, function(){ 
@@ -186,11 +192,11 @@
 		},
 		
 		/* ... */
-		showTimelineSeq : function(e){ return;
+		buildTimelineMarkers : function(e){ return;
 			var _this= this; 
 			if(e.tags.occ.length === 1){
 				// jump to temporal position 
-				this.player.currentTime(e.tags[0].start);
+				vi2.observer.player.currentTime(e.tags[0].start);
 			}else{
 				// display tag occurence on timeline to motivate further selection
 				var f = function(_left, _name){
@@ -202,13 +208,13 @@
 						});*/
 				};
 				/*
-				var position = $(_this.timelineSelector).position(); 
-        var sliderWidth = $(_this.timelineSelector).width();
+				var position = $(_this.options.timelineSelector).position(); 
+        var sliderWidth = $(_this.options.timelineSelector).width();
         var minX = position.left;
         var maxX = minX + sliderWidth;
         tickSize = sliderWidth / observer.player.duration();
         
-				$(_this.timelineSelector).bind('mousemove', function(e){ 
+				$(_this.options.timelineSelector).bind('mousemove', function(e){ 
 					if (e.pageX >= minX && e.pageX <= maxX) {
         	  var val = (e.pageX - minX) / tickSize;
 //            alert(tickSize);
@@ -219,10 +225,10 @@
 				*/
 				//				
 				$.each(e.tags.occ, function(){ 
-					var progress = this / _this.player.duration();
-					progress = ((progress) * $(_this.timelineSelector).width());
-  	    	if (isNaN(progress) || progress > $(_this.timelineSelector).width()) { return;}
-	 				$(_this.timelineSelector).append(f(progress, e.tags.name));
+					var progress = this / vi2.observer.player.duration();
+					progress = ((progress) * $(_this.options.timelineSelector).width());
+  	    	if (isNaN(progress) || progress > $(_this.options.timelineSelector).width()) { return;}
+	 				$(_this.options.timelineSelector).append(f(progress, e.tags.name));
  				});
 			}
 		},
@@ -236,10 +242,9 @@
 				var _this = this;
 				this.currImgId = obj.content.target; 
 				var o = new Image(); 
-				 
 				// animate transition	if image is loaded				
 				$(o)
-					.attr('src', this.options.path+''+obj.content.target)
+					.attr('src', this.options.prefix_path+vi2.observer.current_stream+'/'+obj.content.target)
 					.addClass('slide ov-'+id)
 					.unbind('load')
 					.bind('load', function(e){ //alert(JSON.stringify(t))
@@ -260,14 +265,14 @@
 		},	
 				
 		
-		/* ... */
+		/* ... 
 		relativePos : function(obj){
 			return {x: Math.floor((obj.x/100)*this.player.width()), y: Math.floor((obj.y/100)*this.player.height())};
 		},
-		
+		*/
 		/* ... */
 		loadVideo : function(url, seek){
-				this.player.loadVideo(url, seek);  			
+				vi2.observer.player.loadVideo(url, seek);  			
 		},
 		
 		width : function(){ return this.width; },

@@ -85,6 +85,10 @@ compress: ${modules}
 # minimize slides data
 min: $(slides)
 	  cat $^ | tr '\n' ' ' > ./data-slides.min.json 
+
+
+test:	${vi2}
+	jshint $^ 
 	  
 	  
 # generate documentation of vi-two
