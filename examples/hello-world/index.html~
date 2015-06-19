@@ -11,6 +11,7 @@
 		<link type="text/css" href="../../css/vi2.highlight.css" rel="stylesheet" media="screen" />
 		<link type="text/css" href="../../css/vi2.main.css" rel="stylesheet" media="screen" />
 		<link type="text/css" href="../../css/vi2.playback-speed.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.zoom.css" rel="stylesheet" media="screen" />
 		<link type="text/css" href="../../css/vi2.temporal-bookmarks.css" rel="stylesheet" media="screen" />
 		<link type="text/css" href="../../css/vi2.syncMedia.css" rel="stylesheet" media="screen" />
 		<link type="text/css" href="../../css/vi2.closed-captions.css" rel="stylesheet" media="screen" />
@@ -62,6 +63,7 @@
 		<script src="../../lib/jquery.tinysort.js"></script>
 		<script src="../../lib/jquery.tooltip.js"></script>
 		<script src='../../lib/jquery.spin.js'></script>
+		<script src="../../lib/jquery.panzoom.min.js"></script>
 			
 		<script language ="javascript">
 			var 
@@ -90,6 +92,7 @@
 		<!-- vi-two player-widgets	-->
 		<script src="../../src/vi2.playback-speed.js"></script>
 		<script src="../../src/vi2.temporal-bookmark.js"></script>
+		<script src="../../src/vi2.zoom.js"></script>
 		<!-- vi-two portal-widgets -->
 		<script src="../../src/vi2.relatedVideos.js"></script>
 		<script src="../../src/vi2.search.js"></script>

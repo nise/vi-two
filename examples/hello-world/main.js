@@ -41,11 +41,14 @@ Vi2.Example = $.inherit({
 		vi2.observer.setCurrentStream('seidel1');
 		vi2.observer.parse(vi2.dom, 'html');
 		
+		//this.loadConfig();
+		
 		
 		// At first we define some basic player widgets
 		var playbackSpeed = new Vi2.PlaybackSpeed();
 		var temporalBookmarks = new Vi2.TemporalBookmarks();
-		
+		var zoom = new Vi2.Zoom();
+				
 		// Add an table of content
 	 	var toc = new Vi2.TableOfContents( { 
 	 		hasTimelineMarker: true, 
@@ -88,7 +91,28 @@ Vi2.Example = $.inherit({
 		//vi2.observer.addWidget( inVideoSearch );	
 		vi2.observer.addWidget( playbackSpeed );  
 		vi2.observer.addWidget( temporalBookmarks );
+		vi2.observer.addWidget( zoom );
   }
- 
+  
+  
+  /**
+  {
+  widgets : [
+  	{name: 'related-videos', command: 'Vi2.RelatedVideos', options: { resultSelector: '.related-videos' } }.
+  	{}
+  ]
+  
+  }
+  
+  loadConfig : function(){
+  	$.get( this.options.config, function(data){
+  		for(var w in data){
+  			if(data.hasOwnProperty(w)){
+  				//window[data[w].command]()		
+  			}
+  		}
+  	} );
+  }
+ */
 }); // class
 

@@ -30,7 +30,7 @@ Vi2.TemporalBookmarks = $.inherit(/** @lends Vi2.TemporalBookmarks# */{ //
 		},
 
 		/**
-		* Initializes the table of content and handles options
+		* Initializes the bookmark of content and handles options
 		*/
 		init : function(){  
 			// get the url

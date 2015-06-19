@@ -1,5 +1,7 @@
 
 # overall improvements
+- start widgets from config.json
+- multilingual support for all text and controls
 - fix player control bar
 - reduce dependencies: 
  - replace jquery.tooltip by the native jquery tooltip
