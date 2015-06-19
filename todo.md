@@ -15,7 +15,6 @@
 - closed captions
 - transcript
 - user notes
-- zoom
 - media fragments 
 - journaled naviagtion
 - follow revisions => server

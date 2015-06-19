@@ -328,9 +328,9 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		})
 		
 		// keyboard / space bar for play/pause
-		$('body').unbind('keydown').bind('keydown', function(e) { 
-			_this.keyboardCommandHandler(e); 
-		});
+	//	$('body-xxx').unbind('keydown').bind('keydown', function(e) { 
+			//_this.keyboardCommandHandler(e);  xxx bug
+	//	});
 		
 		this.play_btn.bind('click', function() {  
 			_this.play(); 

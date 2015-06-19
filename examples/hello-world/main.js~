@@ -87,11 +87,12 @@ Vi2.Example = $.inherit({
 		// add all the widgets
 		vi2.observer.addWidget( toc );
 		vi2.observer.addWidget( syncMedia );	
+		vi2.observer.addWidget( userNotes );
 		//vi2.observer.addWidget( relatedVideos );
 		//vi2.observer.addWidget( inVideoSearch );	
 		vi2.observer.addWidget( playbackSpeed );  
 		vi2.observer.addWidget( temporalBookmarks );
-		vi2.observer.assWidget( zoom );
+		vi2.observer.addWidget( zoom );
   }
   
   

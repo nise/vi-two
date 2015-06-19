@@ -91,7 +91,7 @@
 		<script src="../../src/vi2.core.utils.js"></script>
 		<!-- vi-two player-widgets	-->
 		<script src="../../src/vi2.playback-speed.js"></script>
-		<script src="../../src/vi2.temporal-bookmark.js"></script>
+		<script src="../../src/vi2.temporal-bookmarks.js"></script>
 		<script src="../../src/vi2.zoom.js"></script>
 		<!-- vi-two portal-widgets -->
 		<script src="../../src/vi2.relatedVideos.js"></script>
@@ -99,6 +99,7 @@
 		<!-- vi-two annotation-widgets -->
 		<script src="../../src/vi2.toc.js"></script>
 		<script src="../../src/vi2.syncMedia.js"></script>
+		<script src="../../src/vi2.user-notes.js"></script>
 		<script src="../../src/vi2.closed-captions.js"></script>
 		
 	<!--	<script src="../../src/vi2.xlink.js"></script>
@@ -115,6 +116,9 @@
 			<div id="split"></div>
 			<div class="sidepanel">
 				<div class="metadata"></div>
+				<div class="user-notes">
+					<h3>User Notes</h3>
+				</div>
 				<div class="toc">
 					<h3>Contents</h3>
 				</div>

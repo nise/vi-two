@@ -64,6 +64,8 @@ Vi2.Example = $.inherit({
 			menuSelector:'.toc' 
 		} );
 		
+		var userNotes = new Vi2.UserNotes();
+		
 		// With these widgets we make use of the video database
 		var relatedVideos = new Vi2.RelatedVideos( { 
 			resultSelector: '.related-videos', 
@@ -87,6 +89,7 @@ Vi2.Example = $.inherit({
 		// add all the widgets
 		vi2.observer.addWidget( toc );
 		vi2.observer.addWidget( syncMedia );	
+		vi2.observer.addWidget( userNotes );
 		//vi2.observer.addWidget( relatedVideos );
 		//vi2.observer.addWidget( inVideoSearch );	
 		vi2.observer.addWidget( playbackSpeed );  

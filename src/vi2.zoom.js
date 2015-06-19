@@ -2,7 +2,7 @@
 * name: Vi2.Zoom
 * author: niels.seidel@nise81.com
 * license:
-* description:
+* description: Allows to zoom the video in and out.
 * dependencies:
 *  - jquery-1.11.2.min.js
 *  - jquery.inherit-1.1.1.js
@@ -37,7 +37,7 @@ Vi2.Zoom = $.inherit(/** @lends Vi2.Zoom# */{ //
 		},
 
 		/**
-		* Initializes the table of content and handles options
+		* Initializes the control elements including the plugin panzoom
 		*/
 		init : function(){
 			// add controls
