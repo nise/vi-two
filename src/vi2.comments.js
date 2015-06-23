@@ -1,15 +1,20 @@
-/* Comments
-	author: niels.seidel@nise81.com
-	
-	- highlight on skip
+/* 
+*	name: Vi2.Commenzts
+*	author: niels.seidel@nise81.com
+* license: BSD New
+*	description: 
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+*	todo:
+ 	- highlight on skip
 	- timeLineSelector
 	- clip übergreifende sprünge
-	 - nice defaults: var defaults = {animLen: 350}; options = $.extend(defaults, settings); 
-	*/
+	 - nice defaults: var defaults = {animLen: 350}; options = $.extend(defaults, settings);
+*/
 
 
-	/* class Comments **/ 
-	var Comments = $.inherit(Annotation, /** @lends Comments# */{
+var Comments = $.inherit(Annotation, /** @lends Comments# */{
 
 		/** 
 		*		@constructs 

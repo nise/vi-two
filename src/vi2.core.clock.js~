@@ -3,6 +3,9 @@
 *	author: niels.seidel@nise81.com
 * license: 
 *	description: Checks which annotations need to be activated or deactivated in given time intervall during video playback
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
 *	todo:
 *	 	- implement checkAnnotation in order to trigger certain events at the listenning instances
 * 		- use timeUpdate insteate of setTimeOut or setIntervall: http://blog.gingertech.net/2009/08/19/jumping-to-time-offsets-in-videos/

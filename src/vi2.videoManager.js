@@ -1,8 +1,12 @@
-/* VideoManager
-author: niels.seidel@nise81.com
-
-description: 
-
+/* 
+*	name: Vi2.VideoManager
+*	author: niels.seidel@nise81.com
+* license: BSD New
+*	description: 
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+*	todo:
 - list streams by category / tag / author / date / ...
 - offers different rendering styles: 
 Karussell, Liste, Card-Deck, Matrix, Stack, Video-Wall, Slide-Row, Slide-Matrix, ...

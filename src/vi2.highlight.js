@@ -1,16 +1,19 @@
-/* Visual Highlighting
-	author: niels.seidel@nise81.com
-	inherits form Annotation
-	
-todo:
+/* 
+*	name: Vi2.Highlighting
+*	author: niels.seidel@nise81.com
+* license: BSD New
+*	description: 
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+* todo:
 	- show element on menu click
 	- enable object tracking
 	- implement: showOnTimeline ... make it abstract in the parent class	
 
 	*/
 	
-
-	/* class TemporalTagging */ 
+ 
 	var Vi2_Highlighting = $.inherit(Annotation, /** @lends TemporalTagging# */{
 			
 		/** @constructs

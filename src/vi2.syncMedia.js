@@ -1,7 +1,7 @@
 /* 
 * name: Vi2.SyncronizeMedia 
 *	author: niels.seidel@nise81.com
-* license: 
+* license: BSD New
 * description: Syncronizes images to the video playback
 * dependencies:
 *  - jquery-1.11.2.min.js

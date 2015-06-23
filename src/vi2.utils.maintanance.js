@@ -1,5 +1,12 @@
-/* UTILS 
-
+/* 
+*	name: Vi2.Utils
+*	author: niels.seidel@nise81.com
+* license: BSD New
+*	description: 
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+*	todo:
 
 json_validator: http://jsonformatter.curiousconcept.com/
 

@@ -1,7 +1,7 @@
 /* 
 * name: Vi2.Sharing
 * author: niels.seidel@nise81.com
-* license:
+* license: BSD New
 * description:
 * depends on:
 *  - jquery-1.11.2.min.js
@@ -29,7 +29,8 @@ Vi2.Sharing = $.inherit(/** @lends Vi2.TableOfContents# */{ //
 		options : {
 			selector : '.control-bar',
 			shareLink : true,
-			shareEmbedLink: true
+			shareEmbedLink: true,
+			label: '</>'
 		},
 	
 		/**
@@ -37,10 +38,46 @@ Vi2.Sharing = $.inherit(/** @lends Vi2.TableOfContents# */{ //
 		*/
 		init: function(){
 			var _this = this;
-			var html = new EJS({url: vi2.templatePath+'vi2.sharing.ejs'});
-  				//.render( this.metadata );
-				$( this.options.selector ).append( html );
 			
+			var url = window.location.href.slice(window.location.href.indexOf('#') + 1);
+			
+			// add button to player control bar
+			var _this = this;
+			var container = $('<div></div>')
+				.append($('<div></div>').text( this.options.label ).addClass('sharing-label'))
+				.addClass('vi2-sharing-controls')
+				.bind('mouseenter', function(e){
+					
+				})/*
+				.bind('mouseleave', function(e){
+					$('.sharing-controls > .select-sharing').css('display','none');
+				})*/
+				.appendTo( this.options.selector );
+			
+			var options = $('<div></div>')
+				.append( browserSharing )			
+				.addClass('vi2-sharing-select')
+				.appendTo( container );
+			
+			
+			// share link
+			if( _this.options.shareLink ){
+				var input = $('<input type="text" />')
+					.val( url )
+					.attr('readonly',true)
+					.attr('aria-describedby', 'URL to the current playback position of the video.')
+					.focus(function() { 
+						$(this).select(); 
+					} )
+					.appendTo( options );
+			}
+			
+			// share embed link
+			if( _this.options.shareEmbedLink ){
+			}
+			
+			
+			/*
 			// create button		
 			$('<a></a>')
 				.addClass('vi2-video-sharing vi2-btn')
@@ -54,11 +91,11 @@ Vi2.Sharing = $.inherit(/** @lends Vi2.TableOfContents# */{ //
 						 
 					var url = window.location.href.slice(window.location.href.indexOf('#') + 1);
 					
-					/*	
-					$('.player-share-popup').val('<iframe src="http://www.iwrm-education.org/popup.html?id='+url+'" width="100" height="20"></iframe>') //also: title=bim&lecturer=sam
-						.bind("focus",function(e){ $(this).select(); })
-						.bind("mouseup",function(e){ return false; });	
-					*/
+						
+					//$('.player-share-popup').val('<iframe src="http://www.iwrm-education.org/popup.html?id='+url+'" width="100" height="20"></iframe>') //also: title=bim&lecturer=sam
+						//.bind("focus",function(e){ $(this).select(); })
+						//.bind("mouseup",function(e){ return false; });	
+					
 					
 					// share link
 					if( _this.options.shareLink ){
@@ -87,7 +124,7 @@ Vi2.Sharing = $.inherit(/** @lends Vi2.TableOfContents# */{ //
 				$('.player-share-close').button().click(function(){
 					$('.player-share').hide();
 				})
-		
+		*/
 		},
 		
 		

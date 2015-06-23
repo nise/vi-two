@@ -1,16 +1,17 @@
-	/* Log
-	author: niels.seidel@nise81.com
-	 
-	 
-
-	
+/* 
+*	name: Vi2.Log
+*	author: niels.seidel@nise81.com
+* license: BSD New
+*	description: 
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+*	todo:
+ further options:
 	** standardisazion:
 	* https://sites.google.com/site/camschema/home
 	* http://sourceforge.net/p/role-project/svn/HEAD/tree/trunk/gadgets/cam_sjtu/CamInstance.js
 	* http://sourceforge.net/p/role-project/svn/HEAD/tree/trunk/gadgets/html5Video/videoGadget.xml
-	
-
-	 
 	*/
 
 	var Log = $.inherit(/** @lends Log# */{

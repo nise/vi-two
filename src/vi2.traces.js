@@ -1,10 +1,13 @@
-/* Traces
-	author: niels.seidel@nise81.com
-	 
-	depends on: vi.log 
-	 
-	 
-	*/
+/* 
+*	name: Vi2.UserTraces
+*	author: niels.seidel@nise81.com
+* license: BSD New
+*	description: 
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+*	todo:
+*/
 
 
 	/* class Traces **/ 

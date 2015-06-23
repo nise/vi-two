@@ -12,14 +12,6 @@
 */
 
 
-/* 
-author: niels.seidel@nise81.com
-
-
-
-*/
-
-
 Vi2.Search = $.inherit(/** @lends Vi2.Search# */{
 
 	/** 

@@ -1,7 +1,7 @@
 /* 
 * name: Vi2.Search 
 *	author: niels.seidel@nise81.com
-* license: 
+* license: BSD New
 * description: Search within annotated video contents
 * dependencies:
 *  - jquery-1.11.2.min.js

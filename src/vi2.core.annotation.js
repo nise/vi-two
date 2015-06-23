@@ -1,11 +1,17 @@
-	/* Annotation
-	author: niels.seidel@nise81.com
-	
-	abstract class
-	*/
+/* 
+*	name: Vi2.Assessment
+*	author: niels.seidel@nise81.com
+* license: BSD New
+*	description: Abstract class for video annotations
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+*	todo:
+	- ...
+*/
 
  
-	var Annotation = $.inherit(/** @lends Annotation# */{
+var Annotation = $.inherit(/** @lends Annotation# */{
 
 		/** 
 		* 	@constructs 

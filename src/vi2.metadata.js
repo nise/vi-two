@@ -1,7 +1,7 @@
 /* 
 * name: Vi2.Metadata
 * author: niels.seidel@nse81.com
-* license: 
+* license: BSD New
 * description:
 * todo:	
 	- integrate it on server side

@@ -1,7 +1,7 @@
 /* 
 * name: Vi2.TemporalBookmarks
 * author: niels.seidel@nise81.com
-* license:
+* license: BSD New
 * description:
 * dependencies:
 *  - jquery-1.11.2.min.js
@@ -50,12 +50,12 @@ Vi2.TemporalBookmarks = $.inherit(/** @lends Vi2.TemporalBookmarks# */{ //
 				.bind('mouseleave', function(e){
 					$('.bookmark-controls > .select-bookmark').css('display','none');
 				})*/
-				.appendTo( this.options.selector);
+				.appendTo( this.options.selector );
 			
 			var options = $('<div></div>')
 				.append( browserBookmark )			
 				.addClass('select-bookmark')
-				.appendTo(container);
+				.appendTo( container );
 			
 			var input = $('<input type="text" />')
 				.val( url )
@@ -83,6 +83,6 @@ Vi2.TemporalBookmarks = $.inherit(/** @lends Vi2.TemporalBookmarks# */{ //
 		 		 	}
 		 		 	return true;
 	 			})
-	 			.appendTo(options);	
+	 			.appendTo( options );	
 		}
 }); // end class  

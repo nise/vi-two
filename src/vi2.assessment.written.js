@@ -1,19 +1,20 @@
-/* Assessment
-	author: niels.seidel@nise81.com
-		
-	- timeLineSelector
-	- nice defaults: var defaults = {animLen: 350}; 
-	- bug: offset @ o.css({left: pos.x   ... nicht im MediaWiki, aber in den showcases
-	
-	nth
-	- apply minimum link duration
-	- delay removeOverlay on mouseover/shift-press etc.
-	
-	*/
+/* 
+*	name: Vi2.AssessmentWriting
+*	author: niels.seidel@nise81.com
+* license: BSD New
+*	description: 
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+*	todo:
+ further options:
+	- zeitliche trennung von frage und antwort
+	- wiederholung der frage erlauben
+	- ...
+*/
 
 
-	/* class WrittenAssessment **/ 
-	var AssessmentWriting = $.inherit(/** @lends Assessment-writing# */{
+var AssessmentWriting = $.inherit(/** @lends Assessment-writing# */{
 
 		/** @constructs
 		*		@extends Annotation

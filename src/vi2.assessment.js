@@ -1,15 +1,19 @@
-	/* Comments
-	author: niels.seidel@nise81.com
-	
-	further options:
+/* 
+*	name: Vi2.Assessment
+*	author: niels.seidel@nise81.com
+* license: BSD New
+*	description: 
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+*	todo:
+ further options:
 	- zeitliche trennung von frage und antwort
 	- wiederholung der frage erlauben
 	- ...
-	*/
+*/
 
-
-	/* class Comments **/ 
-	var Assessment = $.inherit(Annotation, /** @lends Assessment# */{
+var Assessment = $.inherit(Annotation, /** @lends Vi2.Assessment# */{
 
 		/** 
 		*		@constructs 

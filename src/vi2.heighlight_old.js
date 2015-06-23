@@ -1,17 +1,15 @@
-/* TEMPORAL TAGS
-	author: niels.seidel@nise81.com
-	inherits form Annotation
+/* 
+*	name: Vi2.Highlighting
+*	author: niels.seidel@nise81.com
+* license: BSD New
+*	description: 
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+*	todo:
+*/
 	
-	
-server side:
-	- save entered tags and 
-	- append tags to the cloud (update after entering)
-	- idee: - semantische topic maps via db.pedia .. linked data browsing
-	*/
-	
-
-	/* class TemporalTagging */ 
-	var Vi2_Highlighting = $.inherit(Annotation, /** @lends TemporalTagging# */{
+var Vi2_Highlighting = $.inherit(Annotation, /** @lends TemporalTagging# */{
 			
 		/** @constructs
 		*		@extends Annotation  

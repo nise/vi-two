@@ -1,17 +1,15 @@
-/* Map  pdf3JPG:$ convert -resize 800 -quality 93 xxx.pdf slide.jpg
-	author: niels.seidel@nise81.com
+/* 
+*	name: Vi2.Map
+*	author: niels.seidel@nise81.com
+* license: BSD New
+*	description: 
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+*	todo:
+*/
 
-	- enable other media types then .png
-	
-	nth:
-	- viz on timeline by showing current slide
-	- on/off controls .. sync, skip/browse slides
-
-	*/
-
-
-	/* class Map **/ 
-	var Map = $.inherit(/** @lends Map# */{
+var Map = $.inherit(/** @lends Map# */{
 
 		/** constructs */
   	__constructor : function(options) {

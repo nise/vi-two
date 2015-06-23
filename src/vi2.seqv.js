@@ -1,9 +1,13 @@
-/* SEQV  pdf3JPG:$ convert -resize 800 -quality 93 xxx.pdf slide.jpg
-	author: niels.seidel@nise81.com
-
-
-	*/
-
+/* 
+*	name: Vi2.SyncVideo
+*	author: niels.seidel@nise81.com
+* license: BSD New
+*	description: 
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+*	todo:
+*/
 
 	/* class SimultaneousVideo **/ 
 	var Seqv = $.inherit(/* @lends SimultaneousVideo# */{

@@ -37,7 +37,7 @@ server side:
 		begin : function(e){},
 		end : function(e){},
 		
-		/** -- */
+		/**  */
 		init : function(ann){ 
 			var _this = this;
 			_this.tag_obj = [];
@@ -86,7 +86,8 @@ server side:
 			return out;
 		},
 		
-		/** ... */
+		/** 
+		 */
 		displayTagcloud : function(){  
 			$(this.options.selector).empty();
 			var _this = this;

@@ -1,6 +1,6 @@
 	/* DataBase
 	author: niels.seidel@nise81.com
-	
+	license: BSD New
 	- call_back als Event umsetzen
 	- filenames as parameter
 	- handle different data sets

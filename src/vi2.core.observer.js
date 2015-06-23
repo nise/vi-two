@@ -1,7 +1,7 @@
 /* 
 * name: Vi2.Observer 
 *	author: niels.seidel@nise81.com
-* license: 
+* license: BSD New
 * description: 
 * dependencies:
 *  - jquery-1.11.2.min.js

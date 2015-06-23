@@ -1,7 +1,7 @@
 /* 
 * name: Vi2.TableOfContent
 * author: niels.seidel@nise81.com
-* license:
+* license: BSD New
 * description:
 * depends on:
 *  - embedded java script
