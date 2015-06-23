@@ -9,7 +9,7 @@
 *	todo:
 
  - bug: keydown binding vary in different browsers
- - @createVideoEmbed: build the video embed function as an optional feature. It is currently optimized for iwrm-education
+
  - @createVideoHiding: build function to turn of the video screen in order to listen to the audio only.
 
  - visualize loaded bytes
@@ -109,7 +109,6 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		videoControlsSelector: '', 
 		childtheme: '', 
 		thumbnail:'/vi-lab/img/placeholder.jpg', 
-		embed:true,
 		skipBackInterval:5
 	},
 	video: null,
@@ -119,7 +118,6 @@ var Video = $.inherit(/** @lends VideoPlayer# */
   video_container: null,
 	video_wrap: null,
 	play_btn: $(''),
-	add_btn: $(''),
 	video_seek: null,
 	video_progress: null,
 	video_timer: null,
@@ -303,24 +301,23 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		this.video_timer = $('.vi2-video-timer', this.video_container);
 		this.volume = $('.vi2-volume-slider', this.video_container);
 		this.volume_btn = $('.vi2-volume-button', this.video_container);
-		this.add_btn = $('.vi2-btn-box', this.video_container);
+
 		this.skipBack_btn = $('.vi2-skip-back', this.video_container);
 
 
 		// keep the native HTML5 controls hidden
 		$(this.video).removeAttr('controls');
-
+$(_this.options.videoControlsSelector).addClass("open-controls");
 		$("#video1, #overlay").hover(function() {  
 		  	$(_this.options.videoControlsSelector).addClass("open-controls");
 			}, function() { 
-		  	$(_this.options.videoControlsSelector).removeClass("open-controls");
+		  	//$(_this.options.videoControlsSelector).removeClass("open-controls");
 		});
 		//$('#overlay').css('height', $('video').height() );
 		//$('#overlay').css('width', $('#video1').width() );
 
 		// load other ui elements
 		this.createVolumeControl();
-		this.createVideoEmbed();
 		this.createVideoHiding();
 		
 		this.skipBack_btn.click(function(){
@@ -337,13 +334,13 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		});
 
 		$(this.video).bind('play', function(e) {
-			_this.play_btn.addClass('vi2-paused-button');
+			_this.play_btn.addClass('vi2-video-pause');
 			vi2.observer.play();
 			$('.screen').remove();
 		});
 
 		$(this.video).bind('pause', function(e) {
-			_this.play_btn.removeClass('vi2-paused-button');
+			_this.play_btn.removeClass('vi2-video-pause');
 			vi2.observer.pause();
 		});
 		
@@ -470,56 +467,12 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 	},
 	
 	
-/**************************************************************/
-
-	/* Creates an control element to allow users to share the video */
-	createVideoEmbed: function(){
-	
-		if( this.options.embed == false){
-			return;
-		}
-			
-		$('<a></a>')
-			.addClass('player-share-btn')
-			.text('</>')
-			.click(function(){
-				$('.player-share')
-					.appendTo('body')
-					.toggle()
-					.css('top', $('.player-share-btn').offset().top + 20)
-					.css('left', $('.player-share-btn').offset().left - 250);
-					 
-				var url = window.location.href.slice(window.location.href.indexOf('#') + 1);
-				$('.player-share-embed').val('<iframe src="http://www.iwrm-education.org/embed.html#'+url+'" width="935" height="610"></iframe>')
-					.bind("focus",function(e){ $(this).select(); })
-					.bind("mouseup",function(e){ return false; });
-				
-				$('.player-share-popup').val('<iframe src="http://www.iwrm-education.org/popup.html?id='+url+'" width="100" height="20"></iframe>') //also: title=bim&lecturer=sam
-					.bind("focus",function(e){ $(this).select(); })
-					.bind("mouseup",function(e){ return false; });	
-
-				$('.player-share-link').val('http://www.iwrm-education.org/embed.html#'+url)
-					.bind("focus",function(e){
-							$(this).select();
-					})
-					.bind("mouseup",function(e){
-							return false;
-					});
-			})
-			.appendTo('.vi2-btn-box');
-			//
-			$('.player-share-close').button().click(function(){
-				$('.player-share').hide();
-			})
-		
-	},	
-	
 	
 	/* Creates controle element to hide/show the video frame 
 	*	todo: this should be accomplished with a audio description and other accessibility assistance
 	*/
 	createVideoHiding: function(){
-		//this.add_btn.text('add tag').click(function(e){  _this.observer.widget_list['tags'].addTags(); });
+		
 		// hide moving picture in order limit visual cognition channel to one
 		// xxx: #screen should be replaced by an option
 		var o = new Image(); 
@@ -622,7 +575,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		vi2.observer.log('videoended:'+this.url);
 		vi2.observer.ended();
 		this.video.removeEventListener('ended', arguments.callee, false);
-		this.play_btn.removeClass('vi2-paused-button');
+		this.play_btn.removeClass('vi2-video-pause');
 		// load next video clip if its a sequence
 		if (this.isSequence && ((this.seqNum + 1) < this.seqList.length || this.seqLoop)) {
 			this.seqNum = (this.seqNum + 1) % this.seqList.length;

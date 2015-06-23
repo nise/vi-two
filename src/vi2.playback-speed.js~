@@ -75,7 +75,7 @@ Vi2.PlaybackSpeed = $.inherit(/** @lends Vi2.PlaybackSpeed# */{
 				})
 				.appendTo(options);
 				
-		})
+		});
 	},
 	
 	

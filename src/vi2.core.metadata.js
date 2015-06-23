@@ -62,8 +62,8 @@ Vi2.Metadata = $.inherit(/** @lends Vi2.Metadata# */
   		/** 
   		* Append html meta tags to the DOM header in favour of SEO 
   		*/
-			buildMetaTags : function(){
-				$('head meta').each(function(i,val){ this.remove(); });
+			buildMetaTags : function(){ 
+				$('head meta').each( function(i,val){ this.remove(); });
 				$('head')
 					.prepend('<meta content="text/html;charset=utf-8" http-equiv="Content-Type">')
 					.prepend('<meta content="utf-8" http-equiv="encoding">')

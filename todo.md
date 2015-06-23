@@ -6,6 +6,7 @@
 - reduce dependencies: 
  - replace jquery.tooltip by the native jquery tooltip
  - avoid inherit-class
+ - make it a server side plugin / node.js
 - use a template engine, maybe ejs
 - use delegate(obj, func) instead of _this
 - Error handling: throw new Error('...');

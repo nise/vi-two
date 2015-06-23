@@ -45,9 +45,6 @@ author: niels.seidel@nise81.com
 
 .vi2-volume-box {
 	display:inline-block;
-	padding:4px;
-	overflow:hidden;
-	margin: 4px 0 0 50px;
 	width: 20px;
 	height: 30px;
 	color: #fff;
@@ -60,7 +57,6 @@ author: niels.seidel@nise81.com
 
 .vi2-volume-box:hover {	
 	height: 135px;
-	padding-top: 5px;
 }
 
 
@@ -107,9 +103,7 @@ author: niels.seidel@nise81.com
 
 /* volume button */
 .vi2-volume-button {
-	display:block;
-	position:absolute;
-	top:8px;
+	display:inline-block;
 	width: 22px;
 	height: 22px;
 	background: url(../img/volume-full-icon.png) no-repeat;
@@ -129,65 +123,53 @@ author: niels.seidel@nise81.com
 
 .control-bar{
 	position:relative;
-	top:14px;
+	float:left;
+	padding:0;
+	margin:0;
 	width:100vw;
 	height:40px;
-	padding: 0 10px;
 	background-color:#222;
 	opacity:.6;
 }
 
+
+
 /* play, pause */
 .vi2-video-play {
- 	display:inline-block;	
- 	position:absolute;
-	top:6px;
-	left:60px;
- 	margin: 0 10px 14px 0;	
+	display:inline-block;
+	margin:4px 10px;
 	width: 22px;
 	height: 22px;
 	background: url(../img/play-icon.png) no-repeat;	margin-top:0px;
 }
 
-.vi2-paused-button {
+.vi2-video-pause {
+	display:inline-block;
+	margin: 0px 10px;
+	width: 22px;
+	height: 22px;
 	background: url(../img/pause-icon.png) no-repeat;
-	cursor: pointer;
 }
 
 
 /* Other control elements */
 .vi2-skip-back {	
+	display:inline-block;
 	color:white;
-	display: absolute;
-    top:12px;	
-    left:0;
+
 }
 
-.vi2-btn-box {
-	overflow:hidden;
-	position:absolute;
-	display:none;
-	margin: 0 10px 4px 200px;	
-	width: 13px;
-	height: 15px;
-	color: #999;
-	font-size:16px;
-	line-height:16px;
-	font-weight: bold;
-	text-align:center;
-	border:1px solid #ccc;
-}
+
 
 
 /* timer */
 .vi2-video-timer {
-		color: #fff;
-    display: absolute;
-    top:12px;
-    font-size: 0.7em;
-    font-weight: bold;
-    margin: 0px 15px 0px 84px;
-    position:absolute;
+	display:inline-block;
+	height:12px;
+	width:102px;
+	color: #fff;
+  font-size: 0.7em;
+  font-weight: bold;
 }
 
 

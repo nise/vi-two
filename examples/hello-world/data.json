@@ -1965,7 +1965,8 @@
 					"weight": 4,
 					"titleselector":"h2"
 				}],
-				"video": "http://www.iwrm-education.de/videos/iwrm_seidel1.webm",
+				"video": "http://localhost/elearning/vi2/vi-two/examples/iwrm/videos/iwrm_seidel1.webm",
+				"video2": "http://www.iwrm-education.de/videos/iwrm_seidel1.webm",
 				"tags": [
 					{"tagname":"crop growth modelling","occ":[0]},
 					{"tagname":"deficit irrigation","occ":[0]},

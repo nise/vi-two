@@ -3,7 +3,7 @@
 
 The framework is completly written in Javascript but dedicated for the use in the browser. The server side is covered by its big node.js brother *vi-lab*.
 
-# Installation
+# Usage
 Add the following lines to your HTML <header>:
 
 	<link type="text/css" href="../../css/vi2.assessment.css" rel="stylesheet" media="screen" />
@@ -11,11 +11,7 @@ Add the following lines to your HTML <header>:
 	<script src='js/vi2.min.js'></script>
 	
 	<script language ="javascript">
-			var 
-				observer = undefined, 
-				vi2 = undefined, 
-				ocr = undefined
-				;
+			var observer = undefined, vi2 = undefined, ocr = undefined;
 		var Vi2 = {}; // set the Namespace
 		$(document).ready(function(){
 			var core = new Vi2.Example();	
@@ -23,7 +19,7 @@ Add the following lines to your HTML <header>:
 		</script>
 
 # Examples
-See all example inside the *examples* folder. A video learning environment that has been build with vi2 is online:
+See all examples inside the *examples* folder. A video learning environment that has been build with vi2 is online:
 
 * [IWRM education](http://www.iwrm-education.de/)
 

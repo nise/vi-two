@@ -23,7 +23,6 @@ Vi2.PlaybackSpeed = $.inherit(/** @lends Vi2.PlaybackSpeed# */{
 	__constructor : function(options) { 
 			this.options = $.extend(this.options, options);
 			this.video = document.getElementById( this.options.videoSelector ); 
-			this.init();
 	},
 	
 	name : 'playbackSpeed',

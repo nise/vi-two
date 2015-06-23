@@ -37,8 +37,8 @@ Vi2.Example = $.inherit({
   	vi2.utils = new Vi2_Utils();
   	
   	vi2.observer = new Vi2.Observer({selector:"#seq", videoWidth:"400px", videoHeight:"800px"}); 
-		vi2.observer.init(0); 
-		vi2.observer.setCurrentStream('seidel1');
+		vi2.observer.init(0);  
+		vi2.observer.setCurrentStream('seidel1'); 
 		vi2.observer.parse(vi2.dom, 'html');
 		
 		//this.loadConfig();
@@ -48,6 +48,8 @@ Vi2.Example = $.inherit({
 		var playbackSpeed = new Vi2.PlaybackSpeed();
 		var temporalBookmarks = new Vi2.TemporalBookmarks();
 		var zoom = new Vi2.Zoom();
+		var sharing = new Vi2.Sharing();
+		//var skipBack = new Vi2.SkipBack();
 				
 		// Add an table of content
 	 	var toc = new Vi2.TableOfContents( { 
@@ -63,6 +65,8 @@ Vi2.Example = $.inherit({
 			hasMenu: true, 
 			menuSelector:'.toc' 
 		} );
+		
+		//var userNotes = new Vi2.UserNotes();
 		
 		// With these widgets we make use of the video database
 		var relatedVideos = new Vi2.RelatedVideos( { 
@@ -87,12 +91,13 @@ Vi2.Example = $.inherit({
 		// add all the widgets
 		vi2.observer.addWidget( toc );
 		vi2.observer.addWidget( syncMedia );	
-		vi2.observer.addWidget( userNotes );
+		//vi2.observer.addWidget( userNotes );
 		//vi2.observer.addWidget( relatedVideos );
 		//vi2.observer.addWidget( inVideoSearch );	
-		vi2.observer.addWidget( playbackSpeed );  
-		vi2.observer.addWidget( temporalBookmarks );
-		vi2.observer.addWidget( zoom );
+		//vi2.observer.addWidget( playbackSpeed );  
+		//vi2.observer.addWidget( temporalBookmarks );
+		//vi2.observer.addWidget( zoom ); 
+		vi2.observer.addWidget( sharing ); // http://localhost/elearning/vi2/vi-two/examples/iwrm/videos/iwrm_seidel1.webm
   }
   
   
