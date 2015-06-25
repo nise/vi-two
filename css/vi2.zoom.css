@@ -1,7 +1,5 @@
 .zoom-controls {
-	position: absolute;
-  left: 300px;
-  top:6px; 
+	display:inline-block;
   margin: 0;
   padding: 2px 4px; 
   border: 1px solid #003366; 

@@ -42,10 +42,10 @@ Vi2.TemporalBookmarks = $.inherit(/** @lends Vi2.TemporalBookmarks# */{ //
 			// add button to player control bar
 			var _this = this;
 			var container = $('<div></div>')
-				.append($('<div></div>').text( this.options.label ).addClass('bookmark-label'))
-				.addClass('bookmark-controls')
+				.append($('<div></div>').text( this.options.label ).addClass('vi2-bookmark-label'))
+				.addClass('vi2-bookmark-controls')
 				.bind('mouseenter', function(e){
-					$('.select-bookmark > input').val( url + vi2.observer.player.currentTime() );
+					$('.vi2-select-bookmark > input').val( url + vi2.observer.player.currentTime() ); 
 				})/*
 				.bind('mouseleave', function(e){
 					$('.bookmark-controls > .select-bookmark').css('display','none');
@@ -54,7 +54,7 @@ Vi2.TemporalBookmarks = $.inherit(/** @lends Vi2.TemporalBookmarks# */{ //
 			
 			var options = $('<div></div>')
 				.append( browserBookmark )			
-				.addClass('select-bookmark')
+				.addClass('vi2-select-bookmark')
 				.appendTo( container );
 			
 			var input = $('<input type="text" />')

@@ -1,15 +1,22 @@
-/* Assessment
-	author: niels.seidel@nise81.com
-		
-	- timeLineSelector
+/* 
+*	name: Vi2.Clock
+*	author: niels.seidel@nise81.com
+* license: BSD New
+*	description: Checks which annotations need to be activated or deactivated in given time intervall during video playback
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+*	todo:
+- timeLineSelector
 	- nice defaults: var defaults = {animLen: 350}; 
 	- bug: offset @ o.css({left: pos.x   ... nicht im MediaWiki, aber in den showcases
 	
 	nth
 	- apply minimum link duration
 	- delay removeOverlay on mouseover/shift-press etc.
-	
-	*/
+*/
+
+
 
 
 	/* class Assessment **/ 

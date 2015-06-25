@@ -7,7 +7,7 @@
 *  - jquery-1.11.2.min.js
 *  - jquery.inherit-1.1.1.js
 * todo:
-* - show speed changes on video frame
+* - show speed changes on video frame when they get changed with keyboard commands
 */
 
 
@@ -44,12 +44,12 @@ Vi2.PlaybackSpeed = $.inherit(/** @lends Vi2.PlaybackSpeed# */{
 		var _this = this;
 		var container = $('<div></div>')
 			.append($('<div></div>').text('1.0x').addClass('speed-label'))
-			.addClass('speed-controls')
+			.addClass('vi2-speed-controls')
 			.bind('mouseenter', function(e){
-				$('.speed-controls > ul').css('display','block');
+				$('.vi2-speed-controls > ul').css('display','block');
 			})
 			.bind('mouseleave', function(e){
-				$('.speed-controls > ul').css('display','none');
+				$('.vi2-speed-controls > ul').css('display','none');
 			})
 			.tooltip({
 				delay: 0, 
@@ -108,7 +108,7 @@ Vi2.PlaybackSpeed = $.inherit(/** @lends Vi2.PlaybackSpeed# */{
 			// set label
 			$('.speed-label').text( speed + 'x');
 			// close select menu
-			$('.speed-controls > ul').css('display','none');
+			$('.vi2-speed-controls > ul').css('display','none');
 			// log it
 			vi2.observer.log( this.url + ' change_speed: ' + vi2.observer.player.currentTime() + ' speed: ' + speed);
 		}	

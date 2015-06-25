@@ -10,7 +10,8 @@
  	- highlight on skip
 	- timeLineSelector
 	- clip übergreifende sprünge
-	 - nice defaults: var defaults = {animLen: 350}; options = $.extend(defaults, settings);
+	- nice defaults: var defaults = {animLen: 350}; options = $.extend(defaults, settings);
+	- re-comment
 */
 
 

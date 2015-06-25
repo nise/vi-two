@@ -92,11 +92,11 @@ Vi2.Example = $.inherit({
 		vi2.observer.addWidget( toc );
 		vi2.observer.addWidget( syncMedia );	
 		//vi2.observer.addWidget( userNotes );
-		//vi2.observer.addWidget( relatedVideos );
+		vi2.observer.addWidget( relatedVideos );
 		//vi2.observer.addWidget( inVideoSearch );	
-		//vi2.observer.addWidget( playbackSpeed );  
-		//vi2.observer.addWidget( temporalBookmarks );
-		//vi2.observer.addWidget( zoom ); 
+		vi2.observer.addWidget( playbackSpeed );  
+		vi2.observer.addWidget( temporalBookmarks );
+		vi2.observer.addWidget( zoom ); 
 		vi2.observer.addWidget( sharing ); // http://localhost/elearning/vi2/vi-two/examples/iwrm/videos/iwrm_seidel1.webm
   }
   

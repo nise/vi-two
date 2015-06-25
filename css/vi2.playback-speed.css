@@ -1,8 +1,6 @@
-.speed-controls {
-	position: absolute;
-  left: 248px;
-  top:6px; 
-  margin: 0;
+.vi2-speed-controls {
+	position:relative;
+	display:inline-block;
   padding: 2px 4px; 
   border: 1px solid #003366; 
   width: 40px;
@@ -14,9 +12,8 @@
    z-index:5000;
    background-color:#555;
    color:#fff;
-   
 }
-.speed-controls > ul { 
+.vi2-speed-controls > ul { 
 	display: none; 
 	position:absolute; 
 	bottom:100%;
@@ -28,8 +25,8 @@
 	list-style:none;
 	line-height:12px;
 }
-.speed-controls:hover > ul {  display: block; border: 1px solid #555; right:0px;}
-.speed-controls:hover > ul > li { z-index:5000; list-style:none; padding:4px;}
-.speed-controls:hover > ul > li:hover { z-index:5000; background: lightblue;}
+.vi2-speed-controls:hover > ul {  display: block; border: 1px solid #555; right:0px;}
+.vi2-speed-controls:hover > ul > li { z-index:5000; list-style:none; padding:4px;}
+.vi2-speed-controls:hover > ul > li:hover { z-index:5000; background: lightblue;}
 
 

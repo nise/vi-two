@@ -1,7 +1,7 @@
 /* 
 * name: Vi2.Example / Vi2.Main
 *	author: niels.seidel@nise81.com
-* license: 
+* license: BSD New
 * description:
 * dependencies:
 *  - jquery-1.11.2.min.js
@@ -92,7 +92,7 @@ Vi2.Example = $.inherit({
 		vi2.observer.addWidget( toc );
 		vi2.observer.addWidget( syncMedia );	
 		//vi2.observer.addWidget( userNotes );
-		//vi2.observer.addWidget( relatedVideos );
+		vi2.observer.addWidget( relatedVideos );
 		//vi2.observer.addWidget( inVideoSearch );	
 		//vi2.observer.addWidget( playbackSpeed );  
 		//vi2.observer.addWidget( temporalBookmarks );
