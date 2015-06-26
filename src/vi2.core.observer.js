@@ -88,9 +88,11 @@ Vi2.Observer = $.inherit(/** @lends Observer# */{
 	init : function(seek){  
 		seek = seek === undefined ? 0 : seek;
 		var _this = this; 
-		var videoo = $('<video controls autobuffer></video>')
-				.attr('id', this.options.videoSelector.replace(/\#|./,''))
+		var videoo = $('<video></video>')
+				.attr('controls', false)
+				.attr('autobuffer', true)
 				.attr('preload', "metadata")
+				.attr('id', this.options.videoSelector.replace(/\#|./,''))
 				.addClass('embed-responsive-item')
 				.text('Your Browser does not support either this video format or videos at all');
 		$(this.options.selector)

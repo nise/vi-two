@@ -49,16 +49,16 @@ Vi2.Example = $.inherit({
 		var temporalBookmarks = new Vi2.TemporalBookmarks();
 		var zoom = new Vi2.Zoom();
 		var sharing = new Vi2.Sharing();
-		//var skipBack = new Vi2.SkipBack();
+		var skipBack = new Vi2.SkipBack();
 				
-		// Add an table of content
+		// Define some annotation widgets
 	 	var toc = new Vi2.TableOfContents( { 
 	 		hasTimelineMarker: true, 
 	 		hasMenu: true, 
 	 		menuSelector:'.toc' 
 	 	} );
 		
-		// Synchronize some presentation slides
+		// Synchronize some presentation slides as 
 		var syncMedia = new Vi2.SyncronizeMedia( { 
 			selector: '.syncMedia', 
 			hasTimelineMarker: true, 
@@ -69,6 +69,7 @@ Vi2.Example = $.inherit({
 		//var userNotes = new Vi2.UserNotes();
 		
 		// With these widgets we make use of the video database
+		var videoManager = new Vi2.VideoManager();
 		var relatedVideos = new Vi2.RelatedVideos( { 
 			resultSelector: '.related-videos', 
 			criteria:[
@@ -90,14 +91,18 @@ Vi2.Example = $.inherit({
 		
 		// add all the widgets
 		vi2.observer.addWidget( toc );
-		vi2.observer.addWidget( syncMedia );	
-		//vi2.observer.addWidget( userNotes );
+		vi2.observer.addWidget( syncMedia );
+		
+		vi2.observer.addWidget( videoManager );	
 		vi2.observer.addWidget( relatedVideos );
-		//vi2.observer.addWidget( inVideoSearch );	
+		//vi2.observer.addWidget( userNotes );
+		//vi2.observer.addWidget( inVideoSearch );
+		//vi2.observer.addWidget( sharing ); // http://localhost/elearning/vi2/vi-two/examples/iwrm/videos/iwrm_seidel1.webm
+		vi2.observer.addWidget( zoom );	
 		vi2.observer.addWidget( playbackSpeed );  
 		vi2.observer.addWidget( temporalBookmarks );
-		vi2.observer.addWidget( zoom ); 
-		vi2.observer.addWidget( sharing ); // http://localhost/elearning/vi2/vi-two/examples/iwrm/videos/iwrm_seidel1.webm
+		vi2.observer.addWidget( skipBack ); 
+		
   }
   
   

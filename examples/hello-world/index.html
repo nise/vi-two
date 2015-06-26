@@ -8,22 +8,26 @@
     <title>vi2 framework showcase</title>
     <link type="text/css" href="css/ui-lightness/jquery-ui-1.7.2.custom.css" rel="stylesheet" />
 		<link type="text/css" href="css/jquery.ui.autocomplete.custom.css" rel="stylesheet" />
-
+	<link type="text/css" href="../../css/vi2.main.css" rel="stylesheet" media="screen" />
+		
 		<link type="text/css" href="../../css/vi2.assessment.css" rel="stylesheet" media="screen" />
 		<link type="text/css" href="../../css/vi2.assessment-fill-in.css" rel="stylesheet" media="screen" />
 		<link type="text/css" href="../../css/vi2.assessment-writing.css" rel="stylesheet" media="screen" />
 		<link type="text/css" href="../../css/vi2.highlight.css" rel="stylesheet" media="screen" />
-		<link type="text/css" href="../../css/vi2.main.css" rel="stylesheet" media="screen" />
-		<link type="text/css" href="../../css/vi2.playback-speed.css" rel="stylesheet" media="screen" />
-		<link type="text/css" href="../../css/vi2.zoom.css" rel="stylesheet" media="screen" />
-		<link type="text/css" href="../../css/vi2.sharing.css" rel="stylesheet" media="screen" />
-		<link type="text/css" href="../../css/vi2.temporal-bookmarks.css" rel="stylesheet" media="screen" />
-		<link type="text/css" href="../../css/vi2.syncMedia.css" rel="stylesheet" media="screen" />
+		
+		<link type="text/css" href="../../css/vi2.player.playback-speed.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.player.zoom.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.player.sharing.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.player.skip-back.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.player.temporal-bookmarks.css" rel="stylesheet" media="screen" />
+
+		<link type="text/css" href="../../css/vi2.simultaneous-media.css" rel="stylesheet" media="screen" />
 		<link type="text/css" href="../../css/vi2.user-notes.css" rel="stylesheet" media="screen" />
 		<link type="text/css" href="../../css/vi2.closed-captions.css" rel="stylesheet" media="screen" />
 		<link type="text/css" href="../../css/vi2.toc.css" rel="stylesheet" media="screen" />
 		<link type="text/css" href="../../css/vi2.videoplayer.css" rel="stylesheet" media="screen" />
-			
+
+		
 			
 		<style>
 
@@ -70,6 +74,7 @@
 		<script src="../../lib/jquery.tooltip.js"></script>
 		<script src='../../lib/jquery.spin.js'></script>
 		<script src="../../lib/jquery.panzoom.min.js"></script>
+		<script src="../../lib/sammy-latest.min.js"></script>
 			
 		<script language ="javascript">
 			var 
@@ -96,22 +101,24 @@
 		<script src="../../src/vi2.core.annotation.js"></script>
 		<script src="../../src/vi2.core.utils.js"></script>
 		<!-- vi-two player-widgets	-->
-		<script src="../../src/vi2.playback-speed.js"></script>
-		<script src="../../src/vi2.temporal-bookmarks.js"></script>
-		<script src="../../src/vi2.zoom.js"></script>
-		<script src="../../src/vi2.sharing.js"></script>
+		<script src="../../src/vi2.player.playback-speed.js"></script>
+		<script src="../../src/vi2.player.temporal-bookmarks.js"></script>
+		<script src="../../src/vi2.player.zoom.js"></script>
+		<script src="../../src/vi2.player.sharing.js"></script>
+		<script src="../../src/vi2.player.skip-back.js"></script>		
 		<!-- vi-two portal-widgets -->
-		<script src="../../src/vi2.relatedVideos.js"></script>
+		<script src="../../src/vi2.video-manager.js"></script>
+		<script src="../../src/vi2.related-videos.js"></script>
 		<script src="../../src/vi2.search.js"></script>
 		<!-- vi-two annotation-widgets -->
 		<script src="../../src/vi2.toc.js"></script>
-		<script src="../../src/vi2.syncMedia.js"></script>
+		<script src="../../src/vi2.simultaneous-media.js"></script>
 <!--		<script src="../../src/vi2.user-notes.js"></script>
 		<script src="../../src/vi2.closed-captions.js"></script>-->
 		
-	<!--	<script src="../../src/vi2.xlink.js"></script>
+	<!--	<script src="../../src/vi2.hyperlinks.js"></script>
 		<script src="../../src/vi2.seq.js"></script>
-		<script src="../../src/vi2.tags.js"></script>
+		<script src="../../src/vi2.temporal-tags.js"></script>
 		-->
 	
 	</head>
@@ -149,10 +156,10 @@
 				<div class="vi2-video-progress vi2-btn"></div>
 			</div>
 			<div class="control-bar">
-				<div class="vi2-video-play vi2-btn" title="Play/Pause"></div>
+				<div class="vi2-video-play-pause vi2-btn" title="Play/Pause"></div>
 				<div class="vi2-video-timer"></div>
 				<div class="vi2-volume-box">
-					<div class="vi2-volume-slider2"></div>
+					<div class="vi2-volume-slider"></div>
 					<a class="vi2-volume-button vi2-btn" title="Mute/Unmute"></a>
 				</div>
 			</div>

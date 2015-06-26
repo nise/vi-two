@@ -109,7 +109,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		videoControlsSelector: '', 
 		childtheme: '', 
 		thumbnail:'/vi-lab/img/placeholder.jpg', 
-		skipBackInterval:5
+		defaultVolume : 0, // 0..1
 	},
 	video: null,
 	observer: null,
@@ -119,7 +119,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 	video_wrap: null,
 	play_btn: $(''),
 	video_seek: null,
-	video_progress: null,
+	video_loading_progress: null,
 	video_timer: null,
 	volume: null,
 	isMuted: false,
@@ -223,8 +223,8 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 				_this.percentLoaded = percent;
 				percent = Math.min(1, Math.max(0, percent));
 				
-				if (_this.video_progress && _this.video_seek) {
-					_this.video_progress.width(_this.video_seek.width() * percent);
+				if (_this.video_loading_progress && _this.video_seek) {
+					_this.video_loading_progress.width(_this.video_seek.width() * percent);
 				}
 			}
 			
@@ -291,43 +291,33 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 
 
 	/** 
-	load UI 
+	* load UI 
 	*/
 	loadUI: function() { 
 		var _this = this;
-		this.play_btn = $('.vi2-video-play', this.video_container);
-		this.video_seek = $('.vi2-video-seek', this.video_container);
-		this.video_progress = $('.vi2-video-progress', this.video_container);
-		this.video_timer = $('.vi2-video-timer', this.video_container);
-		this.volume = $('.vi2-volume-slider', this.video_container);
-		this.volume_btn = $('.vi2-volume-button', this.video_container);
-
-		this.skipBack_btn = $('.vi2-skip-back', this.video_container);
-
-
-		// keep the native HTML5 controls hidden
-		$(this.video).removeAttr('controls');
-$(_this.options.videoControlsSelector).addClass("open-controls");
+		// show/hide video controls
+		$(_this.options.videoControlsSelector).addClass("open-controls");
 		$("#video1, #overlay").hover(function() {  
 		  	$(_this.options.videoControlsSelector).addClass("open-controls");
 			}, function() { 
-		  	//$(_this.options.videoControlsSelector).removeClass("open-controls");
+		  	$(_this.options.videoControlsSelector).removeClass("open-controls");
 		});
 		//$('#overlay').css('height', $('video').height() );
 		//$('#overlay').css('width', $('#video1').width() );
 
 		// load other ui elements
+		this.createPlaybackControl();
 		this.createVolumeControl();
 		this.createVideoHiding();
-		
-		this.skipBack_btn.click(function(){
-			_this.skipBack();
-		})
-		
-		// keyboard / space bar for play/pause
-	//	$('body-xxx').unbind('keydown').bind('keydown', function(e) { 
-			//_this.keyboardCommandHandler(e);  xxx bug
-	//	});
+		// createTimelineControl gets loaded as soon a we know the video duration
+	},
+	
+	/**
+	* Creates video playback control
+	*/
+	createPlaybackControl : function(){
+		var _this = this;
+		this.play_btn = $('.vi2-video-play-pause', this.video_container);
 		
 		this.play_btn.bind('click', function() {  
 			_this.play(); 
@@ -335,26 +325,31 @@ $(_this.options.videoControlsSelector).addClass("open-controls");
 
 		$(this.video).bind('play', function(e) {
 			_this.play_btn.addClass('vi2-video-pause');
+			_this.play_btn.removeClass('vi2-video-play');
 			vi2.observer.play();
 			$('.screen').remove();
 		});
 
 		$(this.video).bind('pause', function(e) {
+			_this.play_btn.addClass('vi2-video-play');
 			_this.play_btn.removeClass('vi2-video-pause');
 			vi2.observer.pause();
 		});
-		
 	},
 
 
-/************ AUDIO VOLUME ********************/
-
-	/* Creates a volume control element */
+	/** 
+	* Creates a volume control element 
+	*/
 	createVolumeControl : function(){
 		var _this = this;
+		// intit controls
+		this.volume = $('.vi2-volume-slider', this.video_container);
+		this.volume_btn = $('.vi2-volume-button', this.video_container);
+		// init slider
 		$(this.volume).slider({
 				value: _this.video_volume,
-				orientation: 'vertical',
+				orientation: 'horizontal',
 				range: 'min',
 				max: 1,
 				step: 0.05,
@@ -370,8 +365,9 @@ $(_this.options.videoControlsSelector).addClass("open-controls");
 					_this.video_volume = parseFloat(ui.value);
 				}	
 		});
+		this.setVolume( this.options.defaultVolume )
 		//alert(this.volume)
-		$(this.volume).show();
+		//$(this.volume).show();
 		
 		this.volume_btn
 			.bind('click', function(e) {
@@ -379,18 +375,39 @@ $(_this.options.videoControlsSelector).addClass("open-controls");
 			})
 	},
 	
-	/* Increases audio volume by 5 percent */
+	/**
+	* Get volume
+	*/
+	getVolume : function(){
+		return this.video_volume;
+	},
+	
+	/**
+	* Set volume
+	* @param volume {Number} Number in the range of 0 and 1. Every value outside that rang will be changed to the boundaries. 
+	*/
+	setVolume : function(volume){
+		this.volume.slider('value', volume);
+	},
+	
+	/** 
+	* Increases audio volume by 5 percent 
+	*/
 	increaseVolume : function(){ 
 		$(this.volume).slider('value', $(this.volume).slider('value') + 0.05 );
 	},
 	
-	/* Decreases audio volume by 5 percent */
+	/** 
+	* Decreases audio volume by 5 percent 
+	*/
 	decreaseVolume : function(){
 		$(this.volume).slider('value', $(this.volume).slider('value') - 0.05 );
 	},
 
 	tmp_volume : 0,
-	/* Mute audio volume */
+	/** 
+	* Toggles the button to mute/unmute the volume. If volume get unmuted the volume will be reset to the value it had befor muting.
+	*/
 	muteVolume: function() { 
 		if(this.isMuted) {
 			this.volume.slider('value', tmp_volume);
@@ -405,11 +422,17 @@ $(_this.options.videoControlsSelector).addClass("open-controls");
 	},
 
 
-/*****SEEK ************/
 
-	/* Creates a timeline slider to seek within the playback time */
-	createSeekControl: function() {
+	/** 
+	* Creates a timeline slider to seek within the playback time 
+	*/
+	createTimelineControl : function() {
 		var _this = this;
+		// init
+		this.video_seek = $('.vi2-video-seek', this.video_container);
+		this.video_loading_progress = $('.vi2-video-loading-progress', this.video_container);
+		this.video_timer = $('.vi2-video-timer', this.video_container); // could become an option
+		//
 		if (this.video.readyState) {
 			clearInterval(this.interval);
 			clearInterval(this.interval);
@@ -443,8 +466,8 @@ $(_this.options.videoControlsSelector).addClass("open-controls");
 				}
 			});
 		} else {
-			// try reinitiate the slider as long the
-			this.interval = setInterval(function() { _this.createSeekControl(); }, 150);
+			// try reinitiate the slider as long the ...? 
+			this.interval = setInterval(function() { _this.createTimelineControl(); }, 150);
 		}
 		$(vi2.observer.player).bind('player.play', function(e, a, b) { 
   			$('.navbar').hide();
@@ -457,19 +480,16 @@ $(_this.options.videoControlsSelector).addClass("open-controls");
 
 	/* updates after seeking */
 	seekUpdate: function() {
-		//var currenttime = this.video.currentTime;//$(this.options.selector).attr('currentTime');
-		//$('#debug').append(currenttime+'\n');
 		if (!this.seeksliding) {
 			this.video_seek.slider('value', this.currentTime() );
 		}
 		this.timeUpdate();
-		
 	},
 	
 	
 	
 	/* Creates controle element to hide/show the video frame 
-	*	todo: this should be accomplished with a audio description and other accessibility assistance
+	*	xxx todo: this should be accomplished with a audio description and other accessibility assistance
 	*/
 	createVideoHiding: function(){
 		
@@ -514,14 +534,16 @@ $(_this.options.videoControlsSelector).addClass("open-controls");
 /* EVENT HANDLER *************************/
 
 
-	/* time update */
+	/** 
+	* Time update event. The current playback time gets displayed in relation to the over all playback time. */
 	timeUpdate: function() { 
 		this.video_timer.text( vi2.utils.seconds2decimal( this.video.currentTime ) + ' / ' + vi2.utils.seconds2decimal( this.video.duration ));
 	},
 
-	// event handler: on can play
+	/** 
+	* event handler: on can play. Notifies the observer about a new video.
+	*/
 	readyStateHandler: function(e) {
-		// notify observer about new video
 		vi2.observer.updateVideo(this.seqList[this.seqNum]['id'], this.seqNum);
 	},
 
@@ -535,7 +557,7 @@ $(_this.options.videoControlsSelector).addClass("open-controls");
 
 	// event handler: on duration change; trigger when duration is known
 	durationChangeHandler: function(e, seek) { //alert('should seek '+e.data.seek)
-		this.createSeekControl();
+		this.createTimelineControl();
 		//$('#debug').append('seek  '+this.timeFormat(this.video.seekable.start(0))+' - '+this.timeFormat(this.video.seekable.end(0))+'\n');
 		if (Number(seek) > 0) { 
 			if(this.percentLoaded > (seek / this.duration())){
@@ -576,6 +598,7 @@ $(_this.options.videoControlsSelector).addClass("open-controls");
 		vi2.observer.ended();
 		this.video.removeEventListener('ended', arguments.callee, false);
 		this.play_btn.removeClass('vi2-video-pause');
+		this.play_btn.add('vi2-video-play');
 		// load next video clip if its a sequence
 		if (this.isSequence && ((this.seqNum + 1) < this.seqList.length || this.seqLoop)) {
 			this.seqNum = (this.seqNum + 1) % this.seqList.length;
@@ -686,11 +709,6 @@ $(_this.options.videoControlsSelector).addClass("open-controls");
 	pause: function() {
 		this.video.pause();
 		$(vi2.observer.player).bind('player.pause');
-	},
-		
-	/* skips back for a short time frame */
-	skipBack : function(){
-		this.currentTime( this.currentTime() - this.options.skipBackInterval );
 	},
 
 	/* returns duration of video */

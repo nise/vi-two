@@ -7,16 +7,21 @@
 *  - jquery-1.11.2.min.js
 *  - jquery.inherit-1.1.1.js
 *	todo:
+
+- kann templates laden und für seine kinder (e.g. related videos verarbeiten)
+- kann video laden
+
+- listen to url changes and load videos and views
 - list streams by category / tag / author / date / ...
 - offers different rendering styles: 
 Karussell, Liste, Card-Deck, Matrix, Stack, Video-Wall, Slide-Row, Slide-Matrix, ...
-
+- sort order, change sort order .. sort by..
 
 */
 
 
 
-var Vi2_VideoManager = $.inherit(/** @lends VideoManager# */{ // 
+Vi2.VideoManager = $.inherit(/** @lends Vi2.VideoManager# */{ // 
 
 	/** 
 	*		@constructs 
@@ -30,9 +35,30 @@ var Vi2_VideoManager = $.inherit(/** @lends VideoManager# */{ //
 	type : 'collection',
 	content_selector : '#content',
 	options : {},
+
+	/***/
+	init : function(){
 	
+		Sammy('#seq', function() {
+        
+        // define a 'get' route that will be triggered at '#/path'
+        
+        this.get('#:stream', function() {// alert(this.params['stream'])
+        	
+        	
+        	$(vi2.dom).empty();
+        	vi2.observer = new Vi2.Observer({selector:"#seq", videoWidth:"400px", videoHeight:"800px"}); 
+					vi2.observer.init(0);  
+					vi2.observer.setCurrentStream( this.params['stream'] ); 
+        	vi2.observer.parse(vi2.dom, 'html');  
+          // this context is a Sammy.EventContext
+      /*    this.$element() // $('#main')
+              .html('A new route!');*/
+        });
+      }).run();
 	
-	
+	},
+
 	/* -- */
 	listByTag : function(tag_name){
 		var _this = this;

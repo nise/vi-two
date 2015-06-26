@@ -7,6 +7,7 @@
 *  - jquery-1.11.2.min.js
 *  - jquery.inherit-1.1.1.js
 * to-do:
+*  - exclude videos that have been watched already => make dependency to ViewingHistory 
 *  - add categorie as possible criterion
 *  - (server side) 	- users that have seen this video also took a look at ...
 *  - check literature about other algorithms for recommender systems
@@ -120,7 +121,9 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 			$.each(this.results, function(i,val){
 				if( j < _this.options.limit ){
 					var t = val.toString().split(',');
-					var li = $('<li></li>').text( t[0] + ' (' + t[1] + ')').appendTo(ul);	
+					var li = $('<li></li>').appendTo(ul);
+					var a = $('<a></a>').attr('href','#' + t[0]).text( t[0] + ' (' + t[1] + ')').appendTo(li);
+					;	
 				}
 				j++;
 			});

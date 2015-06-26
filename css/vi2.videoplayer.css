@@ -1,6 +1,5 @@
 /*
 author: niels.seidel@nise81.com
-
 */
 
 
@@ -41,63 +40,101 @@ author: niels.seidel@nise81.com
 
 
 
+.control-bar{
+	position:relative;
+	float:left;
+	padding:0 10px;
+	margin:0;
+	width:100vw;
+	height:40px;
+	background-color:#222;
+	opacity:.6;
+}
+
+.control-bar > div {	
+	vertical-align: text-top;
+	margin: 6px 4px 0px 6px;
+}
+
+
+
+
+/* play, pause */
+.vi2-video-play-pause{
+	margin-top:10px;
+	display:inline-block;
+	width: 22px;
+	height: 22px;
+}
+
+.vi2-video-play {
+	background: url(../img/play-icon.png) no-repeat;	margin-top:0px;
+}
+
+.vi2-video-pause {
+	background: url(../img/pause-icon.png) no-repeat;
+}
+
+
 /* Volume Controls */
 
 .vi2-volume-box {
 	display:inline-block;
+	position:relative;
 	width: 20px;
 	height: 30px;
 	color: #fff;
 	padding-left:4px;
-	-moz-transition: all 0.1s ease-in-out; /* Firefox */
-	-webkit-transition: all 0.1s ease-in-out; /* Safari and Chrome */
-	-o-transition: all 0.2s ease-in-out;  /* Opera */
-	transition: all 0.1s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out; /* Firefox */
+	-webkit-transition: all 0.3s ease-in-out; /* Safari and Chrome */
+	-o-transition: all 0.3s ease-in-out;  /* Opera */
+	transition: all 0.3s ease-in-out; 
 }
 
 .vi2-volume-box:hover {	
-	height: 135px;
+	width: 120px;	
+}
+.vi2-volume-box:hover .vi2-volume-slider{
+display:inline;
+}
+																																																																																																																																																																																																									
+
+.vi2-volume-box .vi2-volume-slider {
+	display:none;	
+	position:absolute;																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											
+	height: 14px;
+	width: 90px;
+	top:4px;
+	left:30px;
+	border: 1px solid #777;
+	-moz-transition: all 0.2s ease-in-out; /* Firefox */
+	-webkit-transition: all 0.2s ease-in-out; /* Safari and Chrome */
+	-o-transition: all 0.2s ease-in-out;  /* Opera */
+	transition: all 0.2s ease-in-out; 
 }
 
 
-.vi2-volume-box:hover .vi2-volume-slider {
-	position: relative;
+.vi2-volume-box .vi2-volume-slider .ui-slider-handle {
 	display:block;
+	position:absolute;
+	top:0; 
+	width:10px; 
+	height:inherit;
+	background: #eee;	
+}
+.vi2-volume-box .vi2-volume-slider .ui-slider-handle:hover {
+background-color: orange;	
 }
 
-
-.vi2-volume-slider {	
-	position: relative;
-	height: 100px;
-	width: 127px;
-	left: 4px;
-	border: 1px solid #444;
-	-moz-border-radius:15px;
-	-webkit-border-radius:15px;
-	border-radius:15px;
-	-moz-transition: all 0.1s ease-in-out; /* Firefox */
-	-webkit-transition: all 0.1s ease-in-out; /* Safari and Chrome */
-	-o-transition: all 0.1s ease-in-out;  /* Opera */
-	transition: all 0.1s ease-in-out; 
-	
-}
+.vi2-volume-box .vi2-volume-slider .ui-slider-handle .ui-state-hover {	background-color: orange; }
 
 
-
-.vi2-volume-slider .ui-slider-handle {
-	background: #003366;
-	background-image: -moz-linear-gradient(top, #e6e6e6, #d5d5d5);
-	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #e6e6e6),color-stop(1, #d5d5d5));
-	box-shadow: inset 0 3px 3px #d5d5d5;	
-}
-.vi2-volume-slider .ui-slider-handle.ui-state-hover {	background: #003366; }
-
-
-.vi2-volume-slider .ui-slider-range {
-	background: #003366;
-	background-image: -moz-linear-gradient(top, #e6e6e6, #d5d5d5);
-	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #e6e6e6),color-stop(1, #d5d5d5));
-	box-shadow: inset 0 3px 3px #d5d5d5;
+.vi2-volume-box .vi2-volume-slider .ui-slider-range {
+	display:inline-block;
+	height:inherit;
+	background-color: #777;
+	border-radius:0;
+	cursor: pointer;
 }
 
 
@@ -115,40 +152,6 @@ author: niels.seidel@nise81.com
 
 .vi2-volume-mute {
 	background: url(../img/volume-mute-icon.png) no-repeat;
-}
-
-
-
-/********************************************************************/
-
-.control-bar{
-	position:relative;
-	float:left;
-	padding:0;
-	margin:0;
-	width:100vw;
-	height:40px;
-	background-color:#222;
-	opacity:.6;
-}
-
-
-
-/* play, pause */
-.vi2-video-play {
-	display:inline-block;
-	margin:4px 10px;
-	width: 22px;
-	height: 22px;
-	background: url(../img/play-icon.png) no-repeat;	margin-top:0px;
-}
-
-.vi2-video-pause {
-	display:inline-block;
-	margin: 0px 10px;
-	width: 22px;
-	height: 22px;
-	background: url(../img/pause-icon.png) no-repeat;
 }
 
 
@@ -184,7 +187,7 @@ author: niels.seidel@nise81.com
 }
 
 
-.vi2-video-progress {
+.vi2-video-loading-progress {
 	position:absolute;
 	top:0;
 	left:0;
@@ -204,6 +207,7 @@ author: niels.seidel@nise81.com
 	position:absolute;
 	top:0;
 	left:0;
+	display:block;
 	width: 100%;
 	background-image:none;
 	padding:0;
@@ -212,22 +216,27 @@ author: niels.seidel@nise81.com
 	border:0;
 }
 
+
 .vi2-video-seek .ui-slider-handle {
+		position:absolute;
 		width:10px;
-		height:22px;
-		margin-top:4px;
-		background-color:#1C94C4;
+		height:inherit;
+		background-color:#555;
 		cursor:col-resize;
 		border:none;
 		border-radius:0;
+		z-index:2000;
+		display:inline-block;
 }
 
 .vi2-video-seek .ui-slider-handle:hover { 
-	background-color: #444; 
+	background-color: #fff; 
 }
 
 .vi2-video-seek .ui-slider-range {
-	background-color: #1C94C4;
+	display:inline-block;
+	height:inherit;
+	background-color: #777;
 	border-radius:0;
 	cursor: pointer;
 }
@@ -330,37 +339,3 @@ display:none;
 
 
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

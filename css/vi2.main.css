@@ -86,26 +86,8 @@
 	background-color:#ccc;
 }
 
-/*
-textarea{
-	height:100px;
-	width:100%;
-	font-size:14px;
-	border:0;
-	padding:4px;
-	background-color:#eee;
-}
-*/
 
-/*************************************************/
-.pieContextMenu {
-		display: none;
-		list-style-type: none;
-		position: absolute;
-		margin:0px;
-		padding:0px;
-		z-index: 2000;
-	}
+
 	
 .screen{
 	position:absolute;
@@ -142,16 +124,6 @@ padding:10px;
 
 
 
-/*UPLOAD***********************************************/
-div#uploadcontainer{
-
-}
-.ul-form{
-
-}
-.ul-meta input{
-	display:inline;
-}
 
 /*LIST ***********************************************/
 td { vertical-align:top; }

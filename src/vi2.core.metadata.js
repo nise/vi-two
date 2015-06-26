@@ -55,7 +55,7 @@ Vi2.Metadata = $.inherit(/** @lends Vi2.Metadata# */
   		displayMetadata : function(){
   			var html = new EJS({url: vi2.templatePath+'vi2.metadata.ejs'})
   				.render( this.metadata );
-				$( this.options.selector ).append( html );
+				$( this.options.selector ).html( html );
   		},
   		
   		

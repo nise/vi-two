@@ -1,0 +1,17 @@
+.vi2-skipback-controls {
+	position:relative;
+	display:inline-block;
+  margin: 0;
+  padding: 2px 4px; 
+  border: 1px solid #003366; 
+  font-size:12px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+   cursor: pointer;
+   z-index:5000;
+   background-color:#555;
+   color:#fff;   
+}
+
+
