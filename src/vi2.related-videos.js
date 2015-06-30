@@ -53,7 +53,7 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 		/* -- */
 		determineCriteria : function(id){
 			var _this = this;
-			var streams = []; 
+			this.results = {};
 			$.each( this.options.criteria, function(i, criterion){ 
 				switch(criterion.criterion){
 					case "random-destructor":
@@ -85,13 +85,13 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 		**/
 		weightResults : function(res, weight){  
 			var _this = this;
-			$.each(res, function(i, val){
+			$.each(res, function(i, val){ 
 				if( i in _this.results === false ){  
 					_this.results[ i ] = 0;
 				} 
-				_this.results[ i ] += Math.floor(val * weight * 10)/10; // bug: strange floating number as result
+				_this.results[ i ] += Math.floor( val * weight * 10) / 10; // bug: strange floating number as result
 			});
-			//alert(JSON.stringify(_this.results))
+			
 		},
 		
 		/**
@@ -115,18 +115,19 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 			var _this = this;
 			// sort by relevance 
 			this.results = this.sortByRelevance( this.results );
-			var ul = $('<ul></ul>')
-				.appendTo(_this.options.resultSelector);
+			var ul = $('<ul></ul>');
+			
 			var j = 0;	
 			$.each(this.results, function(i,val){
-				if( j < _this.options.limit ){
-					var t = val.toString().split(',');
+				if( j < _this.options.limit ){ 
+					var t = val.toString().split(','); 
 					var li = $('<li></li>').appendTo(ul);
-					var a = $('<a></a>').attr('href','#' + t[0]).text( t[0] + ' (' + t[1] + ')').appendTo(li);
+					var a = $('<a></a>').attr('href','#!/video/' + t[0] + '').text( t[0] + ' (' + t[1] + ')').appendTo(li);
 					;	
 				}
 				j++;
 			});
+			$( this.options.resultSelector ).html( ul );
 		}	
 		
 		

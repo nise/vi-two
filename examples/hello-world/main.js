@@ -38,70 +38,28 @@ Vi2.Example = $.inherit({
   	
   	vi2.observer = new Vi2.Observer({selector:"#seq", videoWidth:"400px", videoHeight:"800px"}); 
 		vi2.observer.init(0);  
-		vi2.observer.setCurrentStream('seidel1'); 
-		vi2.observer.parse(vi2.dom, 'html');
+		//vi2.observer.setCurrentStream('seidel1'); 
+		
 		
 		//this.loadConfig();
 		
+		var videoManager = new Vi2.VideoManager(); 
+		vi2.observer.addWidget( videoManager ); 
+		videoManager.init();
 		
-		// At first we define some basic player widgets
+		
+			// At first we define some basic player widgets
 		var playbackSpeed = new Vi2.PlaybackSpeed();
 		var temporalBookmarks = new Vi2.TemporalBookmarks();
 		var zoom = new Vi2.Zoom();
-		var sharing = new Vi2.Sharing();
+		//var sharing = new Vi2.Sharing();
 		var skipBack = new Vi2.SkipBack();
-				
-		// Define some annotation widgets
-	 	var toc = new Vi2.TableOfContents( { 
-	 		hasTimelineMarker: true, 
-	 		hasMenu: true, 
-	 		menuSelector:'.toc' 
-	 	} );
-		
-		// Synchronize some presentation slides as 
-		var syncMedia = new Vi2.SyncronizeMedia( { 
-			selector: '.syncMedia', 
-			hasTimelineMarker: true, 
-			hasMenu: true, 
-			menuSelector:'.toc' 
-		} );
-		
-		//var userNotes = new Vi2.UserNotes();
-		
-		// With these widgets we make use of the video database
-		var videoManager = new Vi2.VideoManager();
-		var relatedVideos = new Vi2.RelatedVideos( { 
-			resultSelector: '.related-videos', 
-			criteria:[
-				{ criterion: 'random-destructor', weight:0.1 },
-				{ criterion: 'same-author', weight:0.8 }, 
-				{ criterion: 'same-tags', weight:0.6 },
-				{ criterion: 'incomming-links', weight:0.5 },
-				{ criterion: 'outgoing-links', weight:0.5 }
-				] 
-		} );
-		//relatedVideos.init();
-		
-		var inVideoSearch = new Vi2.Search( {
-			resultSelector: '.search-results', 
-			limit: 25
-		} );
-		//inVideoSearch.find('water basin');
-		
-		
-		// add all the widgets
-		vi2.observer.addWidget( toc );
-		vi2.observer.addWidget( syncMedia );
-		
-		vi2.observer.addWidget( videoManager );	
-		vi2.observer.addWidget( relatedVideos );
-		//vi2.observer.addWidget( userNotes );
-		//vi2.observer.addWidget( inVideoSearch );
-		//vi2.observer.addWidget( sharing ); // http://localhost/elearning/vi2/vi-two/examples/iwrm/videos/iwrm_seidel1.webm
+				//vi2.observer.addWidget( sharing ); // http://localhost/elearning/vi2/vi-two/examples/iwrm/videos/iwrm_seidel1.webm
 		vi2.observer.addWidget( zoom );	
 		vi2.observer.addWidget( playbackSpeed );  
 		vi2.observer.addWidget( temporalBookmarks );
 		vi2.observer.addWidget( skipBack ); 
+
 		
   }
   

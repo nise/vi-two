@@ -160,7 +160,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		this.startSpinning(); 
 		vi2.observer.log('loadvideo:'+url); 
 		var supportedCodec = this.detectVideoSupport();
-		this.video = $.extend(this.video, {
+		this.video = $.extend( this.video, {
 			loop: false,
 	  	preload: 'metadata', // 'metadata' | true ??
 	  	autoplay: true,
@@ -234,6 +234,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 	 	// get sources and load video
 	 	if( url != undefined){
 			$(this.video).html( this.createSource(url, supportedCodec ), this.video.firstChild);
+			
 		}
 	},
 
@@ -261,8 +262,9 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 	},
 
 	/* load sequence */
-	loadSequence: function(sources, num) {  
+	loadSequence: function(sources, num, seek) {  
 		this.seqList = sources;
+		this.seek = seek;
 		this.isSequence = true;
 		if (num == undefined) {
 			this.seqNum = 0;
@@ -272,11 +274,13 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		this.loadVideo(this.seqList[this.seqNum]['url'], this.seek);
 	},
 
-	/* build video source element
-			param: src = video url; mime_type = mime_type of video
-			returns: video source element including src and type attribute
+
+	/** 
+	* build video source element
+	* @param src = video url; mime_type = mime_type of video
+	*	@returns: video source element including src and type attribute
 	*/
-	createSource: function(src, mime_type) {
+	createSource: function(src, mime_type) { 
   	var source = document.createElement('source'); 
   	// extract file type out of mime type
   	source.src = src+"?foo="+(new Date().getTime());//src.replace('.webm', '') + '.' + mime_type.replace('video/', '');
@@ -366,8 +370,6 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 				}	
 		});
 		this.setVolume( this.options.defaultVolume )
-		//alert(this.volume)
-		//$(this.volume).show();
 		
 		this.volume_btn
 			.bind('click', function(e) {
@@ -461,7 +463,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 						_this.video.currentTime = parseFloat(Math.ceil(ui.value)); // XXX bugy / webkit fix
 						//_this.video.currentTime = ui.value;
 					//}else{
-					 //alert(33); // bugy xxx
+					  // bugy xxx
 					//}	
 				}
 			});
@@ -556,7 +558,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 
 
 	// event handler: on duration change; trigger when duration is known
-	durationChangeHandler: function(e, seek) { //alert('should seek '+e.data.seek)
+	durationChangeHandler: function(e, seek) {
 		this.createTimelineControl();
 		//$('#debug').append('seek  '+this.timeFormat(this.video.seekable.start(0))+' - '+this.timeFormat(this.video.seekable.end(0))+'\n');
 		if (Number(seek) > 0) { 

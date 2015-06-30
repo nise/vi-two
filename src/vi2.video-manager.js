@@ -9,7 +9,7 @@
 *	todo:
 
 - kann templates laden und für seine kinder (e.g. related videos verarbeiten)
-- kann video laden
+
 
 - listen to url changes and load videos and views
 - list streams by category / tag / author / date / ...
@@ -27,8 +27,8 @@ Vi2.VideoManager = $.inherit(/** @lends Vi2.VideoManager# */{ //
 	*		@constructs 
 	*		@param {object} options An object containing the parameters
 	*/
-	__constructor : function(options) {
-			this.options = $.extend(this.options, options);  
+	__constructor : function(options) { 
+		this.options = $.extend(this.options, options);  
 	},
 	
 	name : 'video-manager',
@@ -37,25 +37,105 @@ Vi2.VideoManager = $.inherit(/** @lends Vi2.VideoManager# */{ //
 	options : {},
 
 	/***/
-	init : function(){
+	init : function(){  
+		var _this = this; 
+		
+		Sammy('#seq', function() { 
+        
+        // define a 'get' route that loads video streams and 
+        
+        this.get('#!/video/:stream/:time', function() {
+        	_this.handleNewStream(this.params);
+        });
+        
+        
+        this.get('#!/video/:stream', function() {
+        	_this.handleNewStream(this.params);
+        });
+        
+        
+      }).run();
 	
-		Sammy('#seq', function() {
-        
-        // define a 'get' route that will be triggered at '#/path'
-        
-        this.get('#:stream', function() {// alert(this.params['stream'])
-        	
-        	
-        	$(vi2.dom).empty();
-        	vi2.observer = new Vi2.Observer({selector:"#seq", videoWidth:"400px", videoHeight:"800px"}); 
-					vi2.observer.init(0);  
-					vi2.observer.setCurrentStream( this.params['stream'] ); 
-        	vi2.observer.parse(vi2.dom, 'html');  
+	},
+	
+	/**
+	*
+	*/
+	handleNewStream : function(params){ 
+			var _this = this;
+			var seek = params['time'] === undefined ? 0 : (params['time']).split(/:/)[1];
+    	if( params['stream'] != vi2.observer.current_stream ){ 
+      	$(vi2.dom).empty(); 
+				vi2.observer.setCurrentStream( params['stream'], seek );
+//				vi2.observer.player.play(); 
+				_this.loadWidgets();
+			}else{
+				vi2.observer.player.currentTime( seek )
+			}	
+
+        	//vi2.observer.annotationsToDOM(); 
+        	//vi2.observer.player.loadVideo( vi2.observer.vid_arr[0]['url'] , 0);  
+        	 
           // this context is a Sammy.EventContext
       /*    this.$element() // $('#main')
               .html('A new route!');*/
-        });
-      }).run();
+	
+	},
+	
+	
+	
+	/**
+	*
+	*/
+	loadWidgets : function(){ 
+	
+		// Define some annotation widgets
+	 	var toc = new Vi2.TableOfContents( { 
+	 		hasTimelineMarker: true, 
+	 		hasMenu: true, 
+	 		menuSelector:'.toc' 
+	 	} );
+		
+		// Synchronize some presentation slides as 
+		var syncMedia = new Vi2.SyncronizeMedia( { 
+			selector: '.syncMedia', 
+			hasTimelineMarker: true, 
+			hasMenu: true, 
+			menuSelector:'.toc' 
+		} );
+		
+		//var userNotes = new Vi2.UserNotes();
+		
+		// With these widgets we make use of the video database
+		
+		var relatedVideos = new Vi2.RelatedVideos( { 
+			resultSelector: '.related-videos', 
+			criteria:[
+				{ criterion: 'random-destructor', weight:0.1 },
+				{ criterion: 'same-author', weight:0.8 }, 
+				{ criterion: 'same-tags', weight:0.6 },
+				{ criterion: 'incomming-links', weight:0.5 },
+				{ criterion: 'outgoing-links', weight:0.5 }
+				] 
+		} );
+		//relatedVideos.init();
+		
+		var inVideoSearch = new Vi2.Search( {
+			resultSelector: '.search-results', 
+			limit: 25
+		} );
+		//inVideoSearch.find('water basin');
+		
+		
+		// add all the widgets
+		vi2.observer.addWidget( toc );
+		vi2.observer.addWidget( syncMedia );
+		
+			
+		vi2.observer.addWidget( relatedVideos );
+		//vi2.observer.addWidget( userNotes );
+		//vi2.observer.addWidget( inVideoSearch );
+	
 	
 	},
 

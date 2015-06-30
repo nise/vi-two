@@ -60,6 +60,8 @@
 				right:0;
 				width:300px;
 				padding:10px;
+				overflow:scroll;
+				height:100%;
 			}
 		</style>
 		
@@ -128,7 +130,7 @@
 			<div id="seq"></div>
 			<div id="overlay"></div>
 			<div id="split"></div>
-			<div class="sidepanel">
+			<div class="sidepanel"> <a href="#!balke1">balke</a>
 				<div class="metadata"></div>
 				<div class="user-notes">
 					<h3>User Notes</h3>

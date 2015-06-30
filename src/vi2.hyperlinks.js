@@ -199,7 +199,7 @@
 			return {x: Math.floor((obj.x/100)*615), y: Math.floor((obj.y/100)*450)};
 		},
 		
-		/** 	@description Loads video from url and seeks to a dedicated position in time. 
+		/** Loads video from url and seeks to a dedicated position in time. 
 		*		@param {String} url 
 		* 	@param {Number} seek 
 		*/

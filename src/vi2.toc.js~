@@ -1,7 +1,7 @@
 /* 
 * name: Vi2.TableOfContent
 * author: niels.seidel@nise81.com
-* license:
+* license: BSD New
 * description:
 * depends on:
 *  - embedded java script
@@ -75,8 +75,8 @@ Vi2.TableOfContents = $.inherit(Annotation, /** @lends Vi2.TableOfContents# */{ 
 		
 		
 		/**
-		Loads toc data from database in order to generate corresponding DOM elements.
-		@ Resulting format of DOM element: <div type="toc" starttime=83 duration=1 id="">Objectives of the lecture</div>
+		* Loads toc data from database in order to generate corresponding DOM elements.
+		* @ Resulting format of DOM element: <div type="toc" starttime=83 duration=1 id="">Objectives of the lecture</div>
 		*/
 		appendToDOM : function(id){ 
 			var _this = this; 
@@ -96,7 +96,7 @@ Vi2.TableOfContents = $.inherit(Annotation, /** @lends Vi2.TableOfContents# */{ 
 		},					
 				
 		/** 
-		During the playback corresponding toc entries will be highlighted.
+		* During the playback corresponding toc entries will be highlighted.
 		*/
 		begin : function(e, id, obj){ 
 				// reset highlight
@@ -106,8 +106,9 @@ Vi2.TableOfContents = $.inherit(Annotation, /** @lends Vi2.TableOfContents# */{ 
 			
 		},
 	
+	
 		/** 
-		Terminates time-depended toc entries
+		* Terminates time-depended toc entries
 		*/
 		end : function(e, id, obj){ 
 			//$('.toc-'+obj.displayPosition.t1).removeClass('toc-highlight');
@@ -115,7 +116,7 @@ Vi2.TableOfContents = $.inherit(Annotation, /** @lends Vi2.TableOfContents# */{ 
 		
 		
 		/**
-		Builds a list menu of all entries of the table of content
+		* Builds a list menu of all entries of the table of content
 		*/
 		buildMenu : function(tocData){
 			var _this = this;
@@ -125,7 +126,7 @@ Vi2.TableOfContents = $.inherit(Annotation, /** @lends Vi2.TableOfContents# */{ 
 					var a = $('<a></a>')
 					.text( val.name )
 					.addClass('id-'+ val.occ[0])
-					.attr('href', '#!t=npt:' + val.occ[0] + '') // former: main.options.id
+					.attr('href', '#!/video/' + vi2.observer.current_stream + '/t=npt:' + val.occ[0] + '') // former: main.options.id
 					;				
 					var li = $('<li></li>')
 						.addClass('toc-'+val.occ[0])
@@ -148,15 +149,15 @@ Vi2.TableOfContents = $.inherit(Annotation, /** @lends Vi2.TableOfContents# */{ 
 			
 			// sort list entries by time and append them
 			toc
-				.find('li').tsort( { attr:"id" } )  // tsort is error prune under chromium
-				.appendTo( this.options.menuSelector )		
+				.find('li').tsort( { attr:"id" } );  // tsort is error prune under chromium
+			$( this.options.menuSelector ).html( toc );			
 			
 		},
 		
 		
 		/** 
-		Displays a table of content as markers on the timeline
-		@todo this function could to be moved to the player or separated into a timeline class
+		* Displays a table of content as markers on the timeline
+		* @todo this function could to be moved to the player or separated into a timeline class
 		*/
 		buildTimelineMarkers : function(tocData){  
 			var _this= this; 
@@ -178,7 +179,7 @@ Vi2.TableOfContents = $.inherit(Annotation, /** @lends Vi2.TableOfContents# */{ 
 		
 		
 		/** 
-		Jumps to the next element of the table of content 
+		* Jumps to the next element of the table of content 
 		*/
 		nextElement : function(){
 			//$('.toc-'+ (this.currentTocElement + 1) ).click();
@@ -189,7 +190,7 @@ Vi2.TableOfContents = $.inherit(Annotation, /** @lends Vi2.TableOfContents# */{ 
 		
 		
 		/** 
-		Jumps to the previous element of the table of content. 
+		* Jumps to the previous element of the table of content. 
 		*/
 		previousElement : function(){
 			this.currentTocElement = this.currentTocElement == 0 ? this.currentTocElement : this.currentTocElement -1 ;

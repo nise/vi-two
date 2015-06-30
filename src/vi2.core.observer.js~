@@ -44,11 +44,13 @@ Vi2.Observer = $.inherit(/** @lends Observer# */{
 	hooks : [],
 	vid_arr : [],
 	current_stream : 'start',
+	seek : 0,
 	parser : '',
 	
 	/* .. */
-	setCurrentStream : function(stream){ 
-		this.current_stream = stream; 
+	setCurrentStream : function(stream, seek){ 
+		this.current_stream = stream;
+		this.seek = seek; 
 		/*$(vi2.dom)
 			.empty()
 			.append(vi2.db.getVideoById(stream)); */
@@ -65,10 +67,11 @@ Vi2.Observer = $.inherit(/** @lends Observer# */{
 		this.clock.stopClock();
 		this.clock.reset(); 
 		// generate and render metadata
-		var metadata = new Vi2.Metadata();
+		var metadata = new Vi2.Metadata(); 
 		// re-parse DOM
-		var parser = new Parser(vi2.dom, 'html');
-		this.vid_arr = parser.run(); 
+		this.parse(vi2.dom, 'html'); alert(99)
+		//var parser = new Parser(vi2.dom, 'html');
+		//this.vid_arr = parser.run(); 
 	},
 
 	/* -- */
@@ -79,7 +82,7 @@ Vi2.Observer = $.inherit(/** @lends Observer# */{
 		this.vid_arr = this.parser.run(); 
 		this.clock.stopClock();
 		this.clock.reset();  
-		this.player.loadSequence(this.vid_arr);  
+		this.player.loadSequence(this.vid_arr, undefined, this.seek );  
 					
 	},
 	
@@ -125,16 +128,18 @@ Vi2.Observer = $.inherit(/** @lends Observer# */{
 	*/
 	setAnnotations : function(){   
 		var _this = this; 
-		_this.clock.annotations = [];			 
-		_this.vid_arr = _this.parser.run(); 
+		this.clock.annotations = [];			 
+		this.vid_arr = this.parser.run(); 
 		
 		$.each(_this.vid_arr[0].annotation, function(i, val){ 		
 			_this.clock.addAnnotation(val); 
 		}); 
 		
 		// initiate widgets
-		$.each(_this.widget_list, function(j, val){ 
-			this.init( _this.vid_arr[0].annotation );				
+		$.each(_this.widget_list, function(j, widget){
+			//if( widget.type != 'player-widget' ){ 
+				widget.init( _this.vid_arr[0].annotation );				
+			//}	
 		});
 		//vi2.enableEditing('toc');
 		
@@ -150,7 +155,7 @@ Vi2.Observer = $.inherit(/** @lends Observer# */{
 			if (!oggTest){
 				h264Test = vidTest.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
 				if (!h264Test){
-					alert("Sorry. No video support.");
+					console.log("Sorry. No video support.");
 				}else{
 					if (h264Test === "probably"){
 						//document.getElementById("checkVideoResult").innerHTML="Yeah! Full support!";
@@ -166,7 +171,7 @@ Vi2.Observer = $.inherit(/** @lends Observer# */{
 				}
 			}
 		}else{
-			alert("Sorry. No video support. xx");
+			console.log("Sorry. No video support. xx");
 		}
 	}, 
 			
@@ -222,7 +227,6 @@ Vi2.Observer = $.inherit(/** @lends Observer# */{
 			case 'syncMedia' : 
 				 $(_this.player).bind('annotation.begin.'+obj.name, function(e, a, b){ obj.begin(e, a, b);});
 				 $(_this.player).bind('annotation.end.'+obj.name, function(e, a){ obj.end(e, a);});
-				//_this.addPieItem('tag', 'img/ff.png', 'alert("addSignal");');
 				break;	
 			case 'seqv' :
 				// bind to sync both videos
@@ -289,7 +293,7 @@ Vi2.Observer = $.inherit(/** @lends Observer# */{
 		var _this = this; 
 		$.each(this.widget_list, function(i, widget){ 
 			if(widget.type === 'annotation'){  
-				widget.appendToDOM(_this.current_stream); 
+				widget.appendToDOM( _this.current_stream ); 
 			}
 		});
 	},
@@ -298,7 +302,7 @@ Vi2.Observer = $.inherit(/** @lends Observer# */{
   		
   		
 /* HOOKS *********/
-// could all be done with event binding and trigger, like: $(_this.player).bind('annotation.begin.'+obj.name, function(e, a, b){ alert('a');});
+// could all be done with event binding and trigger, like: $(_this.player).bind('annotation.begin.'+obj.name, function(e, a, b){  });
   		
   		/* -- */
   		isHook : function(widget, hook_name){
@@ -318,7 +322,7 @@ Vi2.Observer = $.inherit(/** @lends Observer# */{
 					if (this.isHook(widget, hook_name)){
 						// set hook 
 						//this.hooks[widget+'_'+hook_name].push({hook_name: hook_name, func: func});
-						$(this).bind(hook_name, func); // function(e, a, b){ alert('a');}
+						$(this).bind(hook_name, func); // function(e, a, b){ }
 						return true;
 					}else{ 
 						throw new Error('Vi2 Error: The hook '+hook_name+' you are trying set is not registered at widget '+widget+'.');
@@ -338,14 +342,7 @@ Vi2.Observer = $.inherit(/** @lends Observer# */{
 					throw new Error('Vi2 Error: Called undefined Hook: '+widget+'_'+hook_name+'.');
 				}
 			},
-			
-			test : function(e){
-				alert('test called '+e);
-			},
-			
-			test2 : function(e){
-				alert('test 2 called '+e);
-			},
+
 						
 			/* -- */
   		updateVideo : function(id, i){ 

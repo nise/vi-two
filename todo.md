@@ -3,14 +3,7 @@
 ## overall improvements
 - start widgets from config.json
 - multilingual support for all text and controls
-- reduce dependencies: 
- - replace jquery.tooltip by the native jquery tooltip
- - remove jquery in the core
- - avoid inherit-class
- - make it a server side plugin / node.js
 - use a template engine, maybe ejs
-- Error handling: throw new Error('...')
-- type and value check at every data input (e.g. options ) 
 - comment: re-comment
 - ass: Aufgabenstatistik 
 - ass: semantische Nähe zw. Feedback und Aufgabe
@@ -18,6 +11,19 @@
 - ass: scrollbares feld bei aufgabenbearbeitung
 - ass: Benutzerbenachrichtigung
 - tags automatische Verlinkung via tags
+
+
+## beauty of code 
+- reduce dependencies: 
+ - replace jquery.tooltip by the native jquery tooltip
+ - remove jquery in the core
+ - avoid inherit-class
+ - make it a server side plugin / node.js
+- type and value check at every data input (e.g. options ) 
+- Error handling: throw new Error('...')
+- make the docs look better
+- use delegate(obj, func) instead of _this
+
 
 ## new widgets
 - closed captions
@@ -32,15 +38,11 @@
 
 ## contribute examples
 - assessment
+- search
 - tags
 - hyperlinks
-- search
 - playlist
 
-
-# nice to have
-- make the docs look better
-- use delegate(obj, func) instead of _this
 
 
 # Others
@@ -74,7 +76,7 @@
 NiceToHave
 
 - popcorn plugin für assessment.
-- screencast, tagesschau-beispiel...
+
 - popcorn-plugin en-/disable via Widget Editor (??? Wie soll das gehen)
 - add links > IWRM
 
