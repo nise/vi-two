@@ -26,6 +26,8 @@
 
 
 ## new widgets
+- viewing history
+
 - closed captions
 - transcript
 - user notes
@@ -33,7 +35,6 @@
 - journaled naviagtion
 - follow revisions => server
 - loop
-- viewing history
 
 
 ## contribute examples

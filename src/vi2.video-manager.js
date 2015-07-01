@@ -28,58 +28,105 @@ Vi2.VideoManager = $.inherit(/** @lends Vi2.VideoManager# */{ //
 	*		@param {object} options An object containing the parameters
 	*/
 	__constructor : function(options) { 
-		this.options = $.extend(this.options, options);  
+		this.options = $.extend(this.options, options); 
 	},
 	
 	name : 'video-manager',
 	type : 'collection',
 	content_selector : '#content',
-	options : {},
+	options : {
+		selector : '#seq'
+	},
+	viewing_history : [],
 
-	/***/
+	/**
+	* Define paths that the video manager is listing to. 
+	*/
 	init : function(){  
 		var _this = this; 
 		
-		Sammy('#seq', function() { 
-        
-        // define a 'get' route that loads video streams and 
+		// define default get routes
+		Sammy(this.options.selector, function() { 
         
         this.get('#!/video/:stream/:time', function() {
         	_this.handleNewStream(this.params);
         });
-        
-        
+     
         this.get('#!/video/:stream', function() {
         	_this.handleNewStream(this.params);
         });
         
-        
-      }).run();
-	
+        this.get('#!/tags/:tag', function() {
+        	_this.handleTags(this.params);
+        });
+      
+
+      }).run();	
 	},
 	
+	
+	/*
+	* Interface for other widgets to define routes that will be handled on their own
+	* @params path {String} Path under which the the given callback function should called. For instance http://example.com/#<my-path>. The '#' is set by default and should therefore be excluded.
+	* @params callback {Object}
+	* @params fn {Object}
+	**/
+	addRoute : function(path, callback, fn){
+		Sammy(this.options.selector, function() { 
+		  this.get('#!'+path, function() {
+		  	callback[fn]();
+		  });
+		}).run();
+	},
+	
+	
+	/*
+	* Calls the given template from the defined template path in order to render the given data.
+	**/
+	render : function(template, data){
+			return new EJS( { url: vi2.templatePath+''+template} ).render( data );
+	},
+	
+	
 	/**
-	*
+	* This functions process a comma separated list of tags in order to identifi the video streams that are related with these tags
+	*/
+	handleTags : function(params){ 
+		var tags = params['tag'].split(/,/); 
+		var streams = '';
+		var inverted = vi2.db.getInvertedTagIndex();
+		
+		for(var i = 0; i < tags.length; i++){
+			if( inverted[tags[i]] !== undefined ){ 
+				streams += inverted[tags[i]].toString() +',';
+			}	
+		}
+		var t = removeDuplicates( streams.split(/,/) );
+	},
+	
+	
+	/**
+	* Load a new video stream and naviagte to the give position in time.
 	*/
 	handleNewStream : function(params){ 
-			var _this = this;
-			var seek = params['time'] === undefined ? 0 : (params['time']).split(/:/)[1];
-    	if( params['stream'] != vi2.observer.current_stream ){ 
-      	$(vi2.dom).empty(); 
-				vi2.observer.setCurrentStream( params['stream'], seek );
-//				vi2.observer.player.play(); 
-				_this.loadWidgets();
-			}else{
-				vi2.observer.player.currentTime( seek )
-			}	
-
-        	//vi2.observer.annotationsToDOM(); 
-        	//vi2.observer.player.loadVideo( vi2.observer.vid_arr[0]['url'] , 0);  
-        	 
-          // this context is a Sammy.EventContext
-      /*    this.$element() // $('#main')
-              .html('A new route!');*/
-	
+		var _this = this;
+		var seek = params['time'] === undefined ? 0 : (params['time']).split(/:/)[1];
+  	if( params['stream'] != vi2.observer.current_stream ){ 
+    	$(vi2.dom).empty(); 
+    	vi2.observer.setCurrentStream( params['stream'], seek );
+			vi2.observer.player.play(); 
+			_this.loadWidgets();
+			// trigger event that a new video stream has been loaded
+			var t = new Date();
+			$(vi2.observer).trigger('stream.loaded', { 
+				stream: params['stream'], 
+				playback_time: params['time'], 
+				time: t.getTime()
+			} );
+			
+		}else{
+			vi2.observer.player.currentTime( seek )
+		}	
 	},
 	
 	

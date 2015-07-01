@@ -292,6 +292,21 @@ Vi2.DataBase = $.inherit(/** @lends DataBase# */{
 		return results;
 	},
 	
+	/***/
+	getInvertedTagIndex : function(){ 
+		var _this = this;
+		var tags = {};
+		$.each(_this.json_data.stream, function(j, stream){  //alert(stream.id +' '+stream.tags,length)
+			$.each(stream.tags, function(k, tag){  
+				if( tag.tagname in tags == false ){
+					tags[tag.tagname] = [];
+				}
+				tags[tag.tagname].push(stream.id);
+			});
+		});	
+		return tags;
+	},
+	
 	
 
 	/* LINKS */

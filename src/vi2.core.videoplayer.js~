@@ -88,9 +88,9 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 	*		@param {object} options An object containing the parameters
 	*		@param {Observer} observer Observer of VI-TWO
 	*/
-  __constructor: function(options, observer) { 
+  __constructor: function(options) { 
 		this.options = $.extend(this.options, options);
-		this.observer = observer;
+		// init spinner
 		this.spinner = new Spinner(this.spinner_options); //this.stopSpinning();
 		this.video = document.getElementById( (this.options.selector).replace(/\#/,'') );  
   	//this.loadVideo( undefined, this.options.seek); // load nil video to build player interface
@@ -148,6 +148,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
   	left: 'auto' // Left position relative to parent in px
 	},
 	buffclick: 0,
+	video_seek:0,
 
 	/* load video */
 	// param: url= url of video; seek = time seek within video in seconds
@@ -155,7 +156,20 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		var _this = this;
 		this.url = url;
 	  this.seek = seek == undefined ? 0 : seek;
+	  
+	  var videoo = $('<video></video>')
+				.attr('controls', false)
+				.attr('autobuffer', true)
+				.attr('preload', "metadata")
+				.attr('id', 'video1')
+				.addClass('embed-responsive-item')
+				.text('Your Browser does not support either this video format or videos at all');
+		$('#seq')
+			.addClass('embed-responsive embed-responsive-16by9')
+			.html(videoo); 
 	  this.video = document.getElementById( ( this.options.selector ).replace(/\#/,'') );
+	 
+	  
 	  this.video.pause();
 		this.startSpinning(); 
 		vi2.observer.log('loadvideo:'+url); 
@@ -230,12 +244,12 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 			
 		}, false);
 
-
-	 	// get sources and load video
+ 	// get sources and load video
 	 	if( url != undefined){
-			$(this.video).html( this.createSource(url, supportedCodec ), this.video.firstChild);
-			
+			$( this.video ).html( this.createSource(url, supportedCodec ), this.video.firstChild);
+			 
 		}
+	 
 	},
 
 
@@ -266,10 +280,10 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		this.seqList = sources;
 		this.seek = seek;
 		this.isSequence = true;
-		if (num == undefined) {
+		if (num === undefined) {
 			this.seqNum = 0;
 		}else {
-			this.seqNum = num % this.seqList.length;
+			this.seqNum = num;// % this.seqList.length;
 		} 
 		this.loadVideo(this.seqList[this.seqNum]['url'], this.seek);
 	},

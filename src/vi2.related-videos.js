@@ -9,7 +9,8 @@
 * to-do:
 *  - exclude videos that have been watched already => make dependency to ViewingHistory 
 *  - add categorie as possible criterion
-*  - (server side) 	- users that have seen this video also took a look at ...
+*  - add updated_at / created_at as a criterion
+*  - (server side) 	- users that have seen this video also whatched this
 *  - check literature about other algorithms for recommender systems
 */
 

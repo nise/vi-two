@@ -70,8 +70,6 @@ Vi2.Observer = $.inherit(/** @lends Observer# */{
 		var metadata = new Vi2.Metadata(); 
 		// re-parse DOM
 		this.parse(vi2.dom, 'html'); 
-		//var parser = new Parser(vi2.dom, 'html');
-		//this.vid_arr = parser.run(); 
 	},
 
 	/* -- */
@@ -80,9 +78,9 @@ Vi2.Observer = $.inherit(/** @lends Observer# */{
 		this.parser = new Parser(selector, markupType === null ? this.markupType : markupType);
 		this.vid_arr = [];  
 		this.vid_arr = this.parser.run(); 
-		this.clock.stopClock();
+		this.clock.stopClock(); 
 		this.clock.reset();  
-		this.player.loadSequence(this.vid_arr, undefined, this.seek );  
+		this.player.loadSequence(this.vid_arr, 0, this.seek );  
 					
 	},
 	
@@ -120,6 +118,23 @@ Vi2.Observer = $.inherit(/** @lends Observer# */{
 		$(this).bind('player.ready', function(e, id, i){ 
 			_this.setAnnotations(); 
 		});
+	},
+	
+		/* --xxxx */
+	init2 : function(seek){  
+		seek = seek === undefined ? 0 : seek;
+		var _this = this; 
+		var videoo = $('<video></video>')
+				.attr('controls', false)
+				.attr('autobuffer', true)
+				.attr('preload', "metadata")
+				.attr('id', this.options.videoSelector.replace(/\#|./,''))
+				.addClass('embed-responsive-item')
+				.text('Your Browser does not support either this video format or videos at all');
+		$(this.options.selector)
+			.addClass('embed-responsive embed-responsive-16by9')
+			.html(videoo); 
+	
 	},
 	
 	
@@ -300,114 +315,37 @@ Vi2.Observer = $.inherit(/** @lends Observer# */{
   		  		
   		
   		
-  		
-/* HOOKS *********/
-// could all be done with event binding and trigger, like: $(_this.player).bind('annotation.begin.'+obj.name, function(e, a, b){  });
-  		
-  		/* -- */
-  		isHook : function(widget, hook_name){
-  			return this.hooks[widget+'_'+hook_name] !== null;	
-  		},
 
-  		
-  		/* -- */
-  		registerHook : function(widget, hook_name){
-  			this.hooks[widget+'_'+hook_name] = [];
-  			return this.hooks[widget+'_'+hook_name];	
-  		},
-  		  		
-  		/* not used anymore */
-			setHook : function(widget, hook_name, func){ 
-				if(this.isWidget(widget)){
-					if (this.isHook(widget, hook_name)){
-						// set hook 
-						//this.hooks[widget+'_'+hook_name].push({hook_name: hook_name, func: func});
-						$(this).bind(hook_name, func); // function(e, a, b){ }
-						return true;
-					}else{ 
-						throw new Error('Vi2 Error: The hook '+hook_name+' you are trying set is not registered at widget '+widget+'.');
-					}
-				}
-				throw new Error('Vi2 Error: Widget '+widget+' does not exist.');
-			},
 			
-			/* -- */
-			callHook : function(widget, hook_name, param){ 
-				var _this = this;
-				if (this.isHook(widget, hook_name)){
-//					$.each(this.hooks[widget+'_'+hook_name], function(i, val){
-						$(_this).trigger(hook_name, param);
-//					});
-				} else {
-					throw new Error('Vi2 Error: Called undefined Hook: '+widget+'_'+hook_name+'.');
-				}
-			},
+	/* -- */
+	ended : function(){ 
+		var _this = this;
+		// _this.clock.reset(); // if enabled slide sync does not work after vides has ended.
+	},
 
-						
-			/* -- */
-  		updateVideo : function(id, i){ 
-		  	
-				var _this = this;   		
-  			
-  			
-/*
+	/* -- */
+	pause : function(){ 
+		var _this = this;
+		_this.clock.stopClock();
+	},
 
-  			// hook testings
-  			this.hooks = [];
-  			this.registerHook('xlink', 'maintest'); // 
-		  	this.setHook('xlink', 'maintest', function(e, a) {main.test(a);});
-		  	this.setHook('xlink', 'maintest', function(e, a) {main.test2(a);});
-		 		this.callHook('xlink', 'maintest', ['hello world']); 
+	/* -- */
+	play : function(){ 
+		var _this = this;
+		_this.clock.startClock();
+	},
 
+	/* -- */
+	log : function(msg){
+		$(this.player).trigger('log', [msg]);
+	},
 
-				this.clock.annotations = [];				
-  			$.each(this.vid_arr[i]['annotation'], function(i, val){
-  				_this.clock.addAnnotation(val);
-  			});
-  			
-				if(_this.widget_list['xlink'] !== null){
-	  			_this.widget_list['xlink'].clear();
-  				_this.widget_list['xlink'].init(_this.vid_arr[i]['annotation']);
-  			}
-  			if(_this.widget_list['toc'] !== null){ 	  				
-	  			_this.widget_list['toc'].init(_this.vid_arr[i]['annotation']);						
-	  		}
-	  		// if there is a sequential video, play it
-	  		if(_this.widget_list['seqv'] !== null){ 	  				
-	  			_this.widget_list['seqv'].init();//_this.vid_arr[i]['annotation']);						
-	  		}
-*/
-  		},
-			
-			/* -- */
-			ended : function(){ 
-				var _this = this;
-				// _this.clock.reset(); // if enabled slide sync does not work after vides has ended.
-			},
-			
-			/* -- */
-			pause : function(){ 
-				var _this = this;
-				_this.clock.stopClock();
-			},
-
-			/* -- */
-			play : function(){ 
-				var _this = this;
-				_this.clock.startClock();
-			},
-			
-			/* -- */
-			log : function(msg){
-				$(this.player).trigger('log', [msg]);
-			},
-			
-			/* -- */
-			destroy : function(){
-				$('video').stop();
-				this.clock.reset();
-				$('#vi2').empty();
-			},
+	/* -- */
+	destroy : function(){
+		$('video').stop();
+		this.clock.reset();
+		$('#vi2').empty();
+	},
 			  		
 			
 			

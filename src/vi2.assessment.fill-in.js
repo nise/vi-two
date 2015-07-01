@@ -238,7 +238,7 @@
 							)		
 							.append(
 								$('<span></span>')
-									.text(_this.timeDifference(val.updated_at))
+									.text( timeDifference(val.updated_at)) // see utils class
 									.addClass('date')
 							)	
 							.append('<br>').appendTo(revisions);
@@ -248,40 +248,7 @@
 				$('.revisions').find('.revisions-entry').tsort({attr:'id'},{order:'desc'});		
 		},
 		
-		timeDifference : function(s){
-			var b = moment(s);
-			var a = moment(new Date());
-			
-			
-			var diff = a.diff(b, 'seconds'); 
-			if(diff <= 60 ){
-				return 'vor ' + diff.toFixed(1) + 's'; 
-			}
-			
-			diff = a.diff(b, 'minutes'); 
-			if(diff <= 60){
-				return 'vor ' + diff.toFixed(1) + 'min';
-			}
-			
-			diff = a.diff(b, 'hours', true); 
-			if(diff <= 24){
-				return 'vor ' + diff.toFixed(1) + 'h'; 
-			}
-			
-			diff = a.diff(b, 'days', true); 
-			if(diff < 30){
-				return 'vor ' + diff.toFixed(1) + 'd'; 
-			}
-			
-			diff = a.diff(b, 'months', true);
-			if(diff < 12){
-				return 'vor ' + diff.toFixed(1) + 'm'; 
-			}
-			
-			var diff = a.diff(b, 'years', true);
-			return 'vor ' + diff.toFixed(1) + 'y'; 
-			
-		},
+		
 		
 		
 		/* Visualizes link representations on the timeline **/

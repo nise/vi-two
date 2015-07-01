@@ -55,7 +55,7 @@ function delegate(obj, func){
 //////////////////////////////
 function removeDuplicates (cat){
 	cat = cat.sort();
-  for(var i = 1; i < cat.length; ){
+  for(var i = 1; i < cat.length;){
   	if(cat[i-1] == cat[i]){ cat.splice(i, 1); } 
   	else { i++; }
   }
@@ -69,6 +69,46 @@ function deci2seconds(s){
 	var arr = s.split(':');
 	return Number(arr[0])*3600+Number(arr[1])*60+Number(arr[2]);
 }
+
+/*
+* calcs temporal distance to a given time stamp
+**/
+function timeDifference (s, prefix, postfix){
+			prefix = prefix === undefined ? 'vor ' : prefix;
+			postfix = postfix === undefined ? ' ago' : postfix 
+			var b = moment(s);
+			var a = moment(new Date());
+			
+			
+			var diff = a.diff(b, 'seconds'); 
+			if(diff <= 60 ){
+				return prefix + diff.toFixed(1) + 's' + postfix; 
+			}
+			
+			diff = a.diff(b, 'minutes'); 
+			if(diff <= 60){
+				return prefix + diff.toFixed(1) + 'min' + postfix;
+			}
+			
+			diff = a.diff(b, 'hours', true); 
+			if(diff <= 24){
+				return prefix + diff.toFixed(1) + 'h' + postfix; 
+			}
+			
+			diff = a.diff(b, 'days', true); 
+			if(diff < 30){
+				return prefix + diff.toFixed(1) + 'd' + postfix; 
+			}
+			
+			diff = a.diff(b, 'months', true);
+			if(diff < 12){
+				return prefix + diff.toFixed(1) + 'm' + postfix; 
+			}
+			
+			var diff = a.diff(b, 'years', true);
+			return prefix + diff.toFixed(1) + 'y' + postfix; 
+			
+};
 
 
 

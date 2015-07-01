@@ -46,7 +46,10 @@ Vi2.Example = $.inherit({
 		var videoManager = new Vi2.VideoManager(); 
 		vi2.observer.addWidget( videoManager ); 
 		videoManager.init();
+		vi2.videoManager = videoManager;
 		
+		var viewingHistory = new Vi2.ViewingHistory();
+		vi2.observer.addWidget( viewingHistory );
 		
 			// At first we define some basic player widgets
 		var playbackSpeed = new Vi2.PlaybackSpeed();
