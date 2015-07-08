@@ -98,7 +98,10 @@ Vi2.DataBase = $.inherit(/** @lends DataBase# */{
 		return t;
 	},
 		
-	//get stream by id
+	/*
+	* Get a stream by its id
+	* @returns {Object} Returns an object containing all stream related metadata.
+	**/
 	getStreamById : function(id){ 
 		
 		/*
@@ -111,11 +114,21 @@ Vi2.DataBase = $.inherit(/** @lends DataBase# */{
 		var stream = {}; 
 		$.each(this.json_data.stream, function(i, val){ 
 			if (this.id === id){  
-				stream = this; 
+				stream = this;
+				return; 
 			}
 		}); 
 		return stream;
 	},
+	
+	
+	/*
+	* Get all streams
+	**/
+	getAllStreams : function(id){ 
+		return this.json_data.stream;
+	},
+	
 	
 	
 	/**
@@ -151,6 +164,17 @@ Vi2.DataBase = $.inherit(/** @lends DataBase# */{
 
 
 	/* CATEGORIES*/
+	
+	/* returns all stream objects within the given category */
+	getStreamsByCategory : function( cat ){
+		var streams = []; 
+		$.each(this.json_data.stream, function(i, stream ){
+			if( stream.metadata[0].category === cat ){   
+				streams.push(stream);
+			}
+		});
+		return streams;
+	},	
 
 	/* returns data of all categories */
 	getAllCategories : function(){ 
