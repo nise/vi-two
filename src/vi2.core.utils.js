@@ -74,10 +74,11 @@ function deci2seconds(s){
 * calcs temporal distance to a given time stamp
 **/
 function timeDifference (s, prefix, postfix){
-			prefix = prefix === undefined ? 'vor ' : prefix;
-			postfix = postfix === undefined ? ' ago' : postfix 
-			var b = moment(s);
-			var a = moment(new Date());
+			//prefix = prefix === undefined ? 'vor ' : prefix;
+			//postfix = postfix === undefined ? ' ago' : postfix; 
+			alert(1)
+			var b = moment( s );  alert(2);
+			var a = moment( s ); alert(3)
 			
 			
 			var diff = a.diff(b, 'seconds'); 

@@ -26,13 +26,10 @@
 
 
 ## new widgets
-- viewing history
-
 - closed captions
 - transcript
 - user notes
 - media fragments 
-- journaled naviagtion
 - follow revisions => server
 - loop
 

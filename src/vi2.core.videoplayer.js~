@@ -243,6 +243,14 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 			}
 			
 		}, false);
+		alert(url)
+	// trigger event that a new video stream has been loaded
+			var t = new Date();
+			$(vi2.observer).trigger('stream.loaded', { 
+				stream: vi2.observer.current_stream,//params['stream'], 
+				playback_time: seek,//params['time'], 
+				time: t.getTime()
+			} );	
 
  	// get sources and load video
 	 	if( url != undefined){

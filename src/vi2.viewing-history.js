@@ -7,7 +7,8 @@
 *  - jquery-1.11.2.min.js
 *  - jquery.inherit-1.1.1.js
 * todo:
-*  
+*	 - bug: first watched video is not added to history  
+   - add timeDifferents mit moments.js
 */
 
 
@@ -38,21 +39,22 @@ Vi2.ViewingHistory = $.inherit(/** @lends Vi2.ViewingHistory# */{ //
 		init : function(){
 			var _this = this;
 			// event binding
-			$(vi2.observer).bind('stream.loaded', function(e, data, i){ alert(data.time);
-				data.time = timeDifference(data.time.toString(), '');  
-				_this.history_log.push(data);
+			$( vi2.observer ).bind('stream.loaded', function(e, data, i){  
+				//data.time = timeDifference( data.time, '', ' ago');  
+				_this.history_log.push( data );
 			});
 			
 			// add path to the video manager
-			vi2.videoManager.addRoute( this.options.route, this, 'renderHistory'); 
+			vi2.videoManager.addRoute( this.options.route, this, 'renderHistory' ); 
 		},
 		
 		
 		/*
 		*
 		**/
-		renderHistory : function(){
-			var html = vi2.videoManager.render('vi2.viewing-history.ejs', { items: this.history_log } );
-			$( this.options.selector ).html(html);
+		renderHistory : function(){ 
+			var html = vi2.videoManager
+				.render('vi2.viewing-history.ejs', { items: this.history_log } );
+			$( this.options.selector ).html( html );
 		}
 }); // end class  

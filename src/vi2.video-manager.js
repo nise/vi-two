@@ -2,7 +2,7 @@
 *	name: Vi2.VideoManager
 *	author: niels.seidel@nise81.com
 * license: BSD New
-*	description: 
+*	description: Implements a journaled naviagtion for browsing back and forth in a collection of videos.
 * dependencies:
 *  - jquery-1.11.2.min.js
 *  - jquery.inherit-1.1.1.js
@@ -83,7 +83,7 @@ Vi2.VideoManager = $.inherit(/** @lends Vi2.VideoManager# */{ //
 	/*
 	* Calls the given template from the defined template path in order to render the given data.
 	**/
-	render : function(template, data){
+	render : function(template, data){ 
 			return new EJS( { url: vi2.templatePath+''+template} ).render( data );
 	},
 	
@@ -102,6 +102,9 @@ Vi2.VideoManager = $.inherit(/** @lends Vi2.VideoManager# */{ //
 			}	
 		}
 		var t = removeDuplicates( streams.split(/,/) );
+		// 
+		var html = this.render('vi2.video-manager.ejs', { title: 'Tags: ' + tags.toString(), items: t } );
+		$( this.options.selector ).html( html );
 	},
 	
 	
@@ -116,14 +119,6 @@ Vi2.VideoManager = $.inherit(/** @lends Vi2.VideoManager# */{ //
     	vi2.observer.setCurrentStream( params['stream'], seek );
 			vi2.observer.player.play(); 
 			_this.loadWidgets();
-			// trigger event that a new video stream has been loaded
-			var t = new Date();
-			$(vi2.observer).trigger('stream.loaded', { 
-				stream: params['stream'], 
-				playback_time: params['time'], 
-				time: t.getTime()
-			} );
-			
 		}else{
 			vi2.observer.player.currentTime( seek )
 		}	
