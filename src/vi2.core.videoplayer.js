@@ -179,7 +179,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 	  	preload: 'metadata', // 'metadata' | true ??
 	  	autoplay: true,
 	  	controls: false,
-	  	poster: '/vi-lab/img/placeholder.jpg',
+	  	poster: '/img/placeholder.jpg',
 	 		// 	width: this.options.width,
 	  	//	height: this.options.height,
 	  	onerror: function(e) { _this.errorHandling(e); }
