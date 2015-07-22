@@ -13,7 +13,7 @@
 		<link type="text/css" href="../../css/vi2.assessment.css" rel="stylesheet" media="screen" />
 		<link type="text/css" href="../../css/vi2.assessment-fill-in.css" rel="stylesheet" media="screen" />
 		<link type="text/css" href="../../css/vi2.assessment-writing.css" rel="stylesheet" media="screen" />
-		<link type="text/css" href="../../css/vi2.visual-highlight.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.visual-highlighting.css" rel="stylesheet" media="screen" />
 		
 		<link type="text/css" href="../../css/vi2.player.playback-speed.css" rel="stylesheet" media="screen" />
 		<link type="text/css" href="../../css/vi2.player.zoom.css" rel="stylesheet" media="screen" />
