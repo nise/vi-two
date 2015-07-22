@@ -60,7 +60,7 @@
 			prefix: '', 
 			logfile:'log.txt', 
 			parameter: 'time,ip,msg,user', 
-			logger_path: 0//'../php/ip.php'
+			logger_path: undefined//'../php/ip.php'
 		}, // output: debug/logfile
 		bucket : '',
 		ip : '',
