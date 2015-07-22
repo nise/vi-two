@@ -108,7 +108,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		seek:0, 
 		videoControlsSelector: '', 
 		childtheme: '', 
-		thumbnail:'/vi-lab/img/placeholder.jpg', 
+		thumbnail:'/img/placeholder.jpg', 
 		defaultVolume : 0, // 0..1
 	},
 	video: null,

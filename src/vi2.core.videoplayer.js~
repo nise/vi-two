@@ -108,7 +108,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		seek:0, 
 		videoControlsSelector: '', 
 		childtheme: '', 
-		thumbnail:'/vi-lab/img/placeholder.jpg', 
+		thumbnail:'/img/placeholder.jpg', 
 		defaultVolume : 0, // 0..1
 	},
 	video: null,
@@ -243,7 +243,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 			}
 			
 		}, false);
-		alert(url)
+		
 	// trigger event that a new video stream has been loaded
 			var t = new Date();
 			$(vi2.observer).trigger('stream.loaded', { 
