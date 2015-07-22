@@ -32,7 +32,7 @@ Vi2.Example = $.inherit({
   init : function(){
   
   
-  	this.viLog = new Log({logger_path:this.server_url+'/log'}); 
+  	this.viLog = new Log(/*{logger_path:this.server_url+'/log'}*/); 
   			
   	vi2.utils = new Vi2_Utils();
   	

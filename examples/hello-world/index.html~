@@ -85,6 +85,7 @@
 				vi2 = undefined, 
 				ocr = undefined
 				;
+				$.browser.msie = null;
 			var Vi2 = {}; // set the Namespace
 			$(document).ready(function(){
 				var core = new Vi2.Example();	

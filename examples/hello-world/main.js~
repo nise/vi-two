@@ -50,9 +50,7 @@ Vi2.Example = $.inherit({
 		
 		var viewingHistory = new Vi2.ViewingHistory();
 		vi2.observer.addWidget( viewingHistory );
-		
-		vi2.observer.setCurrentStream('seidel1');
-		
+			
 			// At first we define some basic player widgets
 		var playbackSpeed = new Vi2.PlaybackSpeed();
 		var temporalBookmarks = new Vi2.TemporalBookmarks();
