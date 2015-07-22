@@ -32,7 +32,7 @@ Vi2.Observer = $.inherit(/** @lends Observer# */{
 	options : {
 		id: 'start', 
 		embed: true, 
-		thumbnail: '/vi-lab/img/placeholder.jpg',
+		//thumbnail: '/vi-lab/img/placeholder.jpg',
 		selector: '#screen', 
 		clockInterval: 500, videoSelector: '#video1', videoWidth:500, videoHeight:375, videoControlsSelector:'.video-controls', markupType: 'wiki', childtheme:''},
 	pieList : $('<ul></ul>').attr('class', 'pieContextMenu').attr('id', 'menu'),

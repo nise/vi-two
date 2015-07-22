@@ -32,7 +32,7 @@ Vi2.Observer = $.inherit(/** @lends Observer# */{
 	options : {
 		id: 'start', 
 		embed: true, 
-		thumbnail: '/vi-lab/img/placeholder.jpg',
+		//thumbnail: '/vi-lab/img/placeholder.jpg',
 		selector: '#screen', 
 		clockInterval: 500, videoSelector: '#video1', videoWidth:500, videoHeight:375, videoControlsSelector:'.video-controls', markupType: 'wiki', childtheme:''},
 	pieList : $('<ul></ul>').attr('class', 'pieContextMenu').attr('id', 'menu'),
@@ -317,35 +317,35 @@ Vi2.Observer = $.inherit(/** @lends Observer# */{
   		
 
 			
-			/* -- */
-			ended : function(){ 
-				var _this = this;
-				// _this.clock.reset(); // if enabled slide sync does not work after vides has ended.
-			},
-			
-			/* -- */
-			pause : function(){ 
-				var _this = this;
-				_this.clock.stopClock();
-			},
+	/* -- */
+	ended : function(){ 
+		var _this = this;
+		// _this.clock.reset(); // if enabled slide sync does not work after vides has ended.
+	},
 
-			/* -- */
-			play : function(){ 
-				var _this = this;
-				_this.clock.startClock();
-			},
-			
-			/* -- */
-			log : function(msg){
-				$(this.player).trigger('log', [msg]);
-			},
-			
-			/* -- */
-			destroy : function(){
-				$('video').stop();
-				this.clock.reset();
-				$('#vi2').empty();
-			},
+	/* -- */
+	pause : function(){ 
+		var _this = this;
+		_this.clock.stopClock();
+	},
+
+	/* -- */
+	play : function(){ 
+		var _this = this;
+		_this.clock.startClock();
+	},
+
+	/* -- */
+	log : function(msg){
+		$(this.player).trigger('log', [msg]);
+	},
+
+	/* -- */
+	destroy : function(){
+		$('video').stop();
+		this.clock.reset();
+		$('#vi2').empty();
+	},
 			  		
 			
 			
