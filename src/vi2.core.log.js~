@@ -42,13 +42,15 @@
   			var _this = this;
   			this.options = $.extend(this.options, options); 
   			// get client IP
-  			$.ajax({
-  				url: this.options.logger_path,
-   				success: function(res){ 
-						_this.ip = res.ip;
-					},
-  				dataType: 'json'
-				});			
+  			if(this.options.logger_path !== '-1'){ 
+					$.ajax({
+						url: this.options.logger_path,
+		 				success: function(res){ 
+							_this.ip = res.ip;
+						},
+						dataType: 'json'
+					});
+				}				
 				// clear
 				$('#debug').html('');
 		},
@@ -60,7 +62,7 @@
 			prefix: '', 
 			logfile:'log.txt', 
 			parameter: 'time,ip,msg,user', 
-			logger_path: 0//'../php/ip.php'
+			logger_path: '-1'//'../php/ip.php'
 		}, // output: debug/logfile
 		bucket : '',
 		ip : '',
@@ -126,7 +128,7 @@
 		/* -- */
 		writeLog : function (entry){ 
 			//$.post('php/log.php', { entry:entry });
-			if(this.options.logger_path){ 
+			if(this.options.logger_path !== '-1'){ 
 				$.post(this.options.logger_path, { data:entry }, function(data){}); 
 			}
 		}					
