@@ -54,7 +54,14 @@
 		},
 		
 		name : 'log',
-		options : {output: 'logfile', debug_selector: '#debug', prefix: '', logfile:'log.txt', parameter: 'time,ip,msg,user', logger_path: '../php/ip.php'}, // output: debug/logfile
+		options : {
+			output: 'logfile', 
+			debug_selector: '#debug', 
+			prefix: '', 
+			logfile:'log.txt', 
+			parameter: 'time,ip,msg,user', 
+			logger_path: 0//'../php/ip.php'
+		}, // output: debug/logfile
 		bucket : '',
 		ip : '',
 	
@@ -118,8 +125,10 @@
 		
 		/* -- */
 		writeLog : function (entry){ 
-			//$.post('php/log.php', { entry:entry }); 
-			$.post(this.options.logger_path, { data:entry }, function(data){}); 
+			//$.post('php/log.php', { entry:entry });
+			if(this.options.logger_path){ 
+				$.post(this.options.logger_path, { data:entry }, function(data){}); 
+			}
 		}					
 				
 	

@@ -1,16 +1,17 @@
-	/* Log
-	author: niels.seidel@nise81.com
-	 
-	 
-
-	
+/* 
+*	name: Vi2.Log
+*	author: niels.seidel@nise81.com
+* license: BSD New
+*	description: 
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+*	todo:
+ further options:
 	** standardisazion:
 	* https://sites.google.com/site/camschema/home
 	* http://sourceforge.net/p/role-project/svn/HEAD/tree/trunk/gadgets/cam_sjtu/CamInstance.js
 	* http://sourceforge.net/p/role-project/svn/HEAD/tree/trunk/gadgets/html5Video/videoGadget.xml
-	
-
-	 
 	*/
 
 	var Log = $.inherit(/** @lends Log# */{
@@ -53,7 +54,14 @@
 		},
 		
 		name : 'log',
-		options : {output: 'logfile', debug_selector: '#debug', prefix: '', logfile:'log.txt', parameter: 'time,ip,msg,user', logger_path: '../php/ip.php'}, // output: debug/logfile
+		options : {
+			output: 'logfile', 
+			debug_selector: '#debug', 
+			prefix: '', 
+			logfile:'log.txt', 
+			parameter: 'time,ip,msg,user', 
+			logger_path: 0//'../php/ip.php'
+		}, // output: debug/logfile
 		bucket : '',
 		ip : '',
 	
@@ -117,8 +125,10 @@
 		
 		/* -- */
 		writeLog : function (entry){ 
-			//$.post('php/log.php', { entry:entry }); 
-			$.post(this.options.logger_path, { data:entry }, function(data){}); 
+			//$.post('php/log.php', { entry:entry });
+			if(this.options.logger_path){ 
+				$.post(this.options.logger_path, { data:entry }, function(data){}); 
+			}
 		}					
 				
 	
