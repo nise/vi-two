@@ -25,13 +25,17 @@
 - use delegate(obj, func) instead of _this
 
 
-## new widgets
-- closed captions
+## new widgets for my dissertation
+- follow revisions => server
+- loop
+- video manipulation
+- closed captions / transscript
 - transcript
 - user notes
 - media fragments 
-- follow revisions => server
-- loop
+- object tracking
+- media fragments
+- add video
 
 
 ## contribute examples
