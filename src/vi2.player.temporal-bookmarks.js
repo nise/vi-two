@@ -38,7 +38,10 @@ Vi2.TemporalBookmarks = $.inherit(/** @lends Vi2.TemporalBookmarks# */{ //
 			
 			// get the title of the video from database
 			var title = vi2.db.getMetadataById( vi2.observer.current_stream ).title;
-
+			
+			// clear selector
+			$( this.options.selector + '> .vi2-bookmark-controls' ).remove();
+		
 			// add button to player control bar
 			var _this = this;
 			var container = $('<div></div>')

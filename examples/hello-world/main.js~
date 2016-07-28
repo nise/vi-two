@@ -23,16 +23,13 @@ Vi2.Example = $.inherit({
 		
 		vi2.db = new Vi2.DataBase( {path: '/', files: files }, this, 'init');
   },
-  
-  viLog : '',
-  
+
   /**
   
   */
-  init : function(){
+  init : function(){ 
   
-  
-  	this.viLog = new Log({logger_path:this.server_url+'/log'}); 
+  	this.viLog = new Log(/*{logger_path:this.server_url+'/log'}*/); 
   			
   	vi2.utils = new Vi2_Utils();
   	

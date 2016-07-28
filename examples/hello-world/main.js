@@ -29,8 +29,7 @@ Vi2.Example = $.inherit({
   /**
   
   */
-  init : function(){
-  
+  init : function(){ 
   
   	this.viLog = new Log(/*{logger_path:this.server_url+'/log'}*/); 
   			

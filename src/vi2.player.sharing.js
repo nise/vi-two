@@ -12,7 +12,7 @@
 */
 
 
-Vi2.Sharing = $.inherit(/** @lends Vi2.TableOfContents# */{ // 
+Vi2.Sharing = $.inherit(/** @lends Vi2.Sharing# */{ // 
 
 		/** @constructs
 		*		@param {object} options An object containing the parameters
@@ -41,10 +41,14 @@ Vi2.Sharing = $.inherit(/** @lends Vi2.TableOfContents# */{ //
 			
 			var url = window.location.href.slice(window.location.href.indexOf('#') + 1);
 			
+			// clear selector
+			$( this.options.selector + '> .vi2-sharing-controls' ).remove();
+		
 			// add button to player control bar
 			var _this = this;
 			var container = $('<div></div>')
-				.append($('<div></div>').text( this.options.label ).addClass('sharing-label'))
+				.append($('<div></div>').text( this.options.label )
+				.addClass('sharing-label'))
 				.addClass('vi2-sharing-controls')
 				.bind('mouseenter', function(e){
 					

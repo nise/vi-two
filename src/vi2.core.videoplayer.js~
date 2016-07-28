@@ -9,9 +9,11 @@
 *	todo:
 
  - bug: keydown binding vary in different browsers
+ 
+ - add getter and setter for quality, playback status, video information, next, previous, playback rate
 
  - @createVideoHiding: build function to turn of the video screen in order to listen to the audio only.
-
+	- YOuTube http://coding-everyday.blogspot.de/2013/03/how-to-grab-youtube-playback-video-files.html
  - visualize loaded bytes
   - simultanous playback of two clips
  - cache mangement for videos: http://www.misfitgeek.com/2012/10/html5-off-line-storing-and-retrieving-videos-with-indexeddb/

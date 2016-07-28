@@ -42,6 +42,9 @@ Vi2.PlaybackSpeed = $.inherit(/** @lends Vi2.PlaybackSpeed# */{
 	*/
 	init : function(selector){  
 		var _this = this;
+		// clear selector
+		$( this.options.selector + '> .vi2-speed-controls' ).remove();
+		
 		var container = $('<div></div>')
 			.append($('<div></div>').text('1.0x').addClass('speed-label'))
 			.addClass('vi2-speed-controls')

@@ -81,8 +81,8 @@ Vi2.SyncronizeMedia = $.inherit(Annotation, /** @lends Vi2.SyncMedia# */{
 				.appendTo(this.options.selector);
   	
 			// handle special options
-			if( this.options.hasTimelineMarker ){ this.buildTimelineMarkers(this.tag_obj);	}
-			if( this.options.hasMenu )	{ this.createMenu(); }
+			//if( this.options.hasTimelineMarker ){ this.buildTimelineMarkers(this.tag_obj);	}
+			//if( this.options.hasMenu )	{ this.createMenu(); }
 		},
 		
 		/** ... */

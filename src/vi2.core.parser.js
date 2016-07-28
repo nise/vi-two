@@ -8,6 +8,8 @@
 *  - jquery.inherit-1.1.1.js
 *	todo:
 	- separate widget-code 
+	- popcorn.js export/import
+	- scorm export?
 	- show code box
 	- inherit sub parser from Parser
 	- write complex testing function

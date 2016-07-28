@@ -96,7 +96,7 @@ Vi2.VideoManager = $.inherit(/** @lends Vi2.VideoManager# */{ //
 	
 	
 	/**
-	* This functions process a comma separated list of tags in order to identifi the video streams that are related with these tags
+	* This functions process a comma separated list of tags in order to identify the video streams that are related to these tags
 	*/
 	handleTags : function(params){ 
 		var tags = params['tag'].split(/,/); 

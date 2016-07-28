@@ -40,6 +40,10 @@ Vi2.Zoom = $.inherit(/** @lends Vi2.Zoom# */{ //
 		* Initializes the control elements including the plugin panzoom
 		*/
 		init : function(){
+		
+			// clear selector
+			$( this.options.controlSelector + '> .zoom-controls' ).remove();
+		
 			// add controls
 			var container = $('<div></div>')
 				.addClass('zoom-controls')

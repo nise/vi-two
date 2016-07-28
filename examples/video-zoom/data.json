@@ -1,0 +1,2091 @@
+{
+	"_name": "vi2 demo",
+	"categories" :
+		[
+		{
+			"title":"Introduction", 
+			"pos":0,
+			"link":"a", 
+			"icon":"cat_0.png", 
+			"desc":"a"
+		},
+		{
+			"title":"Water and the physical environment", 
+			"pos":1,
+			"link":"Water_and_the_physical_environment", 
+			"icon":"cat_5.png", 
+			"desc":"This cluster discusses the components and processes within the hydrologic cycle and resulting management options. It includes different methods to quantify soil erosion, water balance, sediment and contaminant transport. Issues are covered that are related to groundwater quantity and quality, surface water quality, climate change and hydrological extremes."
+		},
+		{
+			"title":"Technical measures",
+			"pos":2, 
+			"link":"Technical_measures", 
+			"icon":"cat_1.png", 
+			"desc":"This cluster deals with technical measures that are important for IWRM. It covers issues from the urban water management (centralized and decentralized wastewater treatment), as well as the important issues of reservoir management. Furthermore, flood protection measures as an integral part of flood management are shown."
+			},		
+		{
+			"title":"Water governance",
+			"pos":3, 
+			"link":"Water_governance", 
+			"icon":"cat_3.png", 
+			"desc":"Issues of governance reveal to be of utmost importance for sustainable water resources management. Following an illustrated introduction into the topic of water governance, fundamentals in water law, gender issues, options for participation as well as prevailing spatial and sectoral challenges in river basin management get addressed. Particular emphasis is given to capacity development."
+			},
+		{
+			"title":"Economic instruments",
+			"pos":4, 
+			"link":"Economic_instruments", 
+			"icon":"cat_2.png", 
+			"desc":"In this part of the module, economic instruments are explained and illustrated that regulate the water demand and their interaction with hydrologic models. Furthermore, economic problems in multilateral cooperation on shared watercourses as well as the issue of water pricing are successively explained. "
+			},
+		{
+			"title":"Tools", 
+			"pos":5,
+			"link":"Tools", 
+			"icon":"cat_4.png", 
+			"desc":"Tools for understanding the natural and societal systems that facilitate decision making processes become more and more important. A wide range of tools and methods are shown, e.g. modelling, model coupling, Geographic Information Systems (GIS) and consequently their usage within decision-support-systems (DSS). The cluster further addresses issues related to vulnerability and uncertainty in decision making, e.g. showing tools like scenario planning."
+			},
+		{
+			"title":"IWRM implementation and case studies", 
+			"pos":6,
+			"link":"IWRM_implementation_and_case_studies", 
+			"icon":"cat_6.png", 
+			"desc":"The implementation of Integrated Water Resources Management (IWRM) is still in its infancy.  Thus, case studies from different hydrologically sensitive regions of the world are shown in order to discuss challenges that often occur when one tries to practically implement IWRM. Topics include such important issues like transboundary water management as well as the implementation of IWRM in Europe and in the development cooperation."
+			}
+		],
+	"_taxonomy" : 
+		[
+		{	"id": "capacity",
+				"sub": ["capacity","capacity development","capacities' strengths/weaknesses on national and on local level","coping capacities","enabling environment"] 
+	},
+	{	"id": "climate",	
+			"sub": ["climate system","climate model","climate change","regional downscaling","greenhouse effect","projection","La Nina","El Nino"]
+	},
+	{	"id": "contamination",
+			"sub": ["contaminant transport","advection","sorption","dispersion","diffusion","indicators","chemical reaction","radioactive decay"]
+	},
+	{	"id": "decision support",
+			"sub": ["decision support system","decision making","decision-making processes","multi-criteria","multi criteria assessment","GIS-based decision tool"] 
+	},
+	{	"id": "development",
+			"sub": ["german development cooperation","future development","organisational development"] 
+	},
+	{	"id": "drought",
+			"sub": ["drought","drought indices"] 
+	},
+	{	"id": "economics",
+			"sub": ["economics of water","economic analysis","political economy","market","water pricing","tariff","costs","cost of non-cooperation","benefit","benefit function","rivalry","excludability","externalities","water allocation","water pricing"] 
+		},
+		{	"id": "ecology",
+				"sub": ["river ecology","lake ecology","wetlands","nutrients","degradation","monitoring","good status","enabling environment","emission","River Continuum Concept (RCC)","immission"] 
+		},
+		{	"id": "field experiment",
+			"sub": ["experimental design","data collection","experimental layout"]
+		},
+		{	"id": "flood",
+				"sub": ["floods","flood risk","flood risk management","flood protection assets","flood mitigation","flood management","flood frequency","Floods Directive (FD)"] 
+		},
+		{	"id": "geography",
+				"sub": ["Africa","Algeria","Bali","Bangladesh","Bolivia","Burkina Faso","Ethiopia","Europe","France","Germany","Ghana","Haiti","India","Jordan","Mongolia","Morocco","Russia","South Africa","Spain","Switzerland","Tigris-Euphrates Basin","Ukraine"]
+		},
+		{	"id": "GIS",
+				"sub": ["GIS","Digital Elevation Model","point data","raster data","vector data","remote sensing","watershed delineation"]
+		},
+		{	"id": "governance",
+				"sub": ["governance","water governance","technology and related governance requirements","Compagnie d’Aménagement des Coteaux de Gascogne (CACG)","contractual relationships","principal/agent problems","tragedy of the commons","gendered water"] 
+		},
+		{	"id": "groundwater",
+				"sub": ["groundwater","groundwater recharge","groundwater flow model","recharge area","discharge area","springs","hydrostratigraphic units","aquifer hydraulic parameters","karstic aquifers"] 
+		},
+		{	"id": "hydrology",
+				"sub": ["hydrological cycle","hydrologic processes","hydrologic model","hydrological extremes","precipitation","open water evaporation","evapotranspiration","streamflow","isotropy","dendrohydrology","fractures","homogeneity","bank filtration","water balance"]
+		},
+		{	"id": "management",
+				"sub": ["management","management approach","water management principles","water management as an issue of social power","water master plan","IWRM", "IWRM as a cycle","implementation of IWRM principles","evaluation","sensible target"]
+		},
+		{	"id": "model",
+				"sub": ["Artificial Intelligence","copula modelling","crop growth modelling","crop growth model parameters","hydrological model","groundwater flow model","models","modelling urban water fluxes","modelling procedure","model misuse","climate model","nutrient flux modelling","optimization model","regionalization","river basin management model","simulation-based irrigation scheduling","vulnerability models"] 
+		},
+		{	"id": "participation",
+				"sub": ["participation","actors/relations/order/means"] 
+		},
+		{	"id": "reservoir",
+				"sub": ["reservoir","reservoir sedimentation","reservoir operation","reservoir management"] 
+		},
+		{	"id": "river basin",
+				"sub": ["river basin","river basin management","river basin management model","river basin perspective","surface water","surface and sub-surface watershed","River Continuum Concept (RCC)","transboundry river","institutional challenges of RBM (space, sector and scale)","man-environment system","evaluation","influent and effluent rivers","watershed delineation","unguaged catchments","hydromorphology"]
+		},
+		{	"id": "scenario",
+				"sub": ["scenario planning","scenario analysis","multi-criteria","multi criteria assessment"]
+		},
+		{	"id": "sectors",
+				"sub": ["sectors in water use","intra-water sector issue linkage","irrigation"]
+		},
+		{	"id": "sediment",
+				"sub": ["sediment yield","sediment transport","sediment management","suspended load","incipient motion","bed load"]
+		},
+		{	"id": "soil-water",
+				"sub": ["soil erosion","soil and water degradation","soil and water conservation","soil and water conservation policy issues","salt water intrusion","degradation"]
+		},
+		{	"id": "transboundary",
+				"sub": ["transboundary river","transboundary cooperation","transboundary aquifers","patterns of riparian constellations","unidirectional externality problems","cost of non-cooperation","altruism"]
+		},
+		{"id": "vulnerability",
+				"sub": ["vulnerability","vulnerability models","vulnerability index","hazard","disaster","resilience","coping capacities"] 
+		},
+		{	"id": "wastewater",
+				"sub": ["wastewater","wastewater treatment","centralized wastewater treatment","decentralized wastewater treatment","sludge","membrane bioreactor","urban drainage system"]
+		},
+		{	"id": "water quality",
+				"sub": ["water supply system","water sharing","water quality","groundwater","wastewater","wastewater treatment"]
+		},
+		{	"id": "water quantity",	
+				"sub": ["crop water productivity","deficit irrigation","groundwater","water harvesting","water scarcity"]
+		},
+		{	"id": "water law",
+				"sub": ["international law","soft law","Water Framework Directive (WFD)"]
+		},
+		{	"id": "Water Framework Directive (WFD)",
+				"sub": ["Basic concept and implementation","water law perspective of the WFD","Participation within the WFD"]
+		}
+		],		
+	"stream":[
+			{
+				"id": "borchardt2",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Prof. Dr. D. Borchardt",
+					"institution": "Helmholtz Centre for Environmental Research - UFZ,Head of Department of Aquatic Ecosystems Analysis and Management,Magdeburg,Germany / Technische Universität Dresden,Department of Hydrosciences,Professor in Aquatic Ecosystem Analysis and Management,Dresden,Germany",
+					"title": "Introduction to Integrated Water Resources Management (IWRM)",
+					"category": "-- General Introduction --",
+					"abstract": "This lecture is meant as a brief, overall introduction to the concept of IWRM, both from a conceptual perspective and concerning challenges in its practical implementation. It addresses sectoral water use and related approaches in water resources management, explains the integrative concept’s history and principles, illustrates a number of predominant characteristics and draws particular focus on its river basin aspect. The lecture finally closes by emphasizing the importance of capacity development in IWRM.",
+					"length": 80,
+					"date": "2012/10/01",
+					"weight": 5,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_borchardt2.webm",
+				"tags": [
+					{"tagname":"IWRM","occ":[0]},
+					{"tagname":"sectors in water use","occ":[0]},
+					{"tagname":"water management principles","occ":[0]},
+					{"tagname":"river basin perspective","occ":[0]},
+					{"tagname":"capacity development","occ":[0]}
+				],
+				"toc": [
+					{"label":"Introduction to IWRM","duration":1,"start":"0"},
+					{"label":"Content","duration":1,"start":"85.200"},
+					{"label":"1. Why do we need a better water management?","duration":1,"start":"125.44"},
+					{"label":"2. What is IWRM?","duration":1,"start":"1546.6"},
+					{"label":"3. History of IWRM","duration":1,"start":"1730.36"},
+					{"label":"4. Water management principles","duration":1,"start":"2021.92"},
+					{"label":"5. Sectoral perspectives in IWRM","duration":1,"start":"2558.88"},
+					{"label":"6. Implementing IWRM & IWRM process","duration":1,"start":"3472.32"},
+					{"label":"7. Water Management at River Basin Scale","duration":1,"start":"3909.6"},
+					{"label":"8. IWRM and capacity development (CD)","duration":1,"start":"4159.68"},
+					{"label":"References","duration":1,"start":"4751.8"}
+				],
+				"links":[]
+		},
+		{
+				"id": "userguide",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "",
+					"institution": "",
+					"title": "IWRM User Guide",
+					"category": null,
+					"abstract": "",
+					"length": 80,
+					"date": "2012/10/01",
+					"weight": 5,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_userguide.webm",
+				"tags": [],
+				"toc": [],
+				"links":[]
+		},
+	{
+				"id": "abebe",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. A. Abebe",
+					"institution": "ArbaMinch University,Ethiopia",
+					"title": "Copula modeling of hydrological drought using proxy data",
+					"category": "Tools",
+					"abstract": "This lecture begins with a brief theoretical background of drought and a statement of the problem associated with the deficiency of hydrological data (mainly stream flow) for any hydrological analysis. The core objective of this lecture is to introduce copula modelling of hydrological drought at ungauged catchments using proxy data, mainly tree rings and ENSO. It focuses on producing additional stream flow records (for ungauged catchment and poorly gauged catchments) and analysing these data for a frequency analysis of drought. The copula method is explained step by step in the case study area of the Wabi-Shebele river basin in Ethiopia.",
+					"length": 30,
+					"date": "2012/10/01",
+					"weight": 5,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_abebe.webm",
+				"tags": [
+					{"tagname":"drought","occ":[0]},
+					{"tagname":"El Nino","occ":[0]},
+					{"tagname":"La Nina","occ":[0]},
+					{"tagname":"unguaged catchments","occ":[0]},
+					{"tagname":"copula modelling","occ":[0]},
+					{"tagname":"dendrohydrology","occ":[0]},
+					{"tagname":"Ethiopia","occ":[0]}
+				],
+				"toc": [
+					{"label":"Capula modelling of hydrological drought using proxy data","duration":1,"start":"0.000"},
+    		  {"label":"Outline","duration":1,"start":"64.200"},
+    		  {"label":"1. Introduction","duration":1,"start":"98.640"},
+    		  {"label":"2. Objectives","duration":1,"start":"195.960"},
+    		  {"label":"3. Study Area","duration":1,"start":"324.080"},
+    		  {"label":"4. Data and Methodology","duration":1,"start":"490.800"},
+    		  {"label":"5. Results","duration":1,"start":"1329.800"},
+    		  {"label":"6. Conclusions","duration":1,"start":"1730.160"},
+    		  {"label":"References","duration":1,"start":"1805.000"}
+				],
+				"links":[
+					{"type":"cycle","x":50,"y":88,"duration":"15.5","start":"00:01:21","id":"Hydrological droughts","seek":"00:19:36","duration2":"00:44:55","target":"cullmann"},
+					{"type":"cycle","x":50,"y":88,"duration":"10","start":"00:03:21","id":"Ungauged catchment","seek":"00:49:29","duration2":"00:51:10","target":"saliha2"}
+				]
+		},
+		{
+				"id": "albrecht",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. J. Albrecht",
+					"institution": "Leibniz Institute of Ecological Urban and Regional Development,Dresden,Germany",
+					"title": "Water Law",
+					"category": "Water governance",
+					"abstract": "This lecture gives an introduction to international and European water law. The sources of international law, as well as the rules of soft law, as for instance the Agenda21, are shown.<br/>In the second part, the sources of European law are shown and an introduction into the European water law is given. Furthermore, the Water Framework Directive (WFD) and the European Floods Directive (FD) are explained from a legal perspective. Finally, the coordination between the WFD and the FD is described.This lecture gives an introduction to international and European water law. The sources of international law, as well as the rules of soft law, as for instance the Agenda21, are shown.<br/>In the second part, the sources of European law are shown and an introduction into the European water law is given. Furthermore, the Water Framework Directive (WFD) and the European Floods Directive (FD) are explained from a legal perspective. Finally, the coordination between the WFD and the FD is described.",
+					"length": 71,
+					"date": "2012/10/01",
+					"weight": 5,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_albrecht.webm",
+				"tags": [
+						{"tagname":"water law","occ":[0]},
+						{"tagname":"Floods Directive (FD)","occ":[0]},
+						{"tagname":"Water Framework Directive (WFD)","occ":[0]},
+						{"tagname":"international law","occ":[0]},
+						{"tagname":"soft law","occ":[0]},
+						{"tagname":"water law perspective of the WFD","occ":[0]}
+				],
+				"toc": [
+					{"label":"Water Law","duration":1,"start":"0.000"},
+		      {"label":"Sources of Water Law","duration":1,"start":"81.560"},
+		      {"label":"Structure","duration":1,"start":"149.000"},
+		      {"label":"1. International Water Law","duration":1,"start":"197.400"},
+		      {"label":"2. Water Law of the EU","duration":1,"start":"829.320"},
+					{"label":"3. Water Framework Directive","duration":1,"start":"1688.720"},
+		      {"label":"4. Floods Directive","duration":1,"start":"3381.840"},
+  		    {"label":"Conclusions","duration":1,"start":"4168.560"},
+  		    {"label":"Sources 1","duration":1,"start":"4245.200"},
+  		    {"label":"Sources 2","duration":1,"start":"4258.320"},
+  		    {"label":"Sources 3","duration":1,"start":"4272.040"}
+				],
+				"links":[
+					{"type":"cycle","x":40,"y":75,"duration":"10","start":"00:28:10","id":"Institutionalising RBM in EU","seek":"00:20:16","duration2":"00:53:59","target":"moss"},
+					{"type":"xlink","x":40,"y":85,"duration":"10","start":"00:28:10","id":"Public consultation","seek":"-99","duration2":"-99","target":"newig"},
+					{"type":"xlink","x": 2, "y": 90, "start": "0:46:46",  "duration": "37", "id": "details on participation", "target": "newig"},
+					{"type":"xlink","x": 2, "y": 95, "start": "0:57:48",  "duration": "55.7", "id": "flood types", "target": "cullmann"}
+				]
+		},	
+		{
+				"id": "awulachew",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. Ing. S. B. Awulachew",
+					"institution": "International Water Management Institute (IWMI),Regional Representative for East Africa and Nile Basin",
+					"title": "Soil erosion and sediment transport",
+					"category": "Water and the physical environment",
+					"abstract": "The core objective of this lecture is the quantification of the soil erosion and sediment transport process. Different modes of sediment transport (bed load, suspended load and wash load),  oil erosion, sediment yield and deposition process are discussed in detail. The lecture addresses the different types of mathematical equations used to estimate soil erosion, bed load, suspended load and total sediment load.",
+					"length": 51,
+					"date": "2012/10/01",
+					"weight": 10,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_awulachew.webm",
+				"tags": [
+					{"tagname":"soil erosion","occ":[0]},
+					{"tagname":"bed load","occ":[0]},
+					{"tagname":"suspended load","occ":[0]},
+					{"tagname":"incipient motion","occ":[0]},
+					{"tagname":"sediment transport","occ":[0]},
+					{"tagname":"sediment yield","occ":[0]}
+				],
+				"toc": [
+					{"label":"Soil Erosion and Sediment Transport","duration":1,"start":"0.000"},
+		      {"label":"Content","duration":1,"start":"8.360"},
+    		  {"label":"1. Introduction","duration":1,"start":"27.720"},
+    		  {"label":"2. Modes of Sediment Transport","duration":1,"start":"147.400"},
+    		  {"label":"3. Erosion and Sediment Yield","duration":1,"start":"309.320"},
+    		  {"label":"4. Sediment Transport","duration":1,"start":"1104.160"},
+    		  {"label":"5. Erosion and Sediment Control Structures","duration":1,"start":"2821.960"}
+				],
+				"links":[
+					{"type":"xlink","x":2,"y":90,"duration":"10","start":"00:51:20","id":"Soil conservation","seek":"-99","duration2":"-99","target":"petersen1"},
+					{"type":"xlink","x":50,"y":90,"duration":"10","start":"00:51:23","id":"Sediment management","seek":"-99","duration2":"-99","target":"saliha1"}
+				]
+		},
+		{
+				"id": "ayenew1",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Prof. T. Ayenew",
+					"institution": "Addis Ababa University,Ethiopia",
+					"title": "Occurrence of Groundwater and Characterization of Aquifers",
+					"category": "Water and the physical environment",
+					"abstract": "The lecture summarizes the importance of groundwater, where it is localized and the link between groundwater and aquifers as well as methods used for aquifer characterization from a management perspective. Basic aquifer hydraulic parameters, i.e. porosity, permeability, storativity, etc are explained in detail and many standard tables are provided for these hydraulic parameters for areas where the parameters do not exist. Aquifer types (confined, unconfined and semi-confined) and their classification based on spatial scale and media types are illustrated in figures. It also discusses different types of groundwater flow systems (local, intermediate and regional flow systems) and gravity and non-gravity springs. The lecture ends with some practical examples from Ethiopia.",
+					"length": 62,
+					"date": "2012/10/01",
+					"weight": 4,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_ayenew1.webm",
+				"tags": [
+					{"tagname":"Ethiopia","occ":[0]},
+					{"tagname":"groundwater","occ":[0]},
+					{"tagname":"karstic aquifers","occ":[0]},
+					{"tagname":"recharge area","occ":[0]},
+					{"tagname":"discharge area","occ":[0]},
+					{"tagname":"fractures","occ":[0]},
+					{"tagname":"isotropy","occ":[0]},
+					{"tagname":"springs","occ":[0]},
+					{"tagname":"homogeneity","occ":[0]},
+					{"tagname":"aquifer hydraulic parameters","occ":[0]},
+					{"tagname":"hydrostratigraphic units","occ":[0]}
+				],
+				"toc": [
+					{"label":"Occurrence of Groundwater and Characterization Aquifers","duration":1,"start":"0.000"},
+					{"label":"Outline","start":"149.800","duration":1},
+      		{"label":"Introduction","start":"186.960","duration":1},
+      		{"label":"Basic Aquifer Hydraulic parameters","start":"631.000","duration":1},
+      		{"label":"Hydrostratigraphic Units","start":"1431.960","duration":1},
+      		{"label":"Methods used for Aquifer characterization","start":"2229.240","duration":1},
+      		{"label":"Examples from Ethiopia","start":"2995.640","duration":1}
+				],
+				"links":[
+					{"type":"xlink","x":48,"y":88,"duration":"16","start":"00:41:24","id":"GW and SW interaction","seek":"-99","duration2":"-99","target":"balke2"}
+				]
+		},
+		{
+				"id": "ayenew2",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Prof. T. Ayenew",
+					"institution": "Professor of Hydrogeology in the department of Earth Science,Addis Ababa,Ethiopia",
+					"title": "Groundwater Flow Modelling",
+					"category": "Tools",
+					"abstract": "In a step-by-step description, this module illustrates the application of groundwater flow modelling (MODFLOW) from the conceptual model development state to the prediction process. It also addresses issues linked with the use and misuse of a model. The lecture is supported by a case study implemented at the Akaki well field, Ethiopia.",
+					"length": 117,
+					"date": "2012/10/01",
+					"weight": 4,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_ayenew2.webm",
+				"tags": [
+					{"tagname":"Ethiopia","occ":[0]},
+					{"tagname":"groundwater flow model","occ":[0]},
+					{"tagname":"modelling procedure","occ":[0]},
+					{"tagname":"model misuse","occ":[0]}
+				],
+				"toc": [
+				 	{"label":"Groundwater Flow Modelling","duration":1,"start":"0.000"},
+		      {"label":"Content","duration":1,"start":"188.360"},
+    		  {"label":"1. Models","duration":1,"start":"211.520"},
+   			  {"label":"1.1 Why Models?","duration":1,"start":"342.600"},
+    		  {"label":"1.2 Type of Models","duration":1,"start":"477.920"},
+   			 	{"label":"1.3 Where do we use Groundwater Models?","duration":1,"start":"909.600"},
+   		   	{"label":"2. Modelling Procedures","duration":1,"start":"1004.880"},
+   	  		{"label":"2.1 Purpose of Modelling","duration":1,"start":"1168.520"},
+		      {"label":"2.2 Conceptuel Model Development","duration":1,"start":"1287.320"},
+		      {"label":"2.3 Governing Equations","duration":1,"start":"1565.160"},
+		      {"label":"2.4 Code Selection (MODFLOW)","duration":1,"start":"2129.960"},
+		      {"label":"2.5 Calibration","duration":1,"start":"2969.560"},
+		      {"label":"2.6 Sensitivity Analysis","duration":1,"start":"3156.880"},
+		      {"label":"2.7 Prediction","duration":1,"start":"3353.400"},
+		      {"label":"2.8 Result Reporting","duration":1,"start":"3465.000"},
+		      {"label":"2.9 Post audit","duration":1,"start":"3709.520"},
+		      {"label":"3. Model Misuse","duration":1,"start":"3840.400"},
+		      {"label":"Example","duration":1,"start":"4649.920"}
+				],
+				"links":[
+					{"type":"cycle","x":2,"y":93,"duration":"19","start":"00:19:15","id":"Groundwater contamination transport","seek":"00:17:17","duration2":"00:45:50","target":"jabir"},
+					{"type":"cycle","x":2,"y":88,"duration":"15.5","start":"00:24:54","id":"Aquifer (Hydraulic conductivities and storage propoerties)","seek":"00:09:46","duration2":"00:18:19","target":"ayenew1"},
+					{"type":"cycle","x":60,"y":88,"duration":"24","start":"00:50:40","id":"Model calibration","seek":"00:36:57","duration2":"00:43:12","target":"saliha2"},
+					{"type":"xlink","x":2,"y":88,"duration":"16.5","start":"01:26:23","id":"Surface water and Groundwater Interaction","seek":"-99","duration2":"-99","target":"balke2"}
+				]
+		},				
+		{
+				"id": "balke1",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Prof. Dr. K.-D. Balke",
+					"institution": "University of Tübingen,Germany",
+					"title": "Water Balance",
+					"category": "Water and the physical environment",
+					"abstract": "This lecture provides detailed illustrations of the different water balance components and various impacts of human activities causing a water imbalance . It also explains the nature and application of water balances in / to different areas and climates (e.g. urban areas, forested areas, coastal areas, micro-dams, irrigation farming areas and warm climate). The lecture is supported by many numerical examples.",
+					"length": 42,
+					"date": "2012/10/01",
+					"weight": 2,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_balke1.webm",
+				"tags": [
+					{"tagname":"groundwater recharge","occ":[0]},
+					{"tagname":"water harvesting","occ":[0]},
+					{"tagname":"water balance","occ":[0]},
+					{"tagname":"salt water intrusion","occ":[0]}
+				],
+				"toc": [
+					{"label":"Water Balance","duration":1,"start":"0.000"},
+		      {"label":"Content","duration":1,"start":"18.920"},
+		      {"label":"1. The Water Balance","duration":1,"start":"40.200"},
+    		  {"label":"1.1 Definition of \"balance\"","duration":1,"start":"64.280"},
+    		  {"label":"1.2 The gerneral water balance equation","duration":1,"start":"352.360"},
+    		  {"label":"1.3 The climate-dependence of the water balance","duration":1,"start":"418.800"},
+    		  {"label":"1.4 The components of water balances","duration":1,"start":"724.760"},
+    		  {"label":"1.5 Surface water","duration":1,"start":"833.880"},
+    		  {"label":"1.6 Groundwater","duration":1,"start":"982.760"},
+		      {"label":"2. Water Balances in Urban Areas","duration":1,"start":"1195.840"},
+		      {"label":"2.1 The micro-climate in urban areas","duration":1,"start":"1210.200"},
+		      {"label":"2.2 Water in urban areas","duration":1,"start":"1299.720"},
+		      {"label":"2.3 Water from distant locations","duration":1,"start":"1451.760"},
+		      {"label":"3. Water balances in forests","duration":1,"start":"1497.560"},
+		      {"label":"4. Water Balance in Warm Climates","duration":1,"start":"1639.280"},
+		      {"label":"4.1 Water resources in semi-arid regions","duration":1,"start":"1659.440"},
+		      {"label":"4.2 Over-exploitation of groundwater resources","duration":1,"start":"1703.000"},
+		      {"label":"4.3 Rain water harvesting","duration":1,"start":"1848.640"},
+		      {"label":"4.4 Water balance of a micro-dam","duration":1,"start":"1899.400"},
+		      {"label":"4.5 Irrigation farming","duration":1,"start":"1989.320"},
+		      {"label":"5. Water Balances in Coastal Areas","duration":1,"start":"2245.000"},
+    		  {"label":"5.1 The interface","duration":1,"start":"2265.920"},
+		      {"label":"5.2 Water extraction near to the interface","duration":1,"start":"2368.280"},
+		      {"label":"5.3 Groundwater below islands","duration":1,"start":"2448.080"},
+ 			    {"label":"6. Summary","duration":1,"start":"2503.800"}
+				],
+				"links":[
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:02:34","id":"Evapotranspiration","seek":"01:05:47","duration2":"01:14:08","target":"lennartz"},
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:02:55","id":"Hydrological cycle","seek":"00:10:35","duration2":"00:16:41","target":"lennartz"},
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:21:00","id":"Aquifer","seek":"00:21:10","duration2":"00:23:48","target":"ayenew1"},
+					{"type":"cycle","x":2,"y":80,"duration":"54","start":"00:28:25","id":"Basic information on groundwater/ aquifer","seek":"00:17:37","duration2":"00:20:12","target":"balke2"},
+					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:33:08","id":"Irrigation Scheduling","seek":"00:00:00","duration2":"-99","target":"seidel1"}
+				
+				]
+		},{
+				"id": "balke2",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Prof. Dr. K.-D. Balke",
+					"institution": "University of Tübingen,Germany",
+					"title": "Surface Water and Groundwater Relations",
+					"category": "Water and the physical environment",
+					"abstract": "This module illustrates the interaction between surface water and the groundwater system. It also discusses the different substances contained in surface water and organisms in groundwater and the different types of artificial bank filtration. The percentage of surface water contained in the bank-filtrated water is illustrated by means of numerical examples.",
+					"length": 39,
+					"date": "2012/10/01",
+					"weight": 3,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_balke2.webm",
+				"tags": [
+					{"tagname":"groundwater","occ":[0]},
+					{"tagname":"influent and effluent rivers","occ":[0]},
+					{"tagname":"bank filtration","occ":[0]}
+				],
+				"toc": [
+					{"label":"Surface Water and Groundwater Relations","duration":1,"start":"0.000"},
+		      {"label":"Introduction","duration":1,"start":"25.100"},
+    		  {"label":"Fundamentals","duration":1,"start":"62.233"},
+    		  {"label":"Substances contained in River Water","duration":1,"start":"682.367"},
+    		  {"label":"Groundwater","duration":1,"start":"1057.433"},
+    		  {"label":"Bank Filtration","duration":1,"start":"1212.033"},
+    		  {"label":"Artificial Bank Filtration","duration":1,"start":"1503.933"}
+				],
+				"links":[
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:02:34","id":"Fractures","seek":"00:30:40","duration2":"00:31:57","target":"ayenew1"},
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:03:02","id":"Springs","seek":"00:28:08","duration2":"00:30:39","target":"ayenew1"},
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:03:13","id":"Basic information on aquifer","seek":"00:21:10","duration2":"00:23:48","target":"ayenew1"},
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:03:39","id":"Porosity","seek":"00:10:33","duration2":"00:12:12","target":"ayenew1"},
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:04:38","id":"Karstic Aquifer","seek":"00:51:00","duration2":"00:51:58","target":"ayenew1"},
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:12:15","id":"Phosphate and nitrate","seek":"00:20:10","duration2":"00:27:07","target":"berendonk"},
+					{"type":"xlink","x":2,"y":90,"duration":"10","start":"00:16:10","id":"Transport, sedimentation, erosion","seek":"-99","duration2":"-99","target":"awulachew"},
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:22:15","id":"Hydraulic conductivity","seek":"00:12:13","duration2":"00:13:14","target":"ayenew1"}
+				]
+		},				
+		{
+				"id": "berendonk",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Prof. Dr. T. Berendonk",
+					"institution": "Technische Universität Dresden,Department of Hydrosciences,Institute of Hydrobiology",
+					"title": "Freshwater Biology and Quality - an Introduction and Case Study",
+					"category": "Water and the physical environment",
+					"abstract": "This lecture gives you an introduction into freshwater biology and quality. The ecology of lakes and rivers is explained. The concept of limiting nutrients, the basic properties of phosphorus and nitrogen and the trophic, respectively saprobic state is described.  Furthermore, the main factors of water quality degradation are shown.  The case study deals with water quality problems in the Western Bug River in Ukraine showing a holistic concept to solve such problems.",
+					"length": 85,
+					"date": "2012/10/01",
+					"weight": 8,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_berendonk.webm",
+				"tags": [
+					{"tagname":"lake ecology","occ":[0]},
+					{"tagname":"Ukraine","occ":[0]},
+					{"tagname":"River Continuum Concept (RCC)","occ":[0]},
+					{"tagname":"nutrients","occ":[0]},
+					{"tagname":"degradation","occ":[0]},
+					{"tagname":"river ecology","occ":[0]},
+					{"tagname":"water quality","occ":[0]}
+				],
+				"toc": [
+					{"label":"Freshwater Biology and Quality","duration":1,"start":"0.000"},
+		      {"label":"Content","duration":1,"start":"30.960"},
+    		  {"label":"1. Lake Ecology","duration":1,"start":"59.320"},
+    		  {"label":"2. River Ecology","duration":1,"start":"1984.240"},
+    		  {"label":"3. Case study","duration":1,"start":"3395.160"}
+				],
+				"links":[
+					{"type":"xlink","x":2,"y":90,"duration":"10","start":"01:11:35","id":"Downscaling of global climate projection","seek":"00:46:00","duration2":"496","target":"bernhofer"},
+					{"type":"xlink","x":20,"y":90,"duration":"10","start":"01:14:10","id":"Urban water management","seek":"-99","duration2":"-99","target":"krebs"},
+					{"type":"xlink","x":2,"y":80,"duration":"10","start":"01:16:45","id":"Governance","seek":"-99","duration2":"-99","target":"huppert1"},
+					{"type":"xlink","x":2,"y":80,"duration":"10","start":"01:18:56","id":"Capacity development","seek":"-99","duration2":"-99","target":"niemann"}
+				]
+		},				
+		{
+				"id": "bernhofer",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Prof. Dr. C. Bernhofer",
+					"institution": "Technische Universität Dresden, Department of Hydrosciences,Institute of Hydrology and Meteorology",
+					"title": "Impacts of Climate Change on Integrated Water Resources Management",
+					"category": "Water and the physical environment",
+					"abstract": "This lecture shows components, processes and interactions of the climate system. Following this, climate change and the projections of future changes in climate are illustrated. In a subsequent step, the impact of climate onto the water resources is demonstrated with examples of floods and droughts. The last part of the lecture points out climate change related challenges for IWRM, e.g. regional downscaling of climate change and the uncertainty of climate projections.",
+					"length": 76,
+					"date": "2012/10/01",
+					"weight": 7,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_bernhofer.webm",
+				"tags": [
+					{"tagname":"climate system","occ":[0]},
+					{"tagname":"greenhouse effect","occ":[0]},
+					{"tagname":"regional downscaling","occ":[0]},
+					{"tagname":"climate model","occ":[0]},
+					{"tagname":"drought","occ":[0]},
+					{"tagname":"floods","occ":[0]},
+					{"tagname":"climate change","occ":[0]},
+					{"tagname":"projection","occ":[0]}
+				],
+				"toc": [
+					{"label":"Impacts of Climate Change on IWRM","duration":1,"start":"0.000"},
+		      {"label":"Structure","duration":1,"start":"45.080"},
+    		  {"label":"Climate system","duration":1,"start":"70.880"},
+    		  {"label":"1st principles","duration":1,"start":"218.960"},
+    		  {"label":"Climate change","duration":1,"start":"1033.120"},
+    		  {"label":"Examples of IWRM and climate change","duration":1,"start":"1824.400"},
+    		  {"label":"Climate change related challenges for IWRM","duration":1,"start":"2759.480"},
+    		  {"label":"Take home messages","duration":1,"start":"4269.600"}
+				],
+				"links":[
+					{"type":"xlink","x":2,"y":94,"duration":"10","start":"00:05:20","id":"water balance for landuse units","seek":"-99","duration2":"-99","target":"balke1"},
+					{"type":"cycle","x":50,"y":94,"duration":"10","start":"00:05:20","id":"hydrologic cycle and water balance","seek":"00:10:34","duration2":"00:23:51","target":"lennartz"},
+					{"type":"cycle","x":2,"y":91,"duration":"10","start":"00:29:22","id":"Hydrological processes","seek":"00:23:55","duration2":"00:26:21","target":"lennartz"},
+					{"type":"cycle","x":50,"y":85,"duration":"10","start":"00:29:37","id":"Vulnerability","seek":"00:35:26","duration2":"00:39:56","target":"bogardi"},
+					{"type":"cycle","x":2,"y":90,"duration":"294","start":"01:02:34","id":"Uncertainities","seek":"00:51:15","duration2":"00:53:00","target":"lennartz"}
+				]
+		},	
+		{
+				"id": "bhaduri",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. A. Bhaduri",
+					"institution": "Center for Development Research,University of Bonn,Germany",
+					"title": "Political Altruism of water sharing  and Climate change and cooperation in transboundary water sharing (case studies)",
+					"category": "IWRM implementation and case studies",
+					"abstract": "This lecture provides two case studies on water sharing of transboundary rivers. It includes the Political Altruism of Water Sharing – in the Ganges River Basin (between India and Bangladesh) and Climate Change and Cooperation in Transboundary Water Sharing – in the Volta River Basin (between Burkina Faso and Ghana). It gives a brief theoretical background on altruism and benefit functions. Results of different scenarios are presented for both case studies.",
+					"length": 31,
+					"date": "2012/10/01",
+					"weight": 5,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_bhaduri.webm",
+				"tags": [
+					{"tagname":"Ghana","occ":[0]},
+					{"tagname":"Burkina Faso","occ":[0]},
+					{"tagname":"Bangladesh","occ":[0]},
+					{"tagname":"altruism","occ":[0]},
+					{"tagname":"India","occ":[0]},
+					{"tagname":"benefit function","occ":[0]},
+					{"tagname":"transboundry river","occ":[0]},
+					{"tagname":"water sharing","occ":[0]},
+					{"tagname":"water allocation","occ":[0]}
+				],
+				"toc": [
+				 	{"label":"Political Altruism of Water Sharing - Ganges River Basin","duration":1,"start":"0.000"},
+		      {"label":"Water Sharing: The Case of the Ganges River","duration":1,"start":"79.560"},
+    		  {"label":"Altruism","duration":1,"start":"146.440"},
+    		  {"label":"Results","duration":1,"start":"812.200"},
+    		  {"label":"Conclusion","duration":1,"start":"848.800"},
+    		  {"label":"Climate Change and Cooperation in Transboundary Water Sharing","duration":1,"start":"892.000"},
+    		  {"label":"Case study - Volta River Basin","duration":1,"start":"964.320"},
+    		  {"label":"Objective","duration":1,"start":"1167.000"},
+    		  {"label":"Structure","duration":1,"start":"1263.840"},
+    		  {"label":"Model Description","duration":1,"start":"1287.440"},
+    		  {"label":"Results","duration":1,"start":"1448.640"},
+    		  {"label":"Conclusion","duration":1,"start":"1844.200"}
+				],
+				"links":[
+				{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:07:20","id":"Optimal water allocation","seek":"-99","duration2":"-99","target":"tsegai"},
+				{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:15:10","id":"Climate change","seek":"00:17:12","duration2":"00:30:25","target":"bernhofer"},
+				{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:19:25","id":"issue linkage","seek":"00:44:39","duration2":"01:03:48","target":"dombrowsky"}
+				]
+		},
+		{
+				"id": "bogardi",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Prof. Dr. Ing. J. Bogardi",
+					"institution": "Global Water System Project Center for Development Research,University of Bonn,Germany",
+					"title": "Vulnerability: A new Concept in IWRM",
+					"category": "Tools",
+					"abstract": "This lecture introduces the concept of vulnerability and shows the relation to water management. It classifies the different components of vulnerability (susceptibility, exposure, capacities) and its dimensions (social, economic, environmental and institutional). Furthermore, you learn how risk and vulnerability is perceived by the society.<br/>Two case studies related to floods will demonstrate vulnerability models, the indicator development for such models and how such models can be used as a basis for application in IWRM.",
+					"length": 140,
+					"date": "2012/10/01",
+					"weight": 6,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_bogardi.webm",
+				"tags": 
+				[					
+					{"tagname":"vulnerability","occ":[0]},
+					{"tagname":"risk","occ":[0]},
+					{"tagname":"hazard","occ":[0]},
+					{"tagname":"resilience","occ":[0]},
+					{"tagname":"coping capacities","occ":[0]},
+					{"tagname":"floods","occ":[0]},
+					{"tagname":"vulnerability index","occ":[0]},
+					{"tagname":"vulnerability models","occ":[0]},
+					{"tagname":"indicators","occ":[0]}
+				],
+				"toc": [
+					{"label":"Vulnerability: A New Concept in IWRM","duration":1,"start":"0"},
+    		  {"label":"Content","duration":1,"start":"135.240"},
+    		  {"label":"Background","duration":1,"start":"315.960"},
+    		  {"label":"Vulnerabilities: Classification and Dimensions","duration":1,"start":"2522.800"},
+    		  {"label":"Vulnerability and Risk Perception and Trends","duration":1,"start":"3327.440"},
+    		  {"label":"Vulnerability Models","duration":1,"start":"3836.200"},
+    		  {"label":"Application of Models","duration":1,"start":"4529.400"},
+    		  {"label":"Conclusions and Acknowledgements","duration":1,"start":"7677.920"},
+    		  {"label":"Annexes","duration":1,"start":"8393.680"},
+    		  {"label":"List of pros and cons of composite indicators","duration":1,"start":"8398.480"},
+    		  {"label":"References I","duration":1,"start":"8417.000"},
+    		  {"label":"References II","duration":1,"start":"8435.440"},
+    		  {"label":"References III","duration":1,"start":"8453.680"}
+				],
+				"links":[
+					{"type":"cycle","x":70,"y":80,"duration":"45","start":"00:04:10","id":"Hydrological cycle","seek":"00:10:35","duration2":"00:23:50","target":"lennartz"},
+					{"type":"xlink","x":70,"y":80,"duration":"59","start":"00:10:11","id":"Climate change","seek":"-99","duration2":"-99","target":"bernhofer"},
+					{"type":"cycle","x":2,"y":90,"duration":"64","start":"00:22:10","id":"Hydrological extreme events","seek":"00:01:30","duration2":"00:04:21","target":"cullmann"},
+					{"type":"cycle","x":2,"y":90,"duration":"82","start":"00:40:40","id":"Details on disaster","seek":"00:04:22","duration2":"00:13:06","target":"cullmann"},
+					{"type":"cycle","x":2,"y":90,"duration":"119","start":"02:01:37","id":"Disaster","seek":"01:20:45","duration2":"01:21:45","target":"liehr"}
+				]
+		},
+			{
+				"id": "borchardt1",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Prof. Dr. D. Borchardt",
+					"institution": "Technische Universität Dresden, Department of Hydrosciences, Professor in Aquatic Ecosystem Analysis and Management, Helmholtz Centre for Environmental Research – UFZ,Head of Department of Aquatic Ecosystems Analysis and Management,Germany",
+					"title": "The EU Water Framework Directive (WFD): Basic Concept, Integrated Water Resources Management and Implementation in the EU",
+					"category": "IWRM implementation and case studies",
+					"abstract": "This lecture gives you an overview on the EU-Water Framework Directive (WFD). It shows the basic principles and objectives of the WFD, e.g. the achievement of a “good ecological status” for all surface and groundwater bodies. It further outlines the WFD management approach and its implementation in the European Union (EU). On top of that, assessment and monitoring within the WFD is demonstrated and thus the main reasons for missing the WFD targets are given (often hydromorphological reasons). Accordingly, the chemical and ecological status of the water bodies in Europe and especially in Germany is specified.",
+					"length": 76,
+					"date": "2012/10/01",
+					"weight": 2,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_borchardt1.webm",
+				"tags": 
+				[					
+					{"tagname":"Water Framework Directive (WFD)","occ":[0]},
+					{"tagname":"good status","occ":[0]},
+					{"tagname":"hydromorphology","occ":[0]},
+					{"tagname":"surface water","occ":[0]},
+					{"tagname":"groundwater","occ":[0]},
+					{"tagname":"management approach","occ":[0]},
+					{"tagname":"indicators","occ":[0]},
+					{"tagname":"monitoring","occ":[0]},
+					{"tagname":"Europe","occ":[0]},
+					{"tagname":"Germany","occ":[0]},
+					{"tagname":"Basic concept and implementation","occ":[0]}
+				],				
+				"toc": [
+					  {"label":"The EU-Water Framework Directive","duration":1,"start":"0"},
+					  {"label":"Introduction","duration":1,"start":"60.12"},
+					  {"label":"Risk assessment","duration":1,"start":"694.120"},
+					  {"label":"Classification, pressures and impact analysis","duration":1,"start":"1424.4"},
+					  {"label":"Monitoring and ecological indicators","duration":1,"start":"2152.08"},
+					  {"label":"Results and reporting","duration":1,"start":"2781.4"},
+					  {"label":"Programs os measures","duration":1,"start":"3281.64"},
+					  {"label":"Future perspectives","duration":1,"start":"3447.44"}
+				],
+				"links":[
+					{"type":"cycle","x":66,"y":92,"duration":"50","start":"00:08:50","id":"River ecology","seek":"00:33:04","duration2":"00:50:35","target":"berendonk"},
+					{"type":"cycle","x":2,"y":88,"duration":"60.4","start":"00:17:01","id":"Problem of fit","seek":"00:13:50","duration2":"00:20:14","target":"moss"},
+					{"type":"cycle","x":65,"y":88,"duration":"52","start":"00:58:10","id":"EU water law","seek":"00:13:50","duration2":"00:57:31","target":"albrecht"},
+					{"type":"xlink","x":2,"y":88,"duration":"21","start":"00:05:15","id":"Implementing river basin management","seek":"0","duration2":"-99","target":"moss"},
+					{"type":"cycle","x":2,"y":88,"duration":"10","start":"00:24:47","id":"Wastewater disposal","seek":"01:09:16","duration2":"01:14:48","target":"krebs"},
+					{"type":"cycle","x":2,"y":88,"duration":"24","start":"00:40:59","id":"Macroinvertebrates","seek":"00:39:27","duration2":"00:42:38","target":"berendonk"}
+				]
+		},
+			{
+				"id": "cullmann",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. J. Cullmann",
+					"institution": "German IHP/HWRP secretariat,Federal Institute of Hydrology,Germany",
+					"title": "Introduction to hydrological extremes",
+					"category": "Water and the physical environment",
+					"abstract": "The lecture begins with a brief introduction of the two hydrological extremes, i.e. droughts and floods followed by some facts about occurrence and damages of these hydrological extremes in chronological order throughout the world. Different drought indices to describe drought and drought management options linked to different types of drought, i.e. meteorological, agricultural, hydrological and water resources drought, are well explained with examples. The second part of the lecture focuses on flood types, structural and non-structural flood mitigation measures and flood forecasting models. In this section, issues related to flood hazard, flood risk, vulnerability, resilience and flood management options based on vulnerability are discussed in detail. The lecture provides one concrete example of flood risk and vulnerability analysis for spatial planning in Switzerland.",
+					"length": 81,
+					"date": "2012/10/01",
+					"weight": 6,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_cullmann.webm",
+				"tags": [
+					{"tagname":"models","occ":[0]},
+					{"tagname":"Switzerland","occ":[0]},
+					{"tagname":"disaster","occ":[0]},
+					{"tagname":"flood risk","occ":[0]},
+					{"tagname":"vulnerability","occ":[0]},
+					{"tagname":"flood frequency","occ":[0]},
+					{"tagname":"hydrological extremes","occ":[0]},
+					{"tagname":"flood","occ":[0]},
+					{"tagname":"drought indices","occ":[0]}
+				],
+				"toc": [
+					{"label":"Introduction to hydrological extremes","duration":1,"start":"0.000"},
+		      {"label":"Introduction","duration":1,"start":"89.920"},
+    		  {"label":"Introduction - Characteristics","duration":1,"start":"790.200"},
+    		  {"label":"Drought types - the scheme","duration":1,"start":"1177.400"},
+    		  {"label":"Describing droughts - Indices","duration":1,"start":"1457.280"},
+    		  {"label":"What can we do?","duration":1,"start":"2056.720"},
+    		  {"label":"Drought types - mitigation","duration":1,"start":"2267.080"},
+    		  {"label":"Drought forecasting","duration":1,"start":"2540.080"},
+    		  {"label":"Flood types","duration":1,"start":"2689.680"},
+    		  {"label":"Vulnerability and risk","duration":1,"start":"2947.640"},
+    		  {"label":"Describing floods and impacts","duration":1,"start":"3189.000"},
+    		  {"label":"Flood mitigation - based on vulnerability","duration":1,"start":"3295.960"},
+    		  {"label":"Flood frequency analysis","duration":1,"start":"3452.680"},
+    		  {"label":"Flood mitigation - based on vulnerability","duration":1,"start":"3653.720"},
+    		  {"label":"Flood management - based on vulnerability","duration":1,"start":"3906.600"},
+    		  {"label":"Flood management - modelling","duration":1,"start":"4190.520"},
+    		  {"label":"Planning - the consequences of hazard","duration":1,"start":"4522.560"},
+    		  {"label":"Resume","duration":1,"start":"4657.040"},
+    		  {"label":"List of figures","duration":1,"start":"4830.920"}
+				],
+				"links":[
+					{"type":"xlink","x":2,"y":80,"duration":"12.5","start":"00:33:50","id":"Statistical distribution","seek":"-99","duration2":"-99","target":"abebe"},
+					{"type":"cycle","x":50,"y":90,"duration":"16","start":"00:52:48","id":"Flood (risk, hazard and vulnerability)","seek":"00:33:15","duration2":"00:42:00","target":"bogardi"},
+					{"type":"cycle","x":40,"y":90,"duration":"16","start":"00:55:48","id":"Flood protection measures","seek":"00:05:50","duration2":"00:19:09","target":"petersen2"},
+					{"type":"cycle","x":35,"y":95,"duration":"11","start":"01:09:27","id":"Flood protection management","seek":"00:19:10","duration2":"00:29:18","target":"petersen2"}				
+				]
+		},	
+		{
+				"id": "demydenko",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. A. Demydenko",
+					"institution": "Global Water Partnership – Ukraine",
+					"title": "Implemention of IWRM in postsoviet countries",
+					"category": "IWRM implementation and case studies",
+					"abstract": "Lecture preview: This lecture gives you an introduction into the challenges of implementing IWRM from a post-Soviet perspective. After generally discussing different approaches towards IWRM, it reflects the way the concept was implemented particularly in eastern Europe. The lecture highlights certain parts of the Water Framework Directive (WFD) and compares them with former and current principles of water management and related planning processes both in the Ukraine and in Russia. Besides this transition from “command and control” to new management, special emphasis is put on the importance of sensible target definition.Lecture preview: This lecture gives you an introduction into the challenges of implementing IWRM from a post-Soviet perspective. After generally discussing different approaches towards IWRM, it reflects the way the concept was implemented particularly in eastern Europe. The lecture highlights certain parts of the Water Framework Directive (WFD) and compares them with former and current principles of water management and related planning processes both in the Ukraine and in Russia. Besides this transition from “command and control” to new management, special emphasis is put on the importance of sensible target definition.",
+					"length": 67,
+					"date": "2012/10/01",
+					"weight": 3,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_demydenko.webm",
+				"tags": [
+					{"tagname":"Global Water Partnership","occ":[0]},
+					{"tagname":"sensible target","occ":[0]},
+					{"tagname":"Russia","occ":[0]},
+					{"tagname":"IWRM as a cycle","occ":[0]},
+					{"tagname":"Ukraine","occ":[0]},
+					{"tagname":"water governance","occ":[0]}
+ 
+				],
+				"toc": [
+					{"label":"Introduction","duration":1,"start":"0.000"},
+					{"label":"How came IWRM to EECCA","duration":1,"start":"205"},
+					{"label":"Concept of IWRM","duration":1,"start":"725"},
+					{"label":"EU-water policy versus ex-Soviet cycle","duration":1,"start":"1291"},
+					{"label":"Ukrainian assessment of IWRM implementation","duration":1,"start":"2720"},
+					{"label":"Conclusion","duration":1,"start":"3672"}
+				],
+				"links":[
+{"type":"xlink","x":2,"y":95,"duration":"180","start":"00:12:39","id":"further information on IWRM","seek":"-99","duration2":"-99","target":"borchardt2"},
+{"type":"xlink","x":2,"y":95,"duration":"13.3","start":"00:17:10","id":"River basin organization","seek":"-99","duration2":"-99","target":"moss"},
+{"type":"cycle","x":50,"y":94,"duration":"9.4","start":"00:20:53","id":"Details on Capacity development","seek":"00:13:37","duration2":"00:13:49","target":"niemann"},
+{"type":"xlink","x":50,"y":83,"duration":"10.4","start":"00:20:59","id":"participation in water management","seek":"-99","duration2":"-99","target":"newig"},
+{"type":"xlink","x":2,"y":80,"duration":"55","start":"00:21:50","id":"Basic concept of Water Framwork Directiv","seek":"-99","duration2":"-99","target":"borchardt1"},
+{"type":"cycle","x":2,"y":90,"duration":"25.5","start":"00:22:05","id":"Institutionalising basin management in the EU","seek":"00:20:43","duration2":"01:21:42","target":"moss"},
+{"type":"cycle","x":2,"y":93,"duration":"10.4","start":"00:21:38","id":"Legal aspects of the Water Framework Directive","seek":"00:28:08","duration2":"00:56:20","target":"albrecht"},
+{"type":"xlink","x":2,"y":90,"duration":"10.4","start":"00:23:21","id":"Water price","seek":"-99","duration2":"-99","target":"lehmann"},
+{"type":"xlink","x":60,"y":85,"duration":"16","start":"00:23:29","id":"Public participation","seek":"-99","duration2":"-99","target":"newig"},
+{"type":"xlink","x":2,"y":90,"duration":"35","start":"00:40:05","id":"Details on (water) governance","seek":"-99","duration2":"-99","target":"huppert1"}
+				]
+		},{
+				"id": "dombrowsky",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. I. Dombrowsky",
+					"institution": "German Development Institute,Bonn,Germany. (Formerly at the Helmholtz Centre for Environmental Research,Leipzig,Germany.)",
+					"title": "Economic Analysis of Transboundary Cooperation Problems",
+					"category": "Economic instruments",
+					"abstract": "In this lecture you will learn under which conditions it is in the rational self-interest of riparians to cooperate. It explains the tension of conflict and cooperation by taking an economic perspective. Different types of problem structures on transboundary river basins reflecting different social dilemmas are distinguished. For instance, positive unidirectional externality problems will be explained with the case study of the Blue Nile, where hydropower generation in Ethiopia may entail flood protection for Sudan thus showing a positive unidirectional externality. Furthermore, you will learn how cooperation through intra-water sector issue linkage is possible.",
+					"length": 68,
+					"date": "2012/10/01",
+					"weight": 2,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_dombrowsky.webm",
+				"tags": 
+				[					
+					{"tagname":"economic analysis","occ":[0]},
+					{"tagname":"transboundary river","occ":[0]},
+					{"tagname":"transboundary cooperation","occ":[0]},
+					{"tagname":"unidirectional externality problems","occ":[0]},
+					{"tagname":"intra-water sector issue linkage","occ":[0]}
+				],
+				"toc": [
+					{"label":"Economic Analysis of Transboundary Cooperation Problems","duration":1,"start":"0.000"},
+      		{"label":"The Problem","duration":1,"start":"67.360"},
+		      {"label":"State of the literature","duration":1,"start":"211.480"},
+    		  {"label":"Outline","duration":1,"start":"352.200"},
+    		  {"label":"1. Externality problems in the use of transboundary rivers","duration":1,"start":"414.360"},
+    		  {"label":"2. Analysis of negative unidirectional externality problems","duration":1,"start":"650.120"},
+    		  {"label":"3. Analysis of positive unidirectional externality problems","duration":1,"start":"1835.680"},
+    		  {"label":"4. Cooperation through Intra-water Sector Issue Linkage?","duration":1,"start":"2676.560"},
+    		  {"label":"5. Conclusions","duration":1,"start":"3920.440"},
+    		  {"label":"Further reading","duration":1,"start":"4093.000"}
+				],
+				"links":[
+					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:00:44","id":"Transboundary cooperation problems","seek":"-99","duration2":"-99","target":"scheumann"},
+					{"type":"cycle","x":2,"y":80,"duration":"18.6","start":"00:03:40","id":"conflicts about water","seek":"00:17:07","duration2":"00:18:06","target":"newig"},
+					{"type":"cycle","x":60,"y":25,"duration":"10.3","start":"00:12:29","id":"Coase Theorem","seek":"00:04:56","duration2":"00:08:04","target":"lehmann"},
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:19:55","id":"International water law","seek":"00:03:17","duration2":"00:13:49","target":"albrecht"},
+					{"type":"cycle","x":35,"y":45,"duration":"10","start":"00:29:43","id":"Tragedy of the commons and prisoner's dilemma","seek":"00:22:36","duration2":"00:24:33","target":"newig"},
+					{"type":"cycle","x":35,"y":45,"duration":"10","start":"00:29:32","id":"Cooperation and prisoner's dilema","seek":"00:06:44","duration2":"00:07:27","target":"scheumann"},
+					{"type":"xlink","x":60,"y":88,"duration":"38.7","start":"00:32:25","id":"Flood protection","seek":"-99","duration2":"-99","target":"petersen2"},
+					{"type":"cycle","x":2,"y":80,"duration":"25.5","start":"00:44:47","id":"issue linkage","seek":"00:14:53","duration2":"00:31:23","target":"bhaduri"}
+				]
+		},
+		{
+				"id": "graefe",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Prof. Dr. O. Graefe & Ursula Meyer",
+					"institution": "University of Fribourg,Switzerland / University of Lausanne,Switzerland",
+					"title": "Gender Issues in Integrated Water Resource Management",
+					"category": "Water governance",
+					"abstract": "Lecture preview: This lecture gives an introduction to gender issues and to the specific role of women for the family’s water supply in many societies. Two case studies from Morocco and Ethiopia are presented and the findings closely interlinked with current literature on societal tendencies. Looking both upon traditional patterns and modern water supply policy, the lecture reflects the ambivalent impact that highly sophisticated water infrastructure might have on rural societies, and discusses related pitfalls. Thus, the lecture involves considerations what IWRM should try to accomplish in order to avoid the reproduction of respective gender inequalities.",
+					"length": 64,
+					"date": "2012/10/01",
+					"weight": 8,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_graefe.webm",
+				"tags": [
+					{"tagname":"gendered water","occ":[0]},
+					{"tagname":"Morocco","occ":[0]},
+					{"tagname":"Ethiopia","occ":[0]},
+					{"tagname":"water management as an issue of social power","occ":[0]},
+					{"tagname":"dialectics of water issues","occ":[0]}
+				],
+				"toc":	[					
+					{"label":"Gender Issues in IWRM","duration":1,"start":"0.000"},
+  		    {"label":"Objectives of the lecture","duration":1,"start":"87.840"},
+  		    {"label":"Outline","duration":1,"start":"150.000"},
+   			 	{"label":"1. Introduction: gendered water","duration":1,"start":"209.960"},
+      		{"label":"2. The Dublin Principles","duration":1,"start":"461.240"},
+		      {"label":"3. Approaches of gender in relation with water","duration":1,"start":"1101.080"},
+    		  {"label":"4. The dialectics of modern water: example 1","duration":1,"start":"1556.960"},
+    		  {"label":"4. The dialectics of modern water: example 2","duration":1,"start":"2992.440"},
+    		  {"label":"5. Conclusion","duration":1,"start":"3622.440"}
+				],
+				"links":[
+					{"type":"cycle","x":2,"y":92,"duration":"10","start":"00:07:51","id":"Information on all Dublin Principles","seek":"00:35:12","duration2":"00:37:44","target":"borchardt2"},
+					{"type":"cycle","x":45,"y":92,"duration":"22","start":"00:07:51","id":"Participation in the Dublin Principles","seek":"00:02:24","duration2":"00:05:49","target":"newig"},
+					{"type":"cycle","x":40,"y":20,"duration":"10.2","start":"00:11:24","id":"Governance crisis and Global Water Partnership","seek":"00:07:07","duration2":"00:09:50","target":"huppert1"},
+					{"type":"cycle","x":37,"y":88,"duration":"10.2","start":"00:50:50","id":"water management situation in Ethiopia","seek":"00:59:05","duration2":"01:08:00","target":"ayenew1"},
+					{"type":"cycle","x":2,"y":85,"duration":"10.2","start":"00:55:03","id":"projects of the German development cooperation","seek":"00:17:19","duration2":"00:26:39","target":"magiera"},
+					{"type":"xlink","x":2,"y":85,"duration":"10.2","start":"00:54:36","id":"social impacts of water infrastructure","seek":"-99","duration2":"-99","target":"huppert3"}
+				]
+		},		
+		{
+				"id": "huppert1",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. W. Huppert",
+					"institution": "formerly with FAO,Worldbank,GTZ",
+					"title": "Water Governance - Part 1: What is ''Governance''?",
+					"category": "Water governance",
+					"abstract": "Lecture preview: This lecture gives you an overview on the role of governance issues in water management. Being the introductory part of a four-part lecture on water governance, it defines its meaning, elements and its specific importance in the conceptualization and implementation of IWRM. Based on an example from southern France (“Compagnie d’Aménagement des Coteaux de Gascogne”, CACG) the lecture describes water governance as a multi-sector and multi-level exercise, and emphasizes the importance of an issue- and problem-related analysis, of being compatible with existing customs, traditions and norms, and of creating necessary incentives.",
+					"length": 68,
+					"date": "2012/10/01",
+					"weight": 1,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_huppert1.webm",
+				"tags": [
+					{"tagname":"Compagnie d’Aménagement des Coteaux de Gascogne (CACG)","occ":[0]},
+					{"tagname":"actors/relations/order/means","occ":[0]},
+					{"tagname":"water governance","occ":[0]},
+					{"tagname":"water scarcity","occ":[0]}
+				],
+				"toc": [
+					{"label":"Water Governance","duration":1,"start":"0.000"},
+		      {"label":"Contents","duration":1,"start":"128.560"},
+		      {"label":"Background","duration":1,"start":"230.800"},
+		      {"label":"Part I: Water Governance","duration":1,"start":"591.600"},
+		      {"label":"Contents","duration":1,"start":"600.600"},
+		      {"label":"Defining","duration":1,"start":"634.680"},
+		      {"label":"Essential Elements","duration":1,"start":"1090.840"},
+		      {"label":"Water Governance in the Context of IWRM","duration":1,"start":"2439.080"},
+		      {"label":"The Example","duration":1,"start":"2588.200"},
+		      {"label":"Conclusions","duration":1,"start":"3941.320"}
+				],
+				"links":[
+					{"type":"cycle","x":2,"y":88,"duration":"17.8","start":"00:07:23","id":"Global Water Partnership","seek":"00:11:00","duration2":"00:15:07","target":"graefe"},
+					{"type":"cycle","x":2,"y":92,"duration":"121.7","start":"00:07:49","id":"Water conferences","seek":"00:30:35","duration2":"00:33:40","target":"borchardt2"}
+				]
+		},
+		{
+				"id": "huppert2",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. W. Huppert",
+					"institution": "formerly with FAO,Worldbank,GTZ",
+					"title": "Water Governance - Part 2: Context Specificity in Water Governance",
+					"category": "Water governance",
+					"abstract": "Lecture preview: This lecture follows the introduction to water governance, highlighting the fact that good governance may look quite different in different contexts. Being the second part of a four-part lecture on water governance, it presents specific findings from examples in France, Bolivia, India, and in Haiti, each of them related to specific capacity strengths/weaknesses on the national or local level. It emphasizes the fact that water interventions must, in order to achieve sustainable results, be adapted to existing institutional arrangements, and that any attempt to further develop constitutional governance capacities needs a considerable amount of time.",
+					"length": 43,
+					"date": "2012/10/01",
+					"weight": 2,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_huppert2.webm",
+				"tags": [
+					{"tagname":"water governance","occ":[0]},
+					{"tagname":"Haiti","occ":[0]},
+					{"tagname":"India","occ":[0]},
+					{"tagname":"Bolivia","occ":[0]},
+					{"tagname":"France","occ":[0]},
+					{"tagname":"irrigation","occ":[0]},
+					{"tagname":"capacities' strengths/weaknesses on national and on local level","occ":[0]}
+				],
+				"toc": [
+					{"label":"Part 2: Context Specificity in Water Governance","duration":1,"start":"0.000"},
+		      {"label":"Contents","duration":1,"start":"26.600"},
+    		  {"label":"Case Example: France","duration":1,"start":"311.480"},
+    		  {"label":"Case Example: Bolivia","duration":1,"start":"501.640"},
+    		  {"label":"Case Example: India","duration":1,"start":"1185.240"},
+    		  {"label":"Case Example: Haiti","duration":1,"start":"1786.600"},
+    		  {"label":"Conclusions","duration":1,"start":"2462.920"}
+				],
+				"links":[
+					{"type":"cycle","x":2,"y":88,"duration":"37","start":"00:04:18","id":"Capacities","seek":"00:04:03","duration2":"00:04:55","target":"niemann"},
+					{"type":"cycle","x":2,"y":88,"duration":"24","start":"00:41:35","id":"Capacities","seek":"00:04:03","duration2":"00:04:55","target":"niemann"},
+					{"type":"cycle","x":2,"y":88,"duration":"10","start":"00:42:06","id":"Time needed for Capacity Development","seek":"00:03:34","duration2":"00:04:00","target":"niemann"}
+				]
+		},				
+		{
+				"id": "huppert3",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. W. Huppert",
+					"institution": "formerly with FAO,Worldbank,GTZ",
+					"title": "Water Governance - Part 3: Technology and Water Governance",
+					"category": "Water governance",
+					"abstract": "This lecture proceeds in the introduction to water governance,concentrating especially on interdependencies between water governance and technology. Being the third part of a four-part lecture on water governance it states that a merely technical perspective upon water management and water supply issues will not lead to sustainable results. Instead,prevailing governance requirements of modern water infrastructure and its specific impact in local (rural) societies must not be underestimated. This gets exemplified with a case study in Bali and additional examples from Egypt and India.",
+					"length": 19,
+					"date": "2012/10/01",
+					"weight": 3,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_huppert3.webm",
+				"tags": [
+					{"tagname":"technology and related governance requirements","occ":[0]},
+					{"tagname":"Bali","occ":[0]},
+					{"tagname":"irrigation","occ":[0]} 
+				],
+				"toc": [
+					{"label":"Part III Water Governance","duration":1,"start":"0.000"},
+     			{"label":"Contents","duration":1,"start":"16.160"},
+		      {"label":"Technology and Water Governance","duration":1,"start":"45.400"},
+  		    {"label":"Conclusions","duration":1,"start":"1092.520"}
+				],
+				"links":[
+					{"type":"cycle","x":2,"y":88,"duration":"10","start":"00:01:05","id":"Capacities","seek":"00:04:03","duration2":"00:04:55","target":"niemann"},
+					{"type":"cycle","x":2,"y":22,"duration":"10","start":"00:09:20","id":"Impacts of modern water infrastructure","seek":"00:53:00","duration2":"00:57:00","target":"graefe"},
+					{"type":"xlink","x":2,"y":88,"duration":"10","start":"00:17:29","id":"Training for infrastructure maintenance","seek":"-99","duration2":"-99","target":"niemann"},
+					{"type":"cycle","x":2,"y":88,"duration":"10","start":"00:19:04","id":"Time needed for Capacity Development","seek":"00:03:34","duration2":"00:04:00","target":"niemann"}
+				]
+		},{
+				"id": "huppert4",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. W. Huppert",
+					"institution": "formerly with FAO,Worldbank,GTZ",
+					"title": "Water Governance - Part 4: Water Governance: Problems and Challenges",
+					"category": "Water governance",
+					"abstract": "This lecture follows the introduction to water governance, focussing on challenges that will probably determine related issues in future. Being the final part of a four-part lecture on water governance, it concentrates on principal/agent problems (based e.g. on information asymmetries) and on contractual relationships in general. Respective findings are illustrated by case studies from irrigation projects in India and in Jordan. Finally, the lecture discusses the importance of political economy for future analyses of water governance issues.",
+					"length": 42,
+					"date": "2012/10/01",
+					"weight": 4,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_huppert4.webm",
+				"tags": [
+					{"tagname":"Jordan","occ":[0]},
+					{"tagname":"political economy","occ":[0]},
+					{"tagname":"principal/agent problems","occ":[0]},
+					{"tagname":"India","occ":[0]},
+					{"tagname":"irrigation","occ":[0]},
+					{"tagname":"contractual relationships","occ":[0]}
+				],
+				"toc": [
+					{"label":"Part 4: Water Governance","duration":1,"start":"0.000"},
+		      {"label":"Contents","duration":1,"start":"25.360"},
+    		  {"label":"Background","duration":1,"start":"86.400"},
+    		  {"label":"Contractual Governance","duration":1,"start":"175.280"},
+    		  {"label":"Examples","duration":1,"start":"936.240"},
+    		  {"label":"Towards Solutions","duration":1,"start":"1295.000"},
+    		  {"label":"The Challenge of \"Political Economy\"","duration":1,"start":"2038.360"},
+    		  {"label":"Conclusions","duration":1,"start":"2389.000"}
+				],
+				"links":[
+					{"type":"cycle","x":2,"y":75,"duration":"10","start":"00:26:20","id":"water master plan in Jordan","seek":"00:26:40","duration2":"00:55:53","target":"magiera"},
+					{"type":"cycle","x":2,"y":85,"duration":"10","start":"00:26:20","id":"Decentralised wastewater management in Jordan","seek":"00:17:50","duration2":"00:37:43","target":"mueller"},
+					{"type":"cycle","x":2,"y":88,"duration":"10","start":"00:35:55","id":"Water management as an issue of power","seek":"00:58:55","duration2":"01:01:12","target":"graefe"},
+					{"type":"cycle","x":74,"y":91,"duration":"10","start":"00:37:52","id":"Capacities","seek":"00:04:03","duration2":"00:04:55","target":"niemann"}
+				]
+		},		
+		{
+				"id": "jabir",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. Ing. A.K. Jabir",
+					"institution": "Accura Engineering Consultancy,Ethiopia",
+					"title": "Groundwater Contamination",
+					"category": "Water and the physical environment",
+					"abstract": "Against the background that groundwater is the main source of water use in different parts of the world, this lecture addresses issues related to sources of groundwater contaminants (industrial, municipal and agricultural sources) and types of contaminants (pathogenic, organic, inorganic and radionuclide). It also introduces different concepts and techniques employed in quantifying contaminant transport and transformation. Theoretical and mathematical expressions of  contaminant transport by molecular diffusion, advection and dispersion with and without sorption are discussed in detail.",
+					"length": 46,
+					"date": "2012/10/01",
+					"weight": 5,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_jabir.webm",
+				"tags": [
+					{"tagname":"radioactive decay","occ":[0]},
+					{"tagname":"chemical reaction","occ":[0]},
+					{"tagname":"groundwater","occ":[0]},
+					{"tagname":"sorption","occ":[0]},
+					{"tagname":"diffusion","occ":[0]},
+					{"tagname":"advection","occ":[0]},
+					{"tagname":"dispersion","occ":[0]},
+					{"tagname":"contaminant transport","occ":[0]}
+				],
+				"toc": [
+					{"label":"Groundwater Contamination","duration":1,"start":"0.000"},
+      		{"label":"Outline","duration":1,"start":"68.320"},
+		      {"label":"Part I: Introduction","duration":1,"start":"97.640"},
+    		  {"label":"1.1 Global Water Balance","duration":1,"start":"102.320"},
+    		  {"label":"1.2 Global Water Distribution","duration":1,"start":"253.800"},
+    		  {"label":"1.3 Groundwater Use","duration":1,"start":"403.760"},
+    		  {"label":"1.4 Groundwater Contamination","duration":1,"start":"497.720"},
+    		  {"label":"1.5 Sources","duration":1,"start":"778.840"},
+    		  {"label":"1.6 Types of Contaminants","duration":1,"start":"864.720"},
+    		  {"label":"Part II: Contaminant Transport and ...","duration":1,"start":"1047.080"},
+    		  {"label":"2.1 NAPL Contamination","duration":1,"start":"1072.200"},
+    		  {"label":"2.2 Measure of Solute Concentration","duration":1,"start":"1278.960"},
+    		  {"label":"2.3 Transport by Advection","duration":1,"start":"1321.280"},
+    		  {"label":"2.4 Transport by Dispersion","duration":1,"start":"1475.960"},
+    		  {"label":"2.5 Molecular Diffusion","duration":1,"start":"1567.120"},
+    		  {"label":"2.6 Mechanical Dispersion","duration":1,"start":"1678.160"},
+		      {"label":"2.7 Mass Transfer","duration":1,"start":"2033.960"},
+    		  {"label":"2.8 Sorption","duration":1,"start":"2136.600"},
+    		  {"label":"2.9 Chemical Reaction","duration":1,"start":"2303.560"},
+   			  {"label":"2.10 Reactive Transport","duration":1,"start":"2372.800"},
+					{"label":"2.11 Radioactive Decay","duration":1,"start":"2440.720"},
+		      {"label":"2.12 Governing Equation","duration":1,"start":"2508.200"},
+    		  {"label":"References","duration":1,"start":"2759.960"}
+				],
+				"links":[
+					{"type":"cycle","x":52,"y":88,"duration":"10","start":"00:02:05","id":"Global water balance","seek":"00:16:40","duration2":"00:18:30","target":"lennartz"},
+					{"type":"cycle","x":2,"y":88,"duration":"13","start":"00:31:18","id":"Hydraulic conductivity","seek":"00:12:13","duration2":"00:16:55","target":"ayenew1"}
+				]
+		},
+			{
+				"id": "krebs",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Prof. Dr. P. Krebs",
+					"institution": "Technische Universität Dresden,Department of Hydrosciences,Institute for Urban Water Management",
+					"title": "Urban Water Management",
+					"category": "Technical measures",
+					"abstract": "This lecture demonstrates that urban water management is an integral part of IWRM. It gives an introduction to the urban water system, namely the water supply system, the urban drainage system and the receiving waters. The focus of the lecture is on urban drainage, wastewater disposal and sludge treatment/use. It is further shown how wastewater treatment plants function. The last part of the lecture describes how to model urban water fluxes and to minimise the impact on the receiving waters.",
+					"length": 131,
+					"date": "2012/10/01",
+					"weight": 1,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_krebs.webm",
+				"tags": 
+				[					
+					{"tagname":"water supply system","occ":[0]},
+					{"tagname":"urban drainage system","occ":[0]},
+					{"tagname":"wastewater","occ":[0]},
+					{"tagname":"wastewater treatment","occ":[0]},
+					{"tagname":"sludge","occ":[0]},
+					{"tagname":"emission","occ":[0]},
+					{"tagname":"immission","occ":[0]},
+					{"tagname":"nutrient flux modelling","occ":[0]},
+					{"tagname":"modelling urban water fluxes","occ":[0]},
+					{"tagname":"multi criteria assessment","occ":[0]}
+				],
+				"toc": [
+					{"label":"Urban Water Management","duration":1,"start":"0.000"},
+      		{"label":"Motivation","duration":1,"start":"39.320"},
+      		{"label":"Content","duration":1,"start":"299.560"},
+      		{"label":"The urban water system","duration":1,"start":"360.040"},
+      		{"label":"Water fluxes","duration":1,"start":"1791.200"},
+      		{"label":"Urban Hydrology","duration":1,"start":"2621.560"},
+      		{"label":"Wastewater disposal","duration":1,"start":"4155.720"},
+      		{"label":"Sludge treatment and use","duration":1,"start":"5328.960"},
+      		{"label":"Minimise impact on receiving waters","duration":1,"start":"6003.520"},
+		      {"label":"References","duration":1,"start":"7839.560"}
+				],
+				"links":[
+					{"type":"xlink","x":61,"y":88,"duration":"20.3","start":"00:43:43","id":"Urban hydrology","seek":"-99","duration2":"-99","target":"lennartz"},
+					{"type":"xlink","x":53,"y":88,"duration":"22.2","start":"01:40:26","id":"Introduction to WFD","seek":"-99","duration2":"-99","target":"borchardt1"},
+					{"type":"cycle","x":43,"y":88,"duration":"22.2","start":"01:40:52","id":"Institutionalizing the WFD","seek":"00:20:15","duration2":"01:00:13","target":"moss"},
+					{"type":"cycle","x":5,"y":90,"duration":"28.9","start":"01:41:16","id":"Water law of the EU","seek":"00:13:50","duration2":"00:56:21","target":"albrecht"},
+					{"type":"xlink","x":2,"y":88,"duration":"14.5","start":"02:07:03","id":"Groundwater and surface water","seek":"-99","duration2":"-99","target":"balke2"},
+					{"type":"cycle","x":2,"y":90,"duration":"23.1","start":"00:14:51","id":"River ecology and quality","seek":"00:33:04","duration2":"00:56:32","target":"berendonk"},
+					{"type":"cycle","x":2,"y":90,"duration":"24.3","start":"00:17:23","id":"Substances in river water","seek":"00:11:23","duration2":"00:13:25","target":"balke2"}
+				]
+		},	
+			{
+				"id": "lehmann",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. P. Lehmann",
+					"institution": "Helmholtz Centre for Environmental Research – UFZ,Department of Economics,Germany",
+					"title": "The Economics of Water Pricing",
+					"category": "Economic instruments",
+					"abstract": "This lecture gives an introduction to the problems surrounding water supply and explains why and how the economics of water pricing can help in this respect. Therefore, an introduction to the economics of water is given.  After that you will learn how water prices should be designed. In the last part, the lecturer explains how to successfully implement water prices.",
+					"length": 79,
+					"date": "2012/10/01",
+					"weight": 1,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_lehmann.webm",
+				"tags": 
+				[					
+					{"tagname":"water pricing","occ":[0]},
+					{"tagname":"economics of water","occ":[0]},
+					{"tagname":"benefit","occ":[0]},
+					{"tagname":"costs","occ":[0]},
+					{"tagname":"market","occ":[0]},
+					{"tagname":"tariff","occ":[0]},
+					{"tagname":"rivalry","occ":[0]},
+					{"tagname":"excludability","occ":[0]},
+					{"tagname":"externalities","occ":[0]}
+				],
+				"toc": [
+					{"label":"Outline","duration":1,"start":"0.000"},
+      		{"label":"Introduction","duration":1,"start":"82.480"},
+		      {"label":"The economics of water","duration":1,"start":"163.960"},
+    		  {"label":"Designing water prices","duration":1,"start":"1992.720"},
+    		  {"label":"Implementing water prices","duration":1,"start":"3815.880"},
+    		  {"label":"Conclusion","duration":1,"start":"4594.200"},
+   				{"label":"References","duration":1,"start":"4702.040"}
+				],
+				"links":[
+					{"type":"cycle","x":2,"y":88,"duration":"9.9","start":"00:22:28","id":"Waste assimilation","seek":"01:09:13","duration2":"01:40:04","target":"krebs"},
+					{"type":"cycle","x":2,"y":88,"duration":"9.9","start":"00:24:05","id":"Definition of externality","seek":"00:02:04","duration2":"00:02:52","target":"dombrowsky"},
+					{"type":"cycle","x":2,"y":88,"duration":"10","start":"01:05:26","id":"Water sectors","seek":"00:02:04","duration2":"00:02:52","target":"borchardt"},
+					{"type":"cycle","x":2,"y":88,"duration":"10","start":"01:07:27","id":"Decision making","seek":"00:10:08","duration2":"00:12:15","target":"liehr"}
+				]
+		},
+		{
+				"id": "lennartz",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. F. Lennartz",
+					"institution": "Head of the chair of Hydrology in Institute of Hydrology and Meteorology,Technical University of Dresden,Germany",
+					"title": "Fundamentals of Hydrology",
+					"category": "Water and the physical environment",
+					"abstract": "The lecture covers basics of hydrology, including the hydrologic cycle, water and heat balance and their main components, main hydrological processes and the movement of water in different media (soil, vegetation, atmosphere etc). It addresses concepts of hydrological modelling and the uncertainty factor in hydrological modelling exercises. It also explains different types of measurements and analyses of hydro-meteorological data such as precipitation, evapotranspiration and streamflow.",
+					"length": 85,
+					"date": "2012/10/01",
+					"weight": 1,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_lennartz.webm",
+				"tags": [
+					{"tagname":"hydrological cycle","occ":[0]},
+					{"tagname":"water balance","occ":[0]},
+					{"tagname":"hydrologic processes","occ":[0]},
+					{"tagname":"hydrologic model","occ":[0]},
+					{"tagname":"surface and sub-surface watershed","occ":[0]},
+					{"tagname":"precipitation","occ":[0]},
+					{"tagname":"open water evaporation","occ":[0]},
+					{"tagname":"evapotranspiration","occ":[0]},
+					{"tagname":"streamflow","occ":[0]}
+				],
+				"toc": [
+					{"label":"Fundamentals of Hydrology","duration":1,"start":"0.000"},
+		      {"label":"What is hydrology?","duration":1,"start":"23.280"},
+    		  {"label":"Objectives and Introduction","duration":1,"start":"52.400"},
+    		  {"label":"1. Objectives","duration":1,"start":"98.040"},
+    		  {"label":"2. The hydrologic cycle and water balance","duration":1,"start":"635.200"},
+    		  {"label":"3. Hydrologic processes and their description","duration":1,"start":"1431.840"},
+    		  {"label":"4. The Watershed","duration":1,"start":"3254.000"},
+    		  {"label":"5. Hydrologic Data","duration":1,"start":"3634.760"},
+    		  {"label":"6. Literature","duration":1,"start":"5085.560"}
+				],
+				"links":[
+					{"type":"xlink","x":55,"y":75,"duration":"17","start":"00:09:28","id":"Flood and drought","seek":"-99","duration2":"-99","target":"cullmann"},
+					{"type":"xlink","x":65,"y":91,"duration":"23.2","start":"00:19:12","id":"Water Balance","seek":"-99","duration2":"-99","target":"balke1"},
+					{"type":"cycle","x":3,"y":93,"duration":"14.5","start":"00:31:45","id":"Water retention curve","seek":"00:08:26","duration2":"00:08:36","target":"seidel2"},
+					{"type":"xlink","x":3,"y":93,"duration":"14.5","start":"00:47:50","id":"Model parameter calibration","seek":"-99","duration2":"-99","target":"seidel2"},
+				
+					{"type":"xlink","x":56,"y":88,"duration":"13","start":"00:50:48","id":"Hydrologic model","seek":"-99","duration2":"-99","target":"saliha2"},
+					{"type":"cycle","x":45,"y":49,"duration":"14.5","start":"00:54:39","id":"River basin or watershed","seek":"00:02:47","duration2":"00:04:23","target":"schanze"},
+					{"type":"cycle","x":2,"y":88,"duration":"13.2","start":"00:56:15","id":"Watershed delineation","seek":"00:59:08","duration2":"01:04:03","target":"mund"},
+					{"type":"cycle","x":53,"y":49,"duration":"10","start":"00:57:45","id":"Groundwater aquifer","seek":"00:20:57","duration2":"00:28:05","target":"ayenew1"}
+				
+				]
+		},	
+			{
+				"id": "liehr",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. S. Liehr & Dr. J. Röhrig",
+					"institution": "Institute for Social-Ecological Research (ISOE),Frankfurt am Main,Germany",
+					"title": "Modelling and Instruments for Decision Support",
+					"category": "Tools",
+					"abstract": "This lecture explains major areas of challenges to be addressed when developing and applying Decision Support Systems (DSS), the main tasks for meeting the challenges and common technologies or methods (i.e. models, scenario analyses, multi-criteria analyses, Geographic Information System (GIS)) that are integrated in many DSS. Different types and core components of DSS are explained in the lecture. It also presents different applications of DSS in the context of IWRM and illustrates some practical examples of DSS.",
+					"length": 87,
+					"date": "2012/10/01",
+					"weight": 1,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_liehr.webm",
+				"tags": [
+					{"tagname":"decision support system","occ":[0]},
+					{"tagname":"decision making","occ":[0]},
+					{"tagname":"models","occ":[0]},
+					{"tagname":"scenario analysis","occ":[0]},
+					{"tagname":"multi-criteria","occ":[0]},
+					{"tagname":"GIS","occ":[0]}
+				],
+				"toc": [
+					{"label":"Modelling and Instruments for Decision Support (DSS)","duration":1,"start":"0.000"},
+		      {"label":"Introduction","duration":1,"start":"76.600"},
+    		  {"label":"Overview","duration":1,"start":"149.800"},
+    		  {"label":"1. Introduction","duration":1,"start":"242.400"},
+    		  {"label":"2. Challenges and Tasks","duration":1,"start":"1030.960"},
+   	 			{"label":"3. Methods and Techniques","duration":1,"start":"2520.600"},
+		      {"label":"4. Application Fields","duration":1,"start":"3819.080"},
+    		  {"label":"5. Examples","duration":1,"start":"4659.720"},
+    		  {"label":"6. Take-Home Message","duration":1,"start":"5059.840"},
+    		  {"label":"References I","duration":1,"start":"5204.000"},
+    		  {"label":"References II","duration":1,"start":"5219.000"},
+    		  {"label":"References III","duration":1,"start":"5223.000"}  
+				],
+				"links":[
+{"type":"xlink","x":80,"y":55,"duration":"10","start":"00:05:58","id":"GIS","seek":"-99","duration2":"-99","target":"mund"},
+{"type":"xlink","x":70,"y":92,"duration":"97","start":"00:37:13","id":"Participation","seek":"-99","duration2":"-99","target":"newig"},
+{"type":"xlink","x":2,"y":75,"duration":"10","start":"00:51:42","id":"Models","seek":"-99","duration2":"-99","target":"tsegai"},
+{"type":"cycle","x":2,"y":93,"duration":"10","start":"00:56:16","id":"scenario analysis","seek":"00:45:17","duration2":"01:08:35","target":"schanze"},
+{"type":"xlink","x":2,"y":80,"duration":"10","start":"01:01:24","id":"GIS","seek":"-99","duration2":"-99","target":"mund"},
+{"type":"xlink","x":70,"y":17,"duration":"10","start":"01:06:24","id":"water price","seek":"-99","duration2":"-99","target":"lehmann"},
+{"type":"xlink","x":2,"y":80,"duration":"10","start":"01:06:30","id":"Basic concepts of Water Framework Directive","seek":"-99","duration2":"-99","target":"borchardt1"},
+{"type":"cycle","x":2,"y":90,"duration":"10","start":"01:06:30","id":"Institutionalising river basin management in the EU","seek":"00:20:43","duration2":"01:21:42","target":"moss"},
+{"type":"cycle","x":2,"y":70,"duration":"10","start":"01:06:30","id":"European water law","seek":"00:28:08","duration2":"00:56:20","target":"albrecht"},
+{"type":"xlink","x":50,"y":88,"duration":"10","start":"01:06:43","id":"Capacity Development","seek":"-99","duration2":"-99","target":"niemann"},
+{"type":"xlink","x":2,"y":92,"duration":"10","start":"01:06:56","id":"transboundary basins","seek":"-99","duration2":"-99","target":"dombrowsky"},
+{"type":"xlink","x":2,"y":92,"duration":"10","start":"01:07:34","id":"reservoirs","seek":"-99","duration2":"-99","target":"ostrowski"},
+{"type":"xlink","x":2,"y":88,"duration":"10","start":"01:09:06","id":"extreme events","seek":"-99","duration2":"-99","target":"cullmann"},
+{"type":"xlink","x":2,"y":92,"duration":"10","start":"01:11:48","id":"simulation-based irrigation scheduling","seek":"-99","duration2":"-99","target":"seidel1"},
+{"type":"cycle","x":2,"y":80,"duration":"10","start":"01:13:12","id":"supply versus demand driven approach","seek":"00:07:29","duration2":"00:07:59","target":"niemann"},
+{"type":"cycle","x":2,"y":87,"duration":"10","start":"01:13:12","id":"supply versus demand orientation in development cooperation","seek":"00:52:27","duration2":"00:52:35","target":"magiera"},
+{"type":"cycle","x":2,"y":88,"duration":"10","start":"01:14:06","id":"crop water productivity","seek":"00:03:03","duration2":"00:03:23","target":"seidel1"},
+{"type":"xlink","x":50,"y":88,"duration":"10","start":"01:14:40","id":"urban water management","seek":"-99","duration2":"-99","target":"krebs"},
+{"type":"xlink","x":50,"y":88,"duration":"10","start":"01:16:35","id":"groundwater management","seek":"-99","duration2":"-99","target":"scheumann"},
+{"type":"xlink","x":62,"y":48,"duration":"10","start":"01:20:56","id":"flood protection","seek":"-99","duration2":"-99","target":"petersen2"},
+{"type":"xlink","x":62,"y":48,"duration":"10","start":"01:21:23","id":"climate change","seek":"-99","duration2":"-99","target":"bernhofer"},
+{"type":"xlink","x":2,"y":92,"duration":"10","start":"01:25:51","id":"Participation","seek":"-99","duration2":"-99","target":"newig"}
+				]
+		},{
+				"id": "magiera",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. P. Magiera",
+					"institution": "GIZ,Germany",
+					"title": "Implementing the IWRM principles in Development Cooperation",
+					"category": "IWRM implementation and case studies",
+					"abstract": "Lecture preview: This lecture gives an introduction to (German) Development Cooperation and its way of implementing the IWRM principles. It discusses respective challenges that often occur when trying to practically implement IWRM, especially in developing countries, and draws particular attention to administrative issues (case study on water master planning from Jordan) and economic issues (case study from Algeria). The lecture stresses that IWRM needs to be understood as a long-winded process, discusses the pros and cons of different approaches, and presents important tools in IWRM implementation.",
+					"length": 82,
+					"date": "2012/10/01",
+					"weight": 1,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_magiera.webm",
+				"tags": [
+					{"tagname":"implementation of IWRM principles","occ":[0]},
+					{"tagname":"water master plan","occ":[0]},
+					{"tagname":"german development cooperation","occ":[0]},
+					{"tagname":"Algeria","occ":[0]},
+					{"tagname":"Jordan","occ":[0]}
+				],
+				"toc": [
+					{"label":"Implementing the IWRM principles in Development Cooperation","duration":1,"start":"0.000"},
+		      {"label":"Content","duration":1,"start":"30.640"},
+    		  {"label":"1. IWRM in GTZ´s advisory services","duration":1,"start":"92.320"},
+    		  {"label":"2. Implementing IWRM","duration":1,"start":"906.280"},
+    		  {"label":"3. IWRM Concept and Institutional Set-up in Water Master Planning - Experiences from Jordan","duration":1,"start":"1601.600"},
+    		  {"label":"4. Economic Aspects of IWRM - Lessons learnt from Algeria","duration":1,"start":"3354.880"},
+    		  {"label":"5. Outlook","duration":1,"start":"4245.480"}
+				],
+				"links":[
+					
+					{"type":"cycle","x":2,"y":92,"duration":"10","start":"00:03:18","id":"details on basin approach","seek":"00:09:37","duration2":"00:13:50","target":"moss"},
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:03:13","id":"participation","seek":"00:53:32","duration2":"00:59:02","target":"newig"},
+					{"type":"xlink","x":2,"y":88,"duration":"10","start":"00:05:47","id":"capacity development","seek":"-99","duration2":"-99","target":"niemann"},
+					{"type":"cycle","x":2,"y":88,"duration":"10","start":"00:09:39","id":"water use scenarios","seek":"00:45:17","duration2":"01:08:35","target":"schanze"},
+					{"type":"xlink","x":2,"y":92,"duration":"10","start":"00:13:10","id":"Participation","seek":"-99","duration2":"-99","target":"newig"},
+					{"type":"cycle","x":2,"y":92,"duration":"10","start":"00:13:45","id":"Details on Global Water Partnership","seek":"00:11:00","duration2":"00:11:40","target":"graefe"},
+					{"type":"cycle","x":65,"y":88,"duration":"10","start":"00:14:46","id":"IWRM Process","seek":"00:43:52","duration2":"00:44:54","target":"niemann"},
+					{"type":"xlink","x":2,"y":92,"duration":"10","start":"00:19:13","id":"transboundary water management","seek":"-99","duration2":"-99","target":"dombrowsky"},
+					{"type":"xlink","x":2,"y":92,"duration":"10","start":"00:22:30","id":"decenteralized sanitation system","seek":"-99","duration2":"-99","target":"mueller"},
+					{"type":"xlink","x":72,"y":23,"duration":"10","start":"00:26:15","id":"water tariff","seek":"-99","duration2":"-99","target":"lehmann"},
+					{"type":"xlink","x":50,"y":93,"duration":"10","start":"00:26:15","id":"gender issues in IWRM","seek":"-99","duration2":"-99","target":"graefe"},			
+					{"type":"cycle","x":40,"y":74,"duration":"10","start":"00:26:47","id":"Intersectoral water allocation in Jordan","seek":"00:26:17","duration2":"00:33:56","target":"huppert4"},
+					{"type":"cycle","x":2,"y":93,"duration":"10","start":"00:26:47","id":"Decentralised wastewater management in Jordan","seek":"00:17:50","duration2":"00:37:43","target":"mueller"},
+					{"type":"cycle","x":2,"y":88,"duration":"15","start":"00:27:56","id":"groundwater","seek":"00:17:38","duration2":"00:20:10","target":"balke2"},
+					{"type":"xlink","x":2,"y":88,"duration":"10","start":"00:29:11","id":"transboundary groundwater","seek":"-99","duration2":"-99","target":"scheumann"},
+					{"type":"xlink","x":2,"y":78,"duration":"10","start":"00:32:42","id":"water balance","seek":"-99","duration2":"-99","target":"balke1"},
+					{"type":"cycle","x":2,"y":88,"duration":"23","start":"00:39:40","id":"Institutional set-up","seek":"00:03:55","duration2":"00:20:14","target":"moss"},
+					{"type":"xlink","x":2,"y":88,"duration":"204","start":"00:40:53","id":"Participation","seek":"-99","duration2":"-99","target":"newig"},
+					{"type":"xlink","x":51,"y":88,"duration":"17","start":"00:48:10","id":"decision support tools","seek":"-99","duration2":"-99","target":"liehr"},
+					{"type":"cycle","x":2,"y":70,"duration":"10","start":"00:52:28","id":"supply and demand orientation","seek":"00:07:29","duration2":"00:08:28","target":"niemann"},
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:52:28","id":"supply orientation","seek":"01:12:45","duration2":"01:13:36","target":"liehr"},
+					{"type":"cycle","x":2,"y":65,"duration":"28","start":"00:58:49","id":"conflicts / sector competition","seek":"00:42:40","duration2":"00:45:55","target":"borchardt2"},
+					{"type":"cycle","x":2,"y":93,"duration":"10","start":"01:02:25","id":"Climate change","seek":"00:17:15","duration2":"00:24:50","target":"bernhofer"},
+					{"type":"xlink","x":2,"y":80,"duration":"10","start":"01:05:22","id":"GIS","seek":"-99","duration2":"-99","target":"mund"},
+					{"type":"cycle","x":2,"y":88,"duration":"10","start":"01:05:53","id":"water use scenarios","seek":"00:45:17","duration2":"01:08:35","target":"schanze"},
+					{"type":"xlink","x":2,"y":88,"duration":"10","start":"01:08:19","id":"capacity development","seek":"-99","duration2":"-99","target":"niemann"},
+					{"type":"cycle","x":2,"y":88,"duration":"10","start":"01:08:42","id":"Wastewater treatment","seek":"01:09:13","duration2":"01:40:04","target":"krebs"},
+					{"type":"xlink","x":2,"y":20,"duration":"21","start":"01:09:22","id":"water balance","seek":"-99","duration2":"-99","target":"balke1"},
+					{"type":"xlink","x":2,"y":88,"duration":"10","start":"01:09:54","id":"water tariff","seek":"-99","duration2":"-99","target":"lehmann"},
+					{"type":"xlink","x":2,"y":88,"duration":"51","start":"01:14:59","id":"governance","seek":"-99","duration2":"-99","target":"huppert1"},
+					{"type":"cycle","x":2,"y":88,"duration":"20","start":"01:17:52","id":"IWRM as a process","seek":"00:43:52","duration2":"00:44:54","target":"niemann"}				
+				]
+		},	
+		{
+				"id": "moss",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. T. Moss",
+					"institution": "Leibniz-Institute for Regional Development and Structural Planning (IRS),Germany",
+					"title": "Institutionalising river basin management: The challenge of space, sector and scale",
+					"category": "Water governance",
+					"abstract": "This lecture gives you an introduction to the concept of river basin management (RBM). It is explained that RBM is the central control component of IWRM. However, three challenges (challenge of space, sector and scale) may occur while institutionalising river basin management.  After this general description of institutional challenges, institutionalising RBM in Europe according to the EU Water Framework Directive (WFD) is explained. Therefore a brief description including innovations and criticism of the WFD is shown. The last part discusses the implementation of the WFD in Germany including current achievements and deficits.",
+					"length": 88,
+					"date": "2012/10/01",
+					"weight": 6,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_moss.webm",
+				"tags": 
+				[					
+					{"tagname":"river basin management","occ":[0]},
+					{"tagname":"institutional challenges of RBM (space, sector and scale)","occ":[0]},
+					{"tagname":"Water Framework Directive (WFD)","occ":[0]},
+					{"tagname":"Germany","occ":[0]},
+					{"tagname":"Europe","occ":[0]},
+					{"tagname":"Basic concept and implementation","occ":[0]}
+				],
+				"toc": [
+					{"label":"Institutionalising river basin management: The challenge of space,sector and scale","duration":1,"start":"0.000"},
+		      {"label":"Structure","duration":1,"start":"83.200"},
+    		  {"label":"1. River basin management: institutional challenges","duration":1,"start":"235.000"},
+    		  {"label":"1.1 The institutional dimensions to RBM","duration":1,"start":"240.967"},
+    		  {"label":"1.2 A framework for analysing institutional challenges","duration":1,"start":"829.833"},
+    		  {"label":"2. Institutionaling RBM in Europe","duration":1,"start":"1214.200"},
+    		  {"label":"2.1 Background to the WFD","duration":1,"start":"1241.367"},
+    		  {"label":"2.2 The WFD in brief","duration":1,"start":"1501.300"},
+    		  {"label":"2.3 Criticisms of the WFD","duration":1,"start":"2118.400"},
+    		  {"label":"2.4 The WFD and problems of fit,interplay and scale","duration":1,"start":"2508.533"},
+    		  {"label":"3. Implementing the WFD in Germany","duration":1,"start":"3218.833"},
+    		  {"label":"3.1 Challenges posed by the WFD","duration":1,"start":"3228.000"},
+    		  {"label":"3.2 Institutions of water management in Germany and the WFD","duration":1,"start":"3613.433"},
+    		  {"label":"3.3 Current achievements and deficits in Germany","duration":1,"start":"4397.633"},
+    		  {"label":"4. Concluding remarks","duration":1,"start":"4901.733"}
+				],
+				"links":[
+					{"type":"cycle","x":2,"y":90,"duration":"50.5","start":"00:09:45","id":"River basin management","seek":"00:02:45","duration2":"00:10:45","target":"schanze"},
+					{"type":"cycle","x":2,"y":80,"duration":"26.6","start":"00:09:04","id":"Implementing WFD in Germany","seek":"00:02:45","duration2":"00:10:45","target":"borchardt1"},
+					{"type":"cycle","x":2,"y":90,"duration":"28.5","start":"00:26:04","id":"Institutionalization of participation","seek":"00:01:05","duration2":"00:05:50","target":"newig"},
+					{"type":"cycle","x":2,"y":90,"duration":"29.45","start":"00:31:15","id":"Participation within the WFD","seek":"00:43:00","duration2":"00:47:05","target":"newig"},
+					{"type":"standard","x":80,"y":70,"duration":"152.7","start":"00:20:47","id":"Details on EU WFD","seek":"0","duration2":"-99","target":"borchardt1"}
+				]
+		},	
+		{
+				"id": "mueller",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. R. A. Müller",
+					"institution": "Helmholtz Centre for Environmental Research,UFZ,Germany",
+					"title": "Decentralised Wastewater Treatment systems",
+					"category": "Technical measures",
+					"abstract": "This lecture gives an overview of principles, potentials and typical areas of application of decentralized wastewater treatment (DWWT) systems and their management options. It examines DWWT facilities up to a maximum size of 5000 residents. After presenting a brief comparison of centralized and decentralized wastewater treatment, the lecture focuses on preconditions for sustainable implementation and factors (human/social, technological and economic ) that might hinder the implementation of DWWT. The lecture also discusses different DWWT technologies. Two examples are presented to illustrate the selected technologies with their respective techniques and processes. The lecture includes one detail case study on the implementation of DWWT technologies in the lower Jordan rift valley. ",
+					"length": 38,
+					"date": "2012/10/01",
+					"weight": 2,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_mueller.webm",
+				"tags": [
+						{"tagname":"wastewater treatment","occ":[0]},
+						{"tagname":"decentralized wastewater treatment","occ":[0]},
+						{"tagname":"centralized wastewater treatment","occ":[0]},
+						{"tagname":"wetlands","occ":[0]},
+						{"tagname":"membrane bioreactor","occ":[0]},
+						{"tagname":"GIS-based decision tool","occ":[0]},
+						{"tagname":"Jordan","occ":[0]}
+				],
+				"toc": [
+					{"label":"Decentralized Wastewater Treatment Systems","duration":1,"start":"0.000"},
+  		    {"label":"Definitions","duration":1,"start":"65.000"},
+  		    {"label":"Technologies","duration":1,"start":"782.600"},
+  		    {"label":"Implementation of decentralized WWT-Technologies","duration":1,"start":"1071.600"},
+  		    {"label":"Conclusions","duration":1,"start":"2125.000"}
+				],
+				"links":[
+					{"type":"cycle","x":2,"y":93,"duration":"10","start":"00:04:12","id":"Centeralized wastewater treatment","seek":"01:14:47","duration2":"01:19:36","target":"krebs"},
+					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:21:52","id":"GIS","seek":"-99","duration2":"-99","target":"mund"},
+					{"type":"cycle","x":50,"y":93,"duration":"10","start":"00:29:46","id":"GIS-based DSS","seek":"01:01:09","duration2":"01:03:35","target":"liehr"},
+					{"type":"xlink","x":2,"y":88,"duration":"10","start":"00:36:27","id":"Capacity development","seek":"-99","duration2":"-99","target":"niemann"}
+				]
+		},
+		{
+				"id": "mund",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Prof. Dr. J.-P. Mund",
+					"institution": "Professor of GIS and Remote Sensing,Eberswalde University for Sustainable Development,Germany",
+					"title": "GIS and hydrology",
+					"category": "Tools",
+					"abstract": "The lecture presents the rationale and challenges of handling different spatial data used in hydrology and elaborates the principles of the Geographical Information System (GIS) in the field of hydrology. It illustrates different applications of GIS within the scope of the Integrated Watershed Management concept by demonstrating the integration of GIS data for hydrologic and hydraulic modelling. Various practical examples such as regional flood forecasting, optimizing water distribution in irrigation networks, modelling land and water interaction, water supply network management etc are provided to illustrate the application of GIS in watershed management in more detail. ",
+					"length": 84,
+					"date": "2012/10/01",
+					"weight": 2,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_mund.webm",
+				"tags": [
+					{"tagname":"point data","occ":[0]},
+					{"tagname":"vector data","occ":[0]},
+					{"tagname":"raster data","occ":[0]},
+					{"tagname":"remote sensing","occ":[0]},
+					{"tagname":"watershed delineation","occ":[0]},
+					{"tagname":"decision making","occ":[0]},
+					{"tagname":"Digital Elevation Model","occ":[0]},
+					{"tagname":"GIS","occ":[0]}
+				],
+				"toc": [
+					{"label":"GIS and Hydrology","duration":1,"start":"0.000"},
+		      {"label":"Content","duration":1,"start":"29.720"},
+    		  {"label":"1. Rationale,Challenges and Definitions","duration":1,"start":"61.360"},
+    		  {"label":"2. Principles of GIS and spatial data","duration":1,"start":"1249.600"},
+    		  {"label":"3. GIS and the IWRM concept","duration":1,"start":"3005.400"},
+    		  {"label":"4. Examples of GIS application and data integration in the hydrological sector","duration":1,"start":"3987.320"}
+				],
+				"links":[
+					{"type":"xlink","x":2,"y":88,"duration":"7.4","start":"00:04:26","id":"Watershed protection","seek":"-99","duration2":"-99","target":"petersen1"},
+					{"type":"xlink","x":40,"y":93,"duration":"7.4","start":"00:05:02","id":"Decentralised wastewater management","seek":"-99","duration2":"-99","target":"mueller"},
+					{"type":"xlink","x":2,"y":93,"duration":"9","start":"00:05:02","id":"urban water management","seek":"-99","duration2":"-99","target":"krebs"},
+					{"type":"xlink","x":2,"y":88,"duration":"10","start":"00:07:05","id":"Regional water balance","seek":"-99","duration2":"-99","target":"balke1"},
+					{"type":"cycle","x":2,"y":88,"duration":"11.8","start":"00:11:10","id":"Salinity","seek":"00:04:05","duration2":"00:04:40","target":"petersen1"},
+					{"type":"cycle","x":2,"y":88,"duration":"10","start":"00:12:52","id":"Flood forecasting model","seek":"01:09:55","duration2":"01:15:21","target":"cullmann"},
+					{"type":"xlink","x":80,"y":88,"duration":"15.5","start":"01:13:54","id":"DSS","seek":"-99","duration2":"-99","target":"liehr"}
+				]
+		},
+		{
+				"id": "newig",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Prof. Dr. J. Newig",
+					"institution": "Leuphana University Lüneburg",
+					"title": "Participation",
+					"category": "Water governance",
+					"abstract": "This lecture gives you an introduction to participation as a core instrument in IWRM. It presents the history of participation both in practice and in the scientific discourse. Referring to Europe’s current water policy (Water Framework Directive) and its specific variety in the structure of decision-making processes, the lecture states that there is no “one size fits all” solution. Particular attention is drawn towards respective policies in the German federal state of Lower Saxony and, by presenting a comparative study on 19 case studies of participatory water governance, in northern America. The lecture closes by discussing related challenges for conducting participatory processes on the one hand and ‘success factors’ on the other hand, and presents several pertinent guidelines for future planning.",
+					"length": 82,
+					"date": "2012/10/01",
+					"weight": 7,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_newig.webm",
+				"tags": [
+					{"tagname":"participation","occ":[0]},
+					{"tagname":"Water Framework Directive (WFD)","occ":[0]},
+					{"tagname":"tragedy of the commons","occ":[0]},
+					{"tagname":"decision-making processes","occ":[0]},
+					{"tagname":"Participation within the WFD","occ":[0]}
+				],
+				"toc": [
+					{"label":"Participation","duration":1,"start":"0.000"},
+		      {"label":"Overview","duration":1,"start":"24.520"},
+		      {"label":"1. Institutionalization of participation","duration":1,"start":"64.000"},
+		      {"label":"2. Rationales for and benefits of participation","duration":1,"start":"359.200"},
+    		  {"label":"3. Possible drawbacks and caveats","duration":1,"start":"1088.560"},
+    		  {"label":"4. Types and methods of participation","duration":1,"start":"1746.680"},
+    		  {"label":"5. The importance of context","duration":1,"start":"2578.480"},
+    		  {"label":"6. Assessing the outcomes","duration":1,"start":"3543.760"},
+    		  {"label":"7. Guidelines for conducting participation","duration":1,"start":"3992.080"},
+    		  {"label":"Key readings","duration":1,"start":"4686.320"},
+    		  {"label":"Further readings I","duration":1,"start":"4789.080"},
+    		  {"label":"Further readings II","duration":1,"start":"4807.160"},
+    		  {"label":"Further readings III","duration":1,"start":"4826.000"},
+    		  {"label":"Further readings IV","duration":1,"start":"4844.360"},
+    		  {"label":"Further readings V","duration":1,"start":"4863.000"}
+				],
+				"links":[
+{"type":"cycle","x":50,"y":88,"duration":"10","start":"00:02:28","id":"Dublin Principle on gender issues","seek":"00:07:41","duration2":"00:09:17","target":"graefe"},
+{"type":"cycle","x":2,"y":88,"duration":"10","start":"00:02:28","id":"Information on all Dublin Principles","seek":"00:35:12","duration2":"00:37:44","target":"borchardt2"},
+{"type":"xlink","x":45,"y":72,"duration":"10","start":"00:03:39","id":"Basic concepts of Water Framework Directive","seek":"-99","duration2":"-99","target":"borchardt1"},
+{"type":"cycle","x":38,"y":88,"duration":"10","start":"00:03:39","id":"Institutionalising river basin management in the EU","seek":"00:20:43","duration2":"01:21:42","target":"moss"},
+{"type":"cycle","x":2,"y":88,"duration":"10","start":"00:03:39","id":"European water law","seek":"00:13:50","duration2":"00:27:40","target":"albrecht"},
+{"type":"xlink","x":2,"y":3,"duration":"10","start":"00:10:52","id":"Influence of climate change","seek":"-99","duration2":"-99","target":"bernhofer"},
+{"type":"cycle","x":2,"y":10,"duration":"10","start":"00:10:52","id":"Climate change within development cooperation","seek":"01:02:18","duration2":"01:03:29","target":"magiera"},
+{"type":"xlink","x":40,"y":80,"duration":"10","start":"00:13:18","id":"Water governance","seek":"-99","duration2":"-99","target":"huppert1"},
+{"type":"xlink","x":40,"y":80,"duration":"29","start":"00:14:38","id":"Capacity Development","seek":"-99","duration2":"-99","target":"niemann"},
+{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:17:11","id":"conflicts on water","seek":"00:02:26","duration2":"00:04:32","target":"dombrowsky"},
+{"type":"cycle","x":2,"y":70,"duration":"10","start":"00:22:52","id":"Tragedy of the commons´and transboundary groundwater","seek":"00:14:27","duration2":"00:16:52","target":"scheumann"},
+{"type":"cycle","x":2,"y":70,"duration":"10","start":"00:24:08","id":"Groundwater resources and prisoner's dilemma","seek":"00:06:44","duration2":"00:07:27","target":"scheumann"},
+{"type":"cycle","x":2,"y":77,"duration":"10","start":"00:24:08","id":"Detailled information on prisoner's dilema","seek":"00:24:03","duration2":"00:30:34","target":"dombrowsky"},
+{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:35:18","id":"Water governance","seek":"-99","duration2":"-99","target":"huppert1"},
+{"type":"xlink","x":2,"y":20,"duration":"10","start":"00:43:28","id":"Basic concepts of Water Framework Directive","seek":"-99","duration2":"-99","target":"borchardt1"},
+{"type":"cycle","x":2,"y":27,"duration":"10","start":"00:43:28","id":"Institutionalising river basin management in the EU","seek":"00:20:43","duration2":"01:21:42","target":"moss"},
+{"type":"cycle","x":2,"y":88,"duration":"10","start":"00:43:28","id":"European water law","seek":"00:28:08","duration2":"00:56:20","target":"albrecht"},
+{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:47:06","id":"Spatial fit","seek":"00:13:50","duration2":"00:20:40","target":"moss"},
+{"type":"cycle","x":2,"y":95,"duration":"10","start":"00:53:58","id":"basin perspective in water management","seek":"00:09:37","duration2":"00:13:50","target":"moss"},
+{"type":"xlink","x":2,"y":80,"duration":"10","start":"01:03:30","id":"Water governance","seek":"-99","duration2":"-99","target":"huppert1"},
+{"type":"cycle","x":2,"y":88,"duration":"10","start":"01:14:46","id":"Capacities","seek":"00:04:03","duration2":"00:04:55","target":"niemann"},
+{"type":"xlink","x":2,"y":88,"duration":"10","start":"01:15:30","id":"Spatial fit","seek":"-99","duration2":"-99","target":"moss"}
+				]
+		},{
+				"id": "niemann",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. S. Niemann & M.Sc M. Leidel",
+					"institution": "Helmholtz Centre for Environmental Research – UFZ,Department of Aquatic Ecosystems Analysis and Management,Germany / Technische Universität Dresden,Department of Hydrosciences,Institute of Hydrology and Meteorology",
+					"title": "''Capacity Development'' in Integrated Water Resources Management",
+					"category": "Water governance",
+					"abstract": "This lecture introduces the concept of capacity development and shows the importance of this concept for IWRM. Therefore, the widely used process of capacity development from UNDP is shown and it is explained that capacity development is more than education and training. It is also about organisational development and enabling the environment.  In a subsequent step, the process of IWRM and capacity development is harmonized and eventually this combination is demonstrated within cases studies from Mongolia and Ukraine.",
+					"length": 64,
+					"date": "2012/10/01",
+					"weight": 9,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_niemann.webm",
+				"tags": 	
+				[					
+					{"tagname":"capacity","occ":[0]},
+					{"tagname":"capacity development","occ":[0]},
+					{"tagname":"organisational development","occ":[0]},
+					{"tagname":"enabling environment","occ":[0]},
+					{"tagname":"Ukraine","occ":[0]},
+					{"tagname":"Mongolia","occ":[0]}
+				],				
+				"toc": [
+					{"label":"Capacity Development in IWRM","duration":1,"start":"0.000"},
+		      {"label":"Content","duration":1,"start":"100.240"},
+    		  {"label":"Introduction","duration":1,"start":"166.360"},
+    		  {"label":"Capacity Development Process","duration":1,"start":"509.680"},
+    		  {"label":"Multi-level Approach","duration":1,"start":"1695.400"},
+    		  {"label":"Example from Mongolia","duration":1,"start":"2201.200"},
+    		  {"label":"IWRM and Capacity Development","duration":1,"start":"2542.600"},
+    		  {"label":"Capacity Development for IWRM in Ukraine","duration":1,"start":"2885"},
+    		  {"label":"References I","duration":1,"start":"3810.200"},
+    		  {"label":"References II","duration":1,"start":"3815.520"},
+    		  {"label":"Acknowledgements","duration":1,"start":"3820.560"}
+				],
+				"links": [
+					{"type":"cycle","start":"00:03:50","duration":"10","x":2,"y":18,"id":"Time needed for Capacity Development","seek":"00:18:44","duration2":"00:19:18","target":"huppert3"},
+					{"type":"cycle","start":"00:07:45","duration":"10","x":2,"y":80,"id":"supply orientation","seek":"00:52:27","duration2":"00:52:35","target":"magiera"},
+					{"type":"cycle","start":"00:44:14","duration":"15.8","x":45,"y":75,"id":"IWRM process in development cooperation","seek":"00:14:30","duration2":"00:15:08","target":"magiera"},
+					{"type":"xlink","start":"00:48:53","duration":"12.4","x":2,"y":70,"id":"Basic concepts of Water Framework Directive","seek":"0","duration2":"-99","target":"borchardt1"},
+					{"type":"cycle","start":"00:49:39","duration":"11.3","x":2,"y":93,"id":"Institutionalising river basin management in the EU","seek":"00:20:43","duration2":"01:21:42","target":"moss"},
+					{"type":"xlink","start":"01:02:42","duration":"10","x":2,"y":92,"id":"Participation","seek":"-99","duration2":"-99","target":"newig"},
+					{"type":"xlink","start":"00:43:06","duration":"26","x":2,"y":80,"id":"Water Governance","seek":"-99","duration2":"-99","target":"huppert1"},
+					{"type":"xlink","start":"00:49:17","duration":"20.3","x":2,"y":93,"id":"Details on the Western Bug River","seek":"-99","duration2":"-99","target":"berendonk"}
+				]
+		},		
+		{
+				"id": "ostrowski",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. M. Ostrowski",
+					"institution": "Chair Engineering Hydrology and Water Management Department of Civil Engineering and Geodesy,Darmstadt University,Germany",
+					"title": "Adaptive sustainable management of reservoir systems",
+					"category": "Technical measures",
+					"abstract": "The lecture focuses on the support of complex decision-making process required for adaptive reservoir management. It also highlights the different models (such as reservoir simulation and optimization models) used as planning tools to identify and/or improve sustainable development/operation of reservoir systems. The lecture provides three case studies on reservoir systems in the upper and middle Awash river, in Ethiopia, the Yesa reservoir in Spain, and the Rur Reservoir system in Germany.",
+					"length": 72,
+					"date": "2012/10/01",
+					"weight": 3,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_ostrowski.webm",
+				"tags": [
+					{"tagname":"reservoir","occ":[0]},
+					{"tagname":"reservoir management","occ":[0]},
+					{"tagname":"decision making","occ":[0]},
+					{"tagname":"reservoir operation","occ":[0]},
+					{"tagname":"Ethiopia","occ":[0]},
+					{"tagname":"Germany","occ":[0]},
+					{"tagname":"Spain","occ":[0]}
+				],
+				"toc": [
+					{"label":"Adaptive sustainable management of reservoir systems","duration":1,"start":"0.000"},
+      		{"label":"Lecture content","duration":1,"start":"119.280"},
+      		{"label":"Introduction and problem definition","duration":1,"start":"182.680"},
+      		{"label":"State of discussion","duration":1,"start":"324.600"},
+      		{"label":"On scales,purposes and sites","duration":1,"start":"720.760"},
+      		{"label":"Physical elements of reservoirs","duration":1,"start":"888.440"},
+      		{"label":"Decision-making in adaptive reservoir management","duration":1,"start":"1186.600"},
+      		{"label":"Planning tools - integrated models","duration":1,"start":"2181.360"},
+      		{"label":"Case studies","duration":1,"start":"2926.400"},
+      		{"label":"Case study 1: Awash River","duration":1,"start":"2997.600"},
+      		{"label":"Case study 2: The Yesa Reservoir","duration":1,"start":"3463.120"},
+      		{"label":"Case study 3: Wehebach Reservoir","duration":1,"start":"3804.800"},
+      		{"label":"Conclusions","duration":1,"start":"4171.440"}
+				],
+				"links":[
+					{"type":"xlink","x":58,"y":88,"duration":"10","start":"00:40:16","id":"Economic models","seek":"-99","duration2":"-99","target":"tsegai"},
+					{"type":"cycle","x":2,"y":88,"duration":"13.5","start":"00:52:43","id":"Sedimentation","seek":"00:39:45","duration2":"00:51:05","target":"saliha1"},
+					{"type":"cycle","x":28,"y":88,"duration":"16.7","start":"00:24:45","id":"Decision making and participation","seek":"00:13:12","duration2":"00:18:07","target":"newig"}
+				]
+		},
+		{
+				"id": "petersen1",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. G. Petersen",
+					"institution": "Water Resources Manager and Hydrologist,HYDROC Consult,Germany",
+					"title": "Soil and water conservation practices",
+					"category": "Water and the physical environment",
+					"abstract": "The lecture deals with the conservation of two important natural resources i.e. soil and water. Different soil and water (surface water and groundwater) degradation indicators, drivers, effects and conservation practices/methods are discussed and practical examples are given. Finally, the lecture briefly addresses issues related to policy development, implementation, monitoring and adaptations of sustainable resources management.",
+					"length": 20,
+					"date": "2012/10/01",
+					"weight": 11,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_petersen1.webm",
+				"tags": [
+					{"tagname":"soil and water conservation policy issues","occ":[0]},
+					{"tagname":"soil and water conservation","occ":[0]},
+					{"tagname":"soil and water degradation","occ":[0]},
+					{"tagname":"governance","occ":[0]} 
+				],
+				"toc": [
+					{"label":"Soil and Water Conservation Practices","duration":1,"start":"0.000"},
+		      {"label":"Overview","duration":1,"start":"28.680"},
+    		  {"label":"1. Why Soil and Water Conservation","duration":1,"start":"63.920"},
+    		  {"label":"2. Soil Conservation","duration":1,"start":"141.680"},
+    		  {"label":"3. Water conservation","duration":1,"start":"505.480"},
+    		  {"label":"4. Sustainability Aspects","duration":1,"start":"1024.920"},
+    		  {"label":"5. Governance","duration":1,"start":"1140.800"},
+    		  {"label":"6. Conclusion","duration":1,"start":"1186.920"}
+				],
+				"links":[
+					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:05:15","id":"Siltation in reservoir","seek":"-99","duration2":"-99","target":"saliha1"},
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:12:24","id":"Nutrification","seek":"00:08:51","duration2":"00:34:02","target":"berendonk"},
+					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:19:03","id":"Governance","seek":"-99","duration2":"-99","target":"huppert1"},
+					{"type":"cycle","x":2,"y":80,"duration":"39","start":"00:08:56","id":"Interface btw. groundwater and sea water","seek":"00:37:47","duration2":"00:40:01","target":"balke1"}					
+				]
+		},	
+		{
+				"id": "petersen2",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. G. Petersen",
+					"institution": "Water Resources Manager and Hydrologist,HYDROC Consult,Germany",
+					"title": "Flood protection measures",
+					"category": "Technical measures",
+					"abstract": "This module addresses characteristics of flood and the potential impacts of flood (on human life, on assets and on economy). It also discusses different aspects of flood protection measures (i.e. flood protection assets (engineering works), flood management options and flood mitigation).",
+					"length": 46,
+					"date": "2012/10/01",
+					"weight": 4,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_petersen2.webm",
+				"tags": [
+					{"tagname":"flood management","occ":[0]},
+					{"tagname":"flood mitigation","occ":[0]},
+					{"tagname":"flood protection assets","occ":[0]}
+				],
+				"toc": [
+					{"label":"Flood Protection Measures","duration":1,"start":"0.000"},
+      		{"label":"Overview","duration":1,"start":"20.200"},
+      		{"label":"1. Characteristics of Floods","duration":1,"start":"55.280"},
+		      {"label":"2. Defining Flood Hazards","duration":1,"start":"142.200"},
+		      {"label":"3. What is Flood Protection","duration":1,"start":"318.800"},
+		      {"label":"4. Flood Protection Assets","duration":1,"start":"347.640"},
+		      {"label":"5. Flood Protection Management","duration":1,"start":"1150.200"},
+		      {"label":"6. Protection or Mitigation?","duration":1,"start":"1758.440"},
+		      {"label":"7. Flood Protection Failure","duration":1,"start":"1855.160"},
+		      {"label":"8. Living with Floods","duration":1,"start":"1918.840"},
+		      {"label":"9. Impacts of Flood Protection","duration":1,"start":"2437.440"},
+		      {"label":"10. Prioritization","duration":1,"start":"2547.000"},
+		      {"label":"11. Holistic planning","duration":1,"start":"2597.760"},
+		      {"label":"Conclusion","duration":1,"start":"2689.880"}
+				],
+				"links":[
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:02:22","id":"Flood (risk, hazard and vulnerability)","seek":"00:29:15","duration2":"01:03:54","target":"bogardi"},
+					{"type":"cycle","x":2,"y":90,"duration":"10","start":"00:02:56","id":"Probability of occurrence","seek":"00:56:12","duration2":"01:00:53","target":"cullmann"},
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:04:10","id":"Climate change and landuse change","seek":"00:17:12","duration2":"00:45:58","target":"bernhofer"},
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:06:40","id":"Dams and reservoirs","seek":"00:12:00","duration2":"00:21:40","target":"ostrowski"},
+					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:23:54","id":"Erosion prevention","seek":"-99","duration2":"-99","target":"petersen1"},
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:25:00","id":"Flood forecasting model","seek":"01:09:55","duration2":"01:15:21","target":"cullmann"},
+					{"type":"cycle","x":2,"y":70,"duration":"10","start":"00:26:44","id":"Components of DSS","seek":"00:48:24","duration2":"01:01:08","target":"liehr"},
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:26:44","id":"Modelling and DSS","seek":"01:07:21","duration2":"01:10:20","target":"liehr"}
+				]
+		},
+	{
+				"id": "saliha1",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "A.H. Saliha",
+					"institution": "German IHP/HWRP secretariat, Federal Institute of Hydrology, Germany",
+					"title": "Introduction to sediment management",
+					"category": "Water and the physical environment",
+					"abstract": "This lecture highlights different problems associated with reservoir sedimentation. It also explains different mitigation and remedial measures to reduce sediment load in a reservoir as well as different sediment management strategies at different stages of a reservoir’s life-cycle. The lecture is supported by one case study dealing with the Koka hydropower dam in Ethiopia which is losing its capacity due to siltation.",
+					"length": 51,
+					"date": "2012/10/01",
+					"weight": 9,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_saliha1.webm",
+				"tags": [
+					{"tagname":"reservoir operation","occ":[0]},
+					{"tagname":"Ethiopia","occ":[0]},
+					{"tagname":"reservoir sedimentation","occ":[0]},
+					{"tagname":"sediment management","occ":[0]} 
+				],
+				"toc": [
+					{"label":"Introduction to Sediment Management","duration":1,"start":"0.000"},
+		      {"label":"Outline","duration":1,"start":"99.800"},
+  		    {"label":"1. Introduction","duration":1,"start":"138.680"},
+					{"label":"2. Reservoir sedimentation problem","duration":1,"start":"475.720"},
+		      {"label":"3. Methods","duration":1,"start":"939.200"},
+    		  {"label":"Summary","duration":1,"start":"2160.040"},
+  		    {"label":"4. Strategies","duration":1,"start":"2191.640"},
+    		  {"label":"5. Koka hydropower dam","duration":1,"start":"2374.520"}
+				],
+				"links":[
+					{"type":"xlink","x":60,"y":88,"duration":"10","start":"00:16:59","id":"Soil conservation","seek":"-99","duration2":"-99","target":"petersen1"},
+					{"type":"cycle","x":45,"y":88,"duration":"10","start":"00:49:14","id":"Koka reservoir operation","seek":"00:49:58","duration2":"00:57:40","target":"ostrowski"}
+				]
+		},	
+			{
+				"id": "saliha2",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "A.H. Saliha",
+					"institution": "German IHP/HWRP secretariat,Federal Institute of Hydrology,Germany",
+					"title": "Hydrological Modeling Concepts and Practice",
+					"category": "Tools",
+					"abstract": "The lecture introduces different aspects of hydrological modelling and its application. It discusses the different types of hydrological models (physical, black box and conceptual models) based on process description. Noting the existence of many hydrological models, the lecture introduces several selection criteria that help to select few hydrological models out of a large number of hydrological models. It also gives a step-by-step demonstration of how to apply coupled models (rainfall-runoff model and self-organizing map) for flow estimation in ungauged catchments of the Blue Nile river basin in Ethiopia.",
+					"length": 82,
+					"date": "2012/10/01",
+					"weight": 3,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_saliha2.webm",
+				"tags": [
+					{"tagname":"hydrological model","occ":[0]},
+					{"tagname":"Ethiopia","occ":[0]},
+					{"tagname":"regionalization","occ":[0]},
+					{"tagname":"ungauged catchments","occ":[0]},
+					{"tagname":"Artificial Intelligence","occ":[0]},
+					{"tagname":"modelling procedure","occ":[0]}
+				],
+				"toc": [
+					{"label":"Introduction to Hydrological Modelling","duration":1,"start":"0"},
+					{"label":"Outline","duration":1,"start":"110.080"},
+					{"label":"1. Introduction","duration":1,"start":"184.360"},
+					{"label":"2. Hydrological Model selection","duration":1,"start":"1402.800"},
+					{"label":"3. Modelling Procedure","duration":1,"start":"2044.200"},
+					{"label":"4. Emerging Trends","duration":1,"start":"2698.640"},
+					{"label":"5. Case Study","duration":1,"start":"2934.480"},
+					{"label":"References","duration":1,"start":"4941.840"}
+				],
+				"links":[
+					{"type":"cycle","x":18,"y":78,"duration":"14","start":"00:02:18","id":"Hydrological processes","seek":"00:24:13","duration2":"00:26:20","target":"lennartz"},
+					{"type":"cycle","x":65,"y":73,"duration":"12.5","start":"00:26:09","id":"Modelling procedure","seek":"00:16:45","duration2":"00:19:11","target":"ayenew2"},
+					{"type":"cycle","x":85,"y":80,"duration":"14","start":"00:53:35","id":"GIS","seek":"00:25:19","duration2":"00:27:15","target":"mund"}
+				]
+		},		
+		{
+				"id": "schanze",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Prof. Dr. J. Schanze",
+					"institution": "Technische Universität Dresden,Department of Hydrosciences,Professorship in Environmental Development and Risk Management,Leibniz Institute of Ecological and Regional Development (IÖR),Dresden,Germany,Head of Research Area of Environmental Risks in Urban and Regional Development",
+					"title": "Development of river basins: From complex systems to integrated management",
+					"category": "Tools",
+					"abstract": "This lecture shows that river basins can be understood as man-environment system, i.e. that interrelations between the water cycle and human activities are present. It further deals with future development within water resources management, thus demonstrating the two principal drivers for future development, namely targeted interventions (e.g. compliance of environmental targets) and autonomous change (e.g. climate change). Furthermore the lecture explains how to deal with uncertainty and shows one of the most common approaches, the so-called scenario planning. This is exemplified by flood risk management.",
+					"length": 84,
+					"date": "2012/10/01",
+					"weight": 7,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_schanze.webm",
+				"tags": [
+					{"tagname":"river basin","occ":[0]},
+					{"tagname":"management","occ":[0]},
+					{"tagname":"man-environment system","occ":[0]},
+					{"tagname":"evaluation","occ":[0]},
+					{"tagname":"future development","occ":[0]},
+					{"tagname":"scenario planning","occ":[0]},
+					{"tagname":"flood risk management","occ":[0]},					
+					{"tagname":"decision support system","occ":[0]}
+				],
+				"toc": [
+					{"label":"Development of river basin: from complex systems to integrated management","duration":1,"start":"0.000"},
+		      {"label":"Structure","duration":1,"start":"49.000"},
+					{"label":"1. Introduction of key terms","duration":1,"start":"163.240"},
+		      {"label":"1.1 River basin","duration":1,"start":"167.320"},
+    		  {"label":"1.2 Management","duration":1,"start":"265.320"},
+    		  {"label":"2. A basic framework of IWRM","duration":1,"start":"338.600"},
+    		  {"label":"2.1 Description of man-environment system","duration":1,"start":"648.080"},
+    		  {"label":"2.2.1 Analysis","duration":1,"start":"948.880"},
+    		  {"label":"2.2.2 Evaluation","duration":1,"start":"1233.200"},
+    		  {"label":"2.2.3 Intervention","duration":1,"start":"1581.120"},
+    		  {"label":"2.3 Actors and management process","duration":1,"start":"1757.760"},
+    		  {"label":"3. Dealing with future development","duration":1,"start":"2269.760"},
+    		  {"label":"3.1 Drivers of future development","duration":1,"start":"2292.280"},
+    		  {"label":"3.2 Scenario planning for the exploration of futures","duration":1,"start":"2717.160"},
+    		  {"label":"3.3 Example: scenario planning in flood risk management","duration":1,"start":"3264.920"},
+    		  {"label":"4. Implications for IWRM practice","duration":1,"start":"4118.080"},
+    		  {"label":"4.1 Dealing with the river basin","duration":1,"start":"4138.280"},
+    		  {"label":"4.2 Framing the management process","duration":1,"start":"4368.720"},
+    		  {"label":"4.3 Overall challenges","duration":1,"start":"4658.600"},
+    		  {"label":"5. Take home messages","duration":1,"start":"4822.080"},
+    		  {"label":"References I","duration":1,"start":"4998.880"},
+    		  {"label":"References II","duration":1,"start":"5017.000"},
+      		{"label":"References III","duration":1,"start":"5035.000"}
+				],
+				"links":[
+					{"type":"cycle","x":2,"y":70,"duration":"28","start":"00:02:50","id":"River basin management","seek":"00:03:55","duration2":"00:13:50","target":"moss"},
+					{"type":"cycle","x":2,"y":80,"duration":"28","start":"00:02:51","id":"River basin or watershed","seek":"00:54:29","duration2":"01:00:33","target":"lennartz"},
+					{"type":"cycle","x":2,"y":93,"duration":"77.9","start":"00:42:57","id":"Details on climate change","seek":"00:17:12","duration2":"00:45:58","target":"bernhofer"},
+					{"type":"cycle","x":2,"y":90,"duration":"67.4","start":"01:06:16","id":"Flood (risk, hazard and vulnerability)","seek":"00:29:15","duration2":"01:03:54","target":"bogardi"},
+					{"type":"xlink","x":2,"y":90,"duration":"53.4","start":"01:07:36","id":"Flood (mitigation and management)","seek":"-99","duration2":"-99","target":"petersen2"},
+					{"type":"xlink","x":2,"y":90,"duration":"48.1","start":"01:12:11","id":"Decision support system / tools","seek":"-99","duration2":"-99","target":"liehr"}
+				]
+		},		
+			{
+				"id": "scheumann",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. W. Scheumann",
+					"institution": "German Development Institute,Department Environmental Policy and Natural Resources Management,Bonn",
+					"title": "Cooperation on transboundary aquifers / ground water",
+					"category": "IWRM implementation and case studies",
+					"abstract": "Lecture preview: This lecture gives an introduction to the importance of interstate cooperation with regard to the joint use of shared groundwater resources. After reflecting on the importance of groundwater (and notably of transboundary groundwater) for the global population’s water supply, it discusses different facets of the cooperation requirement. The lecture then addresses the question whether this cooperation is influenced by hydro-geophysical features of aquifers, whether universal/typical problem structures could be identified, and what patterns of riparian constellations exist. Empirical findings from 5 case studies on African transboundary aquifers as well as a Swiss/French example are referred to and basic options for the management of transboundary aquifer systems are discussed.",
+					"length": 36,
+					"date": "2012/10/01",
+					"weight": 4,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_scheumann.webm",
+				"tags": [
+					{"tagname":"Africa","occ":[0]},
+					{"tagname":"cost of non-cooperation","occ":[0]},
+					{"tagname":"patterns of riparian constellations","occ":[0]},
+					{"tagname":"transboundary aquifers","occ":[0]},
+					{"tagname":"externalities","occ":[0]}
+				],
+				"toc": [
+					{"label":"Cooperation on transboundary aquifers/groundwater","duration":1,"start":"0.000"},
+      		{"label":"Topics","duration":1,"start":"70.600"},
+      		{"label":"1. The world’s largest transboundary aquifers","duration":1,"start":"145.360"},
+      		{"label":"2. Why should states cooperate?","duration":1,"start":"315.600"},
+      		{"label":"3. Do hydro-geophysical features influence cooperation?","duration":1,"start":"572.400"},
+      		{"label":"4. Typical problem structure(s)","duration":1,"start":"841.400"},
+      		{"label":"5. Diversity of riparian constellations","duration":1,"start":"1160.920"},
+      		{"label":"6. Research on transboundary aquifers in Africa","duration":1,"start":"1597.320"},
+      		{"label":"7. Basic options for managing a transboundary resource","duration":1,"start":"1841.160"},
+      		{"label":"8. Resume and open questions","duration":1,"start":"2003.800"}
+				],
+				"links":[
+{"type":"cycle","x":20,"y":93,"duration":"18","start":"00:02:55","id":"role of groundwater for global population's water supply","seek":"00:08:37","duration2":"00:09:38","target":"ayenew1"},
+{"type":"cycle","x":2,"y":73,"duration":"10","start":"00:06:44","id":"Detailled information prisoner's dilema","seek":"00:24:03","duration2":"00:30:34","target":"dombrowsky"},
+{"type":"cycle","x":2,"y":85,"duration":"10","start":"00:06:52","id":"Tragedy of the commons and the prisoner's dilema","seek":"00:22:36","duration2":"00:24:33","target":"newig"},
+{"type":"cycle","x":20,"y":62,"duration":"10","start":"00:07:30","id":"Introduction to international water law","seek":"00:03:17","duration2":"00:13:46","target":"albrecht"},
+{"type":"cycle","x":2,"y":92,"duration":"10","start":"00:10:07","id":"Hydrostratigraphic units","seek":"00:21:10","duration2":"00:23:48","target":"ayenew1"},
+{"type":"cycle","x":55,"y":93,"duration":"10","start":"00:09:45","id":"Groundwater and aquifer","seek":"00:02:20","duration2":"00:06:08","target":"balke2"},
+{"type":"xlink","x":51,"y":92,"duration":"10","start":"00:11:21","id":"transboundary waters","seek":"-99","duration2":"-99","target":"dombrowsky"},
+{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:12:47","id":"sharing costs and benefits","seek":"-99","duration2":"-99","target":"dombrowsky"},
+{"type":"cycle","x":2,"y":92,"duration":"44.5","start":"00:12:53","id":"physical peculiarities of groundwater resource","seek":"00:04:04","duration2":"00:08:37","target":"ayenew1"},
+{"type":"cycle","x":70,"y":80,"duration":"46.8","start":"00:12:51","id":"Groundwater","seek":"00:17:38","duration2":"00:20:10","target":"balke2"},
+{"type":"cycle","x":2,"y":88,"duration":"51","start":"00:14:36","id":"tragedy of the commons","seek":"00:22:36","duration2":"00:27:29","target":"newig"},
+{"type":"cycle","x":73,"y":88,"duration":"48","start":"00:14:39","id":"externality","seek":"00:02:04","duration2":"00:02:52","target":"dombrowsky"},
+{"type":"cycle","x":2,"y":88,"duration":"40","start":"00:15:28","id":"common pool resources","seek":"00:20:35","duration2":"00:22:52","target":"lehmann"}
+
+				]
+		},		
+		{
+				"id": "seidel1",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. S. Seidel",
+					"institution": "Technische Universität Dresden",
+					"title": "Crop growth modeling for improved irrigation scheduling - Part I",
+					"category": "IWRM implementation and case studies",
+					"abstract": "This lecture introduces crop growth modelling and its application to support irrigated crop production. Part I of this lecture introduces relevant terms including water productivity and controlled deficit irrigation. In the main section of the part, the different types of crop growth models are outlined. Furthermore, it is shown how to setup and evaluate a no-cost crop growth model step by step. The setup model is then used to evaluate three different irrigation strategies and to develop a real-time irrigation schedule. It is demonstrated that crop growth modelling is a powerful tool not only for an evaluation of crop management strategies after harvest (yield gap analysis), but also for real-time crop management. ",
+					"length": 57,
+					"date": "2013/01/30",
+					"weight": 4,
+					"titleselector":"h2"
+				}],
+				"video": "http://localhost/elearning/vi2/vi-two/examples/iwrm/videos/iwrm_seidel1.webm",
+				"video2": "http://www.iwrm-education.de/videos/iwrm_seidel1.webm",
+				"tags": [
+					{"tagname":"crop growth modelling","occ":[0]},
+					{"tagname":"deficit irrigation","occ":[0]},
+					{"tagname":"irrigation","occ":[0]},
+					{"tagname":"simulation-based irrigation scheduling","occ":[0]},
+					{"tagname":"crop water productivity","occ":[0]},
+					{"tagname":"Tigris-Euphrates Basin","occ":[0]}
+				],
+				"toc": [
+					{"label":"Introduction","duration":1,"start":"0.000"},
+      		{"label":"Objectives","duration":1,"start":"835.0"},
+      		{"label":"Crop growth modelling tutorial","duration":1,"start":"907.0"},
+      		{"label":"Types of crop growth models","duration":1,"start":"947"},
+      		{"label":"Setup of model Daisy for sprinkler irrigated wheat","duration":1,"start":"1138.0"},
+      		{"label":"Model evaluation","duration":1,"start":"1727.0"},
+      		{"label":"Evaluation of different irrigation strategies","duration":1,"start":"2072"},
+      		{"label":"Simulation-based real-time irrigation scheduling","duration":1,"start":"2435.0"},
+      		{"label":"Summary","duration":1,"start":"3300.0"}
+				],
+				"links":[
+					{"type":"xlink","x":2,"y":78,"duration":"10","start":"00:02:35","id":"Irrigation farming","seek":"00:33:08","duration2":"-99","target":"balke1"},
+					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:04:23","id":"Evapotranspiration","seek":"01:05:49","duration2":"-99","target":"lennartz"},
+					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:04:38","id":"Lysimeter","seek":"01:09:20","duration2":"-99","target":"lennartz"},
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:15:52","id":"Modelling concepts","seek":"00:44:18","duration2":"00:54:12","target":"lennartz"},
+					{"type":"cycle","x":2,"y":90,"duration":"10","start":"00:19:05","id":"Soil-Vegetation-Atmosphere System","seek":"00:26:26","duration2":"00:38:35","target":"lennartz"},
+					{"type":"cycle","x":2,"y":90,"duration":"10","start":"00:33:20","id":"Model parameter calibration","seek":"00:23:11","duration2":"00:23:31","target":"seidel2"},
+					
+					{"type":"cycle","x":2,"y":93,"duration":"10","start":"00:05:07","id":"irrigation methods","seek":"00:35:18","duration2":"00:54:15","target":"balke1"}
+				]
+		},
+		{
+				"id": "seidel2",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. S. Seidel",
+					"institution": "Technische Universität Dresden",
+					"title": "Crop growth modeling for improved irrigation scheduling - Part II",
+					"category": "IWRM implementation and case studies",
+					"abstract": "This lecture introduces crop growth modelling and its application to support irrigated crop production. The reliability of simulation based predictions depends on the quality and quantity of the data used for model calibration and evaluation which can be obtained e.g. in field experiments. Part II of this lecture addresses issues related to an optimal experimental design namely the data collection, instrumentation and the experimental layout. Moreover, the soil hydraulic parameters will be estimated using two no-cost programs based on soil texture data and on data measured with pressure plate extractors. ",
+					"length": 35,
+					"date": "2013/01/30",
+					"weight": 4,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_seidel2.webm",
+				"tags": [
+					{"tagname":"experimental design","occ":[0]},
+					{"tagname":"deficit irrigation","occ":[0]},
+					{"tagname":"deficit irrigation","occ":[0]},
+					{"tagname":"data collection","occ":[0]},
+					{"tagname":"experimental layout","occ":[0]},
+					{"tagname":"irrigation","occ":[0]},
+					{"tagname":"crop growth model parameters","occ":[0]}
+				],
+				"toc": [
+					{"label":"Introduction","duration":1,"start":"0.0"},
+      		{"label":"Objectives","duration":1,"start":"251.0"},
+      		{"label":"Experimental design for modelling irrigated crop production","duration":1,"start":"319.0"},
+      		{"label":"Data collection and instrumentation","duration":1,"start":"368.0"},
+      		{"label":"Experimental layout","duration":1,"start":"1191.0"},
+      		{"label":"Model parameter estimation","duration":1,"start":"1392"},
+      		{"label":"Soil parameter estimation using models Rosetta and RETC","duration":1,"start":"1659"},
+      		{"label":"Results","duration":1,"start":"2020.0"},
+      		{"label":"Summary","duration":1,"start":"2090.0"}
+				],
+				"links":[
+					{"type":"xlink","x":2,"y":88,"duration":"40","start":"00:03:12","id":"See lecture part 1","seek":"00:00:00","duration2":"-99","target":"seidel1"},
+					{"type":"cycle","x":10,"y":93,"duration":"18","start":"00:08:26","id":"Water retention and movement","seek":"00:31:45","duration2":"00:32:45","target":"lennartz"},
+					{"type":"cycle","x":2,"y":94,"duration":"40","start":"00:06:08","id":"Data collection","seek":"01:01:11","duration2":"01:02:11","target":"lennartz"},
+					{"type":"cycle","x":2,"y":88,"duration":"40","start":"00:31:11","id":"Soil hydraulic parameters","seek":"00:43:21","duration2":"00:44:21","target":"seidel1"}
+				]
+		},	
+		{
+				"id": "tsegai",
+				"metadata":[{
+					"selector":"#metadata",
+					"author": "Dr. D. Tsegai",
+					"institution": "Center for Development Research,University of Bonn,Germany",
+					"title": "Interaction of economic and hydrologic models for optimal water allocation",
+					"category": "Economic instruments",
+					"abstract": "The lecture discusses the theoretical aspects of major approaches to integrate economic and hydrologic models for optimal water allocation. The integrated economic-hydrologic model is demonstrated by a case study in the Olifants catchment in South Africa, where the integrated model is used to determine ‘sustainable’ optimum water allocation among different water uses such as irrigation, mining and domestic purposes. Results of different scenarios for the case study are presented.",
+					"length": 39,
+					"date": "2012/10/01",
+					"weight": 3,
+					"titleselector":"h2"
+				}],
+				"video": "http://www.iwrm-education.de/videos/iwrm_tsegai.webm",
+				"tags": [
+					{"tagname":"economics","occ":[0]},
+					{"tagname":"South Africa","occ":[0]},
+					{"tagname":"river basin management model","occ":[0]},
+					{"tagname":"benefit function","occ":[0]},
+					{"tagname":"water allocation","occ":[0]},
+					{"tagname":"hydrologic model","occ":[0]},
+					{"tagname":"optimization model","occ":[0]}
+				],
+				"toc": [
+					{"label":"Interaction of economic and hydrologic models for optimal water allocation","duration":1,"start":0.000},
+      		{"label":"Outline","duration":1,"start":75.8},
+      		{"label":"Theoretical Background","duration":1,"start":104.08},
+      		{"label":"Case Study","duration":1,"start":864.68},
+      		{"label":"Introduction","duration":1,"start":972.480},
+      		{"label":"Objective","duration":1,"start":1089.200},
+      		{"label":"Methodology","duration":1,"start":1110.200},
+      		{"label":"Result","duration":1,"start":1726.760},
+      		{"label":"Conclusion","duration":1,"start":2191.120}
+				],
+				"links":[
+					{"type":"xlink","x":3,"y":93,"duration":"7.9","start":"00:02:08","id":"Irrigation","seek":"-99","duration2":"-99","target":"seidel1"},
+					{"type":"cycle","x":45,"y":90,"duration":"8.8","start":"00:02:43","id":"River basin management","seek":"00:09:36","duration2":"00:20:14","target":"moss"},
+					{"type":"cycle","x":30,"y":93,"duration":"10","start":"00:09:16","id":"Integrated models","seek":"00:36:21","duration2":"00:42:33","target":"ostrowski"},
+					{"type":"xlink","x":58,"y":93,"duration":"7.9","start":"00:10:43","id":"Hydrologic model","seek":"-99","duration2":"-99","target":"saliha2"},
+					{"type":"cycle","x":65,"y":93,"duration":"10","start":"00:14:00","id":"GIS based DSS","seek":"01:01:09","duration2":"01:03:35","target":"liehr"},
+					{"type":"cycle","x":3,"y":93,"duration":"7.9","start":"00:17:45","id":"Crop water productivity","seek":"00:03:03","duration2":"00:03:23","target":"seidel1"},					
+					{"type":"cycle","x":75,"y":93,"duration":"10","start":"00:35:58","id":"Climate change","seek":"00:17:15","duration2":"00:24:50","target":"bernhofer"},
+					{"type":"xlink","x":3,"y":93,"duration":"10","start":"00:39:12","id":"Simulation-based irrigation scheduling","seek":"-99","duration2":"-99","target":"seidel1"}
+				]
+		}						
+	]
+}
+
+

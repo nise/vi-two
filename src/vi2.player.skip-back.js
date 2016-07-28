@@ -34,13 +34,16 @@ Vi2.SkipBack = $.inherit(/** @lends Vi2.SkipBack# */{ //
 		* Initializes the skip back button of content and handles options
 		*/
 		init : function(){  
-			
+			// clear selector
+			$( this.options.selector + '> .vi2-skipback-controls' ).remove();
+		
 			// add button to player control bar
 			var _this = this;
 			var container = $('<div></div>')
 				.append($('<div></div>')
 					.text( this.options.label )
-					.addClass('vi2-skipback-label'))
+					.addClass('vi2-skipback-label')
+				)
 				.addClass('vi2-skipback-controls vi2-btn')
 				.bind('click', function(e){
 					vi2.observer.player.currentTime( vi2.observer.player.currentTime() - _this.options.step ); 

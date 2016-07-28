@@ -5,6 +5,8 @@
 - multilingual support for all text and controls
 - use a template engine, maybe ejs
 - comment: re-comment
+
+
 - ass: Aufgabenstatistik 
 - ass: semantische Nähe zw. Feedback und Aufgabe
 - ass: Benachrichtigungen
@@ -12,17 +14,9 @@
 - ass: Benutzerbenachrichtigung
 - tags automatische Verlinkung via tags
 
-
-## beauty of code 
-- reduce dependencies: 
- - replace jquery.tooltip by the native jquery tooltip
- - remove jquery in the core
- - avoid inherit-class
- - make it a server side plugin / node.js
-- type and value check at every data input (e.g. options ) 
-- Error handling: throw new Error('...')
-- make the docs look better
-- use delegate(obj, func) instead of _this
+- hide cursor on playback
+- skip through a certain kind of annotation on the timeline, e.g. from one hyperlink to the next one
+- scrubbing als Pattern
 
 
 ## new widgets for my dissertation
@@ -34,7 +28,6 @@
 - user notes
 - media fragments 
 - object tracking
-- media fragments
 - add video
 
 
@@ -44,6 +37,11 @@
 - tags
 - hyperlinks
 - playlist
+
+
+## Datenformate
+Video-Annotation Format from the Advene people
+http://liris.cnrs.fr/advene/cinelab/
 
 
 
@@ -69,6 +67,17 @@
 - VI-TWO Datenbank auf serverseite verschieben und db-Klasse als Schnittstelle umgestalten
 
 
+
+## beauty of code 
+- reduce dependencies: 
+ - replace jquery.tooltip by the native jquery tooltip
+ - remove jquery in the core
+ - avoid inherit-class
+ - make it a server side plugin / node.js
+- type and value check at every data input (e.g. options ) 
+- Error handling: throw new Error('...')
+- make the docs look better
+- use delegate(obj, func) instead of _this
 
 
 

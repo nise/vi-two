@@ -71,7 +71,7 @@
 		<script src="../../lib/jquery.json-2.2.min.js"></script>
 		<script src="../../lib/jquery-ui-1.10.3.custom.min.js"></script>
 		<script src="../../lib/jquery.inherit-1.1.1.js"></script>
-		<script src='../../lib/ejs_production.js'></script>
+		<script src='../../lib/ejs22.js'></script>
 		<script src="../../lib/jquery.tinysort.js"></script>
 		<script src="../../lib/jquery.tooltip.js"></script>
 		<script src='../../lib/jquery.spin.js'></script>
@@ -85,7 +85,6 @@
 				vi2 = undefined, 
 				ocr = undefined
 				;
-				$.browser.msie = null;
 			var Vi2 = {}; // set the Namespace
 			$(document).ready(function(){
 				var core = new Vi2.Example();	
