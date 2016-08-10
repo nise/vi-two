@@ -1,7 +1,7 @@
 /* 
 * name: Vi2.Playbackspeed
 * author: niels.seidel@nise81.com
-* license: BSD New
+* license: MIT License
 * description:
 * dependencies:
 *  - jquery-1.11.2.min.js
@@ -30,7 +30,7 @@ Vi2.PlaybackSpeed = $.inherit(/** @lends Vi2.PlaybackSpeed# */{
 	options : {
 		selector: '.control-bar',
 		videoSelector : 'video1',
-		speed_steps: [0.3,0.5,0.8,1.0,1.5,2.0,3.0,4.0]	
+		speed_steps: [0.3,0.5,0.7,1.0,1.5,1.7,2.0]//[0.3,0.5,0.8,1.0,1.5,2.0,3.0,4.0]	
 	},
 	speed : 1, // default speed
 	video : '',	
@@ -54,14 +54,14 @@ Vi2.PlaybackSpeed = $.inherit(/** @lends Vi2.PlaybackSpeed# */{
 			.bind('mouseleave', function(e){
 				$('.vi2-speed-controls > ul').css('display','none');
 			})
-			.tooltip({
+			/*.tooltip({
 				delay: 0, 
 				showURL: false, 
 				bodyHandler: function() { 
 					return $('<span></span>')
 						.text('Wiedergabegeschwindigkeit');
 				} 
-			})
+			})*/
 			.appendTo( this.options.selector );
 			
 		var options = $('<ul></ul>')
@@ -102,7 +102,9 @@ Vi2.PlaybackSpeed = $.inherit(/** @lends Vi2.PlaybackSpeed# */{
 	*	@param speed {Number} 	 
 	*/ 
 	setCurrentSpeed : function(speed){ 
-		if( this.options.speed_steps.indexOf( parseFloat(speed) ) != -1){
+		if( this.options.speed_steps.indexOf( parseFloat(speed) ) !== -1){
+			// log event
+			vi2.observer.log({context:'playbackSpeed', action:'change-speed', values:[this.speed, speed]});
 			// set speed
 			this.video.defaultPlaybackRate = 1.0; 
 			this.video.playbackRate = speed; 
@@ -112,8 +114,6 @@ Vi2.PlaybackSpeed = $.inherit(/** @lends Vi2.PlaybackSpeed# */{
 			$('.speed-label').text( speed + 'x');
 			// close select menu
 			$('.vi2-speed-controls > ul').css('display','none');
-			// log it
-			vi2.observer.log( this.url + ' change_speed: ' + vi2.observer.player.currentTime() + ' speed: ' + speed);
 		}	
 	},
 	

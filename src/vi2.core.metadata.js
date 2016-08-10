@@ -1,7 +1,7 @@
 /* 
 * name: Vi2.Metadata
 * author: niels.seidel@nse81.com
-* license: BSD New
+* license: MIT License
 * description:
 * depends on:
 *  - lib: embedded java script
@@ -53,9 +53,8 @@ Vi2.Metadata = $.inherit(/** @lends Vi2.Metadata# */
   		* Displays metadata to the given selector
   		*/
   		displayMetadata : function(){
-  			var html = new EJS({url: vi2.templatePath+'vi2.metadata.ejs'})
-  				.render( this.metadata );
-				$( this.options.selector ).html( html );
+  			//var html = new EJS({url: vi2.templatePath+'vi2.metadata.ejs'}).render( this.metadata );
+				//$( this.options.selector ).html( html );
   		},
   		
   		
@@ -63,10 +62,12 @@ Vi2.Metadata = $.inherit(/** @lends Vi2.Metadata# */
   		* Append html meta tags to the DOM header in favour of SEO 
   		*/
 			buildMetaTags : function(){ 
-				$('head meta').each( function(i,val){ this.remove(); });
+				$('head meta').each( function(i,val){ $(val).remove(); });
 				$('head')
 					.prepend('<meta content="text/html;charset=utf-8" http-equiv="Content-Type">')
 					.prepend('<meta content="utf-8" http-equiv="encoding">')
+					.prepend('<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>')
+					.prepend('<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />')
 					.prepend('<meta itemprop="duration" content="'+this.metadata.length+'" />')
 					.prepend('<meta itemprop="height" content="'+ vi2.observer.player.height() +'" />')
 					.prepend('<meta itemprop="width" content="'+ vi2.observer.player.width() +'" />')

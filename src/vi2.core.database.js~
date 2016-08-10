@@ -1,42 +1,45 @@
-/* 
-* name: Vi2.DataBase
-*	author: niels.seidel@nise81.com
-* license: BSD New
-* description:
-* dependencies:
-*  - jquery-1.11.2.min.js
-*  - jquery.inherit-1.1.1.js
-* todo: 	
-*	 - call_back als Event umsetzen
-*	 - filenames as parameter
-*	 - handle different data sets
+/* DataBase
+* author: niels.seidel@nise81.com
+* license: MIT License
+
+* todo:
+- call_back als Event umsetzen
+- filenames as parameter
+- handle different data sets
+
 */
 
 
-Vi2.DataBase = $.inherit(/** @lends DataBase# */{
+	/* class DataBase **/ 
+	Vi2.DataBase = $.inherit(/** @lends DataBase# */{
 
 		/** 
 		*		@constructs
 		*		@param {object} options An object containing the parameters
 		*		@param {function} call_back Function that will be called after relevant data is available 
 		*/
-  	__constructor : function(options, call_back, fn) {  
+  	__constructor : function(options, call_back, fn, video_id) {  
   		this.call_back = call_back;
   		var _this = this;
-  		this._d = 0;  
-  		
   		this.options = $.extend(this.options, options); 
-  		
-  		$.each(this.options.files, function(key, file) { 
-        console.log("making requst for " + file);  
+  		this._d = 0;  
+  		$.each(this.options.jsonFiles, function(key, file) { 
+        console.log("making requst for " + file.path);  
         _this.loadJSON(file.path, file.storage, fn);
        });
 		},
 				
 		name : 'dataBase',
-		options : {files:[]}, // ?
+		options : {
+			path :'',
+			jsonFiles: [
+  		//	{path: '/json/videos/', storage: 'json_data'}, 
+  		//	{path: '/groups', storage: 'json_group_data'},
+				// {path: this.options.path+'data-slides.json', storage: 'json_slide_data'},
+  		//	{path: '/json/users', storage: 'json_user_data'}
+  		]
+		}, // ?
 		call_back : {},
-		
 		_d : 0,
 		json_data : {},
 		json_slide_data : {},
@@ -58,22 +61,18 @@ Vi2.DataBase = $.inherit(/** @lends DataBase# */{
 				      xhr.overrideMimeType("application/json");
     				}
   			},
-        url: jsonURL,
+        url: _this.options.path + jsonURL,
         dataType: 'json',
-        success: function(data){  
+        success: function(data){ 
             //alert("got " + jsonURL);
             _this[storage] = data;  
             
             //alert(JSON.stringify(_this.json_data))
             _this._d++; 
-            if (_this._d === Object.size(_this.options.files)){ 
+            if (_this._d === Object.size( _this.options.jsonFiles ) ){ 
             	console.log('done'); 
             	// call
-            	if(_this.call_back !== undefined){
-            		_this.call_back[fn]();
-            	}else{
-            		fn();
-            	}
+            	_this.call_back[fn]();
             	
             }
         },
@@ -98,83 +97,29 @@ Vi2.DataBase = $.inherit(/** @lends DataBase# */{
 		return t;
 	},
 		
-	/*
-	* Get a stream by its id
-	* @returns {Object} Returns an object containing all stream related metadata.
-	**/
-	getStreamById : function(id){ 
-		
-		/*
+	//get stream by id
+	getStreamById : function(id){  
 		if(this.json_data === undefined){
-			return {}
+			return {};
 		}else{
 			return this.json_data;
-		}*/
-		/// old:
-		var stream = {}; 
-		$.each(this.json_data.stream, function(i, val){ 
-			if (this.id === id){  
-				stream = this;
-				return; 
-			}
-		}); 
-		return stream;
-	},
-	
-	
-	/*
-	* Get all streams
-	**/
-	getAllStreams : function(id){ 
-		return this.json_data.stream;
-	},
-	
-	
-	
-	/**
-	* Returns a given number of video stream ids that have been randomly selected
-	*/
-	getRandomStreams : function(exception, limit){ 
-		var 
-			array = [],
-			result = {};
-		// generate array with all stream ids  
-		$.each(this.json_data.stream, function(i, val){
-			if (val.id != exception){  
-				array.push(val.id); 
+		}
+		// old:
+		/*
+		var stream = {};  
+		$.each(this.json_data, function(i, val){ 
+			if (val._id === id){  
+				stream = this; 
 			}
 		});
-		// now shuffle the array by using the Fisher-Yates shuffle algorithm
-		for (var i = array.length - 1; i > 0; i--) {
-			var j = Math.floor(Math.random() * (i + 1));
-			var temp = array[i];
-			array[i] = array[j];
-			array[j] = temp;
-		}
-		// reduce the number of elements regarding the given limit
-		array = array.slice(0, limit);
-		// resort keys and values
-		for(var k = 0; k < array.length; k++){
-			result[array[k]] = 1; 
-		}
-		return result;
+		
+		return stream;
+		*/
 	},
-	
 			
 
 
 	/* CATEGORIES*/
-	
-	/* returns all stream objects within the given category */
-	getStreamsByCategory : function( cat ){
-		var streams = []; 
-		$.each(this.json_data.stream, function(i, stream ){
-			if( stream.metadata[0].category === cat ){   
-				streams.push(stream);
-			}
-		});
-		return streams;
-	},	
 
 	/* returns data of all categories */
 	getAllCategories : function(){ 
@@ -207,7 +152,7 @@ Vi2.DataBase = $.inherit(/** @lends DataBase# */{
 	/* META DATA */
 
 	//
-	getMetadataById : function(id){
+	getMetadataById : function(id){ 
 		return this.getStreamById(id).metadata[0];
 	},
 		
@@ -231,15 +176,11 @@ Vi2.DataBase = $.inherit(/** @lends DataBase# */{
 	
 	/* - - */
 	getStreamsOfSameAuthor : function(id){
-		var author = this.getStreamById(id).metadata[0].author;  
-		var authors = {};
-		$.each(this.json_data.stream, function(i, stream){  
+		var author = this.getMetadataById(id).author; 
+		var authors = [];
+		$.each(this.json_data, function(i, stream){ 
 				if(stream.metadata[0].author === author && stream.id != id){ 
-					if( stream.id in authors === false ){
-						authors[stream.id] = 0;
-					}
-					authors[stream.id] += 1; //$('#debug').val($('#debug').val() + stream.id);
-						
+					authors.push(stream.id); //$('#debug').val($('#debug').val() + stream.id);
 				}
 		});
 		return authors;
@@ -250,7 +191,7 @@ Vi2.DataBase = $.inherit(/** @lends DataBase# */{
 	/* TAGS */	
 
 	/* returns all tags of a video/stream **/
-	getTagsById__xxx : function(id){
+	getTagsById : function(id){
 		if(this.json_data.tags === undefined){
 			return {};
 		}else{
@@ -260,7 +201,11 @@ Vi2.DataBase = $.inherit(/** @lends DataBase# */{
 	
 	/* returns all comments related to an video **/
 	getCommentsById : function(id){
-		return this.getStreamById(id).comments;
+		if( this.getStreamById(id).comments === null ){
+			return {}
+		}else{
+			return this.getStreamById(id).comments;
+		}	
 	},
 		
 	/* returns all tags related to the whole video collection **/
@@ -283,96 +228,63 @@ Vi2.DataBase = $.inherit(/** @lends DataBase# */{
 		return tax;
 	},
 	
-	/* returns tags of the given stream */
-	getTagsById : function(id){
-		var tags = []; 
-		$.each(this.json_data.stream, function(i, stream ){
-			if( stream.id === id ){   
-				$.each( stream.tags, function(i, tag){ 
-					tags[i] = stream.tags[i].tagname;
-				});	
-			}
-		});
-		return tags;
-	},
-	
 	/* -- */ 
 	getStreamsWithSameTag : function(id){
 		var _this = this;
-		var results = {};
-		var tags = this.getTagsById(id);
-		 	
-		$.each(_this.json_data.stream, function(j, stream){  
-			$.each(stream.tags, function(k, val){  
-				if( tags.indexOf( val.tagname ) != -1 && stream.id != id){
-					if( stream.id in results === false ){  
-						results[ stream.id ] = 0;
-					}//else if( results.hasOwnProperty(stream.id) ){ 
-						results[ stream.id ] += 1;  
-					//}
-				}
-			});
-		});		
-		return results;
+		var streams = [];
+		var tags = this.getStreamById(id).tags; 
+		$.each(tags, function(i, the_tag_name){	
+			$.each(_this.json_data, function(j, stream){  
+				$.each(stream.tags, function(k, tag){ 
+					if(this.tagname === the_tag_name.tagname){ 
+					 streams.push(stream.id); //$('#debug').val($('#debug').val() +' '+ stream.id);
+					}
+				});
+			});			
+		});
+		return streams;
 	},
 	
-	/***/
-	getInvertedTagIndex : function(){ 
+	
+	/* -- */
+	getRandomStreams : function( id ){
 		var _this = this;
-		var tags = {};
-		$.each(_this.json_data.stream, function(j, stream){  //alert(stream.id +' '+stream.tags,length)
-			$.each(stream.tags, function(k, tag){  
-				if( tag.tagname in tags == false ){
-					tags[tag.tagname] = [];
-				}
-				tags[tag.tagname].push(stream.id);
-			});
-		});	
-		return tags;
+		var streams = [];
+		$.each(_this.json_data, function(j, stream){ 
+			streams.push(stream.id);
+		});
+		return streams; // xxx need to be sort random
 	},
 	
 	
 
 	/* LINKS */
 	
-	/**
-	* Determin all outgoing links for a given video stream
-	* @param id {String} Id of video stream
-	*/
+		/* -- */
 	getLinkTargetsById : function(id){
-		var results = {}; 
-		$.each(	this.getStreamById(id).links, function( i, link ){ 
-			if( link.target in results === false ){  
-				results[ link.target ] = 0;
-			}
-			results[ link.target ] += 1;
+		var links = []; 
+		$.each(	this.getStreamById(id).hyperlinks, function(val){ 
+			links.push(this.target);  //$('#debug').val($('#debug').val() + this.target);
 		});
-		return	results;
+		return	links;
 	},
 	
-	/**
-	* Determine all incoming links for a given video stream without self references
-	* @param id {String} Id of video stream
-	*/
-	getLinkSourcesById : function(id){ 
-		var results = {};	
-		$.each(this.json_data.stream, function( i, stream ){ 
-			$.each(stream.links, function(i, link){
-				if(link.target === id && stream.id != id){
-					if( stream.id in results === false ){  
-						results[ stream.id ] = 0;
-					}
-					results[ stream.id ] += 1;
+	/* -- */
+	getLinkSourcesById : function(id){
+		var links = [];	
+		$.each(this.json_data, function(i, stream){
+			$.each(stream.hyperlinks, function(i, link){
+				if(this.target === id){
+				 links.push(stream.id); //$('#debug').val($('#debug').val() +' '+ stream.id);
 				}
 			});
-		});		
-		//alert(JSON.stringify(results))	
-		return results;	
+		});			
+		return links;	
 	},
 	
 	/* -- */ 	
 	getLinksById : function(id){
-		return this.getStreamById(id).links; 
+		return this.getStreamById(id).hyperlinks; 
 	},
 	
 	/* -- */ 	
@@ -391,14 +303,18 @@ Vi2.DataBase = $.inherit(/** @lends DataBase# */{
 			return {};
 		}else{	
 			return this.json_data.assessment; 
-			return this.getStreamById(id).assessment;
+			//return this.getStreamById(id).assessment;
 		}
 	},
 	
 	
 	/* returns table of content of the requested video */
 	getTocById : function(id){
-		return this.getStreamById(id).toc;
+		if(this.json_data.toc === undefined){
+			return {};
+		}else{ 
+			return this.getStreamById(id).toc;
+		}
 	},
 	
 		/* returns highlight of the requested video */
@@ -412,39 +328,51 @@ Vi2.DataBase = $.inherit(/** @lends DataBase# */{
 	
 	
 	/** 
-	* Returns the slides data array either from the given stream object or from a separate json file containing all slide data.
 	*	@param {String} Video id
 	*	@returns {Object} JSON object with temporal annotation of images/slides of video with the given id.
 	*/ 	  
 	getSlidesById : function(id){ 
-		if(this.json_slide_data === undefined){
-			return this.getStreamById(id).slides;
+		//alert(JSON.stringify( this.getStreamById(id)['slides'] ))
+		return this.getStreamById(id).slides; 
+		/*
+		if(this.json_data.slides === undefined){
+			return {};
 		}else{
-			var slides = {}; 
-			$.each(this.json_slide_data._slides, function(i, val){ 
-				if (this.id == id){  
-					slides = this.slides;
-				}
-			}); 
-			return slides;
+			return this.json_data.slides;
 		}
+		*/
+		/*
+		var slides = {}; 
+		$.each(this.json_data, function(i, val){ 
+			if (this._id === id){  
+				slides = this.slides;
+			}
+		}); 
+		return slides;
+		*/
 	}, 
 	
-	
-	/***/
+	/*
+	*
+	**/
 	hasSlides : function(id){
-		return this.getStreamById(id).slides.length > 0 ? 1 : 0; // xxx bugy for separate slides.json
+		if(this.getStreamById(id).slides !== undefined){
+			if(this.getStreamById(id).slides.length > 0){
+				return true;
+			}
+		}
+		return false;
 	},
 	
 	
 	/**
 	
 	*/
-	getUserById : function(id){
+	getUserById : function(id){  //alert(id); alert(this.json_user_data)
 		var user = {}; 
 		$.each(this.json_user_data, function(i, val){ 
-			if (this.id === id){  
-				user = this;
+			if( Number(val.id) === Number(id) ){  
+				user = val;
 			}
 		}); 
 		return user;
@@ -457,8 +385,8 @@ Vi2.DataBase = $.inherit(/** @lends DataBase# */{
 	getGroupById : function(id){
 		var group = {}; 
 		$.each(this.json_group_data, function(i, val){ 
-			if (this.id === id){  
-				group = this;
+			if ( Number(val.id) === Number(id) ){  
+				group = val;
 			}
 		}); 
 		return group;
@@ -468,8 +396,8 @@ Vi2.DataBase = $.inherit(/** @lends DataBase# */{
 	getUserByGroupId : function(group, pos){ //alert(group+'  '+pos)
 		var u = [];
 		$.each(this.json_user_data, function(i, val){ 
-			if (this.groups[pos] === group){  
-				u.push(this);
+			if ( val.groups[pos] === group){  
+				u.push( val );
 			}
 		});
 		

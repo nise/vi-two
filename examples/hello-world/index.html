@@ -86,7 +86,7 @@
 				ocr = undefined
 				;
 			var Vi2 = {}; // set the Namespace
-			$(document).ready(function(){
+			$(document).ready(function(){ 
 				var core = new Vi2.Example();	
 			});
 		</script>
@@ -105,18 +105,18 @@
 		<script src="../../src/vi2.core.utils.js"></script>
 		<!-- vi-two player-widgets	-->
 		<script src="../../src/vi2.player.playback-speed.js"></script>
-		<script src="../../src/vi2.player.temporal-bookmarks.js"></script>
+<!--		<script src="../../src/vi2.player.temporal-bookmarks.js"></script>
 		<script src="../../src/vi2.player.zoom.js"></script>
-		<script src="../../src/vi2.player.sharing.js"></script>
+		<script src="../../src/vi2.player.sharing.js"></script>-->
 		<script src="../../src/vi2.player.skip-back.js"></script>		
 		<!-- vi-two portal-widgets -->
-		<script src="../../src/vi2.video-manager.js"></script>
-		<script src="../../src/vi2.related-videos.js"></script>
+		<script src="../../src/vi2.core.video-manager.js"></script>
+<!--		<script src="../../src/vi2.related-videos.js"></script>
 		<script src="../../src/vi2.viewing-history.js"></script>
-		<script src="../../src/vi2.search.js"></script>
+		<script src="../../src/vi2.search.js"></script>-->
 		<!-- vi-two annotation-widgets -->
-		<script src="../../src/vi2.toc.js"></script>
-		<script src="../../src/vi2.simultaneous-media.js"></script>
+		<script src="../../src/vi2.annotationtoc.js"></script>
+		<script src="../../src/vi2.annotation.simultaneous-media.js"></script>
 <!--		<script src="../../src/vi2.user-notes.js"></script>
 		<script src="../../src/vi2.closed-captions.js"></script>-->
 		
@@ -135,8 +135,7 @@
 			<div class="sidepanel"> <a href="#!/video/balke1">balke</a><a href="#!/viewing-history"> hist</a>
 				<div class="viewing-history">xxx</div>
 				<div class="metadata"></div>
-				<div class="syncMedia"></div>
-				<div hidden class="user-notes">
+				<div class="user-notes">
 					<h3>User Notes</h3>
 				</div>
 				<div class="toc">
@@ -148,7 +147,7 @@
 				<div class="search-results">
 					<h3>Search Results</h3>
 				</div>
-				
+				<div class="syncMedia"></div>
 			</div>
 			
 			<div id="accordion-resizer" class="ui-widget-content">

@@ -1,7 +1,7 @@
 /* 
 *	name: Vi2.Clock
 *	author: niels.seidel@nise81.com
-* license: BSD New
+* license: MIT License
 *	description: Checks which annotations need to be activated or deactivated in given time intervall during video playback
 * dependencies:
 *  - jquery-1.11.2.min.js
@@ -35,7 +35,7 @@ Vi2.Clock = $.inherit(/** @lends vi2.core.Clock# */
 			*		@param {Videoplayer} player Related video player 
 			*		@param {Number} clockInterval Interval of clock granularity in milliseconds
 			*/
-  		__constructor : function(player, clockInterval) {
+  		__constructor : function(player, clockInterval) { 
   			this.player = player;
   			this.clockInterval = clockInterval;  		
   		},
@@ -75,6 +75,7 @@ Vi2.Clock = $.inherit(/** @lends vi2.core.Clock# */
 						content: {
 								title: obj.title, 
 								target:obj.target,
+								description:obj.description,
 								note:obj.note
 							}, 
 						linktype:obj.linktype, 
@@ -94,8 +95,8 @@ Vi2.Clock = $.inherit(/** @lends vi2.core.Clock# */
 		/* Trivial */
 		checkAnnotation : 	function() {
 			var iTime = this.parseTime( this.player.currentTime() );
-
-			for (var i=0; i < this.annotations.length;i++){
+			var annoLength = this.annotations.length;
+			for (var i=0; i < annoLength; i++ ){ 
 				var oAnn = this.annotations[i];
 				if(iTime >= oAnn.displayPosition.t1 && iTime < (Number(oAnn.displayPosition.t1) + Number(oAnn.displayPosition.t2))) {
 					if(!oAnn.active){
@@ -134,12 +135,12 @@ Vi2.Clock = $.inherit(/** @lends vi2.core.Clock# */
 			var _this = this;
 			var iTime = this.parseTime( this.player.currentTime() ); // returns time in decimal 
 			var x = this.player.currentTime() < 1 ? 0 : Math.ceil(iTime / 100); 
-			$('#debug').val(_this.prepAnno[x].length);	
-			$.each(_this.prepAnno[x], function(i, oAnn){
+			//$('#debug').val(_this.prepAnno[x].length);	
+			$.each(_this.prepAnno[x], function(i, oAnn){  
 				
 				if(iTime >= oAnn.displayPosition.t1 && iTime < (Number(oAnn.displayPosition.t1) + Number(oAnn.displayPosition.t2))) {
 					if(!oAnn.active){
-						oAnn.active = true; 
+						oAnn.active = true; alert(oAnn.type);
 	  				$(_this.player).trigger('annotation.begin.'+oAnn.type, [i, oAnn]); 
 					}
 				}else {
@@ -184,8 +185,8 @@ Vi2.Clock = $.inherit(/** @lends vi2.core.Clock# */
 		/* ... */
 		parseTime : function (strTime) { 
 			return strTime;
-			var aTime = strTime.toString().split(":");
-			return parseInt(aTime[0],10) * 60 + parseInt(aTime[1],10) * 1;// + parseFloat(aTime[2]);
+			//var aTime = strTime.toString().split(":");
+			//return parseInt(aTime[0],10) * 60 + parseInt(aTime[1],10) * 1;// + parseFloat(aTime[2]);
 		},
 	
 		/* ... */

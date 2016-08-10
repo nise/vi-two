@@ -86,7 +86,7 @@
 				ocr = undefined
 				;
 			var Vi2 = {}; // set the Namespace
-			$(document).ready(function(){
+			$(document).ready(function(){ alert(2)
 				var core = new Vi2.Example();	
 			});
 		</script>
@@ -105,18 +105,18 @@
 		<script src="../../src/vi2.core.utils.js"></script>
 		<!-- vi-two player-widgets	-->
 		<script src="../../src/vi2.player.playback-speed.js"></script>
-		<script src="../../src/vi2.player.temporal-bookmarks.js"></script>
+<!--		<script src="../../src/vi2.player.temporal-bookmarks.js"></script>
 		<script src="../../src/vi2.player.zoom.js"></script>
-		<script src="../../src/vi2.player.sharing.js"></script>
+		<script src="../../src/vi2.player.sharing.js"></script>-->
 		<script src="../../src/vi2.player.skip-back.js"></script>		
 		<!-- vi-two portal-widgets -->
-		<script src="../../src/vi2.video-manager.js"></script>
-		<script src="../../src/vi2.related-videos.js"></script>
+		<script src="../../src/vi2.core.video-manager.js"></script>
+<!--		<script src="../../src/vi2.related-videos.js"></script>
 		<script src="../../src/vi2.viewing-history.js"></script>
-		<script src="../../src/vi2.search.js"></script>
+		<script src="../../src/vi2.search.js"></script>-->
 		<!-- vi-two annotation-widgets -->
-		<script src="../../src/vi2.toc.js"></script>
-		<script src="../../src/vi2.simultaneous-media.js"></script>
+		<script src="../../src/vi2.annotationtoc.js"></script>
+		<script src="../../src/vi2.annotation.simultaneous-media.js"></script>
 <!--		<script src="../../src/vi2.user-notes.js"></script>
 		<script src="../../src/vi2.closed-captions.js"></script>-->
 		

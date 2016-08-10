@@ -1,7 +1,7 @@
 /* 
 *	name: Vi2.Parser
 *	author: niels.seidel@nise81.com
-* license: BSD New
+* license: MIT License
 *	description: 
 * dependencies:
 *  - jquery-1.11.2.min.js
@@ -24,18 +24,18 @@ var Parser = $.inherit(/** @lends Parser# */
 			*		@constructs 
 			*		@param {Selector} selector Indicates the DOM selector that contains markup code to be parsed
 			*		@param {String} type Defines which markup, 'wiki' or 'html', is going to be parsed
-			
 			*/
   		__constructor : function(selector, type) {
   			this.selector = selector;
   			this.type = type;
-  			//this.run();
   		},
   		
 			vid_arr : [],
 			selector : '',
 			
-			/* ... */
+			/** 
+				* Distinguishes the markup type and calls paser routins
+				*/
 			run : function(){
 				switch(this.type){
 					case 'wiki' :
@@ -45,7 +45,9 @@ var Parser = $.inherit(/** @lends Parser# */
 				}
 			},	
 			
-			/* ... */
+			/** 
+				* Parses the wiki creole markup
+				*/
 			parseWiki : function(){ 
 				var _this = this;
 			  var v_id = -1;
@@ -53,11 +55,11 @@ var Parser = $.inherit(/** @lends Parser# */
 			  $(this.selector).val($(this.selector).val().replace(/\<p\>/, ''));
 				// go through markup lines
   			$($(this.selector+' > p').text().split(/\n/)).each(function(i, val){ 
-  				if(val.substr(0,8) == "[[Video:" || val.substr(0,8) == "[[video:"){ 
+  				if(val.substr(0,8) === "[[Video:" || val.substr(0,8) === "[[video:"){ 
 						// parse videos to sequence
 						v_id++; 	  				  		
   					_this.vid_arr[v_id] = _this.parseWikiVideo(val);
-	  				}else if(val.substr(0,2) == "[["){
+	  				}else if(val.substr(0,2) === "[["){
 	  				// parse hyperlinks related to the latter video 
   					_this.vid_arr[v_id]['annotation'].push(_this.parseWikiHyperlink(val)); //alert('ok_'+val);  					
   				}else{
@@ -67,186 +69,176 @@ var Parser = $.inherit(/** @lends Parser# */
 				return this.vid_arr;  			
 			},
 			
-			/* ... */
+			/** 
+				* Pareses standard DOM/HTML
+				*/
 			parseHtml : function(){ 
-				var _this = this;
-			  var v_id = -1;
-			  var arr = [];
-			  var obj = {};
+				var 
+					_this = this,
+			  	v_id = -1,
+			  	arr = [],
+			  	obj = {},
+			  	t = 0
+			  ;
   			$('div'+this.selector+' div').each(function(i, val){ 
-  				if($(this).attr('type') == "video"){ 
+  				
+  				t = new Date()
+  				obj = {};	
+  				obj.author = $(this).attr('author') === undefined ? '' : $(this).attr('author');
+  				obj.date = $(this).attr('date') === undefined ? t.getTime() : $(this).attr('date');
+  				obj.type = $(this).attr('type') === undefined ? 'none' : $(this).attr('type');
+  				
+  				if($(this).attr('type') === "video"){ 
   					// video
   					arr = {}; 
   					arr['id'] = $(this).attr('id'); 
   					arr['url'] = $(this).text();
-  					arr['seek'] = $(this).attr('starttime') == undefined ? 0 : $(this).attr('starttime');
-  					arr['duration'] = $(this).attr('duration') == undefined ? 0 : $(this).attr('duration');
+  					arr['seek'] = $(this).attr('starttime') === undefined ? 0 : $(this).attr('starttime');
+  					arr['duration'] = $(this).attr('duration') === undefined ? 0 : $(this).attr('duration');
   					arr['annotation'] = []; 
 						v_id++; 
   					_this.vid_arr[v_id] = arr; 
   					
-  				}else if($(this).attr('type') == "xlink"){ 
+  				}else if($(this).attr('type') === "hyperlinks"){ 
   					// standard and external links
-  					obj = {};
-						obj.title = $(this).attr('id');
-						obj.target = $(this).text();
+  					obj.title = $(this).text(); 
+						obj.description = $(this).attr('description');
+						obj.target = $(this).attr('target');
 						obj.linktype = 'standard';
-						obj.type = 'xlink';
 						obj.x = $(this).attr('posx');
 						obj.y = $(this).attr('posy');
-						obj.t1 = $(this).attr('starttime') == undefined ? 0 : $(this).attr('starttime');
-						obj.t2 = $(this).attr('duration') == undefined ? 0 : $(this).attr('duration');
-						obj.seek = $(this).attr('seek')
-						obj.duration = $(this).attr('duration2')
-  				
-						// distinguish link types
-						if(obj.target.match(/(^http:)/)){ obj.linktype = 'external'; } // external link
-  					
-  					
+						obj.t1 = $(this).attr('starttime') === undefined ? 0 : $(this).attr('starttime');
+						obj.t2 = $(this).attr('duration') === undefined ? 0 : $(this).attr('duration');
+						obj.seek = $(this).attr('seek');
+						obj.duration2 = $(this).attr('duration2'); 
+
+						// distinguish external links
+						var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+						var regex = new RegExp(expression);
+						if ( (obj.target).match(regex) ){ 
+							obj.linktype = 'external'; 
+						}
   					_this.vid_arr[v_id]['annotation'].push(obj);
   					
-  				}else if($(this).attr('type') == "cycle"){ 
-  					// 
-  					obj = {};
-						obj.title = $(this).attr('id');
-						obj.target = $(this).text();
+  				}else if($(this).attr('type') === "cycle"){ 
+  					// cycle
+  					obj.title = $(this).text();
+						obj.target = $(this).attr('target');
+						obj.description = $(this).attr('description');
 						obj.linktype = 'cycle';
-						obj.type = 'xlink';
 						obj.x = $(this).attr('posx');
 						obj.y = $(this).attr('posy');
-						obj.t1 = $(this).attr('starttime') == undefined ? 0 : $(this).attr('starttime');
-						obj.t2 = $(this).attr('duration') == undefined ? 0 : $(this).attr('duration'); 
-						obj.seek = $(this).attr('seek')
-						obj.duration = $(this).attr('duration2')
+						obj.t1 = $(this).attr('starttime') === undefined ? 0 : $(this).attr('starttime');
+						obj.t2 = $(this).attr('duration') === undefined ? 0 : $(this).attr('duration'); 
+						obj.seek = $(this).attr('seek');
+						obj.duration = $(this).attr('duration2'); 
   					_this.vid_arr[v_id]['annotation'].push(obj);
-  					
-  					 			
-  				}else if($(this).attr('type') == "syncMedia"){
+  	  					 			
+  				}else if($(this).attr('type') === "syncMedia"){
   					// sequential media such as pictures
-  					obj = {};
-						obj.title = $(this).text();
+  					obj.title = $(this).text();
 						obj.target = $(this).attr('path');
 						obj.linktype = '';
-						obj.type = 'syncMedia';
 						obj.x = 0;
 						obj.y = 0;
-						obj.t1 = $(this).attr('starttime') == undefined ? 0 : $(this).attr('starttime');
-						obj.t2 = $(this).attr('duration') == undefined ? 0 : $(this).attr('duration');
+						obj.t1 = $(this).attr('starttime') === undefined ? 0 : $(this).attr('starttime');
+						obj.t2 = $(this).attr('duration') === undefined ? 0 : $(this).attr('duration');
   					_this.vid_arr[v_id]['annotation'].push(obj);
   					
-					}else if($(this).attr('type') == "map"){
+					}else if($(this).attr('type') === "map"){
   					// sequential media such as pictures
-  					obj = {};
-						obj.title = '';
+  					obj.title = '';
 						obj.target = $(this).text();
 						obj.linktype = '';
 						obj.type = 'map';
 						obj.x = 0;
 						obj.y = 0;
-						obj.t1 = $(this).attr('starttime') == undefined ? 0 : $(this).attr('starttime');
-						obj.t2 = $(this).attr('duration') == undefined ? 0 : $(this).attr('duration');
+						obj.t1 = $(this).attr('starttime') === undefined ? 0 : $(this).attr('starttime');
+						obj.t2 = $(this).attr('duration') === undefined ? 0 : $(this).attr('duration');
   					_this.vid_arr[v_id]['annotation'].push(obj);
   			
-					}else if($(this).attr('type') == "toc"){
+					}else if($(this).attr('type') === "toc"){
 						// table of content references
-						obj = {};
 						obj.title = $(this).text();
-						obj.target = $(this).attr('starttime') == undefined ? 0 : $(this).attr('starttime');
+						obj.target = $(this).attr('starttime') === undefined ? 0 : $(this).attr('starttime');
 						obj.linktype = '';
-						obj.type = 'toc';
 						obj.note = $(this).attr('note');
 						obj.x = 0;
 						obj.y = 0;
-						obj.t1 = $(this).attr('starttime') == undefined ? 0 : $(this).attr('starttime');
-						obj.t2 = 1;// default // $(this).attr('duration') == undefined ? 1 : $(this).attr('duration');
+						obj.t1 = $(this).attr('starttime') === undefined ? 0 : $(this).attr('starttime');
+						obj.t2 = 1;// default // $(this).attr('duration') === undefined ? 1 : $(this).attr('duration');
   					_this.vid_arr[v_id]['annotation'].push(obj);
   					
-					}else if($(this).attr('type') == "tags"){
+					}else if($(this).attr('type') === "tags"){
 						// temporal tags
-						obj = {};
 						obj.title = $(this).text();
-						obj.target = $(this).attr('starttime') == undefined ? 0 : $(this).attr('starttime');
-						obj.linktype = '';
-						obj.type = 'tags';
+						obj.target = $(this).attr('starttime') === undefined ? 0 : $(this).attr('starttime');
 						obj.x = $(this).attr('posx');
 						obj.y = $(this).attr('posy');
-						obj.t1 = $(this).attr('starttime') == undefined ? 0 : $(this).attr('starttime');
-						obj.t2 = $(this).attr('duration') == undefined ? 0 : $(this).attr('duration');
+						obj.t1 = $(this).attr('starttime') === undefined ? 0 : $(this).attr('starttime');
+						obj.t2 = $(this).attr('duration') === undefined ? 0 : $(this).attr('duration');
 						_this.vid_arr[v_id]['annotation'].push(obj);
 	
-					}else if($(this).attr('type') == "highlight"){
+					}else if($(this).attr('type') === "highlight"){
 						// hight
-						obj = {};
 						obj.title = $(this).text();
-						obj.target = $(this).attr('starttime') == undefined ? 0 : $(this).attr('starttime');
+						obj.target = $(this).attr('starttime') === undefined ? 0 : $(this).attr('starttime');
 						obj.linktype = '';
-						obj.type = 'highlight';
 						obj.x = $(this).attr('posx');
 						obj.y = $(this).attr('posy');
-						obj.t1 = $(this).attr('starttime') == undefined ? 0 : $(this).attr('starttime');
-						obj.t2 = $(this).attr('duration') == undefined ? 0 : $(this).attr('duration');
+						obj.t1 = $(this).attr('starttime') === undefined ? 0 : $(this).attr('starttime');
+						obj.t2 = $(this).attr('duration') === undefined ? 0 : $(this).attr('duration');
 						_this.vid_arr[v_id]['annotation'].push(obj);
 
-					}else if($(this).attr('type') == "comments"){ 
+					}else if($(this).attr('type') === "comments"){ 
 						// comments
-						obj = {};
 						obj.title = $(this).text();
-						obj.author = $(this).attr('author');
-						obj.date = $(this).attr('date');
-						obj.target = $(this).attr('starttime') == undefined ? 0 : $(this).attr('starttime');
+						obj.target = $(this).attr('starttime') === undefined ? 0 : $(this).attr('starttime');
 						obj.linktype = '';
-						obj.type = 'comment';
 						obj.x = 0;
 						obj.y = 0;
-						obj.t1 = $(this).attr('starttime') == undefined ? 0 : $(this).attr('starttime');
-						obj.t2 = 1;// default // $(this).attr('duration') == undefined ? 1 : $(this).attr('duration');
+						obj.t1 = $(this).attr('starttime') === undefined ? 0 : $(this).attr('starttime');
+						obj.t2 = 1;// default // $(this).attr('duration') === undefined ? 1 : $(this).attr('duration');
   					_this.vid_arr[v_id]['annotation'].push(obj);
   					
-					}else if($(this).attr('type') == "assessment"){ 
+					}else if($(this).attr('type') === "assessment"){ 
 						// assessment
-						obj = {};
-						obj.title = encodeURIComponent( $(this).text() );
-						obj.author = $(this).attr('author');
-						obj.date = $(this).attr('date');
-						obj.target = $(this).attr('starttime') == undefined ? 0 : $(this).attr('starttime');
+						obj.title = $(this).data('task');
+						obj.target = $(this).attr('starttime') === undefined ? 0 : $(this).attr('starttime');
 						obj.linktype = '';
 						obj.type = 'assessment';
 						obj.x = 0;
 						obj.y = 0; 
-						obj.t1 = $(this).attr('starttime') == undefined ? 0 : $(this).attr('starttime'); 
-						obj.t2 = 1;// default // $(this).attr('duration') == undefined ? 1 : $(this).attr('duration');
+						obj.t1 = $(this).attr('starttime') === undefined ? 0 : $(this).attr('starttime'); 
+						obj.t2 = 1;// default // $(this).attr('duration') === undefined ? 1 : $(this).attr('duration');
   					_this.vid_arr[v_id]['annotation'].push(obj);
   					
-					}else if($(this).attr('type') == "assessment-fill-in"){ 
-  					// standard and external links
-  					obj = {};
-						obj.title = $(this).attr('id');
+					}else if($(this).attr('type') === "assessment-fill-in"){ 
+  					// fill-in assessment tasks
+  					obj.title = $(this).attr('id');
 						obj.target = $(this).text();
 						obj.linktype = 'standard';
-						obj.author = $(this).attr('author') == undefined ? '' : $(this).attr('author');
-						obj.width = $(this).attr('width') == undefined ? 100 : $(this).attr('width');
+						obj.width = $(this).attr('width') === undefined ? 100 : $(this).attr('width');
 						obj.type = 'assessment-fill-in';
 						obj.x = $(this).attr('posx');
 						obj.y = $(this).attr('posy');
-						obj.t1 = $(this).attr('starttime') == undefined ? 0 : $(this).attr('starttime');
-						obj.t2 = $(this).attr('duration') == undefined ? 0 : $(this).attr('duration');
+						obj.t1 = $(this).attr('starttime') === undefined ? 0 : $(this).attr('starttime');
+						obj.t2 = $(this).attr('duration') === undefined ? 0 : $(this).attr('duration');
 						obj.seek = $(this).attr('seek')
 						obj.duration = $(this).attr('duration2')
   					_this.vid_arr[v_id]['annotation'].push(obj);
   				
-  				}else if($(this).attr('type') == "assessment-writing"){ 
-  					// standard and external links
-  					obj = {}; 
-						obj.title = encodeURIComponent( $(this).text() );//$(this).attr('id');
+  				}else if($(this).attr('type') === "assessment-writing"){ 
+  					// assessment, task on demand
+  					obj.title = encodeURIComponent( $(this).text() );//$(this).attr('id');
 						obj.target = $(this).text();
 						obj.linktype = 'standard';
-						obj.author = $(this).attr('author') == undefined ? '' : $(this).attr('author');
-						obj.width = $(this).attr('width') == undefined ? 100 : $(this).attr('width');
+						obj.width = $(this).attr('width') === undefined ? 100 : $(this).attr('width');
 						obj.type = 'assessment-writing';
 						obj.x = $(this).attr('posx');
 						obj.y = $(this).attr('posy');
-						obj.t1 = $(this).attr('starttime') == undefined ? 0 : $(this).attr('starttime');
-						obj.t2 = $(this).attr('duration') == undefined ? 0 : $(this).attr('duration');
+						obj.t1 = $(this).attr('starttime') === undefined ? 0 : $(this).attr('starttime');
+						obj.t2 = $(this).attr('duration') === undefined ? 0 : $(this).attr('duration');
 						obj.seek = $(this).attr('seek')
 						obj.duration = $(this).attr('duration2')
   					_this.vid_arr[v_id]['annotation'].push(obj);
@@ -257,7 +249,10 @@ var Parser = $.inherit(/** @lends Parser# */
 				return _this.vid_arr; 	
 			},
   		
-  		/* ... */ // all of that is quick & dirty and needs further testing / testing procedures
+  		/** 
+				*
+				* @todo all of that is quick & dirty and needs further testing / testing procedures
+				*/
   		parseWikiVideo : function(str){
 
 					var arr = [];
@@ -270,8 +265,8 @@ var Parser = $.inherit(/** @lends Parser# */
   					.replace(/  /, ' '); // double spaces
   				var a = str.split(/ /);
   				$.each(a, function(i, val){
-  					if(val.substr(0,1) == '#'){ start = val.substr(1,val.length); }
-  					else if(val.substr(0,1) == '|'){ duration = val.substr(1,val.length); }
+  					if(val.substr(0,1) === '#'){ start = val.substr(1,val.length); }
+  					else if(val.substr(0,1) === '|'){ duration = val.substr(1,val.length); }
   					else if(val.match(/(?=.ogg)/)){ url = val; }
   					else if(val.length > 0){ id = val; }
   				})
@@ -279,19 +274,21 @@ var Parser = $.inherit(/** @lends Parser# */
   				// build arr
   				arr['id'] = id;
   				arr['url'] = url;
-  				arr['seek'] = start == undefined ? 0 : start;
-  				arr['duration'] = duration == undefined ? 0 : duration;
+  				arr['seek'] = start === undefined ? 0 : start;
+  				arr['duration'] = duration === undefined ? 0 : duration;
   				arr['annotation'] = [];
   			return arr;
   		},
   		
-  		/* ... */
+  		/** 
+				*
+				*/
   		parseWikiHyperlink : function(str){ 
   				var _this = this;
   				var re = "";
   				var tmp = '';
   				var obj = {};
-  				obj.type = 'xlink';
+  				obj.type = 'hyperlinks';
   				obj.linktype = 'standard';
   	
   				// link types // ?=.ogg | ?=.ogv | 
@@ -299,16 +296,16 @@ var Parser = $.inherit(/** @lends Parser# */
 					if(str.match(re)){ 
 						// external link
   					re = new RegExp(/\[\[http:\/\/[a-z A-Z 0-9 \#\ \_\/:.-]+/);
-  					tmp = (new String(re.exec(str))).split(" ");
+  					tmp = re.exec(str).toString().split(" ");
 						obj.target = tmp[0].replace(/^\[\[/,'');
 						obj.title = tmp.length >= 2 ? tmp.slice(1) : tmp[0].replace(/^[\[\[http:\/\/]/, '');
-						obj.title = (new String(obj.title)).replace(/,/g,' ');
+						obj.title = obj.title.toString().replace(/,/g,' ');
   					//alert(obj.target+' - '+obj.title);
 						obj.linktype = 'external'; 
 					}else{
 						// standard links
   					re = new RegExp(/\[\[[a-z A-Z 0-9 \# \ \_\/\|:.-]+/);
-  					tmp = (new String(re.exec(str))).split(/\|/);
+  					tmp = re.exec(str).toString().split(/\|/);
 						obj.target = tmp[0].replace(/^\[\[/,'');
 						obj.title = tmp.length >= 2 ? tmp[1] : tmp[0].replace(/^\[\[/,'');
   					//alert(obj.target+' - '+obj.title);
@@ -319,14 +316,14 @@ var Parser = $.inherit(/** @lends Parser# */
 					// strip start time and duration
 					var str2 = str.split(/\]/);
 					re = new RegExp(/[\ ]\#[0-9]+/);  				
-  				obj.t1 = str.match(re) ? (new String(re.exec(str2[1]))).replace(/[\#]/, '') : 0; // .replace(/|\ /,'')
+  				obj.t1 = str.match(re) ? re.exec(str2[1]).toString().replace(/[\#]/, '') : 0; // .replace(/|\ /,'')
 					re = new RegExp(/[\ ]\|[0-9]+/);  				
-  				obj.t2 = str.match(re) ? (new String(re.exec(str2[1]))).replace(/[\|]/, '') : 1000;
+  				obj.t2 = str.match(re) ? re.exec(str2[1]).toString().replace(/[\|]/, '') : 1000;
 //					alert(obj.t1+' - '+obj.t2);
 					
 					// relative width/height: 50% 20%
 					re = new RegExp(/[\ ]+[0-9]{2}(?=\%)/g);
-					tmp = str.match(re) ? new String(str.match(re)).split(/,/) : [50,50];
+					tmp = str.match(re) ? str.match(re).toString().split(/,/) : [50,50];
 					obj.x = tmp[0] ? tmp[0] : 50;
 					obj.y = tmp[1] ? tmp[1] : 50;			
 					//alert(''+obj.x+' - '+obj.y+'   time: '+obj.t1+' - '+obj.t2);

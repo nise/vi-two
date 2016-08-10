@@ -1,7 +1,7 @@
 /* 
 * name: Vi2.SkipBack
 * author: niels.seidel@nise81.com
-* license: BSD New
+* license: MIT License
 * description:
 * dependencies:
 *  - jquery-1.11.2.min.js
@@ -22,11 +22,11 @@ Vi2.SkipBack = $.inherit(/** @lends Vi2.SkipBack# */{ //
   			this.options = $.extend(this.options, options);  
 		},
 		
-		name : 'temoral bookmarks',
+		name : 'skipBack',
 		type : 'player-widget',
 		options : {
 			selector : '.control-bar',
-			label : 'skip back',
+			label : '',
 			step : 5 // in seconds
 		},
 
@@ -42,12 +42,17 @@ Vi2.SkipBack = $.inherit(/** @lends Vi2.SkipBack# */{ //
 			var container = $('<div></div>')
 				.append($('<div></div>')
 					.text( this.options.label )
-					.addClass('vi2-skipback-label')
+					.addClass('vi2-skipback-label glyphicon glyphicon-step-backward')
 				)
 				.addClass('vi2-skipback-controls vi2-btn')
-				.bind('click', function(e){
-					vi2.observer.player.currentTime( vi2.observer.player.currentTime() - _this.options.step ); 
+				.attr('title', this.options.step+'s zurückspringen')
+				.bind('click', function(e){ 
+					var current = vi2.observer.player.currentTime();
+					var next = Number(Number(current) - Number(_this.options.step));
+					
+					vi2.observer.log({context:'skipBack',action:'skip-back',values: [current, String(next) ]});
+					vi2.observer.player.currentTime( next ); 
 				})
-				.appendTo( this.options.selector );
+				.prependTo( this.options.selector );
 		}
 }); // end class  

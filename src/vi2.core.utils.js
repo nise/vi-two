@@ -1,7 +1,7 @@
 /* 
 *	name: Vi2.Utils
 *	author: niels.seidel@nise81.com
-* license: BSD New
+* license: MIT License
 *	description: 
 * dependencies:
 *  - jquery-1.11.2.min.js
@@ -63,22 +63,15 @@ function removeDuplicates (cat){
 }
 
 
-/* Converts decimal time format into seconds */
-function deci2seconds(s){
-	if(Number(s) < 0 || s == null){ return 0; }
-	var arr = s.split(':');
-	return Number(arr[0])*3600+Number(arr[1])*60+Number(arr[2]);
-}
-
 /*
 * calcs temporal distance to a given time stamp
 **/
 function timeDifference (s, prefix, postfix){
 			//prefix = prefix === undefined ? 'vor ' : prefix;
 			//postfix = postfix === undefined ? ' ago' : postfix; 
-			alert(1)
-			var b = moment( s );  alert(2);
-			var a = moment( s ); alert(3)
+			
+			var b = moment( s );  
+			var a = moment( s ); 
 			
 			
 			var diff = a.diff(b, 'seconds'); 
@@ -106,26 +99,31 @@ function timeDifference (s, prefix, postfix){
 				return prefix + diff.toFixed(1) + 'm' + postfix; 
 			}
 			
-			var diff = a.diff(b, 'years', true);
+			diff = a.diff(b, 'years', true);
 			return prefix + diff.toFixed(1) + 'y' + postfix; 
 			
-};
+}
 
 
 
 
 /////////////////////////////
 Object.size = function(obj) {
-    var size = 0, key;
+    var 
+    	size = 0, 
+    	key = {}
+    	;
     for (key in obj) {
-        if (obj.hasOwnProperty(key)) size++;
+        if (obj.hasOwnProperty(key)){
+        	size++;
+        }	
     }
     return size;
 };
 
 
 
-var Vi2_Utils = $.inherit(/** @lends PlaybackSpeed# */{
+Vi2.Utils = $.inherit(/** @lends Utils # */{
 
 	/** 
 	*		@constructs 
@@ -143,6 +141,15 @@ var Vi2_Utils = $.inherit(/** @lends PlaybackSpeed# */{
 		var m = Math.floor(d % 3600 / 60);
 		var s = Math.floor(d % 3600 % 60);
 		return ((h > 0 ? h + ":" : "") + (m > 0 ? (h > 0 && m < 10 ? "0" : "") + m + ":" : "00:") + (s < 10 ? "0" : "") + s); 
+	},
+	
+	/* 
+	*Converts decimal time format into seconds 
+	**/
+	deci2seconds: function( decimal ){
+		if(Number(decimal) < 0 || decimal === undefined ){ return 0; }
+		var arr = decimal.split(':');
+		return Number(arr[0])*3600+Number(arr[1])*60+Number(arr[2]);
 	}
 	
 }); // end utils

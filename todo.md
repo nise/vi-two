@@ -1,34 +1,25 @@
 
 # Vi-Two
 ## overall improvements
-- start widgets from config.json
+- start widgets from config.json / /json/vi-two-config
 - multilingual support for all text and controls
 - use a template engine, maybe ejs
-- comment: re-comment
 
 
-- ass: Aufgabenstatistik 
-- ass: semantische Nähe zw. Feedback und Aufgabe
-- ass: Benachrichtigungen
-- ass: scrollbares feld bei aufgabenbearbeitung
-- ass: Benutzerbenachrichtigung
-- tags automatische Verlinkung via tags
 
-- hide cursor on playback
-- skip through a certain kind of annotation on the timeline, e.g. from one hyperlink to the next one
-- scrubbing als Pattern
+
 
 
 ## new widgets for my dissertation
 - follow revisions => server
 - loop
 - video manipulation
-- closed captions / transscript
+- closed captions 
 - transcript
 - user notes
 - media fragments 
 - object tracking
-- add video
+- add video => server
 
 
 ## contribute examples
@@ -47,22 +38,8 @@ http://liris.cnrs.fr/advene/cinelab/
 
 # Others
 
-## vi-lab.js
-- tooltip für Funktionen
-- bearbeitungsdatum im tooltip anzeigen, damit andere sich zeitnah anschließen können
-- add Hyperlink
-- convertierung von popcorn auf IWRM-ähnliche seite 
-- editieren der Zeit via 'edit'
-- tag/toc: input type=text statt textarea
-- usability: feedback beim speichern!!!
-- usability: delete realy?
 
 #vi-lab node
-- user online
-- @script: bearbeitungsstand anzeigen
--- anzahl items je toc/tags/comments/...
--- gesamtstand anhand von relativer metrik
-- script scheduler
 - gzip compression
 - VI-TWO Datenbank auf serverseite verschieben und db-Klasse als Schnittstelle umgestalten
 
@@ -82,15 +59,11 @@ http://liris.cnrs.fr/advene/cinelab/
 
 
 
-
-
 NiceToHave
 
 - popcorn plugin für assessment.
-
 - popcorn-plugin en-/disable via Widget Editor (??? Wie soll das gehen)
 - add links > IWRM
-
 -- placholder @ videoplayer in css einbinden
 
 
@@ -98,7 +71,4 @@ Admin:
 - Metadaten in popcorn einpflegen >> IWRM
 - define selector for flexible theme adoption
 - video upload via firefogg? 
-
-}else if(location.substr(0,6) == 't=npt:'){
-	alert(location.substr(7,location.length));
 
