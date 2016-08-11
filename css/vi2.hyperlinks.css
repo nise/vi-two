@@ -1,0 +1,93 @@
+
+
+/* timeline marker */
+.hyperlinks-timeline-marker{
+	position: absolute; 
+	top:0px !important;
+	display: block;
+	cursor:pointer; 
+	width: 10px; 
+	height: 10px; 
+	left:0; 
+	margin: 0; 
+	padding: 0;
+	z-index:200;
+	background-color:green;
+}
+
+.hyperlinks-timeline-marker:hover{
+	width: 14px; 
+	height: 14px;
+	background-color: white;
+	z-index:0;
+}
+
+
+.hyperlink-standard, .hyperlink-external {
+	background-color:#9CBA7F;
+	border:green;
+	color:#222;
+	padding:2px 4px;
+	font-size:22px;
+	opacity: 0.8;
+	border: solid green 1px;
+}
+
+.hyperlink-standard:hover, .hyperlink-external:hover{
+	opacity:1;
+	color:#003366;
+	border: solid #003366 1px;
+}
+
+
+/*
+.overlay.hyperlink-external{
+	background: url(../img/link-external.png) 2px 2px no-repeat #fff;
+		z-index:0;
+}
+
+.overlay.hyperlink-cycle{
+	background: url(../img/link-cycle.png) 2px 2px no-repeat #fff;
+		z-index:1000;
+}
+
+.overlay.hyperlink-multi{
+	background: url(../img/link-multi.png) 2px 2px no-repeat #fff;
+		z-index:1000;
+}
+*/
+
+
+
+
+/* menu entries */
+.hyperlinks-list{ padding:0px; list-style-type:none; list-style-position: inside; margin:12px 0 0 10px;}
+.hyperlinks-list li { line-height:16px; display:list-item; margin: 0; padding:6px 4px;  }
+.hyperlinks-list li:hover { background-color:#aaa; }
+.hyperlinks-list li a { text-decoration:none; padding: 2px 1px 1px 3px; color:#111; }
+
+.hyperlinks-list li .tiny-edit-btn {
+	display:none;
+}
+
+.hyperlinks-list li:hover .tiny-edit-btn {
+	display:inline;
+}
+
+.hyperlinks-header {
+	display:block;
+	border-bottom: 2px solid #777;
+	font-size:11px;
+	padding:0;
+	height:20px;
+}
+
+.hyperlinks-user {
+	background-color: #777;
+	color:#fff;
+	margin:0;
+	border:0;
+	padding: 1px 4px;
+	vertical-align:bottom;
+	height:12px;
+}

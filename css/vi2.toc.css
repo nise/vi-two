@@ -4,34 +4,49 @@
 	position: absolute; 
 	top:0px;
 	display: block; 
-	width: 5px; 
+	width: 3px; 
 	height: 14px; 
 	left:0; 
 	margin: 0; 
 	padding: 0;
-	z-index:200;
-	background-color:cyan;
+	z-index:2000;
+	background-color:#333;
 }
 
-/*span.timetag.ttoc{ width:4px; background-color: #003366; opacity:0.8; z-index:200;}*/
+.toc-timeline-marker:hover{
+	width: 12px;
+	background-color:#555;
+}
 
 /* menu entries */
-.toc-list{ padding:0px; list-style-type:none;  list-style-position: inside; margin:12px 0 0 0;}
-.toc-list li {line-height:160%; display:list-item; margin: 4px 0; background-color: #eee; padding:2px 4px; cursor:pointer; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; }
-.toc-list li:hover { background-color: #ccc;}
-.toc-list li a { text-decoration:none; padding: 2px 1px 1px 3px; }
+.toc-list{ padding:0px; list-style-type:none;  list-style-position: inside; margin:0; }
+.toc-list li { line-height:16px; display:list-item; margin: 0; padding:6px 4px;  }
+.toc-list li:hover { background-color:#aaa;  }
+.toc-list li a { text-decoration:none; padding: 2px 1px 1px 3px;  color:#111;  }
+.toc-list li a.toc-menu-link { width:90%; display:inline-block; }
+.toc-list li .tiny-edit-btn {
+	display:none;
+}
+
+.toc-list li:hover .tiny-edit-btn {
+	display:inline;
+}
 
 /* highligh color*/
 .toc-highlight a {	color:red; }
 
 /* diabled menu entries*/
-.toc-disabled  {
-	opacity:.8;
+li.toc-disabled  {
+	opacity:.6;
 	cursor:default;
-	background-color:#eee;
 }
+
+li.toc-disabled a { 
+	cursor:default;
+}
+
 .toc-disabled a {
-	color:#555;
+	color:#777;
 }
 
 

@@ -21,7 +21,8 @@ Vi2.Example = $.inherit({
   			{path: 'data-slides.min.json', storage: 'json_slide_data'}
   	];
 		
-		vi2.db = new Vi2.DataBase( {path: '/', files: files }, this, 'init');
+		vi2.db = new Vi2.DataBase( {path: '', jsonFiles: files }, this, 'init');
+
   },
   
   viLog : '',
@@ -30,15 +31,16 @@ Vi2.Example = $.inherit({
   
   */
   init : function(){
-  
-  	this.viLog = new Log(/*{logger_path:this.server_url+'/log'}*/); 
+ 
+  	this.viLog = new Vi2.Log(/*{logger_path:this.server_url+'/log'}*/); 
   			
-  	vi2.utils = new Vi2_Utils();
-  	
+  	vi2.utils = new Vi2.Utils();
+ 
   	vi2.observer = new Vi2.Observer({selector:"#seq", videoWidth:"400px", videoHeight:"800px"}); 
+
 		vi2.observer.init(0);  
 		//vi2.observer.setCurrentStream('seidel1'); 
-	alert(3)	
+
 		
 		//this.loadConfig();
 		
@@ -47,19 +49,22 @@ Vi2.Example = $.inherit({
 		videoManager.init();
 		vi2.videoManager = videoManager;
 		
-		//var viewingHistory = new Vi2.ViewingHistory();
-		//vi2.observer.addWidget( viewingHistory );
+		var viewingHistory = new Vi2.ViewingHistory();
+		vi2.observer.addWidget( viewingHistory );
+		
+		var closedCaption = new Vi2.ClosedCaption();
+		vi2.observer.addWidget( closedCaption );
 			
-			// At first we define some basic player widgets
+		// At first we define some basic player widgets
 		var playbackSpeed = new Vi2.PlaybackSpeed();
-		//var temporalBookmarks = new Vi2.TemporalBookmarks();
-		//var zoom = new Vi2.Zoom();
-		//var sharing = new Vi2.Sharing();
+		var temporalBookmarks = new Vi2.TemporalBookmarks();
+		var zoom = new Vi2.Zoom();
+		var sharing = new Vi2.Sharing();
 		var skipBack = new Vi2.SkipBack();
-				//vi2.observer.addWidget( sharing ); // http://localhost/elearning/vi2/vi-two/examples/iwrm/videos/iwrm_seidel1.webm
-	//	vi2.observer.addWidget( zoom );	
+		vi2.observer.addWidget( sharing ); // http://localhost/elearning/vi2/vi-two/examples/iwrm/videos/iwrm_seidel1.webm
+		vi2.observer.addWidget( zoom );	
 		vi2.observer.addWidget( playbackSpeed );  
-	//	vi2.observer.addWidget( temporalBookmarks );
+		vi2.observer.addWidget( temporalBookmarks );
 		vi2.observer.addWidget( skipBack ); 
 
 		

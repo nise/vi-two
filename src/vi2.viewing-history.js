@@ -2,13 +2,15 @@
 * name: Vi2.ViewingHistory
 * author: niels.seidel@nise81.com
 * license: MIT License
-* description:
+* description: Stores called videos and return them as a list
 * dependencies:
 *  - jquery-1.11.2.min.js
 *  - jquery.inherit-1.1.1.js
 * todo:
 *	 - bug: first watched video is not added to history  
    - add timeDifferents mit moments.js
+   - no need for a rout
+   - need to be called without clicking a button
 */
 
 
@@ -52,9 +54,11 @@ Vi2.ViewingHistory = $.inherit(/** @lends Vi2.ViewingHistory# */{ //
 		/*
 		*
 		**/
-		renderHistory : function(){ 
+		renderHistory : function(){ alert(JSON.stringify(this.history_log))
 			var html = vi2.videoManager
 				.render('vi2.viewing-history.ejs', { items: this.history_log } );
 			$( this.options.selector ).html( html );
 		}
+
 }); // end class  
+

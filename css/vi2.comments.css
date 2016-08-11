@@ -1,0 +1,71 @@
+
+
+/* timeline marker */
+.comments-timeline-marker{
+	position: absolute; 
+	top:1px !important;
+	display: block;
+	cursor:pointer; 
+	width: 8px; 
+	height: 8px; 
+	left:0; 
+	margin: 0; 
+	padding: 0;
+	z-index:200;
+	background-color:yellow;
+}
+
+.comments-timeline-marker:hover{
+	width: 14px; 
+	height: 14px;
+	background-color: white;
+}
+
+/* menu entries */
+.comments-list{ padding:0px; list-style-type:none;  list-style-position: inside; margin:0;}
+.comments-list li { line-height:160%; display:list-item; margin: 4px 0; padding:2px 4px; }
+.comments-list li:hover { }
+
+.comments-list li a { text-decoration:none; padding: 2px 1px 1px 3px; color:#111; cursor:pointer;}
+.comments-list li a.comments-menu-question {
+	width:90%;
+	display:inline-block;
+}
+
+
+.comments-header {
+	display:block;
+	border-bottom: 2px solid #777;
+	font-size:11px;
+	padding:0;
+	height:20px;
+}
+
+.comments-user {
+	background-color: #777;
+	color:#fff;
+	margin:0;
+	border:0;
+	padding: 0px 4px;
+	vertical-align:bottom;
+	height:12px;
+}
+
+
+.comments-list li.vi2-highlight {
+    -webkit-animation: highlight-fade 5s 1;
+    -moz-animation: highlight-fade 5s 1;
+}
+
+@-webkit-keyframes highlight-fade {
+    0% { background-color: rgba(255,255,0,1); }
+    100% { background-color: rgba(0,0,0,0); }
+}
+@-moz-keyframes highlight-fade {
+    0% { background-color: rgba(255,255,0,1); }
+    100% { background-color: rgba(0,0,0,0); }
+}
+
+
+
+

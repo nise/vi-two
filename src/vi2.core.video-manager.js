@@ -1,11 +1,11 @@
 /* 
 *	name: Vi2.VideoManager
 *	author: niels.seidel@nise81.com
-* license: MIT License
 *	description: Implements a journaled naviagtion for browsing back and forth in a collection of videos.
 * dependencies:
 *  - jquery-1.11.2.min.js
 *  - jquery.inherit-1.1.1.js
+* license: MIT License
 *	todo:
 
 - kann templates laden und für seine kinder (e.g. related videos verarbeiten)
@@ -153,7 +153,7 @@ Vi2.VideoManager = $.inherit(/** @lends Vi2.VideoManager# */{ //
 		var _this = this;
 		var seek = params.time === undefined ? 0 : params.time.split(/:/)[1];
   	if( params.stream != vi2.observer.current_stream ){ 
-    	$(vi2.dom).empty(); 
+    	$(vi2.dom).empty();   
     	vi2.observer.setCurrentStream( params.stream, seek ); 
 			vi2.observer.player.play(); 
 			_this.loadWidgets();
@@ -181,7 +181,8 @@ Vi2.VideoManager = $.inherit(/** @lends Vi2.VideoManager# */{ //
 			selector: '.syncMedia', 
 			hasTimelineMarker: true, 
 			hasMenu: true, 
-			menuSelector:'.toc' 
+			menuSelector:'.toc',
+			placeholder:'img/placeholder.jpg' 
 		} );
 		
 		//var userNotes = new Vi2.UserNotes();
@@ -198,12 +199,12 @@ Vi2.VideoManager = $.inherit(/** @lends Vi2.VideoManager# */{ //
 				{ criterion: 'outgoing-links', weight:0.5 }
 				] 
 		} );
-		//relatedVideos.init();
+		relatedVideos.init();
 		
-		var inVideoSearch = new Vi2.Search( {
+		/*var inVideoSearch = new Vi2.Search( {
 			resultSelector: '.search-results', 
 			limit: 25
-		} );
+		} );*/
 		//inVideoSearch.find('water basin');
 		
 		

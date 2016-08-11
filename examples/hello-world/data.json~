@@ -1,155 +1,5 @@
-{
-	"_name": "vi2 demo",
-	"categories" :
-		[
+[			
 		{
-			"title":"Introduction", 
-			"pos":0,
-			"link":"a", 
-			"icon":"cat_0.png", 
-			"desc":"a"
-		},
-		{
-			"title":"Water and the physical environment", 
-			"pos":1,
-			"link":"Water_and_the_physical_environment", 
-			"icon":"cat_5.png", 
-			"desc":"This cluster discusses the components and processes within the hydrologic cycle and resulting management options. It includes different methods to quantify soil erosion, water balance, sediment and contaminant transport. Issues are covered that are related to groundwater quantity and quality, surface water quality, climate change and hydrological extremes."
-		},
-		{
-			"title":"Technical measures",
-			"pos":2, 
-			"link":"Technical_measures", 
-			"icon":"cat_1.png", 
-			"desc":"This cluster deals with technical measures that are important for IWRM. It covers issues from the urban water management (centralized and decentralized wastewater treatment), as well as the important issues of reservoir management. Furthermore, flood protection measures as an integral part of flood management are shown."
-			},		
-		{
-			"title":"Water governance",
-			"pos":3, 
-			"link":"Water_governance", 
-			"icon":"cat_3.png", 
-			"desc":"Issues of governance reveal to be of utmost importance for sustainable water resources management. Following an illustrated introduction into the topic of water governance, fundamentals in water law, gender issues, options for participation as well as prevailing spatial and sectoral challenges in river basin management get addressed. Particular emphasis is given to capacity development."
-			},
-		{
-			"title":"Economic instruments",
-			"pos":4, 
-			"link":"Economic_instruments", 
-			"icon":"cat_2.png", 
-			"desc":"In this part of the module, economic instruments are explained and illustrated that regulate the water demand and their interaction with hydrologic models. Furthermore, economic problems in multilateral cooperation on shared watercourses as well as the issue of water pricing are successively explained. "
-			},
-		{
-			"title":"Tools", 
-			"pos":5,
-			"link":"Tools", 
-			"icon":"cat_4.png", 
-			"desc":"Tools for understanding the natural and societal systems that facilitate decision making processes become more and more important. A wide range of tools and methods are shown, e.g. modelling, model coupling, Geographic Information Systems (GIS) and consequently their usage within decision-support-systems (DSS). The cluster further addresses issues related to vulnerability and uncertainty in decision making, e.g. showing tools like scenario planning."
-			},
-		{
-			"title":"IWRM implementation and case studies", 
-			"pos":6,
-			"link":"IWRM_implementation_and_case_studies", 
-			"icon":"cat_6.png", 
-			"desc":"The implementation of Integrated Water Resources Management (IWRM) is still in its infancy.  Thus, case studies from different hydrologically sensitive regions of the world are shown in order to discuss challenges that often occur when one tries to practically implement IWRM. Topics include such important issues like transboundary water management as well as the implementation of IWRM in Europe and in the development cooperation."
-			}
-		],
-	"_taxonomy" : 
-		[
-		{	"id": "capacity",
-				"sub": ["capacity","capacity development","capacities' strengths/weaknesses on national and on local level","coping capacities","enabling environment"] 
-	},
-	{	"id": "climate",	
-			"sub": ["climate system","climate model","climate change","regional downscaling","greenhouse effect","projection","La Nina","El Nino"]
-	},
-	{	"id": "contamination",
-			"sub": ["contaminant transport","advection","sorption","dispersion","diffusion","indicators","chemical reaction","radioactive decay"]
-	},
-	{	"id": "decision support",
-			"sub": ["decision support system","decision making","decision-making processes","multi-criteria","multi criteria assessment","GIS-based decision tool"] 
-	},
-	{	"id": "development",
-			"sub": ["german development cooperation","future development","organisational development"] 
-	},
-	{	"id": "drought",
-			"sub": ["drought","drought indices"] 
-	},
-	{	"id": "economics",
-			"sub": ["economics of water","economic analysis","political economy","market","water pricing","tariff","costs","cost of non-cooperation","benefit","benefit function","rivalry","excludability","externalities","water allocation","water pricing"] 
-		},
-		{	"id": "ecology",
-				"sub": ["river ecology","lake ecology","wetlands","nutrients","degradation","monitoring","good status","enabling environment","emission","River Continuum Concept (RCC)","immission"] 
-		},
-		{	"id": "field experiment",
-			"sub": ["experimental design","data collection","experimental layout"]
-		},
-		{	"id": "flood",
-				"sub": ["floods","flood risk","flood risk management","flood protection assets","flood mitigation","flood management","flood frequency","Floods Directive (FD)"] 
-		},
-		{	"id": "geography",
-				"sub": ["Africa","Algeria","Bali","Bangladesh","Bolivia","Burkina Faso","Ethiopia","Europe","France","Germany","Ghana","Haiti","India","Jordan","Mongolia","Morocco","Russia","South Africa","Spain","Switzerland","Tigris-Euphrates Basin","Ukraine"]
-		},
-		{	"id": "GIS",
-				"sub": ["GIS","Digital Elevation Model","point data","raster data","vector data","remote sensing","watershed delineation"]
-		},
-		{	"id": "governance",
-				"sub": ["governance","water governance","technology and related governance requirements","Compagnie d’Aménagement des Coteaux de Gascogne (CACG)","contractual relationships","principal/agent problems","tragedy of the commons","gendered water"] 
-		},
-		{	"id": "groundwater",
-				"sub": ["groundwater","groundwater recharge","groundwater flow model","recharge area","discharge area","springs","hydrostratigraphic units","aquifer hydraulic parameters","karstic aquifers"] 
-		},
-		{	"id": "hydrology",
-				"sub": ["hydrological cycle","hydrologic processes","hydrologic model","hydrological extremes","precipitation","open water evaporation","evapotranspiration","streamflow","isotropy","dendrohydrology","fractures","homogeneity","bank filtration","water balance"]
-		},
-		{	"id": "management",
-				"sub": ["management","management approach","water management principles","water management as an issue of social power","water master plan","IWRM", "IWRM as a cycle","implementation of IWRM principles","evaluation","sensible target"]
-		},
-		{	"id": "model",
-				"sub": ["Artificial Intelligence","copula modelling","crop growth modelling","crop growth model parameters","hydrological model","groundwater flow model","models","modelling urban water fluxes","modelling procedure","model misuse","climate model","nutrient flux modelling","optimization model","regionalization","river basin management model","simulation-based irrigation scheduling","vulnerability models"] 
-		},
-		{	"id": "participation",
-				"sub": ["participation","actors/relations/order/means"] 
-		},
-		{	"id": "reservoir",
-				"sub": ["reservoir","reservoir sedimentation","reservoir operation","reservoir management"] 
-		},
-		{	"id": "river basin",
-				"sub": ["river basin","river basin management","river basin management model","river basin perspective","surface water","surface and sub-surface watershed","River Continuum Concept (RCC)","transboundry river","institutional challenges of RBM (space, sector and scale)","man-environment system","evaluation","influent and effluent rivers","watershed delineation","unguaged catchments","hydromorphology"]
-		},
-		{	"id": "scenario",
-				"sub": ["scenario planning","scenario analysis","multi-criteria","multi criteria assessment"]
-		},
-		{	"id": "sectors",
-				"sub": ["sectors in water use","intra-water sector issue linkage","irrigation"]
-		},
-		{	"id": "sediment",
-				"sub": ["sediment yield","sediment transport","sediment management","suspended load","incipient motion","bed load"]
-		},
-		{	"id": "soil-water",
-				"sub": ["soil erosion","soil and water degradation","soil and water conservation","soil and water conservation policy issues","salt water intrusion","degradation"]
-		},
-		{	"id": "transboundary",
-				"sub": ["transboundary river","transboundary cooperation","transboundary aquifers","patterns of riparian constellations","unidirectional externality problems","cost of non-cooperation","altruism"]
-		},
-		{"id": "vulnerability",
-				"sub": ["vulnerability","vulnerability models","vulnerability index","hazard","disaster","resilience","coping capacities"] 
-		},
-		{	"id": "wastewater",
-				"sub": ["wastewater","wastewater treatment","centralized wastewater treatment","decentralized wastewater treatment","sludge","membrane bioreactor","urban drainage system"]
-		},
-		{	"id": "water quality",
-				"sub": ["water supply system","water sharing","water quality","groundwater","wastewater","wastewater treatment"]
-		},
-		{	"id": "water quantity",	
-				"sub": ["crop water productivity","deficit irrigation","groundwater","water harvesting","water scarcity"]
-		},
-		{	"id": "water law",
-				"sub": ["international law","soft law","Water Framework Directive (WFD)"]
-		},
-		{	"id": "Water Framework Directive (WFD)",
-				"sub": ["Basic concept and implementation","water law perspective of the WFD","Participation within the WFD"]
-		}
-		],		
-	"stream":[
-			{
 				"id": "borchardt2",
 				"metadata":[{
 					"selector":"#metadata",
@@ -1965,7 +1815,7 @@
 					"weight": 4,
 					"titleselector":"h2"
 				}],
-				"video": "http://localhost/elearning/vi-two/examples/iwrm/videos/iwrm_seidel1.webm",
+				"video": "http://localhost/elearning/vi2/vi-two/examples/iwrm/videos/iwrm_seidel1.webm",
 				"video2": "http://www.iwrm-education.de/videos/iwrm_seidel1.webm",
 				"tags": [
 					{"tagname":"crop growth modelling","occ":[0]},
@@ -2085,7 +1935,6 @@
 					{"type":"xlink","x":3,"y":93,"duration":"10","start":"00:39:12","id":"Simulation-based irrigation scheduling","seek":"-99","duration2":"-99","target":"seidel1"}
 				]
 		}						
-	]
-}
+]
 
 

@@ -25,7 +25,7 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 		*		@param {Number} options.criteria.weight Weight of the given criteria
 		*		@param {Number} options.limit Number of requestested related videos
 		*/
-  	__constructor : function(options) { 
+  	__constructor : function(options) {  
   		this.options = $.extend(this.options, options); 
 		},
 				
@@ -45,7 +45,7 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 		player : null,
 		
 		/* ... */
-		init : function(ann){
+		init : function(ann){ 
 			//var _this = this;
 			//this.link_list = this.buildLinkList(ann);	
 			this.determineCriteria( vi2.observer.current_stream );
@@ -85,13 +85,13 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 		/*
 		* @res {object} {<stream-id>: <number of occurances>}
 		**/
-		weightResults : function(res, weight){  
+		weightResults : function(res, weight){   
 			var _this = this;
 			$.each(res, function(i, val){ 
-				if( i in _this.results === false ){  
-					_this.results[ i ] = 0;
+				if( val in _this.results === false ){  
+					_this.results[ val ] = 0;
 				} 
-				_this.results[ i ] += Math.floor( val * weight * 10) / 10; // bug: strange floating number as result
+				_this.results[ val ] += Math.floor( weight * 10) / 10; // bug: strange floating number as result
 			});
 			
 		},
@@ -119,12 +119,17 @@ Vi2.RelatedVideos = $.inherit(/** @lends Vi2.RelatedVideos# */{
 			this.results = this.sortByRelevance( this.results );
 			var ul = $('<ul></ul>');
 			
-			var j = 0;	
-			$.each(this.results, function(i,val){
+			var j = 0;	  
+			$.each(this.results, function(i,val){ 
 				if( j < _this.options.limit ){ 
 					var t = val.toString().split(','); 
 					var li = $('<li></li>').appendTo(ul);
-					var a = $('<a></a>').attr('href','#!/video/' + t[0] + '').text( t[0] + ' (' + t[1] + ')').appendTo(li);
+					var meta = vi2.db.getMetadataById(t[0])
+					var title = meta.title +' ('+ meta.author + ')';
+					var a = $('<a></a>')
+						.attr('href','#!/video/' + t[0] + '')
+						.text( title + ' (' + Number(t[1]).toFixed(1) + ')')
+						.appendTo(li);
 					;	
 				}
 				j++;

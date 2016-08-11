@@ -78,7 +78,7 @@
 			//var logEntry = this.getLogTime()+', '+vi2.currentVideo+', '+', '+vi2.currentGroup+', '+vi2.userData.id+', '+msg+', '+this.getUserAgent()+'\n'; 
 			//'clickcommentfromlist:'+val.name +' '+val.author+' '+ val.time 
 			if(typeof msg === 'string'){
-				console.log(msg);
+				console.log('warning: uncaptured log emtrie: ' +msg);
 				return;
 			}else{
 				//console.log(msg.context);

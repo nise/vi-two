@@ -4,10 +4,8 @@
 - start widgets from config.json / /json/vi-two-config
 - multilingual support for all text and controls
 - use a template engine, maybe ejs
-
-
-
-
+- eliminate parser
+- consider html-track as storage/timing mechanism
 
 
 ## new widgets for my dissertation
@@ -36,14 +34,6 @@ http://liris.cnrs.fr/advene/cinelab/
 
 
 
-# Others
-
-
-#vi-lab node
-- gzip compression
-- VI-TWO Datenbank auf serverseite verschieben und db-Klasse als Schnittstelle umgestalten
-
-
 
 ## beauty of code 
 - reduce dependencies: 
@@ -59,8 +49,7 @@ http://liris.cnrs.fr/advene/cinelab/
 
 
 
-NiceToHave
-
+## NiceToHave
 - popcorn plugin für assessment.
 - popcorn-plugin en-/disable via Widget Editor (??? Wie soll das gehen)
 - add links > IWRM

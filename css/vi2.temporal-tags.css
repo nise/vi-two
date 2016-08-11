@@ -1,0 +1,28 @@
+
+
+.tagslist { padding:0px; list-style-type:none; margin:2px 0 0 0; }
+.tagslist li{ padding:0; margin:0; line-height:20px; font-size:12px; display:inline; cursor:pointer; padding: 2px 1px 1px 3px;}
+.tagslist li:hover { position:relative; text-decoration:none; color:white; background-color: #ccc; -moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;}
+.tagslist li:hover span.icon-bar { z-index:55000; position:absolute; left:-2px; top:-10px;}
+
+.timetag{
+	cursor:pointer; 
+	position: absolute; 
+	display: block; 
+	width: 5px; 
+	height: 20px; 
+	left:0; 
+	margin: 0; 
+	padding: 0;
+}
+
+span.timetag.taccessment{ width:6px; background-color: green; opacity:0.6;}
+
+span.timetag.ttag{ width:6px; height: 30px; top:-10px; background-color: #1C94C4; z-index:1000;}
+span.timetag.ttag:hover{ width:12px;}
+span.timetag.tmedia{ width:4px; background-color: blue;}
+
+span.timetag.tlink{ width:7px; height:14px; bottom:11px; background-color: lightblue; opacity:0.7;}
+span.timetag.taccessment{ width:7px; height:8px; bottom:15px; background-color: green; opacity:0.7;}
+
+

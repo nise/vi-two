@@ -6,6 +6,8 @@
 		
 		
     <title>vi2 framework showcase</title>
+    <link type="text/css" href="../../css/bootstrap.min.css" rel="stylesheet" >
+    <!--<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:400,700&subset=latin,latin-ext' type='text/css'>-->
     <link type="text/css" href="../../css/ui-lightness/jquery-ui-1.7.2.custom.css" rel="stylesheet" />
 		<link type="text/css" href="../../css/jquery.ui.autocomplete.custom.css" rel="stylesheet" />
 		<link type="text/css" href="../../css/vi2.main.css" rel="stylesheet" media="screen" />
@@ -26,8 +28,9 @@
 		<link type="text/css" href="../../css/vi2.closed-captions.css" rel="stylesheet" media="screen" />
 		<link type="text/css" href="../../css/vi2.toc.css" rel="stylesheet" media="screen" />
 		<link type="text/css" href="../../css/vi2.videoplayer.css" rel="stylesheet" media="screen" />
-
-		
+		<link type="text/css" href="../../css/vi2.annotated-timeline.css" rel="stylesheet" />
+		<link type="text/css" href="/static/css/vi2.hyperlinks.css" rel="stylesheet" />
+		<link type="text/css" href="/static/css/vi2.comments.css" rel="stylesheet" />
 			
 		<style>
 
@@ -71,6 +74,8 @@
 		<script src="../../lib/jquery.json-2.2.min.js"></script>
 		<script src="../../lib/jquery-ui-1.10.3.custom.min.js"></script>
 		<script src="../../lib/jquery.inherit-1.1.1.js"></script>
+		<script src="../../lib/bootstrap.js" type="text/javascript"></script>
+
 		<script src='../../lib/ejs22.js'></script>
 		<script src="../../lib/jquery.tinysort.js"></script>
 		<script src="../../lib/jquery.tooltip.js"></script>
@@ -86,7 +91,7 @@
 				ocr = undefined
 				;
 			var Vi2 = {}; // set the Namespace
-			$(document).ready(function(){ alert(2)
+			$(document).ready(function(){
 				var core = new Vi2.Example();	
 			});
 		</script>
@@ -97,6 +102,7 @@
 		<script src="../../src/vi2.core.log.js"></script>
 		<script src="../../src/vi2.core.database.js"></script>
 		<script src="../../src/vi2.core.observer.js"></script>
+		<script src="../../src/vi2.core.annotated-timeline.js"></script>
 		<script src="../../src/vi2.core.parser.js"></script>
 		<script src="../../src/vi2.core.videoplayer.js"></script>
 		<script src="../../src/vi2.core.clock.js"></script>
@@ -105,20 +111,21 @@
 		<script src="../../src/vi2.core.utils.js"></script>
 		<!-- vi-two player-widgets	-->
 		<script src="../../src/vi2.player.playback-speed.js"></script>
-<!--		<script src="../../src/vi2.player.temporal-bookmarks.js"></script>
+		<script src="../../src/vi2.player.temporal-bookmarks.js"></script>
 		<script src="../../src/vi2.player.zoom.js"></script>
-		<script src="../../src/vi2.player.sharing.js"></script>-->
+		<script src="../../src/vi2.player.sharing.js"></script><!---->
 		<script src="../../src/vi2.player.skip-back.js"></script>		
 		<!-- vi-two portal-widgets -->
 		<script src="../../src/vi2.core.video-manager.js"></script>
-<!--		<script src="../../src/vi2.related-videos.js"></script>
+		<script src="../../src/vi2.related-videos.js"></script>
 		<script src="../../src/vi2.viewing-history.js"></script>
-		<script src="../../src/vi2.search.js"></script>-->
+<!--		<script src="../../src/vi2.search.js"></script>-->
 		<!-- vi-two annotation-widgets -->
-		<script src="../../src/vi2.annotationtoc.js"></script>
+		<script src="../../src/vi2.annotation.toc.js"></script>
 		<script src="../../src/vi2.annotation.simultaneous-media.js"></script>
+		<script src="../../src/vi2.closed-captions.js"></script>
 <!--		<script src="../../src/vi2.user-notes.js"></script>
-		<script src="../../src/vi2.closed-captions.js"></script>-->
+		-->
 		
 	<!--	<script src="../../src/vi2.hyperlinks.js"></script>
 		<script src="../../src/vi2.seq.js"></script>
@@ -132,43 +139,65 @@
 			<div id="seq"></div>
 			<div id="overlay"></div>
 			<div id="split"></div>
-			<div class="sidepanel"> <a href="#!/video/balke1">balke</a><a href="#!/viewing-history"> hist</a>
-				<div class="viewing-history">xxx</div>
+			<div class="sidepanel"> 
+				<a href="#!/video/balke1">home</a>
+				<a href="#!/viewing-history"> hist</a>
+				<hr>
+				<h3>Metadata</h3>
 				<div class="metadata"></div>
-				<div class="user-notes">
-					<h3>User Notes</h3>
-				</div>
-				<div class="toc">
-					<h3>Contents</h3>
-				</div>
-				<div class="related-videos">
-					<h3>Related Videos</h3>
-				</div>
-				<div class="search-results">
-					<h3>Search Results</h3>
-				</div>
-				<div class="syncMedia"></div>
-			</div>
-			
+				<h3>Transcript</h3>
+				<div class="transcript">--</div>
+				<h3>Viewing History</h3>
+				<div class="viewing-history">--</div>
+				<h3>Related Videos</h3>
+				<div class="related-videos">--</div>
+				<h3>Contents</h3>
+				<div class="toc">--</div>
+				<h3>Search Results</h3>
+				<div class="search-results">--</div>
+				<h3>Sync Media</h3>
+				<div class="syncMedia">--</div>
+				<h3>User Notes</h3>
+				<div class="user-notes"></div>
+				
 			<div id="accordion-resizer" class="ui-widget-content">
 				
 			</div>
 		</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div id="videowrapper" class="col-lg-9 col-md-9 col-sm-9 ">  
+				<div id="seq" class=""></div>
+				<div id="overlay" class=""></div>
+				<div id="split" class="col-md-9"></div>
+				<div id="screen" class="col-md-9"></div>
+			</div>	
+			<div id="accordion-resizer" class="col-lg-3 col-md-3 col-sm-3 hidden-xs visible-sm-inline">
+				<div id="accordion"></div>
+			</div>
+		</div>	
 		<div id="video-controls" class="video-controls">
-			<div class="timelines vi2-btn">
-				<div class="vi2-video-seeklink vi2-btn"></div>
-				<div class="vi2-video-seek vi2-btn"></div>
+			<div class="timelines">
+				<!--<div class="vi2-video-seeklink vi2-btn"></div>-->
+				<div class="vi2-timeline-top"></div>
+				<div class="vi2-timeline-main vi2-btn"></div>
+				<div class="vi2-timeline-bottom"></div>
 				<div class="vi2-video-progress vi2-btn"></div>
 			</div>
 			<div class="control-bar">
-				<div class="vi2-video-play-pause vi2-btn" title="Play/Pause"></div>
-				<div class="vi2-video-timer"></div>
+				<div class="vi2-video-play-pause vi2-btn" title="Play/Pause">
+					<span class="glyphicon glyphicon-play"></span>
+					<span class="glyphicon glyphicon-pause"></span>
+				</div>
 				<div class="vi2-volume-box">
 					<div class="vi2-volume-slider"></div>
-					<a class="vi2-volume-button vi2-btn" title="Mute/Unmute"></a>
+					<span class="vi2-volume-button vi2-btn" title="Mute/Unmute"></span>
 				</div>
+				<div class="vi2-video-timerxxx"></div>
 			</div>
 		</div>
+	</div>		
+		
 
 		
 		
