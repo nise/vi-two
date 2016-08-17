@@ -11,13 +11,13 @@
 */
 
 
-Vi2.ClosedCaptions = $.inherit(Annotation, /** @lends Vi2.SyncMedia# */{
+Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
 
 		/** @constructs 
 		*		@extends Annotation 
 		*		@param {object} options An object containing the parameters
 		*/
-  	__constructor : function(options) { 
+  	__constructor : function(options) { alert(23)
   			this.options = $.extend(this.options, options);	
   	},
   	
