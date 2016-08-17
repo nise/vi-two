@@ -52,7 +52,7 @@ Vi2.Example = $.inherit({
 		var viewingHistory = new Vi2.ViewingHistory();
 		vi2.observer.addWidget( viewingHistory );
 		
-		var closedCaption = new Vi2.ClosedCaption();
+		var closedCaption = new Vi2.ClosedCaptions();
 		vi2.observer.addWidget( closedCaption );
 			
 		// At first we define some basic player widgets
