@@ -46,7 +46,7 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
 
       // i should write a function, which controls display subtitles !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       if (this.options.displaySubtitles) {
-        _this.displaySubtitles();
+        this.displaySubtitles();
       }
 
       video.addEventListener('loadedmetadata', function () {
@@ -181,7 +181,9 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
         trackElements[j].track.mode = 'hidden';
 
         trackElements[j].onclick = function () {
+
           console.log(trackElements[j]);
+          
           trackElements[j].track.mode = 'showing';
         };
       }
