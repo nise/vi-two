@@ -17,7 +17,7 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
 		*		@extends Annotation 
 		*		@param {object} options An object containing the parameters
 		*/
-  	__constructor : function(options) { alert(23)
+  	__constructor : function(options) {
   			this.options = $.extend(this.options, options);	
   	},
   	
@@ -28,24 +28,165 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
 		options : {    //hasTimelineMarker: true, hasMenu: true, menuSelector:'.toc'
 			selector: '.closedCaption', 
 			hasTimelineMarker: true, 
-			controls: true, 
-			hasTimelineMarker: true,
+			controls: true,
 			timelineSelector : 'div.vi2-video-seek',
 			hasMenu: true,
-			menuSelector:'.transcript'
+      displaySubtitles: false,
+			menuSelector:'.transcript',
+      src: 'test.vvt'
 		},
-		tag_obj : [],
-		
-		width : 0, // not needed
-		height : 0, 
-		
-		
+
+    // for tests: file:///C:/Users/Dmitry/Desktop/vi-two/examples/hello-world/index.html#!/video/seidel2
 		/* Initialize */
-		init : function(ann){  	
+		init : function(ann){
   		//**** write the code to add the track element to the video
+      // 1. add track element video
+      var video = vi2.observer.player.video;
+      var _this = this;
+
+      // i should write a function, which controls display subtitles !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      if (this.options.displaySubtitles) {
+        _this.displaySubtitles();
+      }
+
+      video.addEventListener('loadedmetadata', function () {
+        var track = document.createElement('track');
+
+        track.kind = 'subtitles';
+        track.label = 'English';
+        track.srclang = 'en';
+        track.src = _this.options.src;
+
+        // 'this' is a reference to the videoElement
+        this.appendChild(track);
+
+        _this.displayTranscript();
+      });
 		},
 		
-		
+    displayTranscript : function(){
+
+      // 2. loop
+      // accessing tag mit class="transcript"
+      var video = vi2.observer.player.video;
+      var transcript = document.querySelector(this.options.menuSelector);
+      var trackElements = video.querySelectorAll('track');
+      var _this = this;
+
+      // for each track element
+      for (var i = 0; i < trackElements.length; i++) {
+        // it is to hide all subtitles; it is used HTMLTrackElement, because it works better in Firefox
+        trackElements[i].track.mode = 'hidden';
+
+        trackElements[i].addEventListener('load', function() {
+          // "this" is an HTMLTrackElement, NOT a TextTrack object; HTMLTrackElement is used, because it works better in Firefox
+          var textTrack = this.track;
+
+          if (textTrack.kind === 'subtitles' || textTrack.kind === 'captions') {
+            var cueList = textTrack.cues;
+            var transcriptText = '';
+
+            for (var i = 0; i < cueList.length; i++) {
+
+              if (_this.isJson(cueList[i].text)) {
+                transcriptText += ('<div id="' + (i+1) + '" class="transcript-cue">' + JSON.parse(cueList[i].text).description + '</div>' + ' ');
+              } else if (cueList[i].text[0] === '{' && cueList[i].text[cueList[i].text.length - 1] === '}') {
+                transcriptText += ('<div id="' + (i+1) + '" class="transcript-cue">' + 'No Subtitle' + '</div>' + ' ');
+              } else {
+                transcriptText += ('<div id="' + (i+1) + '" class="transcript-cue">' + cueList[i].text + '</div>' + ' ');
+              }
+            }
+
+            if (transcriptText) {
+              transcript.innerHTML = transcriptText;
+            }
+
+            // timeupdate event does NOT fire, why?
+            transcript.addEventListener('timeupdate', function () {
+              console.log('hi');
+              var transcript = this;
+
+              _this.highlightCue(video, transcript, cueList);
+            }, false);
+
+            // click event fires okay
+            transcript.addEventListener('click', function () {
+              var transcript = this;
+
+              _this.clickOnCueHandler(video, transcript, cueList)
+            }, false);
+          } else {
+            // do NOT delete console.log
+            console.log('If you want to see the transcript on the page, ' +
+              'then change attribute kind like so: <track kind="subtitles"> or <track kind="captions">')
+          }
+        });
+      }
+    },
+
+    clickOnCueHandler : function (videoElement, transcriptElement, allCues) {
+      var elementHover = transcriptElement.querySelector(':hover');
+
+      for (var i = 0; i < allCues.length; i++) {
+
+        // all id-s in the source file of subtitles should be from 1 to ... in the ascending order
+        // so it is NECESSARY to organize subtitles in the source file with the right id-s
+        // this is NOT the best limitation
+        // THINK how to override it
+        // TELL Niels
+
+        if (elementHover.id === allCues[i].id) {
+
+          // i could use something like that:
+          // var video = vi2.observer.player;
+          // video.currentTime(allCues[i].startTime);
+
+          // BUT i used native method, which seems to be more effective, because native
+          videoElement.currentTime = allCues[i].startTime;
+        }
+      }
+    },
+
+    // to control the player => vi2.observer.player.video | vi2.observer.player.currentTime | vi2.observer.player.play
+    highlightCue : function (videoElement, transcriptElement, allCues) {
+        var currentTime = videoElement.currentTime;
+
+        for (var i = 0; i < allCues.length; i++) {
+          var cue = allCues[i];
+
+          if (currentTime >= cue.startTime && currentTime <= cue.endTime) {
+            transcriptElement.children[i].classList.add('current-cue');
+          } else {
+            transcriptElement.children[i].classList.remove('current-cue');
+          }
+        }
+    },
+
+    isJson : function (str) {
+      try {
+        JSON.parse(str);
+      } catch (err) {
+        return false;
+      }
+
+      return true;
+    },
+
+    // how to test it?
+    displaySubtitles : function () {
+      var video = vi2.observer.player.video;
+      var trackElements = video.querySelectorAll('track');
+
+      for (var j = 0; j < trackElements.length; j++) {
+        trackElements[j].track.mode = 'hidden';
+
+        trackElements[j].onclick = function () {
+          console.log(trackElements[j]);
+          trackElements[j].track.mode = 'showing';
+        };
+      }
+    },
+
 		/* 
 		 * Converts subtitle formats like SubRip, W3C WEBVVT, W3C TTML into the internal representation
 		 * todo: optain data form subtitle files & convert to the following format:
@@ -82,5 +223,3 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
 		},
   	
 	}); // end class 
-
-

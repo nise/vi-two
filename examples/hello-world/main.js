@@ -52,7 +52,7 @@ Vi2.Example = $.inherit({
 		var viewingHistory = new Vi2.ViewingHistory();
 		vi2.observer.addWidget( viewingHistory );
 		
-		var closedCaption = new Vi2.ClosedCaptions();
+		var closedCaption = new Vi2.ClosedCaptions( {src : "http://simpl.info/track/tracks/developerStories-subtitles-en.vtt"});
 		vi2.observer.addWidget( closedCaption );
 			
 		// At first we define some basic player widgets
