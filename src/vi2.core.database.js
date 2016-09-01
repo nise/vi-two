@@ -196,9 +196,13 @@
 				}
 		});
 		return authors;
-	}, 
-	
-	
+	},
+
+	/* returns all tags of a video/stream **/
+	getClosedCaptionsById : function(id){
+		return this.getStreamById(id).closedCaptions === undefined ? {} : this.getStreamById(id).closedCaptions;
+	},
+
 	/*****************************************************/
 	/* TAGS */	
 
@@ -211,7 +215,7 @@
 	getCommentsById : function(id){
 		return this.getStreamById(id).comments === undefined ? {} : this.getStreamById(id).comments;
 	},
-		
+
 	/* returns all tags related to the whole video collection **/
 	getTagList : function(){
 		var tags = [];
