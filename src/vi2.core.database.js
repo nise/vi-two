@@ -199,8 +199,8 @@
 	},
 
 	/* returns all tags of a video/stream **/
-	getClosedCaptionsById : function(id){
-		return this.getStreamById(id).closedCaptions === undefined ? {} : this.getStreamById(id).closedCaptions;
+	getClosedCaptionsById : function(id){ 
+		return this.getStreamById(id).closedCaptions === undefined ? undefined : this.getStreamById(id).closedCaptions;
 	},
 
 	/*****************************************************/

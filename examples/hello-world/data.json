@@ -1861,7 +1861,8 @@
 					"weight": 4,
 					"titleselector":"h2"
 				}],
-				"video": "http://www.iwrm-education.de/videos/iwrm_seidel2.webm",
+				"video2": "http://www.iwrm-education.de/videos/iwrm_seidel2.webm",
+				"video": "http://localhost/elearning/vi2/vi-two/examples/iwrm/videos/iwrm_seidel2.webm",
 				"tags": [
 					{"tagname":"experimental design","occ":[0]},
 					{"tagname":"deficit irrigation","occ":[0]},
@@ -1871,36 +1872,40 @@
 					{"tagname":"irrigation","occ":[0]},
 					{"tagname":"crop growth model parameters","occ":[0]}
 				],
-                "closedCaptions": [
-                  {
-                    "trackLanguage": "en",
-                    "content": [
-                      {"cueText":"Introduction","duration":1,"start":"0.0", "end":""},
-                      {"cueText":"Objectives","duration":1,"start":"251.0", "end":""},
-                      {"cueText":"Experimental design for modelling irrigated crop production","duration":1,"start":"319.0", "end":""},
-                      {"cueText":"Data collection and instrumentation","duration":1,"start":"368.0", "end":""},
-                      {"cueText":"Experimental layout","duration":1,"start":"1191.0", "end":""},
-                      {"cueText":"Model parameter estimation","duration":1,"start":"1392", "end":""},
-                      {"cueText":"Soil parameter estimation using models Rosetta and RETC","duration":1,"start":"1659", "end":""},
-                      {"cueText":"Results","duration":1,"start":"2020.0", "end":""},
-                      {"cueText":"Summary","duration":1,"start":"2090.0", "end":""}
-                    ]
-                  },
-                  {
-                    "trackLanguage": "de",
-                    "content": [
-                      {"cueText":"Einführung","duration":1,"start":"0.0", "end":""},
-                      {"cueText":"Ziele","duration":1,"start":"251.0", "end":""},
-                      {"cueText":"Etwas auf deutsch Etwas auf deutsch Etwas auf deutsch Etwas auf deutsch Etwas auf deutsch ","duration":1,"start":"319.0", "end":""},
-                      {"cueText":"Etwas auf deutsch Etwas auf deutsch ","duration":1,"start":"368.0", "end":""},
-                      {"cueText":"Etwas auf deutsch ","duration":1,"start":"1191.0", "end":""},
-                      {"cueText":"Etwas auf deutsch ","duration":1,"start":"1392", "end":""},
-                      {"cueText":"Etwas auf deutsch Etwas auf deutsch Etwas auf deutsch ","duration":1,"start":"1659", "end":""},
-                      {"cueText":"Etwas auf deutsch ","duration":1,"start":"2020.0", "end":""},
-                      {"cueText":"Etwas auf deutsch ","duration":1,"start":"2090.0", "end":""}
-                    ]
-                  }
-                ],
+		    "closedCaptions": [
+		      {
+		        "kind":"captions",
+		        "label":"English subtitles",
+		        "srclang": "en",
+		        "src": [
+		          {"cueText":"Introduction","duration":1,"start":"0.0", "end":""},
+		          {"cueText":"Objectives","duration":1,"start":"251.0", "end":""},
+		          {"cueText":"Experimental design for modelling irrigated crop production","duration":1,"start":"319.0", "end":""},
+		          {"cueText":"Data collection and instrumentation","duration":1,"start":"368.0", "end":""},
+		          {"cueText":"Experimental layout","duration":1,"start":"1191.0", "end":""},
+		          {"cueText":"Model parameter estimation","duration":1,"start":"1392", "end":""},
+		          {"cueText":"Soil parameter estimation using models Rosetta and RETC","duration":1,"start":"1659", "end":""},
+		          {"cueText":"Results","duration":1,"start":"2020.0", "end":""},
+		          {"cueText":"Summary","duration":1,"start":"2090.0", "end":""}
+		        ]
+		      },
+		      {
+		        "kind":"captions",
+		        "label":"German subtitles",
+		        "srclang": "de",
+		        "src": [
+		          {"cueText":"Einführung","duration":1,"start":"0.0", "end":""},
+		          {"cueText":"Ziele","duration":1,"start":"251.0", "end":""},
+		          {"cueText":"Etwas auf deutsch Etwas auf deutsch Etwas auf deutsch Etwas auf deutsch Etwas auf deutsch ","duration":1,"start":"319.0", "end":""},
+		          {"cueText":"Etwas auf deutsch Etwas auf deutsch ","duration":1,"start":"368.0", "end":""},
+		          {"cueText":"Etwas auf deutsch ","duration":1,"start":"1191.0", "end":""},
+		          {"cueText":"Etwas auf deutsch ","duration":1,"start":"1392", "end":""},
+		          {"cueText":"Etwas auf deutsch Etwas auf deutsch Etwas auf deutsch ","duration":1,"start":"1659", "end":""},
+		          {"cueText":"Etwas auf deutsch ","duration":1,"start":"2020.0", "end":""},
+		          {"cueText":"Etwas auf deutsch ","duration":1,"start":"2090.0", "end":""}
+		        ]
+		      }
+		    ],
 				"toc": [
 					{"label":"Introduction","duration":1,"start":"0.0"},
       		{"label":"Objectives","duration":1,"start":"251.0"},

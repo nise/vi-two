@@ -54,7 +54,7 @@ Vi2.Example = $.inherit({
 
 		// =================================================================================================================
 		var closedCaption = new Vi2.ClosedCaptions( {
-      tracks: [
+      /*tracks: [
         {
           srclang: 'en',
           src: 'http://simpl.info/track/tracks/developerStories-subtitles-en.vtt',
@@ -73,7 +73,8 @@ Vi2.Example = $.inherit({
           kind: 'subtitles',
           label: 'Russian'
         }
-      ]});
+      ]*/
+      });
     // =================================================================================================================
 		vi2.observer.addWidget( closedCaption );
 			

@@ -8,6 +8,7 @@
 *  - jquery.inherit-1.1.1.js
 *	todo:
 *	- srt files, font size, multi language, colored text, bg-contrast
+* - for tests: file:///C:/Users/Dmitry/Desktop/vi-two/examples/hello-world/index.html#!/video/seidel2
 */
 
 
@@ -31,105 +32,96 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
     controls: true,
     timelineSelector: 'div.vi2-video-seek',
     hasMenu: true,
-    displaySubtitles: false,
+    displaySubtitles: true,
+    displayTranscript: true,
     menuSelector: '.transcript',
     tracks: []
   },
   cueList: [],
   selectedLanguage: 'en',
 
-  // for tests: file:///C:/Users/Dmitry/Desktop/vi-two/examples/hello-world/index.html#!/video/seidel2
+  
   /* Initialize */
   init : function (ann) {
-    //**** write the code to add the track element to the video
-    // 1. add track element video
-    var video = vi2.observer.player.video;
-    var _this = this;
-    var controlBar = document.querySelector('.control-bar');
-    // receipt of all tracks from the _this.options.tracks
-    var trackList = _this.options.tracks;
-    // receipt of closed captions from the json file directly
-    var jsonClosedCaptions = vi2.db.getClosedCaptionsById(vi2.observer.current_stream);
+    var 
+    	_this = this,
+    	db_tracks = vi2.db.getClosedCaptionsById( vi2.observer.current_stream );
+    	;
+    
+    if( this.options.tracks.length === 0 && db_tracks !== undefined ){
+    	this.options.tracks = db_tracks ;
+    }
 
-    // ========================== displaySubtitles NOT tested ===================================
     if (this.options.displaySubtitles) {
       this.displaySubtitles();
     }
-    // ========================== displaySubtitles NOT tested ===================================
-
-
-    // ========================== done only for track elements ===================================
-    video.addEventListener('loadedmetadata', function () {
-      if (trackList.length > 0) {
-        // addition of all track elements to the video for different languages
-        for (var x = 0; x < trackList.length; x++) {
-          var track = document.createElement('track');
-
-          track.kind = _this.options.tracks[x].kind;
-          track.label = _this.options.tracks[x].label;
-          track.srclang = _this.options.tracks[x].srclang;
-          track.src = _this.options.src;
-
-          // 'this' is a reference to the video
-          this.appendChild(track);
-        }
-      }
-      // it is to read the data from the json file
-      // else if (jsonClosedCaptions) {
-      //   var trackList = getDataFromDataJson;
-      // }
-      // else if (both _this.options.tracks.length > 0 && jsonClosedCaptions.length > 0) {
-      //   combine the first condition with this one
-      //   use _this.options.src, so the track elements
-      // }
-
-      _this.displayTranscript();
-    });
-    // ========================== done only for track elements ===================================
-
-
-    // ========================== setCurrentLanguage is missing ===================================
-    // if (trackList.length > 0 || jsonClosedCaptions.length > 0 || trackList.length > 0 && jsonClosedCaptions.length > 0)
-    // if statement should be something like above
-    if (trackList.length > 0) {
-      var closedCaptionsButton = document.createElement('div');
-      var languageOptionsMenu = document.querySelector('.vi2-speed-controls > ul');
-
-      closedCaptionsButton.innerHTML += 'CC';
-      closedCaptionsButton.classList.add('vi2-caption-controls');
-      controlBar.appendChild(closedCaptionsButton);
-
-      closedCaptionsButton.addEventListener('mouseenter', function () {
-        languageOptionsMenu.classList.add('display-block');
-      });
-
-      closedCaptionsButton.addEventListener('mouseleave', function () {
-        languageOptionsMenu.classList.add('display-none');
-      });
-
-      var trackLanguageOptions = document.createElement('ul');
-      closedCaptionsButton.appendChild(trackLanguageOptions);
-
-      for (var y = 0; y < (trackList.length + 1); y++) {
-        var languageOption = document.createElement('li');
-        trackLanguageOptions.appendChild(languageOption);
-
-        if (y < trackList.length) {
-          languageOption.innerHTML += _this.options.tracks[y].label;
-          languageOption.classList.add(_this.options.tracks[y].srclang);
-        } else if (languageOption.innerHTML.length === 0) {
-          languageOption.innerHTML += 'Off';
-          languageOption.classList.add('off');
-        }
-
-        languageOption.addEventListener('click', function () {
-          this.setCurrentLanguage(this.className);
-        });
-      }
+    
+    if ( _this.options.hasMenu ) { // xxx check conditions
+      this.builtTrackLanguageSelectMenu();
     }
-    // ========================== setCurrentLanguage is missing ===================================
+		
+		this.selectedLanguage = _this.options.tracks[ 0 ].srclang; // select the first language as default
+    
+    vi2.observer.player.video.addEventListener('loadedmetadata', function (e) {   
+      for (var x = 0; x < _this.options.tracks.length; x++) { 
+        var track = document.createElement('track');
+        track.kind = _this.options.tracks[x].kind;
+        track.label = _this.options.tracks[x].label;
+        track.srclang = _this.options.tracks[x].srclang;
+        track.src = _this.options.tracks[x].src; // xxx convert JSON to vtt-file
+        this.appendChild(track);
+      }
+			if( _this.options.displayTranscript ){
+      	_this.displayTranscript();
+      }
+    });
   },
+  
+  
+  /*
+   *
+   **/
+  builtTrackLanguageSelectMenu(){
+		var closedCaptionsButton = document.createElement('div');
+		    
+    closedCaptionsButton.innerHTML += 'CC';
+    closedCaptionsButton.classList.add('vi2-caption-controls');
+    document.querySelector('.control-bar').appendChild(closedCaptionsButton);
 
+    closedCaptionsButton.addEventListener('mouseenter', function () {
+      document.querySelector('.vi2-caption-controls > ul').style.display = 'block';//classList.add('display-block');
+    });
+
+    closedCaptionsButton.addEventListener('mouseleave', function () {
+      document.querySelector('.vi2-caption-controls > ul').style.display = 'none';//.classList.add('display-none');
+    });
+
+    var trackLanguageOptions = document.createElement('ul');
+    closedCaptionsButton.appendChild(trackLanguageOptions);
+
+    for (var y = 0; y < (_this.options.tracks.length + 1); y++) {
+      var languageOption = document.createElement('li');
+      trackLanguageOptions.appendChild(languageOption);
+
+      if (y < _this.options.tracks.length) {
+        languageOption.innerHTML += _this.options.tracks[y].label;
+        languageOption.classList.add(_this.options.tracks[y].srclang);
+      } else if (languageOption.innerHTML.length === 0) {
+        languageOption.innerHTML += 'Off';
+        languageOption.classList.add('off');
+      }
+
+      languageOption.addEventListener('click', function () { 
+      	document.querySelector('.vi2-caption-controls > ul').style.display = 'none';
+        _this.setCurrentLanguage(this.className);
+      });
+    }
+  }, 
+
+
+	/*
+	 * 
+	 **/
   displayTranscript : function () {
     // accessing tag mit class="transcript"
     var video = vi2.observer.player.video;
@@ -138,11 +130,11 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
     var _this = this;
 
     // for each track element
-    for (var i = 0; i < trackElements.length; i++) {
+    for (var i = 0; i < trackElements.length; i++) { 
       // it is to hide all DEFAULT subtitles; it is used HTMLTrackElement, because it works better in Firefox
       trackElements[i].track.mode = 'hidden';
 
-      trackElements[i].addEventListener('load', function() {
+      trackElements[i].addEventListener('load', function() { 
         // "this" is an HTMLTrackElement, NOT a TextTrack object; HTMLTrackElement is used, because it works better in Firefox
         var textTrack = this.track;
 
@@ -183,30 +175,31 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
     }
   },
   
+  
+  /*
+   * Handles click events on certain cue elements
+   **/
   clickOnCueHandler : function (videoElement, transcriptElement, allCues) {
     var elementHover = transcriptElement.querySelector(':hover');
     console.log(this.cueList);
     for (var i = 0; i < allCues.length; i++) {
 
-      // all id-s in the source file of subtitles should be from 1 to ... in the ascending order
+      // xxx all id-s in the source file of subtitles should be from 1 to ... in the ascending order
       // so it is NECESSARY to organize subtitles in the source file with the right id-s
       // this is NOT the best limitation
       // THINK how to override it
       // TELL Niels
 
       if (elementHover.id === allCues[i].id) {
-
-        // i could use something like that:
-        // var video = vi2.observer.player;
-        // video.currentTime(allCues[i].startTime);
-
-        // BUT i used native method, which seems to be more effective, because native
-        videoElement.currentTime = allCues[i].startTime;
+        vi2.observer.player.currentTime( allCues[i].startTime );
       }
     }
   },
 
-  // ========================== WRITE THIS ===================================
+  
+  /*
+   * xxx
+   **/
   setCurrentLanguage : function (language) {
     // var trackList = this.video.querySelectorAll('track');
     // console.log(trackList);
@@ -227,8 +220,10 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
     //   }
     // },
   },
-  // ========================= WRITE THIS =====================================
-
+  
+  
+  /*
+   **/
   isJson : function (str) {
     try {
       JSON.parse(str);
@@ -238,8 +233,11 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
 
     return true;
   },
-
-  // ========================= NOT TESTED =====================================
+  
+  
+  /*
+   * xxx
+   **/
   displaySubtitles : function () {
     var video = vi2.observer.player.video;
     var trackElements = video.querySelectorAll('track');
@@ -255,7 +253,7 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
       };
     }
   },
-  // ========================= NOT TESTED =====================================
+  
 
   /*
    * Converts subtitle formats like SubRip, W3C WEBVVT, W3C TTML into the internal representation
@@ -278,33 +276,27 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
 
   },
 
-  /* Append caption content to _this.options.selector
-   **/
 
-  // ========================= problems with the currentTime =====================================
-  // to control the player use: vi2.observer.player.video | vi2.observer.player.currentTime | vi2.observer.player.play or .pause
+  /* 
+   * Append caption content to _this.options.selector
+   **/
   begin : function (videoElement, transcriptElement, allCues) {
     //**** event handler for displaying a caption or highlighting a cue inside the transcript text
-    var currentTime = videoElement.currentTime;
+    var currentTime = vi2.observer.player.currentTime();
 
     for (var i = 0; i < allCues.length; i++) {
-      var cue = allCues[i];
-
-      // i have only "0" currentTIme the whole time, so timeupdate event doesn't fire properly, or doesn't fire at all
-      // begin function
-      if (currentTime >= cue.startTime && currentTime <= cue.endTime) {
+      if (currentTime >= allCues[i].startTime && currentTime <= allCues[i].endTime) {
         transcriptElement.children[i].classList.add('current-cue');
       }
     }
   },
-  // ========================= problems with the currentTime =====================================
 
-  // ========================= problems with the transcriptElement =====================================
+ 
   /*
    * Remove caption content from _this.options.selector
    **/
   end : function (e, id) {
-    //**** event handler to hide a caption or disable highlighting
+    // xxx
     transcriptElement.children[i].classList.remove('current-cue');
   }
   	
