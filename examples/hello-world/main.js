@@ -51,8 +51,31 @@ Vi2.Example = $.inherit({
 		
 		var viewingHistory = new Vi2.ViewingHistory();
 		vi2.observer.addWidget( viewingHistory );
-		
-		var closedCaption = new Vi2.ClosedCaptions();
+
+		// =================================================================================================================
+		var closedCaption = new Vi2.ClosedCaptions( {
+      /*tracks: [
+        {
+          srclang: 'en',
+          src: 'http://simpl.info/track/tracks/developerStories-subtitles-en.vtt',
+          kind: 'subtitles',
+          label: 'English'
+        },
+        {
+          srclang: 'de',
+          src: 'http://simpl.info/track/tracks/developerStories-subtitles-en.vtt',
+          kind: 'subtitles',
+          label: 'German'
+        },
+        {
+          srclang: 'ru',
+          src: 'http://simpl.info/track/tracks/developerStories-subtitles-en.vtt',
+          kind: 'subtitles',
+          label: 'Russian'
+        }
+      ]*/
+      });
+    // =================================================================================================================
 		vi2.observer.addWidget( closedCaption );
 			
 		// At first we define some basic player widgets
