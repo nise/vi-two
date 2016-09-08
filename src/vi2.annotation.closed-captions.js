@@ -90,10 +90,10 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
   /*
    *
    **/
-  builtTrackLanguageSelectMenu(){
+  builtTrackLanguageSelectMenu: function () {
   	var _this = this;
 		var closedCaptionsButton = document.createElement('div');
-		    
+
     closedCaptionsButton.innerHTML += 'CC';
     closedCaptionsButton.classList.add('vi2-caption-controls');
     document.querySelector('.control-bar').appendChild(closedCaptionsButton);
@@ -121,12 +121,12 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
         languageOption.classList.add('off');
       }
 
-      languageOption.addEventListener('click', function () { 
+      languageOption.addEventListener('click', function () {
       	document.querySelector('.vi2-caption-controls > ul').style.display = 'none';
         _this.setCurrentLanguage(this.className);
       });
     }
-  }, 
+  },
 
 
 	/*
@@ -146,7 +146,6 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
       // it is to hide all DEFAULT subtitles; it is used HTMLTrackElement, because it works better in Firefox
       trackElements[i].track.mode = 'hidden';
       //alert(trackElements[i].track +'---'+_this.currentLanguage)
-      console.dir(trackElements[i].track)
       if( trackElements[i].track.language === this.currentLanguage ){ 
 
 		    trackElements[i].addEventListener('load', function() { 
