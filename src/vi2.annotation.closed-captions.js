@@ -31,14 +31,14 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
     hasTimelineMarker: true,
     controls: true,
     timelineSelector: 'div.vi2-video-seek',
-    hasMenu: true,
+    hasMenu: true, // control bar menu for selecting language
     displaySubtitles: true,
     displayTranscript: true,
-    menuSelector: '.transcript',
+    menuSelector: '.transcript', // unclear naming xxx
     tracks: []
   },
   cueList: [],
-  selectedLanguage: 'en',
+  currentLanguage: 'en',
 
   
   /* Initialize */
@@ -48,30 +48,39 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
     	db_tracks = vi2.db.getClosedCaptionsById( vi2.observer.current_stream );
     	;
     
-    if( this.options.tracks.length === 0 && db_tracks !== undefined ){
+    if( this.options.tracks.length === 0 && db_tracks === undefined){ //&& 
+    	console.log("Missing data to setup closed caption or transcript");
+    	return;
+    }else if( this.options.tracks.length === 0){
     	this.options.tracks = db_tracks ;
     }
 
-    if (this.options.displaySubtitles) {
+    if ( this.options.displaySubtitles ) {
       this.displaySubtitles();
     }
     
-    if ( _this.options.hasMenu ) { // xxx check conditions
+    if ( this.options.hasMenu ) { 
       this.builtTrackLanguageSelectMenu();
     }
+    
+    // map events on the timeline
+		if( this.options.hasTimelineMarker ){ // xx convert data
+			//vi2.observer.player.timeline.addTimelineMarkers( 'closedCaptions', events, this.options.timelineSelector );
+		}	
 		
-		this.selectedLanguage = _this.options.tracks[ 0 ].srclang; // select the first language as default
+		this.currentLanguage = _this.options.tracks[ 0 ].srclang; // select the first language as default
     
     vi2.observer.player.video.addEventListener('loadedmetadata', function (e) {   
       for (var x = 0; x < _this.options.tracks.length; x++) { 
         var track = document.createElement('track');
         track.kind = _this.options.tracks[x].kind;
         track.label = _this.options.tracks[x].label;
-        track.srclang = _this.options.tracks[x].srclang;
+        track.srclang = _this.options.tracks[x].srclang; 
         track.src = _this.options.tracks[x].src; // xxx convert JSON to vtt-file
+//        track.data()
         this.appendChild(track);
       }
-			if( _this.options.displayTranscript ){
+			if( _this.options.displayTranscript ){ 
       	_this.displayTranscript();
       }
     });
@@ -82,6 +91,7 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
    *
    **/
   builtTrackLanguageSelectMenu(){
+  	var _this = this;
 		var closedCaptionsButton = document.createElement('div');
 		    
     closedCaptionsButton.innerHTML += 'CC';
@@ -89,11 +99,11 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
     document.querySelector('.control-bar').appendChild(closedCaptionsButton);
 
     closedCaptionsButton.addEventListener('mouseenter', function () {
-      document.querySelector('.vi2-caption-controls > ul').style.display = 'block';//classList.add('display-block');
+      document.querySelector('.vi2-caption-controls > ul').classList.add('display-block');//.style.display = 'block';
     });
 
     closedCaptionsButton.addEventListener('mouseleave', function () {
-      document.querySelector('.vi2-caption-controls > ul').style.display = 'none';//.classList.add('display-none');
+      document.querySelector('.vi2-caption-controls > ul').classList.remove('display-block');
     });
 
     var trackLanguageOptions = document.createElement('ul');
@@ -124,54 +134,60 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
 	 **/
   displayTranscript : function () {
     // accessing tag mit class="transcript"
+    var _this = this;
     var video = vi2.observer.player.video;
     var transcript = document.querySelector(this.options.menuSelector);
-    var trackElements = video.querySelectorAll('track');
+    var trackElements = video.querySelectorAll('track'); // xxx search and select current language
+    // var currentTrack = $('track [scrlang="'+ this.currentLanguage +'"]');
     var _this = this;
 
     // for each track element
     for (var i = 0; i < trackElements.length; i++) { 
       // it is to hide all DEFAULT subtitles; it is used HTMLTrackElement, because it works better in Firefox
       trackElements[i].track.mode = 'hidden';
+      //alert(trackElements[i].track +'---'+_this.currentLanguage)
+      console.dir(trackElements[i].track)
+      if( trackElements[i].track.language === this.currentLanguage ){ 
 
-      trackElements[i].addEventListener('load', function() { 
-        // "this" is an HTMLTrackElement, NOT a TextTrack object; HTMLTrackElement is used, because it works better in Firefox
-        var textTrack = this.track;
+		    trackElements[i].addEventListener('load', function() { 
+		      // "this" is an HTMLTrackElement, NOT a TextTrack object; HTMLTrackElement is used, because it works better in Firefox
+		      var textTrack = this.track;
 
-        if (textTrack.kind === 'subtitles' || textTrack.kind === 'captions') {
-          _this.cueList = textTrack.cues;
-          var transcriptText = '';
-          // console.log(_this.cueList);
+		      if (textTrack.kind === 'subtitles' || textTrack.kind === 'captions') {
+		        _this.cueList = textTrack.cues;
+		        var transcriptText = '';
+		        // console.log(_this.cueList);
 
-          for (var i = 0; i < _this.cueList.length; i++) {
+		        for (var i = 0; i < _this.cueList.length; i++) {
 
-            if (_this.isJson(_this.cueList[i].text)) {
-              transcriptText += ('<div id="' + (i+1) + '" class="transcript-cue">' + JSON.parse(_this.cueList[i].text).description + '</div>' + ' ');
-            } else if (_this.cueList[i].text[0] === '{' && _this.cueList[i].text[_this.cueList[i].text.length - 1] === '}') {
-              transcriptText += ('<div id="' + (i+1) + '" class="transcript-cue">' + 'No Subtitle' + '</div>' + ' ');
-            } else {
-              transcriptText += ('<div id="' + (i+1) + '" class="transcript-cue">' + _this.cueList[i].text + '</div>' + ' ');
-            }
-          }
+		          if (_this.isJson(_this.cueList[i].text)) {
+		            transcriptText += ('<div id="' + (i+1) + '" class="transcript-cue">' + JSON.parse(_this.cueList[i].text).description + '</div>' + ' ');
+		          } else if (_this.cueList[i].text[0] === '{' && _this.cueList[i].text[_this.cueList[i].text.length - 1] === '}') {
+		            transcriptText += ('<div id="' + (i+1) + '" class="transcript-cue">' + 'No Subtitle' + '</div>' + ' ');
+		          } else {
+		            transcriptText += ('<div id="' + (i+1) + '" class="transcript-cue">' + _this.cueList[i].text + '</div>' + ' ');
+		          }
+		        }
 
-          if (transcriptText) {
-            transcript.innerHTML = transcriptText;
-          }
+		        if (transcriptText) {
+		          transcript.innerHTML = transcriptText;
+		        }
 
-          transcript.addEventListener('click', function () {
-            var transcript = this;
+		        transcript.addEventListener('click', function () {
+		          var transcript = this;
 
-            _this.clickOnCueHandler(video, transcript, cueList)
-          }, false);
+		          _this.clickOnCueHandler(video, transcript, cueList)
+		        }, false);
 
-          // call the begin method; "begin" is a timeupdate handler
-          _this.begin(video, transcript, cueList);
-        } else {
-          // do NOT delete console.log
-          console.log('If you want to see the transcript on the page, ' +
-            'then change attribute kind like so: <track kind="subtitles"> or <track kind="captions">')
-        }
-      });
+		        // call the begin method; "begin" is a timeupdate handler
+		        //xxx _this.begin(video, transcript, cueList);
+		      } else {
+		        // do NOT delete console.log
+		        console.log('If you want to see the transcript on the page, ' +
+		          'then change attribute kind like so: <track kind="subtitles"> or <track kind="captions">')
+		      }
+		    }); // end track loop
+			}// end if 
     }
   },
   
@@ -201,24 +217,8 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
    * xxx
    **/
   setCurrentLanguage : function (language) {
-    // var trackList = this.video.querySelectorAll('track');
-    // console.log(trackList);
-
-    // setCurrentSpeed : function(speed){
-    //   if( this.options.speed_steps.indexOf( parseFloat(speed) ) !== -1){
-    //     // log event
-    //     vi2.observer.log({context:'playbackSpeed', action:'change-speed', values:[this.speed, speed]});
-    //     // set speed
-    //     this.video.defaultPlaybackRate = 1.0;
-    //     this.video.playbackRate = speed;
-    //     this.speed = speed;
-    //     this.speedIndex = this.options.speed_steps.indexOf( parseFloat(speed) );
-    //     // set label
-    //     $('.speed-label').text( speed + 'x');
-    //     // close select menu
-    //     $('.vi2-speed-controls > ul').css('display','none');
-    //   }
-    // },
+   this.currentLanguage = language;
+   // xxx change track for transcript and subtitles if necessary
   },
   
   
@@ -280,15 +280,15 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
   /* 
    * Append caption content to _this.options.selector
    **/
-  begin : function (videoElement, transcriptElement, allCues) {
+  	begin : function(e, id, obj){ 
     //**** event handler for displaying a caption or highlighting a cue inside the transcript text
-    var currentTime = vi2.observer.player.currentTime();
+    	vi2.observer.player.currentTime( obj.displayPosition.t1 ); //$('.transcript-cue[id="transcript_start_' obj.displayPosition.t1'"]').attr('id').split('_')[1] );
 
-    for (var i = 0; i < allCues.length; i++) {
+   /* for (var i = 0; i < allCues.length; i++) {
       if (currentTime >= allCues[i].startTime && currentTime <= allCues[i].endTime) {
         transcriptElement.children[i].classList.add('current-cue');
       }
-    }
+    }*/
   },
 
  
