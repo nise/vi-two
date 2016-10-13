@@ -1,0 +1,24 @@
+.vi2-loop-controls {
+  display:inline-block;
+  width:50px;
+  height:29px;
+  padding: 0 4px;
+  margin:0;
+  float:left;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+
+  background-color:#555;
+
+  font-size:10px;
+  text-align: center;
+  color:#fff;
+
+  cursor: pointer;
+  z-index:5000;
+}
+
+.vi2-loop-controls:hover {
+  background: #fff; color:#003366;
+}
