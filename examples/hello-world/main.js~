@@ -41,7 +41,6 @@ Vi2.Example = $.inherit({
 		vi2.observer.init(0);  
 		//vi2.observer.setCurrentStream('seidel1'); 
 
-		
 		//this.loadConfig();
 		
 		var videoManager = new Vi2.VideoManager(); 
@@ -51,6 +50,12 @@ Vi2.Example = $.inherit({
 		
 		var viewingHistory = new Vi2.ViewingHistory();
 		vi2.observer.addWidget( viewingHistory );
+
+    var loop = new Vi2.Loop();
+    vi2.observer.addWidget( loop );
+
+    var annotatedTimeline = new Vi2.AnnotatedTimeline();
+    vi2.observer.addWidget( annotatedTimeline );
 
 		// =================================================================================================================
 		var closedCaption = new Vi2.ClosedCaptions( {
@@ -75,14 +80,9 @@ Vi2.Example = $.inherit({
         }
       ]
       });
-    // =================================================================================================================
 		vi2.observer.addWidget( closedCaption );
+    // =================================================================================================================
 
-    // ===== user comments on the surface of the video and on the timeline =====
-    // var userAnalysis = new Vi2.UserAnalysis();
-    // vi2.observer.addWidget(userAnalysis);
-    // ===== user comments on the surface of the video and on the timeline =====
-			
 		// At first we define some basic player widgets
 		var playbackSpeed = new Vi2.PlaybackSpeed();
 		var temporalBookmarks = new Vi2.TemporalBookmarks();

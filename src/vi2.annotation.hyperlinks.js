@@ -13,19 +13,20 @@
 	- apply minimum link duration
 	- delay removeOverlay on mouseover/shift-press etc.
 	
-	*/
+*/
 
+/* 
+ * class Hyperlinks 
+ **/ 
+Vi2.Hyperlinks = $.inherit( Vi2.Annotation,/** @lends Hyperlinks# */{
 
-	/* class Hyperlinks **/ 
-	Vi2.Hyperlinks = $.inherit( Vi2.Annotation,/** @lends Hyperlinks# */{
-
-		/** @constructs
-		*		@extends Annotation
-		*		@param {object} options An object containing the parameters
-    *		
-    *		@param {string} options.displaySelector An optional setting.
-		*/
-  	__constructor : function(options) { 
+		/* @constructs
+		 *		@extends Annotation
+		 *		@param {object} options An object containing the parameters
+     *		
+     *		@param {string} options.displaySelector An optional setting.
+		 **/
+  	__constructor : function(options) { 	
   		this.options = $.extend(this.options, options); 
 		},
 				
@@ -47,10 +48,10 @@
 		link_list : {},
 		currLinkId :-1,
 
-		/** 
-				*
-				*/
-		init : function(ann){ 
+		/* 
+		 *
+		 **/
+		init : function(ann){
 			this.clear(); 
 			var events = [];
 			$.each(ann, function(i, val){ 
@@ -85,7 +86,7 @@
 		/* 
 			* Translated database entry of link into a dom element that the parser will read later on 
 			**/
-		appendToDOM : function(id){  
+		appendToDOM : function(id){
 			var _this = this;
 			$(vi2.dom).find('[type="hyperlinks"]').each(function(i,val){ $(this).remove(); });
 			$(vi2.dom).find('[type="cycle"]').each(function(i,val){ $(this).remove(); });
@@ -139,7 +140,7 @@
 				.attr('type', obj.type)
 				.attr('author', vi2.wp_user )
 				.attr('date', new Date().getTime())
-				.attr('starttime', obj.starttime )
+				.attr('starttime', obj.time )
 				.attr('duration', obj.content.duration === undefined ? '10' : obj.content.duration )
 				.attr('posx', obj.content.x === undefined ? '20' : obj.content.x  )
 				.attr('posy', obj.content.y === undefined ? '80' : obj.content.y  )

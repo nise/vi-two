@@ -40,8 +40,12 @@ modules =   ${srcdir}jquery.inherit-1.1.1.js\
 slides = 		./data-slides-raw.json\
 
 vi2 = ${srcdir}vi2.annotation.assessment.js\
+			${srcdir}vi2.annotation.hyperlinks.js\
 			${srcdir}vi2.annotation.comments.js\
+			${srcdir}vi2.annotation.toc.js\
+			${srcdir}vi2.annotation.simultaneous-media.js\
 			${srcdir}vi2.core.annotation.js\
+			${srcdir}vi2.core.annotated-timeline.js\
 			${srcdir}vi2.core.clock.js\
 			${srcdir}vi2.core.database.js\
 			${srcdir}vi2.core.log.js\
@@ -51,8 +55,13 @@ vi2 = ${srcdir}vi2.annotation.assessment.js\
 			${srcdir}vi2.core.videoplayer.js\
 			${srcdir}vi2.core.metadata.js\
 			${srcdir}vi2.player.playback-speed.js\
+			${srcdir}vi2.player.loop.js\
+			${srcdir}vi2.player.sharing.js\
+			${srcdir}vi2.player.zoom.js\
+			${srcdir}vi2.player.skip-back.js\
 			${srcdir}vi2.player.temporal-bookmarks.js\
 			${srcdir}vi2.related-videos.js\
+			${srcdir}vi2.viewing-history.js\
 			#${srcdir}vi-videolab.js
 
          
