@@ -1,6 +1,7 @@
 
 # Vi-Two
 ## overall improvements
+- grunt :: https://scotch.io/tutorials/a-simple-guide-to-getting-started-with-grunt
 - start widgets from config.json / /json/vi-two-config
 - multilingual support for all text and controls
 - use a template engine, maybe ejs

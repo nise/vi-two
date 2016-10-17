@@ -50,7 +50,7 @@
 		/** 
 				*
 				*/
-		init : function(ann){
+		init : function(ann){ 
 			this.clear(); 
 			var events = [];
 			$.each(ann, function(i, val){ 
@@ -85,7 +85,7 @@
 		/* 
 			* Translated database entry of link into a dom element that the parser will read later on 
 			**/
-		appendToDOM : function(id){
+		appendToDOM : function(id){  
 			var _this = this;
 			$(vi2.dom).find('[type="hyperlinks"]').each(function(i,val){ $(this).remove(); });
 			$(vi2.dom).find('[type="cycle"]').each(function(i,val){ $(this).remove(); });

@@ -96,7 +96,7 @@ Vi2.Example = $.inherit({
 		vi2.observer.addWidget( skipBack );
 
     var hyperlinks = new Vi2.Hyperlinks();
-    vi2.observer.addWidget(hyperlinks);
+    //vi2.observer.addWidget(hyperlinks);
   }
   
   

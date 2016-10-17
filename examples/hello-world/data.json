@@ -1835,16 +1835,6 @@
       		{"label":"Evaluation of different irrigation strategies","duration":1,"start":"2072"},
       		{"label":"Simulation-based real-time irrigation scheduling","duration":1,"start":"2435.0"},
       		{"label":"Summary","duration":1,"start":"3300.0"}
-				],
-				"links":[
-					{"type":"xlink","x":2,"y":78,"duration":"10","start":"00:02:35","id":"Irrigation farming","seek":"00:33:08","duration2":"-99","target":"balke1"},
-					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:04:23","id":"Evapotranspiration","seek":"01:05:49","duration2":"-99","target":"lennartz"},
-					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:04:38","id":"Lysimeter","seek":"01:09:20","duration2":"-99","target":"lennartz"},
-					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:15:52","id":"Modelling concepts","seek":"00:44:18","duration2":"00:54:12","target":"lennartz"},
-					{"type":"cycle","x":2,"y":90,"duration":"10","start":"00:19:05","id":"Soil-Vegetation-Atmosphere System","seek":"00:26:26","duration2":"00:38:35","target":"lennartz"},
-					{"type":"cycle","x":2,"y":90,"duration":"10","start":"00:33:20","id":"Model parameter calibration","seek":"00:23:11","duration2":"00:23:31","target":"seidel2"},
-
-					{"type":"cycle","x":2,"y":93,"duration":"10","start":"00:05:07","id":"irrigation methods","seek":"00:35:18","duration2":"00:54:15","target":"balke1"}
 				]
 		},
 		{
@@ -1861,8 +1851,8 @@
 					"weight": 4,
 					"titleselector":"h2"
 				}],
-				"video": "http://www.iwrm-education.de/videos/iwrm_seidel2.webm",
-				"video2": "http://localhost/elearning/vi2/vi-two/examples/iwrm/videos/iwrm_seidel2.webm",
+				"video2": "http://www.iwrm-education.de/videos/iwrm_seidel2.webm",
+				"video": "http://localhost/elearning/vi2/vi-two/examples/iwrm/videos/iwrm_seidel2.webm",
 				"tags": [
 					{"tagname":"experimental design","occ":[0]},
 					{"tagname":"deficit irrigation","occ":[0]},
@@ -1906,6 +1896,16 @@
 		        ]
 		      }
 		    ],
+				"hyperlinks":[
+					{"type":"xlink","x":2,"y":78,"duration":"10","start":"00:02:35","id":"Irrigation farming","seek":"00:33:08","duration2":"-99","target":"balke1"},
+					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:04:23","id":"Evapotranspiration","seek":"01:05:49","duration2":"-99","target":"lennartz"},
+					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:04:38","id":"Lysimeter","seek":"01:09:20","duration2":"-99","target":"lennartz"},
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:15:52","id":"Modelling concepts","seek":"00:44:18","duration2":"00:54:12","target":"lennartz"},
+					{"type":"cycle","x":2,"y":90,"duration":"10","start":"00:19:05","id":"Soil-Vegetation-Atmosphere System","seek":"00:26:26","duration2":"00:38:35","target":"lennartz"},
+					{"type":"cycle","x":2,"y":90,"duration":"10","start":"00:33:20","id":"Model parameter calibration","seek":"00:23:11","duration2":"00:23:31","target":"seidel2"},
+
+					{"type":"cycle","x":2,"y":93,"duration":"10","start":"00:05:07","id":"irrigation methods","seek":"00:35:18","duration2":"00:54:15","target":"balke1"}
+				],
 				"toc": [
 					{"label":"Introduction","duration":1,"start":"0.0"},
       		{"label":"Objectives","duration":1,"start":"251.0"},
@@ -1917,11 +1917,11 @@
       		{"label":"Results","duration":1,"start":"2020.0"},
       		{"label":"Summary","duration":1,"start":"2090.0"}
 				],
-				"links":[
-					{"type":"xlink","x":2,"y":88,"duration":"40","start":"00:03:12","id":"See lecture part 1","seek":"00:00:00","duration2":"-99","target":"seidel1"},
-					{"type":"cycle","x":10,"y":93,"duration":"18","start":"00:08:26","id":"Water retention and movement","seek":"00:31:45","duration2":"00:32:45","target":"lennartz"},
-					{"type":"cycle","x":2,"y":94,"duration":"40","start":"00:06:08","id":"Data collection","seek":"01:01:11","duration2":"01:02:11","target":"lennartz"},
-					{"type":"cycle","x":2,"y":88,"duration":"40","start":"00:31:11","id":"Soil hydraulic parameters","seek":"00:43:21","duration2":"00:44:21","target":"seidel1"}
+				"hyperlinks":[
+					{"type":"xlink","x":2,"y":88,"duration":"40","start":"1199","id":"See lecture part 1","seek":"00:00:00","duration2":"-99","target":"seidel1"},
+					{"type":"xlink","x":10,"y":93,"duration":"18","start":"00:08:26","id":"Water retention and movement","seek":"00:31:45","duration2":"00:32:45","target":"lennartz"},
+					{"type":"xlink","x":2,"y":94,"duration":"40","start":"00:06:08","id":"Data collection","seek":"01:01:11","duration2":"01:02:11","target":"lennartz"},
+					{"type":"xlink","x":2,"y":88,"duration":"40","start":"00:31:11","id":"Soil hydraulic parameters","seek":"00:43:21","duration2":"00:44:21","target":"seidel1"}
 				]
 		},
 		{
