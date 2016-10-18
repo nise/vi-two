@@ -13,62 +13,60 @@ modules =   ${srcdir}jquery.inherit-1.1.1.js\
             ${srcdir}jquery-ui-1.8.6.custom.min.js\
             ${srcdir}jquery-jtemplates.js\
             ${srcdir}purl.js\
-            ${srcdir}vi2.core.js\
-						${srcdir}vi2.core.observer.js\
-						${srcdir}vi2.core.database.js\
-						${srcdir}vi2.core.parser.js\
-						${srcdir}vi2.core.videoplayer.js\
-						${srcdir}vi2.core.clock.js\
+            ${srcdir}vi2.annotation.assessment.js\
+						${srcdir}vi2.annotation.hyperlinks.js\
+						${srcdir}vi2.annotation.comments.js\
+						${srcdir}vi2.annotation.toc.js\
+						${srcdir}vi2.annotation.simultaneous-media.js\
 						${srcdir}vi2.core.annotation.js\
-						${srcdir}vi2.core.utils.js\
+						${srcdir}vi2.core.annotated-timeline.js\
+						${srcdir}vi2.core.clock.js\
+						${srcdir}vi2.core.database.js\
 						${srcdir}vi2.core.log.js\
-						${srcdir}vi2.core.api.js\
-						${srcdir}vi2.syncMedia.js\
-						${srcdir}vi2.comments.js\
-						${srcdir}vi2.assessment.js\
-						${srcdir}vi2.tags.js\
-						${srcdir}vi2.toc.js\
-						${srcdir}vi2.xlink.js\
-						${srcdir}vi2.metadata.js\
-						${srcdir}vi2.search.js\
-						${srcdir}vi2.playlist.js\
-						${srcdir}vi2.relatedVideos.js\
-						${srcdir}vi2.videoManager.js\
+						${srcdir}vi2.core.observer.js\
+						${srcdir}vi2.core.parser.js\
+						${srcdir}vi2.core.utils.js\
+						${srcdir}vi2.core.videoplayer.js\
+						${srcdir}vi2.core.videoManager.js\
+						${srcdir}vi2.core.metadata.js\
+						${srcdir}vi2.player.playback-speed.js\
+						${srcdir}vi2.player.loop.js\
+						${srcdir}vi2.player.sharing.js\
+						${srcdir}vi2.player.zoom.js\
+						${srcdir}vi2.player.skip-back.js\
+						${srcdir}vi2.player.temporal-bookmarks.js\
+						${srcdir}vi2.related-videos.js\
+						${srcdir}vi2.viewing-history.js\
+
 						
 	#					${srcdir}vi2.utils.maintanance.js\
             
 slides = 		./data-slides-raw.json\
 
-vi2 = ${srcdir}vi2.assessment.fill-in.js\
-			${srcdir}vi2.assessment.js\
-			${srcdir}vi2.assessment.written.js\
-			${srcdir}vi2.comments.js\
+vi2 = ${srcdir}vi2.annotation.assessment.js\
+			${srcdir}vi2.annotation.hyperlinks.js\
+			${srcdir}vi2.annotation.comments.js\
+			${srcdir}vi2.annotation.toc.js\
+			${srcdir}vi2.annotation.simultaneous-media.js\
 			${srcdir}vi2.core.annotation.js\
-			${srcdir}vi2.core.api.js\
+			${srcdir}vi2.core.annotated-timeline.js\
 			${srcdir}vi2.core.clock.js\
 			${srcdir}vi2.core.database.js\
-			${srcdir}vi2.core.js\
 			${srcdir}vi2.core.log.js\
 			${srcdir}vi2.core.observer.js\
 			${srcdir}vi2.core.parser.js\
 			${srcdir}vi2.core.utils.js\
 			${srcdir}vi2.core.videoplayer.js\
-			${srcdir}vi2.highlight.js\
-			${srcdir}vi2.map.js\
+			${srcdir}vi2.core.videoManager.js\
 			${srcdir}vi2.core.metadata.js\
-			${srcdir}vi2.playback-speed.js\
-			${srcdir}vi2.temporal-bookmarks.js\
-			${srcdir}vi2.playlist.js\
-			${srcdir}vi2.relatedVideos.js\
-			${srcdir}vi2.search.js\
-			${srcdir}vi2.seqv.js\
-			${srcdir}vi2.syncMedia.js\
-			${srcdir}vi2.tags.js\
-			${srcdir}vi2.toc.js\
-			${srcdir}vi2.traces.js\
-			${srcdir}vi2.utils.maintanance.js\
-			${srcdir}vi2.videoManager.js\
-			${srcdir}vi2.xlink.js\
+			${srcdir}vi2.player.playback-speed.js\
+			${srcdir}vi2.player.loop.js\
+			${srcdir}vi2.player.sharing.js\
+			${srcdir}vi2.player.zoom.js\
+			${srcdir}vi2.player.skip-back.js\
+			${srcdir}vi2.player.temporal-bookmarks.js\
+			${srcdir}vi2.related-videos.js\
+			${srcdir}vi2.viewing-history.js\
 			#${srcdir}vi-videolab.js
 
          

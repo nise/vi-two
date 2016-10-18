@@ -29,7 +29,7 @@
 		<link type="text/css" href="../../css/vi2.toc.css" rel="stylesheet" media="screen" />
 		<link type="text/css" href="../../css/vi2.videoplayer.css" rel="stylesheet" media="screen" />
 		<link type="text/css" href="../../css/vi2.annotated-timeline.css" rel="stylesheet" />
-		<link type="text/css" href="/static/css/vi2.hyperlinks.css" rel="stylesheet" />
+		<link type="text/css" href="../../css/vi2.hyperlinks.css" rel="stylesheet" />
 		<link type="text/css" href="/static/css/vi2.comments.css" rel="stylesheet" />
 			
 		<style>
@@ -123,7 +123,9 @@
 		<!-- vi-two annotation-widgets -->
 		<script src="../../src/vi2.annotation.toc.js"></script>
 		<script src="../../src/vi2.annotation.simultaneous-media.js"></script>
-		<script src="../../src/vi2.closed-captions.js"></script>
+		<script src="../../src/vi2.annotation.closed-captions.js"></script>
+<!--		<script src="../../src/vi2.annotation.hyperlinks.js"></script>-->
+    <!--<script src="../../src/vi2.annotation.user-analysis.js"></script>-->
 <!--		<script src="../../src/vi2.user-notes.js"></script>
 		-->
 		
@@ -143,6 +145,7 @@
 				<a href="#!/video/balke1">home</a>
 				<a href="#!/viewing-history"> hist</a>
 				<hr>
+				<div id="hyperlinks">links</div>
 				<h3>Metadata</h3>
 				<div class="metadata"></div>
 				<h3>Transcript</h3>

@@ -1836,7 +1836,7 @@
       		{"label":"Simulation-based real-time irrigation scheduling","duration":1,"start":"2435.0"},
       		{"label":"Summary","duration":1,"start":"3300.0"}
 				],
-				"links":[
+				"hyperlinks":[
 					{"type":"xlink","x":2,"y":78,"duration":"10","start":"00:02:35","id":"Irrigation farming","seek":"00:33:08","duration2":"-99","target":"balke1"},
 					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:04:23","id":"Evapotranspiration","seek":"01:05:49","duration2":"-99","target":"lennartz"},
 					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:04:38","id":"Lysimeter","seek":"01:09:20","duration2":"-99","target":"lennartz"},
@@ -1917,11 +1917,11 @@
       		{"label":"Results","duration":1,"start":"2020.0"},
       		{"label":"Summary","duration":1,"start":"2090.0"}
 				],
-				"links":[
-					{"type":"xlink","x":2,"y":88,"duration":"40","start":"00:03:12","id":"See lecture part 1","seek":"00:00:00","duration2":"-99","target":"seidel1"},
-					{"type":"cycle","x":10,"y":93,"duration":"18","start":"00:08:26","id":"Water retention and movement","seek":"00:31:45","duration2":"00:32:45","target":"lennartz"},
-					{"type":"cycle","x":2,"y":94,"duration":"40","start":"00:06:08","id":"Data collection","seek":"01:01:11","duration2":"01:02:11","target":"lennartz"},
-					{"type":"cycle","x":2,"y":88,"duration":"40","start":"00:31:11","id":"Soil hydraulic parameters","seek":"00:43:21","duration2":"00:44:21","target":"seidel1"}
+				"hyperlinks":[
+					{"type":"xlink","x":2,"y":88,"duration":"40","start":"1199","id":"See lecture part 1","seek":"00:00:00","duration2":"-99","target":"seidel1"},
+					{"type":"xlink","x":10,"y":93,"duration":"18","start":"00:08:26","id":"Water retention and movement","seek":"00:31:45","duration2":"00:32:45","target":"lennartz"},
+					{"type":"xlink","x":2,"y":94,"duration":"40","start":"00:06:08","id":"Data collection","seek":"01:01:11","duration2":"01:02:11","target":"lennartz"},
+					{"type":"xlink","x":2,"y":88,"duration":"40","start":"00:31:11","id":"Soil hydraulic parameters","seek":"00:43:21","duration2":"00:44:21","target":"seidel1"}
 				]
 		},
 		{

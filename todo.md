@@ -1,6 +1,7 @@
 
 # Vi-Two
 ## overall improvements
+- grunt :: https://scotch.io/tutorials/a-simple-guide-to-getting-started-with-grunt
 - start widgets from config.json / /json/vi-two-config
 - multilingual support for all text and controls
 - use a template engine, maybe ejs
@@ -16,6 +17,25 @@
 - transcript
 - user notes
 - media fragments 
+	`<html>
+		<head>
+			<style>
+				video {
+					position: absolute;
+					clip: rect(30px, 190px, 120px, 90px);
+					-webkit-clip-path: inset(30px 190px 120px 90px); 	
+				}
+		
+			</style>
+		</head>
+		<body>
+			<video width="320" height="240" controls autoplay=true>
+				<source src="http://localhost/elearning/vi2/vi-two/examples/iwrm/videos/iwrm_ayenew1.mp4" type="video/mp4">
+				<source src="http://localhost/elearning/vi2/vi-two/examples/iwrm/videos/iwrm_ayenew1.webm" type="video/webm">
+				Your browser does not support the video tag.
+			</video>
+		</body>
+		</html>`
 - object tracking
 - add video => server
 

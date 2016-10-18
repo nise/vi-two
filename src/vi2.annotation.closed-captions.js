@@ -75,11 +75,17 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
         var track = document.createElement('track');
         track.kind = _this.options.tracks[x].kind;
         track.label = _this.options.tracks[x].label;
-        track.srclang = _this.options.tracks[x].srclang; 
-        track.src = _this.options.tracks[x].src; // xxx convert JSON to vtt-file
-//        track.data()
+        track.srclang = _this.options.tracks[x].srclang;
+        if( typeof _this.options.tracks[x].src === "string"){ // handle reference on vtt-files
+        	track.src = _this.options.tracks[x].src; 
+        }else{ // convert json to vtt
+        	for(var i = 0; i < _this.options.tracks[x].src.length; i++){	
+        		var t = _this.options.tracks[x].src[i];
+        		//track.addCue(new VTTCue(t.start, ( t.start + t.duration), t.cueText );
+        	}
+        }
         this.appendChild(track);
-      }
+      }// end if
 			if( _this.options.displayTranscript ){ 
       	_this.displayTranscript();
       }
