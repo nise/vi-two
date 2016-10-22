@@ -105,3 +105,17 @@ width: 100%;
 	width:auto;
 	height:80px;
 }
+
+.vi2-timeline-loop-marker {
+	position: absolute;
+	top: 0;
+	z-index: 10000;
+	opacity: 0.5;
+
+	display: inline-block;
+	vertical-align: top;
+	width: 3px;
+	height: 14px;
+
+	background-color: red;
+}

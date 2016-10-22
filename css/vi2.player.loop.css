@@ -1,6 +1,8 @@
 .vi2-loop-controls {
+  position: relative;
+
   display:inline-block;
-  width:50px;
+  width:34px;
   height:29px;
   padding: 0 4px;
   margin:0;
@@ -15,10 +17,41 @@
   text-align: center;
   color:#fff;
 
-  cursor: pointer;
   z-index:5000;
 }
 
 .vi2-loop-controls:hover {
-  background: #fff; color:#003366;
+  background: #fff;
+  color:#003366;
+}
+
+.vi2-loop-controls::before {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  content: "";
+
+  display: block;
+  width: 25px;
+  height: 20px;
+
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  transform: translateX(-50%);
+
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.vi2-loop-controls-first-point::before {
+  background-image: url(../img/loop-icon-first.png);
+}
+
+.vi2-loop-controls-last-point::before {
+  background-image: url(../img/loop-icon-second.png);
+}
+
+.vi2-loop-controls-delete::before {
+  background-image: url(../img/loop-icon-close.png);
 }
