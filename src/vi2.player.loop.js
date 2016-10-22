@@ -107,7 +107,7 @@ Vi2.Loop = $.inherit({
     loopButton.classList.add('vi2-loop-controls', 'vi2-btn', 'vi2-loop-controls-first-point');
     loopButton.setAttribute('title', 'Click to define the first point of the loop');
     loopButton.addEventListener('click', loopButtonClickHandler, false);
-    $(loopButton).appendTo(this.options.selector);
+    document.querySelector(this.options.selector).appendChild(loopButton);
 
   }
 
