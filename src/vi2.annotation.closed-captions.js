@@ -46,7 +46,6 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
     var 
     	_this = this,
     	db_tracks = vi2.db.getClosedCaptionsById( vi2.observer.current_stream );
-    	;
     
     if( this.options.tracks.length === 0 && db_tracks === undefined){ //&& 
     	console.log("Missing data to setup closed caption or transcript");
@@ -145,7 +144,6 @@ Vi2.ClosedCaptions = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
     var transcript = document.querySelector(this.options.menuSelector);
     var trackElements = video.querySelectorAll('track'); // xxx search and select current language
     // var currentTrack = $('track [scrlang="'+ this.currentLanguage +'"]');
-    var _this = this;
 
     // for each track element
     for (var i = 0; i < trackElements.length; i++) { 
