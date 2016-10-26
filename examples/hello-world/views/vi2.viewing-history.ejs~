@@ -1,0 +1,9 @@
+<h3>Viewing History</h3>
+<ul>
+<% for(var i=0; i < items.length; i++) {%>
+   <li>
+   	<a href="#!/video/<%= items[i].stream %>"><%= items[i].stream %></a> (<%= items[i].time %>) 
+   </li>
+<% } %>
+</ul>
+

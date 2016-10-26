@@ -1,0 +1,28 @@
+textarea.user-notes {
+	background: #fff;
+	border: none;
+	font-size: 1.4rem;
+	line-height: 1.5;
+	height: 80px;
+	outline: none;
+	overflow: hidden;
+	padding: 0;
+	resize: none;
+	width: 280px;
+	margin:0.9rem auto;
+	border-color: #848484 #c1c1c1 #e1e1e1;
+	color: #000;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	letter-spacing: normal;
+	word-spacing: normal;
+	text-transform: none;
+	text-indent: 0px;
+	text-shadow: none;
+	display: inline-block;
+	-webkit-rtl-ordering: logical;
+	-webkit-user-select: text;
+	flex-direction: column;
+	-webkit-writing-mode: horizontal-tb;
+
+}

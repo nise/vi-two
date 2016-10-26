@@ -1,0 +1,47 @@
+
+
+.vi2-video-sharing {
+	color:#fff;
+	font-weight:bold;
+	font-size:1em;
+}
+
+
+.vi2-sharing-controls {
+	display: inline-block; 
+  margin: 0;
+  padding: 2px 4px; 
+  border: 1px solid #003366; 
+  font-size:12px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+   cursor: pointer;
+   z-index:5000;
+   background-color:#555;
+   color:#fff;   
+}
+
+.vi2-sharing-select {
+	display:none;
+	width:200px;
+	
+}
+
+.vi2-sharing-controls:hover .vi2-sharing-select { 
+	display: block; 
+	position:absolute; 
+	bottom:100%;
+	left:0px;
+	margin:0;
+	padding:0; 
+	background-color:#555; 
+	list-style:none;
+	line-height:12px;
+	z-index:5000;
+}
+.vi2-sharing-controls:hover > .vi2-sharing-select {  display: block; border: 1px solid #555; right:0px;}
+.vi2-sharing-controls:hover > .vi2-sharing-select > input { padding:4px; width:500px;}
+.vi2-sharing-controls:hover > .vi2-sharing-select > .vi-btn {  background: lightblue;}
+
+
