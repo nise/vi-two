@@ -1,0 +1,5 @@
+*.webm
+*.mp4
+.gitignore
+*~
+tools/*

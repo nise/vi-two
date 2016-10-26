@@ -1,0 +1,43 @@
+
+<ul class="toc-list">
+<% for(var i=0; i< items.length; i++) { %>
+	<li class="toc-<%= items[i].occ[0] %>" style="list-style-image:url(<%= path%>user-<%= items[i].author %>.png">
+		<a id="<%= i %>" class="id-<%= items[i].occ[0] %>"  href="#!t=npt:<%= items[i].occ[0] %>">
+			<%= items[i].name %>
+		</a>
+	</li>
+  <% } %>
+</ul>
+
+			
+			$.each(tocData, function(i, val){
+					var a = $('<a></a>')
+					.text( val.name )
+					.addClass('id-'+ val.occ[0])
+					.attr('href', '#!t=npt:' + val.occ[0] + '') // former: main.options.id
+					;				
+					var li = $('<li></li>')
+						.addClass('toc-'+val.occ[0])
+						.attr('id', ''+ i)
+						//.css('list-style-image',  "url('"+_this.options.path+"user-"+val.author+".png')")
+						.html(a)
+						.appendTo( toc )
+						; 
+					if( val.note === "missing"){
+						li.addClass('toc-disabled');
+					}else{
+						li.click(function(){
+							vi2.observer.log('clicktocfromlist:'+val.name.replace(/,/g,'##') +' '+val.author+' '+ val.occ[0]); 
+							vi2.observer.player.currentTime( val.occ[0] );
+							_this.currentTocElement = i;
+						});	
+					}	
+			});
+			
+			
+			// sort list entries by time and append them
+			toc
+				.find('li').tsort( { attr:"id" } )  // tsort is error prune under chromium
+				.appendTo( this.options.menuSelector )	
+
+
