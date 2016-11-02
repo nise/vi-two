@@ -34,7 +34,7 @@ Vi2.Analysis = $.inherit( Vi2.Annotation, /** @lends Analysis# */{
 			selectData:['Cat A', 'Cat B', 'Cat C'],
 			hasMarkerLabel:true,
 			hasMarkerComment:true,
-			hasMarkerText:true,
+			hasMarkerDescription:true,
 			allowEmoticons : true, 
 			allowReplies : true,
 			allowEditing : true,
@@ -268,11 +268,11 @@ Vi2.Analysis = $.inherit( Vi2.Annotation, /** @lends Analysis# */{
 		 *
 		 **/
 		begin : function(e, id, obj){ 
-			if( this.currentMarker !== obj.id ){
-				this.currentMarker = obj.id;
+			if( this.currentMarker !== id ){
+				this.currentMarker = id;
 				var _this = this;
 				var ltype = $('<span></span>')
-					.addClass('analysis-marker-wraper marker-id-'+obj.content.target);
+					.addClass('analysis-marker-wraper marker-id-' + id );
 
 				$( this.options.displaySelector ).find( 'analysis-marker-wraper' ).each(function(i, val){ $(val).remove(); });
 			
@@ -282,13 +282,33 @@ Vi2.Analysis = $.inherit( Vi2.Annotation, /** @lends Analysis# */{
 						//.attr('href', '#' )
 						.attr('title', ( obj.content.description ) )
 						.addClass('ov-'+id+' analysis-marker')
-						.bind('click', function(data){ alert(obj.marker_type)
+						.bind('click', function(data){ 
 							// pause the video
 							vi2.observer.player.pause();
-						
+
+							// reset elements
+							$('.marker-element').remove();
+													
 							// marker + option select
-							if( _this.options.hasMarkerSelect && obj.marker_type === ( 'marker-select' || 'marker-select-desc') ){ 
-								var select = $('<select></select>');
+							if( _this.options.hasMarkerSelect && ( obj.marker_type === 'marker-select' || obj.marker_type === 'marker-select-desc') ){ 
+								var btn =$('<button></button>').html('Action <span class="caret"></span>')
+									.attr('type',"button")
+									.data('toggle',"dropdown") 
+									.attr('aria-haspopup',"true")
+									.attr('aria-expanded',"false")
+									.addClass('btn btn-default dropdown-toggle')
+									;
+        				var ul = $('<ul></ul>').addClass('dropdown-menu');
+          			for( var i=0; i < _this.options.selectData.length; i++){
+									var opt = $('<li></li>')
+										.html( _this.options.selectData[i] )
+										//.attr('value', _this.options.selectData[i].toLowerCase() )
+										;
+									ul.append( opt );
+								}
+								$(this).parent().append( btn ).append( ul );
+								/*var select = $('<select></select>')
+									.addClass('marker-element');
 								for( var i=0; i < _this.options.selectData.length; i++){
 									var opt = $('<option></option>')
 										.html( _this.options.selectData[i] )
@@ -297,17 +317,21 @@ Vi2.Analysis = $.inherit( Vi2.Annotation, /** @lends Analysis# */{
 									select.append( opt );
 								}
 								$(this).parent().append( select );
+								*/
+								
 							}	
 						
 							// marker + label
-							if( _this.options.hasMarkerLabel && obj.marker_type === ( 'marker-label' || 'marker-label-desc') ){ 
-								var input = $('<input />').attr('type','text');
+							if( _this.options.hasMarkerLabel && ( obj.marker_type === 'marker-label' || obj.marker_type === 'marker-label-desc') ){ 
+								var input = $('<input />')
+									.attr('type','text')
+									.addClass('marker-text-label marker-element');
 								$(this).parent().append( input );
 							}
-						
-							// marker + text
-							if( _this.options.hasMarkerText && obj.marker_type === ( 'marker-desc' || 'marker-label-desc' || 'marker-select-desc') ){ 
-								var text = $('<textarea></textarea>');//.attr('type','text');
+						// marker + text
+							if( _this.options.hasMarkerDescription && ( obj.marker_type === 'marker-desc' || obj.marker_type === 'marker-label-desc' || obj.marker_type === 'marker-select-desc') ){ 
+								var text = $('<textarea></textarea>')
+									.addClass('marker-element');//.attr('type','text');
 								$(this).parent().append( text );
 							}
 						
@@ -335,9 +359,10 @@ Vi2.Analysis = $.inherit( Vi2.Annotation, /** @lends Analysis# */{
 		
 		/*
 		 **/
-		end:function(e, id){
+		end:function(e, id){ //alert(id)
+			$('.marker-id-'+id).hide();
 			// xxx does it work?
-			$(this.options.menuSelector+' li ').removeClass('vi2-highlight');
+			//$(this.options.menuSelector+' li ').removeClass('vi2-highlight');
 		},
 			
 			

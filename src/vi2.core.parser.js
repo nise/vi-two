@@ -209,7 +209,7 @@ var Parser = $.inherit(/** @lends Parser# */
 						obj.x = $(this).attr('x');
 						obj.y = $(this).attr('y');
 						obj.t1 = $(this).attr('starttime') === undefined ? 0 : $(this).attr('starttime');
-						obj.t2 = 1;// default // $(this).attr('duration') === undefined ? 1 : $(this).attr('duration');
+						obj.t2 = $(this).attr('duration') === undefined ? 1 : $(this).attr('duration');
 						obj.marker = $(this).data('marker')
 						obj.marker_type = $(this).attr('marker_type')
 						obj.marker_label = $(this).attr('marker_label')
