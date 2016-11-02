@@ -401,7 +401,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		};
 		
 		$('body').unbind('keydown').bind('keydown', function(e) { 
-			//_this.keyboardCommandHandler(e); 
+			_this.keyboardCommandHandler(e); 
 		});
 		
 	},

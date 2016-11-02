@@ -79,8 +79,8 @@ Vi2.Example = $.inherit({
     
     // Here are annotation widgets
     
-    var ana = new Vi2.Analysis();
-    vi2.observer.addWidget( ana );
+    //var ana = new Vi2.Analysis();
+    //vi2.observer.addWidget( ana );
 
     
     

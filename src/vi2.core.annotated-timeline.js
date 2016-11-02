@@ -60,6 +60,7 @@ Vi2.AnnotatedTimeline = $.inherit(/** @lends Vi2.TableOfContents# */{ //
   init : function(annotations){
     var _this = this;
     // init
+    this.video = vi2.observer.player.video;
     this.video_seek = $( this.options.timelineSelector );
     this.video_loading_progress = $('.vi2-timeline-progress');
     this.video_timer = $('.vi2-video-timer'); // could become an option
@@ -237,14 +238,14 @@ Vi2.AnnotatedTimeline = $.inherit(/** @lends Vi2.TableOfContents# */{ //
     var _this= this;
     if( timelineSelector === undefined ){
       timelineSelector = this.options.timelineSelector;
-    }
+    } 
     this.options[ type ] = { markerHasTooltip: true, markerIsClickable:true };
     var timeline = $( timelineSelector );
 
     // remove existing markes of the same type before rewriting them
     $('.'+type + '-timeline-marker').each(function(i, val){ $(val).remove(); });
 
-    $.each( data, function(i, val){
+    $.each( data, function(i, val){ 
       var progress = val.occ[0] / vi2.observer.player.duration();
       progress = ((progress) * $( timelineSelector ).width());
       if (isNaN(progress) || progress > $( timelineSelector ).width()) { return;}
@@ -318,6 +319,7 @@ Vi2.AnnotatedTimeline = $.inherit(/** @lends Vi2.TableOfContents# */{ //
 
   },
 
+
   /*
    * Event is called every time when the playback time changes
    **/
@@ -328,35 +330,36 @@ Vi2.AnnotatedTimeline = $.inherit(/** @lends Vi2.TableOfContents# */{ //
     //this.video_timer.text( vi2.utils.seconds2decimal( vi2.observer.player.currentTime() ) + ' / ' + vi2.utils.seconds2decimal( vi2.observer.player.duration() ));
   },
 
-  /**/
+
+  /*
+   * 
+   **/
   highlightTimeline : function(videoElement, timelineSelector, firstLoopPoint, secondLoopPoint, countLoopTimelinePoints) {
-    if (timelineSelector === undefined) {
-      timelineSelector = this.options.timelineSelector;
-    }
+    
     var videoDuration = videoElement.duration;
     var loopMarker = document.createElement('span');
     loopMarker.classList.add('vi2-timeline-loop-marker');
 
     if (countLoopTimelinePoints === 0) {
-      timelineSelector.appendChild(loopMarker);
+      $( timelineSelector ).append(loopMarker);
       loopMarker.style.left = (firstLoopPoint/videoDuration * 100) + '%';
 
     } else if (countLoopTimelinePoints === 1) {
-      var firstCreatedLoopMarker = timelineSelector.querySelector('.vi2-timeline-loop-marker');
-      firstCreatedLoopMarker.parentNode.removeChild(firstCreatedLoopMarker);
-      timelineSelector.appendChild(loopMarker);
+      var firstCreatedLoopMarker = $( timelineSelector ).find('.vi2-timeline-loop-marker');
+      firstCreatedLoopMarker.parent().remove( firstCreatedLoopMarker );
+      $( timelineSelector ).append(loopMarker);
       loopMarker.style.left = (firstLoopPoint/videoDuration * 100) + '%';
       loopMarker.style.width = (secondLoopPoint/videoDuration * 100) - (firstLoopPoint/videoDuration * 100) + '%';
 
     }
   },
 
-  /**/
-  deleteHighlightTimeline :  function(timelineSelector) {
-    if(timelineSelector === undefined) {
-      timelineSelector = this.options.timelineSelector;
-    }
-    var loopMarkersArray = timelineSelector.querySelectorAll('.vi2-timeline-loop-marker');
+
+  /*
+   **/
+  deleteHighlightTimeline :  function( timelineSelector ) {
+    
+    var loopMarkersArray = $( timelineSelector ).find('.vi2-timeline-loop-marker');
 
     for (var i = 0; i < loopMarkersArray.length; i++) {
       loopMarkersArray[i].parentNode.removeChild(loopMarkersArray[i]);

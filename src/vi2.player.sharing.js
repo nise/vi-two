@@ -39,7 +39,7 @@ Vi2.Sharing = $.inherit(/** @lends Vi2.Sharing# */{ //
 		init: function(){
 			var _this = this;
 			
-			var url = window.location.href.slice(window.location.href.indexOf('#') + 1);
+			var url = window.location.href;//.slice(window.location.href.indexOf('#') + 1);
 			
 			// clear selector
 			$( this.options.selector + '> .vi2-sharing-controls' ).remove();

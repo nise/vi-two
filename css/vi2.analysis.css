@@ -1,0 +1,114 @@
+
+
+/* timeline marker */
+.analysis-timeline-marker{
+	position: absolute; 
+	top:1px !important;
+	display: block;
+	cursor:pointer; 
+	width: 8px; 
+	height: 8px; 
+	left:0; 
+	margin: 0; 
+	padding: 0;
+	z-index:200;
+	background-color: pink;
+}
+
+.analysis-timeline-marker:hover{
+	width: 14px; 
+	height: 14px;
+	background-color: white;
+}
+
+
+.analysis-marker-wraper{
+	display:block;
+	border:solid red 1px;
+}
+
+.analysis-marker{
+	background-color:red;
+	display:inline-block;
+	width:30px;
+	height:30px;
+	border-radius: 8px;
+	box-sizing: border-box;
+}
+
+.analysis-marker:hover{
+	background-color:#fff;
+}
+
+/* add marker */
+.vi2-analysis-controls {
+	display:inline-block;
+	padding: 0px 4px;
+	width:29px;
+  height:29px; 
+  font-size:20px; 
+  text-align: center;
+  float:left;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  background-color:#555;
+	color:#fff;
+	cursor: pointer;
+	z-index:5000;
+	margin:0;  
+}
+
+
+.vi2-analysis-controls:hover {
+	background: #fff; color:#003366;
+}
+
+/* menu entries */
+.analysis-list{ padding:0px; list-style-type:none;  list-style-position: inside; margin:0;}
+.analysis-list li { line-height:160%; display:list-item; margin: 4px 0; padding:2px 4px; }
+.analysis-list li:hover { }
+
+.analysis-list li a { text-decoration:none; padding: 2px 1px 1px 3px; color:#111; cursor:pointer;}
+.analysis-list li a.analysis-menu-question {
+	width:90%;
+	display:inline-block;
+}
+
+
+.analysis-header {
+	display:block;
+	border-bottom: 2px solid #777;
+	font-size:11px;
+	padding:0;
+	height:20px;
+}
+
+.analysis-user {
+	background-color: #777;
+	color:#fff;
+	margin:0;
+	border:0;
+	padding: 0px 4px;
+	vertical-align:bottom;
+	height:12px;
+}
+
+
+.analysis-list li.vi2-highlight {
+    -webkit-animation: highlight-fade 5s 1;
+    -moz-animation: highlight-fade 5s 1;
+}
+
+@-webkit-keyframes highlight-fade {
+    0% { background-color: rgba(255,255,0,1); }
+    100% { background-color: rgba(0,0,0,0); }
+}
+@-moz-keyframes highlight-fade {
+    0% { background-color: rgba(255,255,0,1); }
+    100% { background-color: rgba(0,0,0,0); }
+}
+
+
+
+
