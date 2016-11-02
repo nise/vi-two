@@ -50,7 +50,7 @@ Vi2.Loop = $.inherit({
 
     // add loop button to player control bar
     this.loopButton.classList.add('vi2-loop-controls', 'vi2-btn', 'vi2-loop-controls-first-point');
-    this.loopButton.setAttribute('title', 'Click to define the first point of the loop');
+    this.loopButton.title = 'Click to define the first point of the loop';
     this.loopButton.addEventListener('click', function(){ _this.loopButtonClickHandler() }, false);
     document.querySelector(this.options.selector).appendChild( this.loopButton );
 
@@ -63,7 +63,7 @@ Vi2.Loop = $.inherit({
       if (this.clicks === 0) {
         this.firstClickCurrentTime = vi2.observer.player.currentTime();
         // this - div class="vi2-loop-controls"
-        this.loopButton.setAttribute('title', 'Click to define the last point of the loop');
+        this.loopButton.title = 'Click to define the last point of the loop';
         this.loopButton.classList.remove('vi2-loop-controls-first-point');
         this.loopButton.classList.add('vi2-loop-controls-last-point');
         vi2.observer.player.timeline.highlightTimeline( vi2.observer.player.video, this.options.timelineSelector, this.firstClickCurrentTime, this.secondClickCurrentTime, this.clicks);
@@ -81,7 +81,7 @@ Vi2.Loop = $.inherit({
         }
 
         // this - div class="vi2-loop-controls"
-        this.loopButton.setAttribute('title', 'Click to delete the loop');
+        this.loopButton.title = 'Click to delete the loop';
         this.loopButton.classList.remove('vi2-loop-controls-last-point');
         this.loopButton.classList.add('vi2-loop-controls-delete');
         vi2.observer.player.video.addEventListener('timeupdate', this.endLoop, false);
@@ -90,7 +90,7 @@ Vi2.Loop = $.inherit({
       } else {
         vi2.observer.player.video.removeEventListener('timeupdate', this.endLoop, false);
         // this - div class="vi2-loop-controls"
-        this.loopButton.setAttribute('title', 'Click to define the first point of the loop');
+        this.loopButton.title = 'Click to define the first point of the loop';
         this.loopButton.classList.remove('vi2-loop-controls-delete');
         this.loopButton.classList.add('vi2-loop-controls-first-point');
         vi2.observer.player.timeline.deleteHighlightTimeline( this.options.timelineSelector );
@@ -108,7 +108,7 @@ Vi2.Loop = $.inherit({
       // this - <video></video>
       if (this.currentTime >= this.secondClickCurrentTime + 0.5 || this.currentTime < this.firstClickCurrentTime) {
         this.removeEventListener('timeupdate', this.endLoop, false);
-        this.loopButton.setAttribute('title', 'Click to define the first point of the loop');
+        this.loopButton.title = 'Click to define the first point of the loop';
         this.loopButton.classList.remove('vi2-loop-controls-delete');
         this.loopButton.classList.add('vi2-loop-controls-first-point');
         vi2.observer.player.timeline.deleteHighlightTimeline( this.options.timelineSelector );

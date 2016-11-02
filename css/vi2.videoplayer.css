@@ -5,7 +5,7 @@ author: niels.seidel@nise81.com
 
 /* player controls */
 .video-controls {
-	width: 100%;
+	width: 1050px;
 	height: 90px;
 	position: absolute;
 	display:inline;
@@ -42,7 +42,7 @@ author: niels.seidel@nise81.com
 
 .control-bar > div {	
 	vertical-align: text-top;
-	margin: 0px 4px 0px 6px;
+	margin: 0 4px 0 6px;
 }
 
 
@@ -51,7 +51,7 @@ author: niels.seidel@nise81.com
 /* play, pause */
 .vi2-video-play-pause{
 	float:left;
-	padding: 0px 4px;
+	padding: 0 4px;
 	width:29px;
   height:29px; 
   font-size:20px;
@@ -62,7 +62,149 @@ author: niels.seidel@nise81.com
   background-color:#555;
   color:#fff;
   cursor: pointer;
+
+	/* TEMPORARY STYLES ONLY FOR PRESENTATION */
+	position: relative;
+	/* END OF TEMPORARY STYLES */
 }
+
+/* TEMPORARY STYLES ONLY FOR PRESENTATION */
+/* ====================================== */
+.glyphicon-play::before {
+	position: absolute;
+	top: -17px;
+	left: 50%;
+	content: '';
+
+	display: block;
+	width: 25px;
+	height: 20px;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	transform: translateX(-50%);
+
+	background-image: url(../img/play-icon-temp.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.glyphicon-pause::before {
+	position: absolute;
+	top: -17px;
+	left: 50%;
+	content: '';
+
+	display: block;
+	width: 25px;
+	height: 20px;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	transform: translateX(-50%);
+
+	background-image: url(../img/pause-icon-temp.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.glyphicon-step-backward::before {
+	position: absolute;
+	top: -17px;
+	left: 50%;
+	content: '';
+
+	display: block;
+	width: 25px;
+	height: 20px;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	transform: translateX(-50%);
+
+	background-image: url(../img/step-backward.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.glyphicon-share::before {
+	position: absolute;
+	top: -17px;
+	left: 50%;
+	content: '';
+
+	display: block;
+	width: 25px;
+	height: 20px;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	transform: translateX(-50%);
+
+	background-image: url(../img/share.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.glyphicon-volume-up::before {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	content: '';
+
+	display: block;
+	width: 25px;
+	height: 20px;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	transform: translateX(-50%);
+
+	background-image: url(../img/volume-up-temp.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.glyphicon-volume-down::before {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	content: '';
+
+	display: block;
+	width: 25px;
+	height: 20px;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	transform: translateX(-50%);
+
+	background-image: url(../img/volume-up-temp.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.glyphicon-volume-off::before {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	content: '';
+
+	display: block;
+	width: 25px;
+	height: 20px;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	transform: translateX(-50%);
+
+	background-image: url(../img/volume-down-temp.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+/* END OF TEMPORARY STYLES */
+/* ====================================== */
+
 
 .vi2-video-play-pause:hover{
 	background-color:#fff;
@@ -110,7 +252,7 @@ display:inline;
 	display:block;
 	position:absolute;
 	top:0; 
-	width:0px; 
+	width:0; 
 	height:inherit;
 	background: #eee;
 	border:0 none;
