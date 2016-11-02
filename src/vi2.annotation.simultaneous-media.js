@@ -203,7 +203,7 @@ Vi2.SyncronizeMedia = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
 		
 		/* */
 		placeMedia: function( e, id, obj ){ 
-			if(this.currImgId == obj.content.target){
+			if(this.currImgId === obj.content.target){
 				return false;
 			}else{  
 				var _this = this;

@@ -295,7 +295,7 @@ Vi2.Hyperlinks = $.inherit( Vi2.Annotation,/** @lends Hyperlinks# */{
 					.prepend( ltype )
 					.appendTo( this.options.displaySelector )
 					.css({left: obj.displayPosition.x+'%', top: obj.displayPosition.y+'%', position:'absolute'})
-					.effect( "highlight", 2000 ) // could be improved
+					.effect( "highlight", 500 ) // could be improved
 					; 
 		},
 	

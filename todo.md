@@ -4,17 +4,14 @@
 - grunt :: https://scotch.io/tutorials/a-simple-guide-to-getting-started-with-grunt
 - start widgets from config.json / /json/vi-two-config
 - multilingual support for all text and controls
-- use a template engine, maybe ejs
+- use a template engine, maybe ejs or angular
 - eliminate parser
 - consider html-track as storage/timing mechanism
 
 
 ## new widgets for my dissertation
 - follow revisions => server
-- loop
 - video manipulation
-- closed captions 
-- transcript
 - user notes
 - media fragments 
 	`<html>
