@@ -201,8 +201,8 @@ var Parser = $.inherit(/** @lends Parser# */
 						obj.t2 = 1;// default // $(this).attr('duration') === undefined ? 1 : $(this).attr('duration');
   					_this.vid_arr[v_id]['annotation'].push(obj);
 
-  				}else if($(this).attr('type') === "analysis"){ 
-						// comments
+  				}else if($(this).attr('type') === "assessmentanalysis"){ 
+						// analysis
 						obj.title = $(this).text();
 						obj.target = $(this).attr('starttime') === undefined ? 0 : $(this).attr('starttime');
 						obj.linktype = '';
@@ -210,11 +210,12 @@ var Parser = $.inherit(/** @lends Parser# */
 						obj.y = $(this).attr('y');
 						obj.t1 = $(this).attr('starttime') === undefined ? 0 : $(this).attr('starttime');
 						obj.t2 = $(this).attr('duration') === undefined ? 1 : $(this).attr('duration');
-						obj.marker = $(this).data('marker')
-						obj.marker_type = $(this).attr('marker_type')
-						obj.marker_label = $(this).attr('marker_label')
-						obj.marker_description = $(this).attr('marker_description')
-						obj.marker_select_option = $(this).attr('marker_select_option')
+						obj.marker = $(this).data('marker');
+						obj.markertype = $(this).attr('markertype');
+						obj.markerlabel = $(this).attr('markerlabel');
+						obj.markerdescription = $(this).attr('markerdescription');
+						obj.markerdescription2 = $(this).attr('markerdescription2');
+						obj.markerselect_option = $(this).attr('markerselectoption');
 						obj.id = $(this).attr('id')
   					_this.vid_arr[v_id]['annotation'].push(obj);
   					

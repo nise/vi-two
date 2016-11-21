@@ -26,8 +26,6 @@
  - further: API calls: http://code.google.com/apis/youtube/js_api_reference.html
  - media fragment URI ..parser ..:: http://tomayac.com/mediafragments/mediafragments.html
 
-- shortcut-command: skip 10%-steps through the video
-
 
  \begin{lstlisting}
 
@@ -97,6 +95,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 	*		@param {Observer} observer Observer of VI-TWO
 	*/
   __constructor: function(options) { 
+  	vi2.observer.player = this;
 		this.options = $.extend(this.options, options); 
 		// init spinner
 		this.spinner = new Spinner(this.spinner_options); //this.stopSpinning();
@@ -159,21 +158,27 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 
 	/* load video */
 	// param: url= url of video; seek = time seek within video in seconds
-	loadVideo: function(url, seek) {   
+	loadVideo: function(url, seek) {    
 		var _this = this;
 		this.url = url;
 	  this.seek = seek === undefined ? 0 : seek;
 	  
-	  var videoo = $('<video></video>')
+	  // create and append video element
+	  var video_element = $('<video></video>')
 				.attr('controls', false)
 				.attr('autobuffer', true)
 				.attr('preload', "metadata")
 				.attr('id', 'video1')
-				.addClass('embed-responsive-item col-md-12')
+				//.show()
+				.css({width:'75vw'}) // xxx: size should be defined somewhere
+				//.addClass('embed-responsive-item col-md-12')
 				.text('Your Browser does not support either this video format or videos at all');
 		$('#seq')
-			.addClass('embed-responsive embed-responsive-16by9')
-			.html(videoo); 
+			//.addClass('embed-responsive embed-responsive-16by9')
+			.html( video_element ); 
+		
+			
+			
 	  this.video = document.getElementById( ( this.options.selector ).replace(/\#/,'') );
 	 
 	  if(this.videoIsPlaying){
@@ -188,7 +193,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 	  	preload: 'metadata', // 'metadata' | true ??
 	  	autoplay: this.videoIsPlaying,
 	  	controls: false,
-	  	poster: '/static/img/stills/'+this.options.thumbnail,
+	 // 	poster: '/static/img/stills/'+this.options.thumbnail, // xxx wrong path !!
 	 		 //	width: this.options.width,
 	  	//	height: this.options.height,
 	  	onerror: function(e) { _this.errorHandling(e); }
@@ -200,6 +205,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		// add playback logger
 		this.logger();
 		
+		// xxx should depend on the configuration
 		var playbackSpeed = new Vi2.PlaybackSpeed();
 		vi2.observer.addWidget( playbackSpeed );  
 		
@@ -313,6 +319,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
     return M[0];//.join(' ');
 	},
 
+
 	/* load sequence */
 	loadSequence: function(sources, num, seek) {  
 		this.seqList = sources;
@@ -334,11 +341,11 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 	*/
 	createSource: function(src, mime_type) { 
   	var
-  		ext, 
+  		ext = '.mp4',
   		source = document.createElement('source'); 
   	if( this.detectBrowser() === 'Firefox'){
-  		ext = '.mp4';
-  		mime_type = "video/mp4";
+  		ext = '.webm';  // lacy bug fix since firefox doesn't support mp4 anymore. xxx needs further testing.
+  		mime_type = "video/webm";
   	}else if( this.detectBrowser() === 'Chrome'){
   		ext = '.webm';
   		mime_type = "video/webm";
@@ -401,7 +408,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		};
 		
 		$('body').unbind('keydown').bind('keydown', function(e) { 
-			_this.keyboardCommandHandler(e); 
+			//_this.keyboardCommandHandler(e); 
 		});
 		
 	},
@@ -436,13 +443,15 @@ var Video = $.inherit(/** @lends VideoPlayer# */
   			//$('.navbar').show();	
   	});
   	
+  	
+  	
 	},
 
 
 	/** 
 	* Creates a volume control element 
 	*/
-	createVolumeControl : function(){ 
+	createVolumeControl : function(){ 		
 		var _this = this;
 		// intit controls
 		this.volume = $('.vi2-volume-slider', this.video_container);
@@ -512,10 +521,9 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		}else{
 			this.volume_btn.addClass('glyphicon glyphicon-volume-up');
 		}
-		
+
 		// set initial volume
 		// xxx does not work
-			
 	},
 	
 	/**
@@ -530,9 +538,9 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 	* Set volume
 	* @param volume {Number} Number in the range of 0 and 1. Every value outside that rang will be changed to the boundaries. 
 	*/
-	setVolume : function(volume){
-		vi2.observer.log({context:'player',action:'set-volume', values:[volume] }); 
+	setVolume : function(volume){ 
 		this.volume.slider('value', volume);
+		vi2.observer.log({context:'player',action:'set-volume', values:[volume] }); 
 	},
 	
 	
@@ -688,22 +696,19 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 			case 77: // m 
 				this.muteVolume();// volume mute	
 				break;
-			/*case 39: // 39: right 
+			case 39: // 39: right 
 				vi2.observer.widget_list.toc.nextElement();
 				break;
-			case 37: // 37:left
-				if( vi2.observer.widget_list.indexOf('toc') !== -1){		
-					vi2.observer.widget_list.toc.previousElement();
-				}	
+			case 37: // 37:left		
+				vi2.observer.widget_list.toc.previousElement();
 				break;
 			case 34: // 39: right  presenter
-				if( vi2.observer.widget_list.indexOf('toc') !== -1){
-					vi2.observer.widget_list.toc.nextElement();
-				}
+				vi2.observer.player.play();
+				//vi2.observer.widget_list.toc.nextElement();
 				break;
 			case 33: // 37:left		presenter
 				vi2.observer.widget_list.toc.previousElement();
-				break;	*/
+				break;	
 		}
 		this.video.focus(); 
 	},
@@ -759,7 +764,8 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		}else { 
 			$(this.video).trigger('play');
 			this.video.currentTime = x;
-			//this.play();
+			this.play();
+			
 		}
 	},
 
@@ -768,7 +774,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		if (x === null) {
 			return $('#video1').width();
 		}else {
-			this.video.width = x;
+			//this.video.width = x;
 		}
 	},
 
@@ -777,7 +783,7 @@ var Video = $.inherit(/** @lends VideoPlayer# */
 		if (x === null) {
 			return $('#video1').height();
 		}else {
-			this.video.height = x;
+			//this.video.height = x;
 		}
 	},
 	

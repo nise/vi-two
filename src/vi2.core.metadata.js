@@ -44,7 +44,7 @@ Vi2.Metadata = $.inherit(/** @lends Vi2.Metadata# */
   				this.displayMetadata();
   			}
   			if( this.options.requiresMetatags){	 
-  				//this.buildMetaTags();
+  				this.buildMetaTags();
   			}	
   		},
   		

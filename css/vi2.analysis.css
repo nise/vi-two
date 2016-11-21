@@ -12,7 +12,7 @@
 	margin: 0; 
 	padding: 0;
 	z-index:200;
-	background-color: pink;
+	background-color: red;
 }
 
 .analysis-timeline-marker:hover{
@@ -42,6 +42,65 @@
 	background-color:#fff;
 }
 
+.analysis-marker-annotate{
+	background-color:transparent;
+	display:inline-block;
+	width:100px;
+	height:100px;
+	margin:0 4px;
+	border: dashed 2px red;
+	box-sizing: border-box;
+}
+
+.analysis-marker-annotate-fill{
+	display:inline-block;
+	background-color:red;
+	opacity:0.2;
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	cursor:move;
+	
+}
+
+.analysis-marker-annotate > .save-btn{
+	display:none;
+	position:absolute;
+	right:-40px;
+	bottom:-20px;
+}
+.analysis-marker-annotate:hover > .save-btn, .analysis-marker-annotate:hover > .remove-btn{
+	display:inline-block;
+}
+.analysis-marker-annotate > .remove-btn{
+	display:none;
+	position:absolute;
+	right:-20px;
+	top:-20px;
+	width:20px;
+	height:20px;
+}
+
+
+.vi2-analysis-btn{
+	padding:2px 4px;
+	font-size:10px;
+	background-color:#fff;
+	color:#222;
+	margin:2px;
+	cursor:pointer;
+	border-radius: 4px;
+	border:solid 1px #333;
+}
+
+.vi2-analysis-btn:hover{
+	background-color:#222;
+	color:#fff;
+	border:solid 1px #fff;
+	text-decoration:none;
+}
 
 .marker-element{
 	top:0;
@@ -60,7 +119,7 @@
 }
 
 .analysis-marker-wraper textarea{
-	height:150px;
+	height:120px;
 }
 
 

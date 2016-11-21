@@ -1,7 +1,7 @@
 /* 
 * name: Vi2.Sharing
 * author: niels.seidel@nise81.com
-* license: MIT License
+* license: BSD New
 * description:
 * depends on:
 *  - jquery-1.11.2.min.js
@@ -39,7 +39,7 @@ Vi2.Sharing = $.inherit(/** @lends Vi2.Sharing# */{ //
 		init: function(){
 			var _this = this;
 			
-			var url = window.location.href;//.slice(window.location.href.indexOf('#') + 1);
+			var url = window.location.href.slice(window.location.href.indexOf('#') + 1);
 			
 			// clear selector
 			$( this.options.selector + '> .vi2-sharing-controls' ).remove();
@@ -59,7 +59,7 @@ Vi2.Sharing = $.inherit(/** @lends Vi2.Sharing# */{ //
 				.appendTo( this.options.selector );
 			
 			var options = $('<div></div>')
-				//.append( browserSharing )			// xxx some bug
+				.append( browserSharing )			
 				.addClass('vi2-sharing-select')
 				.appendTo( container );
 			

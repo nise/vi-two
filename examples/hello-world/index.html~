@@ -1,265 +1,230 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-	<meta content="utf-8" http-equiv="encoding">
+  <head>
+  	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		
+		
+    <title>vi2 framework showcase</title>
+    <link type="text/css" href="../../css/ui-lightness/jquery-ui-1.7.2.custom.css" rel="stylesheet" />
+		<link type="text/css" href="../../css/jquery.ui.autocomplete.custom.css" rel="stylesheet" />
+		<link type="text/css" href="../../css/vi2.main.css" rel="stylesheet" media="screen" />
+		
+		<link type="text/css" href="../../css/vi2.assessment.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.assessment-fill-in.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.assessment-writing.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.visual-highlighting.css" rel="stylesheet" media="screen" />
+		
+		<link type="text/css" href="../../css/vi2.player.playback-speed.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.player.zoom.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.player.sharing.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.player.skip-back.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.player.temporal-bookmarks.css" rel="stylesheet" media="screen" />
 
-	<title>vi2 framework showcase</title>
-	<link type="text/css" href="../../css/bootstrap.min.css" rel="stylesheet" >
+		<link type="text/css" href="../../css/vi2.simultaneous-media.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.user-notes.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.closed-captions.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.toc.css" rel="stylesheet" media="screen" />
+		<link type="text/css" href="../../css/vi2.videoplayer.css" rel="stylesheet" media="screen" />
 
-	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:400,700&subset=latin,latin-ext' type='text/css'><!---->
-	<link rel="stylesheet" href="../../css/font-awesome.min.css">
-	<link type="text/css" href="../../css/ui-lightness/jquery-ui-1.7.2.custom.css" rel="stylesheet" />
-	<link type="text/css" href="../../css/jquery.ui.autocomplete.custom.css" rel="stylesheet" />
-	<link type="text/css" href="../../css/vi2.main.css" rel="stylesheet" media="screen" />
+		
+			
+		<style>
 
-	<link type="text/css" href="../../css/vi2.assessment.css" rel="stylesheet" media="screen" />
-	<link type="text/css" href="../../css/vi2.assessment-fill-in.css" rel="stylesheet" media="screen" />
-	<link type="text/css" href="../../css/vi2.assessment-writing.css" rel="stylesheet" media="screen" />
-	<link type="text/css" href="../../css/vi2.visual-highlighting.css" rel="stylesheet" media="screen" />
+			html, body {
+				 position: relative;
+			 	 min-height: 100%;
+			 	 max-width: 100%;
+				 overflow-x: hidden;
+			 	 margin:0;
+			 	 padding:0;
+			 	 background-color: #111;
+			 	 font-family: Arial;
+			 	 font-size:12px;
+			}
+			#page {
+				display:block;
+				position:relative;
+				overflow:hidden;
+			}
+			#video1 {
+				width: auto;
+				height: calc( 100vh - 2px);
+				-webkit-transition-property: height, width;
+				-webkit-transition-duration: 1s;
+			}
+			.sidepanel{
+				background-color:#fff;
+				z-index:230;
+				position:absolute;
+				right:0;
+				width:300px;
+				padding:10px;
+				overflow:scroll;
+				height:100%;
+			}
+		</style>
+		
+		
+  	<!-- libs -->		
+		<script src="../../lib/jquery-1.11.2.min.js"></script>
+		<script src="../../lib/jquery.json-2.2.min.js"></script>
+		<script src="../../lib/jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="../../lib/jquery.inherit-1.1.1.js"></script>
+		<script src='../../lib/ejs22.js'></script>
+		<script src="../../lib/jquery.tinysort.js"></script>
+		<script src="../../lib/jquery.tooltip.js"></script>
+		<script src='../../lib/jquery.spin.js'></script>
+		<script src="../../lib/jquery.panzoom.min.js"></script>
+		<script src="../../lib/sammy-latest.min.js"></script>
+		<script src="../../lib/moment.min.js"></script>
+			
+		<script language ="javascript">
+			var 
+				observer = undefined, 
+				vi2 = undefined, 
+				ocr = undefined
+				;
+			var Vi2 = {}; // set the Namespace
+			$(document).ready(function(){ alert(2)
+				var core = new Vi2.Example();	
+			});
+		</script>
 
-	<link type="text/css" href="../../css/vi2.player.playback-speed.css" rel="stylesheet" media="screen" />
-	<link type="text/css" href="../../css/vi2.player.zoom.css" rel="stylesheet" media="screen" />
-	<link type="text/css" href="../../css/vi2.player.sharing.css" rel="stylesheet" media="screen" />
-	<link type="text/css" href="../../css/vi2.player.skip-back.css" rel="stylesheet" media="screen" />
-	<link type="text/css" href="../../css/vi2.player.loop.css" rel="stylesheet" media="screen" />
-	<link type="text/css" href="../../css/vi2.player.temporal-bookmarks.css" rel="stylesheet" media="screen" />
 
-	<link type="text/css" href="../../css/vi2.simultaneous-media.css" rel="stylesheet" media="screen" />
-	<link type="text/css" href="../../css/vi2.user-notes.css" rel="stylesheet" media="screen" />
-	<link type="text/css" href="../../css/vi2.closed-captions.css" rel="stylesheet" media="screen" />
-	<link type="text/css" href="../../css/vi2.toc.css" rel="stylesheet" media="screen" />
-	<link type="text/css" href="../../css/vi2.videoplayer.css" rel="stylesheet" media="screen" />
-	<link type="text/css" href="../../css/vi2.annotated-timeline.css" rel="stylesheet" />
-	<link type="text/css" href="../../css/vi2.hyperlinks.css" rel="stylesheet" />
-	<link type="text/css" href="../../css/vi2.comments.css" rel="stylesheet" />
-	<link type="text/css" href="../../css/vi2.analysis.css" rel="stylesheet" />
-
-	<style>
-		html, body {
-			position: relative;
-			min-height: 100%;
-			max-width: 100%;
-			overflow-x: hidden;
-			margin:0;
-			padding:0;
-			background-color: #111;
-			font-family: Arial;
-			font-size:12px;
-		}
-
-		#page {
-			display:block;
-			position:relative;
-			overflow:hidden;
-		}
-
-		#video1 {
-			width: auto;
-			height: calc( 100vh - 2px);
-			-webkit-transition-property: height, width;
-			-webkit-transition-duration: 1s;
-		}
-
-		.sidepanel{
-			background-color:#fff;
-			z-index:230;
-			position:absolute;
-			right:0;
-			width:300px;
-			padding:10px;
-			overflow:scroll;
-			height:100%;
-		}
-	</style>
-
-	<!-- libs -->
-	<script src="../../lib/jquery-1.11.2.min.js"></script>
-	<script src="../../lib/jquery.json-2.2.min.js"></script>
-	<script src="../../lib/jquery-ui-1.10.3.custom.min.js"></script>
-	<script src="../../lib/jquery.inherit-1.1.1.js"></script>
-	<script src="../../lib/bootstrap.js" type="text/javascript"></script>
-
-	<script src='../../lib/ejs22.js'></script>
-	<script src="../../lib/jquery.tinysort.js"></script>
-	<script src="../../lib/jquery.tooltip.js"></script>
-	<script src='../../lib/jquery.spin.js'></script>
-	<script src="../../lib/jquery.panzoom.min.js"></script>
-	<script src="../../lib/sammy-latest.min.js"></script>
-	<script src="../../lib/moment.min.js"></script>
-
-	<script language ="javascript">
-		var
-			observer = undefined,
-			vi2 = undefined,
-			ocr = undefined
-			;
-		var Vi2 = {}; // set the Namespace
-		$(document).ready(function(){
-			var core = new Vi2.Example();
-		});
-	</script>
-
-	<script src="main.js"></script>
-	<!-- vi-two core -->
-	<script src="../../src/vi2.core.log.js"></script>
-	<script src="../../src/vi2.core.database.js"></script>
-	<script src="../../src/vi2.core.observer.js"></script>
-	<script src="../../src/vi2.core.annotated-timeline.js"></script>
-	<script src="../../src/vi2.core.parser.js"></script>
-	<script src="../../src/vi2.core.videoplayer.js"></script>
-	<script src="../../src/vi2.core.clock.js"></script>
-	<script src="../../src/vi2.core.metadata.js"></script>
-	<script src="../../src/vi2.core.annotation.js"></script>
-	<script src="../../src/vi2.core.utils.js"></script>
-	<!-- vi-two player-widgets	-->
-	<script src="../../src/vi2.player.playback-speed.js"></script>
-	<script src="../../src/vi2.player.temporal-bookmarks.js"></script>
-	<script src="../../src/vi2.player.zoom.js"></script>
-	<script src="../../src/vi2.player.sharing.js"></script><!---->
-	<script src="../../src/vi2.player.skip-back.js"></script>
-	<!--<script src="../../src/vi2.player.loop.js"></script>--!>
-	<!-- vi-two portal-widgets -->
-	<script src="../../src/vi2.core.video-manager.js"></script>
-	<script src="../../src/vi2.related-videos.js"></script>
-	<script src="../../src/vi2.viewing-history.js"></script>
-	<!--<script src="../../src/vi2.search.js"></script>-->
-	<!-- vi-two annotation-widgets -->
-	<script src="../../src/vi2.annotation.toc.js"></script>
-	<script src="../../src/vi2.annotation.simultaneous-media.js"></script>
-	<script src="../../src/vi2.annotation.closed-captions.js"></script>
-	<script src="../../src/vi2.annotation.analysis.js"></script>
-	<script src="../../src/vi2.annotation.hyperlinks.js"></script>
-	<!--<script src="../../src/vi2.annotation.user-analysis.js"></script>-->
-	<!--<script src="../../src/vi2.user-notes.js"></script>-->
-
-	<!--
-	<script src="../../src/vi2.hyperlinks.js"></script>
-  <script src="../../src/vi2.seq.js"></script>
-  <script src="../../src/vi2.temporal-tags.js"></script>
-  -->
-</head>
-
+		<script src="main.js"></script>
+		<!-- vi-two core -->
+		<script src="../../src/vi2.core.log.js"></script>
+		<script src="../../src/vi2.core.database.js"></script>
+		<script src="../../src/vi2.core.observer.js"></script>
+		<script src="../../src/vi2.core.parser.js"></script>
+		<script src="../../src/vi2.core.videoplayer.js"></script>
+		<script src="../../src/vi2.core.clock.js"></script>
+		<script src="../../src/vi2.core.metadata.js"></script>
+		<script src="../../src/vi2.core.annotation.js"></script>
+		<script src="../../src/vi2.core.utils.js"></script>
+		<!-- vi-two player-widgets	-->
+		<script src="../../src/vi2.player.playback-speed.js"></script>
+<!--		<script src="../../src/vi2.player.temporal-bookmarks.js"></script>
+		<script src="../../src/vi2.player.zoom.js"></script>
+		<script src="../../src/vi2.player.sharing.js"></script>-->
+		<script src="../../src/vi2.player.skip-back.js"></script>		
+		<!-- vi-two portal-widgets -->
+		<script src="../../src/vi2.core.video-manager.js"></script>
+<!--		<script src="../../src/vi2.related-videos.js"></script>
+		<script src="../../src/vi2.viewing-history.js"></script>
+		<script src="../../src/vi2.search.js"></script>-->
+		<!-- vi-two annotation-widgets -->
+		<script src="../../src/vi2.annotationtoc.js"></script>
+		<script src="../../src/vi2.annotation.simultaneous-media.js"></script>
+<!--		<script src="../../src/vi2.user-notes.js"></script>
+		<script src="../../src/vi2.closed-captions.js"></script>-->
+		
+	<!--	<script src="../../src/vi2.hyperlinks.js"></script>
+		<script src="../../src/vi2.seq.js"></script>
+		<script src="../../src/vi2.temporal-tags.js"></script>
+		-->
+	
+	</head>
 <body>
-<div id="page">
-	<div class="main">
-		<div id="seq"></div>
-		<div id="overlay"></div>
-		<div id="split"></div>
-		<div class="sidepanel">
-			<a href="#!/video/balke1">home</a>
-			<a href="#!/viewing-history"> hist</a>
-			<hr>
-			<h3>Analysis</h3>
-			<div class="analysis"></div>
-			<h3>Metadata</h3>
-			<div class="metadata"></div>
-			<h3>Transcript</h3>
-			<div class="transcript">--</div>
-			<h3>Viewing History</h3>
-			<div class="viewing-history">--</div>
-			<h3>Related Videos</h3>
-			<div class="related-videos">--</div>
-			<h3>Contents</h3>
-			<div class="toc">--</div>
-			<h3>Search Results</h3>
-			<div class="search-results">--</div>
-			<h3>Sync Media</h3>
-			<div class="syncMedia">--</div>
-			<h3>User Notes</h3>
-			<div class="user-notes"></div>
-
-			<div id="accordion-resizer" class="ui-widget-content"></div>
-		</div>
-
-		<div class="container-fluid">
-			<div class="row">
-				<div id="videowrapper" class="col-lg-9 col-md-9 col-sm-9 ">
-					<div id="seq" class=""></div>
-					<div id="overlay" class=""></div>
-					<div id="split" class="col-md-9"></div>
-					<div id="screen" class="col-md-9"></div>
+	<div id="page">
+		<div class="main">   
+			<div id="seq"></div>
+			<div id="overlay"></div>
+			<div id="split"></div>
+			<div class="sidepanel"> <a href="#!/video/balke1">balke</a><a href="#!/viewing-history"> hist</a>
+				<div class="viewing-history">xxx</div>
+				<div class="metadata"></div>
+				<div class="user-notes">
+					<h3>User Notes</h3>
 				</div>
-				<div id="accordion-resizer" class="col-lg-3 col-md-3 col-sm-3 hidden-xs visible-sm-inline">
-					<div id="accordion"></div>
+				<div class="toc">
+					<h3>Contents</h3>
 				</div>
+				<div class="related-videos">
+					<h3>Related Videos</h3>
+				</div>
+				<div class="search-results">
+					<h3>Search Results</h3>
+				</div>
+				<div class="syncMedia"></div>
 			</div>
-			<div id="video-controls" class="video-controls">
-				<div class="timelines">
-					<!--<div class="vi2-video-seeklink vi2-btn"></div>-->
-					<div class="vi2-timeline-top"></div>
-					<div class="vi2-timeline-main vi2-btn"></div>
-					<div class="vi2-timeline-bottom"></div>
-					<div class="vi2-video-progress vi2-btn"></div>
-				</div>
-				<div class="control-bar">
-					<div class="vi2-video-play-pause vi2-btn" title="Play/Pause">
-						<span class="glyphicon glyphicon-play"></span>
-						<span class="glyphicon glyphicon-pause"></span>
-					</div>
-					<div class="vi2-volume-box">
-						<div class="vi2-volume-slider"></div>
-						<span class="vi2-volume-button vi2-btn" title="Mute/Unmute"></span>
-					</div>
-					<div class="vi2-video-timerxxx"></div>
+			
+			<div id="accordion-resizer" class="ui-widget-content">
+				
+			</div>
+		</div>
+		<div id="video-controls" class="video-controls">
+			<div class="timelines vi2-btn">
+				<div class="vi2-video-seeklink vi2-btn"></div>
+				<div class="vi2-video-seek vi2-btn"></div>
+				<div class="vi2-video-progress vi2-btn"></div>
+			</div>
+			<div class="control-bar">
+				<div class="vi2-video-play-pause vi2-btn" title="Play/Pause"></div>
+				<div class="vi2-video-timer"></div>
+				<div class="vi2-volume-box">
+					<div class="vi2-volume-slider"></div>
+					<a class="vi2-volume-button vi2-btn" title="Mute/Unmute"></a>
 				</div>
 			</div>
 		</div>
 
-	</div> <!-- end page -->
-
-
+		
+		
+ 	</div> <!-- end page -->
+	
 	<!-- video annotations -->
 	<div style="display:none; visibility:hidden;" id="vi2"></div>
 	<div id="dialog3"></div>
-
+	
 	<div hidden id="vi22">
 		<div type="video" starttime=0 duration=7 id="my video">http://www.iwrm-education.de/videos/iwrm_graefe.webm</div>
 		<div type="syncMedia" starttime=0 duration=83 id=hello>hydro_graefe-0.jpg</div>
-		<div type="syncMedia" starttime=83 duration=64 id=hello>hydro_graefe-1.jpg</div>
+		<div type="syncMedia" starttime=83 duration=64 id=hello>hydro_graefe-1.jpg</div> 
 		<div type="syncMedia" starttime=147 duration=51 id=hello>hydro_graefe-2.jpg</div>
-		<div type="syncMedia" starttime=198 duration=18 id=hello>hydro_graefe-3.jpg</div>
-		<div type="syncMedia" starttime=316 duration=145 id=hello>hydro_graefe-4.jpg</div>
-		<div type="syncMedia" starttime=461 duration=97 id=hello>hydro_graefe-5.jpg</div>
-		<div type="syncMedia" starttime=558 duration=102 id=hello>hydro_graefe-6.jpg</div>
-		<div type="syncMedia" starttime=660 duration=42 id=hello>hydro_graefe-7.jpg</div>
-		<div type="syncMedia" starttime=702 duration=184 id=hello>hydro_graefe-8.jpg</div>
-		<div type="syncMedia" starttime=886 duration=214 id=hello>hydro_graefe-9.jpg</div>
-		<div type="syncMedia" starttime=1100 duration=244 id=hello>hydro_graefe-10.jpg</div>
-		<div type="syncMedia" starttime=1344 duration=165 id=hello>hydro_graefe-11.jpg</div>
-		<div type="syncMedia" starttime=1509 duration=45 id=hello>hydro_graefe-12.jpg</div>
-		<div type="syncMedia" starttime=1602 duration=33 id=hello>hydro_graefe-13.jpg</div>
-		<div type="syncMedia" starttime=1637 duration=63 id=hello>hydro_graefe-14.jpg</div>
-		<div type="syncMedia" starttime=1648 duration=34 id=hello>hydro_graefe-15.jpg</div>
-		<div type="syncMedia" starttime=1682 duration=15 id=hello>hydro_graefe-16.jpg</div>
+		<div type="syncMedia" starttime=198 duration=18 id=hello>hydro_graefe-3.jpg</div> 
+		<div type="syncMedia" starttime=316 duration=145 id=hello>hydro_graefe-4.jpg</div>  
+		<div type="syncMedia" starttime=461 duration=97 id=hello>hydro_graefe-5.jpg</div>  
+		<div type="syncMedia" starttime=558 duration=102 id=hello>hydro_graefe-6.jpg</div>  
+		<div type="syncMedia" starttime=660 duration=42 id=hello>hydro_graefe-7.jpg</div>  
+		<div type="syncMedia" starttime=702 duration=184 id=hello>hydro_graefe-8.jpg</div>  
+		<div type="syncMedia" starttime=886 duration=214 id=hello>hydro_graefe-9.jpg</div>  
+		<div type="syncMedia" starttime=1100 duration=244 id=hello>hydro_graefe-10.jpg</div>  
+		<div type="syncMedia" starttime=1344 duration=165 id=hello>hydro_graefe-11.jpg</div>  
+		<div type="syncMedia" starttime=1509 duration=45 id=hello>hydro_graefe-12.jpg</div>  
+		<div type="syncMedia" starttime=1602 duration=33 id=hello>hydro_graefe-13.jpg</div>  
+		<div type="syncMedia" starttime=1637 duration=63 id=hello>hydro_graefe-14.jpg</div>  
+		<div type="syncMedia" starttime=1648 duration=34 id=hello>hydro_graefe-15.jpg</div>  
+		<div type="syncMedia" starttime=1682 duration=15 id=hello>hydro_graefe-16.jpg</div>  
 		<div type="syncMedia" starttime=1697 duration=20 id=hello>hydro_graefe-17.jpg</div>
-		<div type="syncMedia" starttime=1717 duration=35 id=hello>hydro_graefe-18.jpg</div>
-		<div type="syncMedia" starttime=1753 duration=8 id=hello>hydro_graefe-19.jpg</div>
-		<div type="syncMedia" starttime=1741 duration=39 id=hello>hydro_graefe-20.jpg</div>
-		<div type="syncMedia" starttime=1780 duration=195 id=hello>hydro_graefe-21.jpg</div>
-		<div type="syncMedia" starttime=1975 duration=105 id=hello>hydro_graefe-22.jpg</div>
-		<div type="syncMedia" starttime=2080 duration=354 id=hello>hydro_graefe-23.jpg</div>
-		<div type="syncMedia" starttime=2432 duration=43 id=hello>hydro_graefe-24.jpg</div>
-		<div type="syncMedia" starttime=2475 duration=19 id=hello>hydro_graefe-22.jpg</div>
-		<div type="syncMedia" starttime=2494 duration=247 id=hello>hydro_graefe-23.jpg</div>
-		<div type="syncMedia" starttime=2741 duration=76 id=hello>hydro_graefe-24.jpg</div>
-		<div type="syncMedia" starttime=2817 duration=125 id=hello>hydro_graefe-25.jpg</div>
-		<div type="syncMedia" starttime=2942 duration=53 id=hello>hydro_graefe-26.jpg</div>
-		<div type="syncMedia" starttime=3040 duration=87 id=hello>hydro_graefe-27.jpg</div>
-		<div type="syncMedia" starttime=3082 duration=242 id=hello>hydro_graefe-28.jpg</div>
-		<div type="syncMedia" starttime=3324 duration=151 id=hello>hydro_graefe-29.jpg</div>
-		<div type="syncMedia" starttime=3475 duration=113 id=hello>hydro_graefe-30.jpg</div>
-		<div type="syncMedia" starttime=3588 duration=36 id=hello>hydro_graefe-31.jpg</div>
-		<div type="syncMedia" starttime=3670 duration=220 id=hello>hydro_graefe-32.jpg</div>
-		<div type="syncMedia" starttime=3844 duration=300 id=hello>hydro_graefe-33.jpg</div>
+		<div type="syncMedia" starttime=1717 duration=35 id=hello>hydro_graefe-18.jpg</div>  
+		<div type="syncMedia" starttime=1753 duration=8 id=hello>hydro_graefe-19.jpg</div>  
+		<div type="syncMedia" starttime=1741 duration=39 id=hello>hydro_graefe-20.jpg</div>  
+		<div type="syncMedia" starttime=1780 duration=195 id=hello>hydro_graefe-21.jpg</div>  
+		<div type="syncMedia" starttime=1975 duration=105 id=hello>hydro_graefe-22.jpg</div>  
+		<div type="syncMedia" starttime=2080 duration=354 id=hello>hydro_graefe-23.jpg</div>  
+		<div type="syncMedia" starttime=2432 duration=43 id=hello>hydro_graefe-24.jpg</div>  
+		<div type="syncMedia" starttime=2475 duration=19 id=hello>hydro_graefe-22.jpg</div>  
+		<div type="syncMedia" starttime=2494 duration=247 id=hello>hydro_graefe-23.jpg</div>  
+		<div type="syncMedia" starttime=2741 duration=76 id=hello>hydro_graefe-24.jpg</div>  
+		<div type="syncMedia" starttime=2817 duration=125 id=hello>hydro_graefe-25.jpg</div>  
+		<div type="syncMedia" starttime=2942 duration=53 id=hello>hydro_graefe-26.jpg</div>  
+		<div type="syncMedia" starttime=3040 duration=87 id=hello>hydro_graefe-27.jpg</div>  
+		<div type="syncMedia" starttime=3082 duration=242 id=hello>hydro_graefe-28.jpg</div>  
+		<div type="syncMedia" starttime=3324 duration=151 id=hello>hydro_graefe-29.jpg</div>  
+		<div type="syncMedia" starttime=3475 duration=113 id=hello>hydro_graefe-30.jpg</div>  
+		<div type="syncMedia" starttime=3588 duration=36 id=hello>hydro_graefe-31.jpg</div>  
+		<div type="syncMedia" starttime=3670 duration=220 id=hello>hydro_graefe-32.jpg</div>  
+		<div type="syncMedia" starttime=3844 duration=300 id=hello>hydro_graefe-33.jpg</div>  
 
-		<div type="toc" starttime=83 duration=1 id="">Objectives of the lecture</div>
-		<div type="toc" starttime=198 duration=1 id="">1. Introduction: gendered water</div>
-		<div type="toc" starttime=461 duration=1 id="">2. Dublin Principles and the integration of women in water policies</div>
-		<div type="toc" starttime=1141 duration=1 id="">3. Approaches of gender in relation with water</div>
-		<div type="toc" starttime=1602 duration=1 id="">4.1 The dialectics of modern water: example 1</div>
-		<div type="toc" starttime=3040 duration=1 id="">4.2 The dialectics of modern water: example 2</div>
-		<div type="toc" starttime=3670 duration=1 id="">5. Conclusion</div>
+		<div type="toc" starttime=83 duration=1 id="">Objectives of the lecture</div> 
+		<div type="toc" starttime=198 duration=1 id="">1. Introduction: gendered water</div> 
+		<div type="toc" starttime=461 duration=1 id="">2. Dublin Principles and the integration of women in water policies</div>  
+		<div type="toc" starttime=1141 duration=1 id="">3. Approaches of gender in relation with water</div> 
+		<div type="toc" starttime=1602 duration=1 id="">4.1 The dialectics of modern water: example 1</div>  
+		<div type="toc" starttime=3040 duration=1 id="">4.2 The dialectics of modern water: example 2</div>  
+		<div type="toc" starttime=3670 duration=1 id="">5. Conclusion</div>  
 	</div>
 </body>
 </html>

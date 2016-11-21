@@ -20,9 +20,9 @@
 		*/
   	__constructor : function(options, call_back, fn, video_id) {  
   		this.call_back = call_back;
-  		var _this = this; 
+  		var _this = this;
   		this.options = $.extend(this.options, options); 
-  		this._d = 0; 
+  		this._d = 0;  
   		$.each(this.options.jsonFiles, function(key, file) { 
         console.log("making requst for " + file.path);  
         _this.loadJSON(file.path, file.storage, fn);
@@ -33,9 +33,9 @@
 		options : {
 			path :'',
 			jsonFiles: [
-  			//{path: '/json/videos/', storage: 'json_data'}, 
-  			//{path: '/groups', storage: 'json_group_data'},
-				//{path: this.options.path+'data-slides.json', storage: 'json_slide_data'},
+  		//	{path: '/json/videos/', storage: 'json_data'}, 
+  		//	{path: '/groups', storage: 'json_group_data'},
+				// {path: this.options.path+'data-slides.json', storage: 'json_slide_data'},
   		//	{path: '/json/users', storage: 'json_user_data'}
   		]
 		}, // ?
@@ -49,9 +49,8 @@
 		
 
 	/**
-	*	@param {String} URL of JSON file
+	*	@param {Sring} URL of JSON file
 	*	@param {Object} Internal Object where the fetched data will be stored for processing within the class 
-	* @param {String} String literal of function name to be called after the data has been loaded
 	*/
 	loadJSON : function(jsonURL, storage, fn){ 
 		var _this = this;
@@ -65,25 +64,26 @@
         url: _this.options.path + jsonURL,
         dataType: 'json',
         success: function(data){ 
-		      _this[storage] = data;  
-		      _this._d++; 
-		      if (_this._d === Object.size( _this.options.jsonFiles ) ){ 
-		      	console.log('done'); 
-		      	// call
-		      	_this.call_back[fn]();
-		      	
-		      }
+            //alert("got " + jsonURL);
+            _this[storage] = data;  
+            
+            //alert(JSON.stringify(_this.json_data))
+            _this._d++; 
+            if (_this._d === Object.size( _this.options.jsonFiles ) ){ 
+            	console.log('done'); 
+            	// call
+            	_this.call_back[fn]();
+            	
+            }
         },
         error: function(e){
-        	//window.location = "/login"; 
-        	console.log(e)
+        	window.location = "/login"; 
 					var err = new Error('Could not catch data');
 				}
     });
 	},
 
 
-/**********************************/
 /* DB Calls */	
 	
 	/* returns true if stream of id exists */
@@ -96,36 +96,29 @@
 		});
 		return t;
 	},
-	
-	
-	/*
-	 *
-	 **/
-	getStreams : function(id){  
+		
+	//get stream by id
+	getStreamById : function(id){  
 		if(this.json_data === undefined){
 			return {};
 		}else{
 			return this.json_data;
 		}
-	},
-	
-			
-	/*
-	 *
-	 **/
-	getStreamById : function(id){  
+		// old:
+		/*
 		var stream = {};  
-		$.each(this.json_data, function(i, val){  
-			if (val.id === id){  
+		$.each(this.json_data, function(i, val){ 
+			if (val._id === id){  
 				stream = this; 
 			}
 		});
+		
 		return stream;
+		*/
 	},
 			
 
 
-	/****************************************************/
 	/* CATEGORIES*/
 
 	/* returns data of all categories */
@@ -134,7 +127,7 @@
 	},
 	
 	
-	// returns ordered list of all categories || xxx: outdated
+	// returns ordered list of all categories
 	getCategoryTaxonomie : function(){
 		var cat = {};
 		$.each(this.json_data.categories, function(i,val){ 
@@ -156,16 +149,11 @@
 	},
 	
 
-
-
-	/*****************************************************/
 	/* META DATA */
 
 	//
-	getMetadataById : function(id){
-		if( this.getStreamById(id).metadata !== undefined ){ 
-				return this.getStreamById(id).metadata[0];
-		}		
+	getMetadataById : function(id){ 
+		return this.getStreamById(id).metadata[0];
 	},
 		
 	//get all titles
@@ -196,41 +184,38 @@
 				}
 		});
 		return authors;
-	},
+	}, 
+	
+	
 
-	/* returns all tags of a video/stream **/
-	getClosedCaptionsById : function(id){ 
-		return this.getStreamById(id).closedCaptions === undefined ? undefined : this.getStreamById(id).closedCaptions;
-	},
-
-	/*****************************************************/
 	/* TAGS */	
 
 	/* returns all tags of a video/stream **/
 	getTagsById : function(id){
-		return this.getStreamById(id).tags === undefined ? {} : this.getStreamById(id).tags;
+		if(this.json_data.tags === undefined){
+			return {};
+		}else{
+			return this.getStreamById(id).tags;
+		}
 	},
 	
 	/* returns all comments related to an video **/
 	getCommentsById : function(id){
-		return this.getStreamById(id).comments === undefined ? {} : this.getStreamById(id).comments;
+		if( this.getStreamById(id).comments === null ){
+			return {}
+		}else{
+			return this.getStreamById(id).comments;
+		}	
 	},
-	
-	/* returns all comments related to an video **/
-	getAnalysisById : function(id){
-		return this.getStreamById(id).analysis === undefined ? {} : this.getStreamById(id).analysis;
-	},
-
+		
 	/* returns all tags related to the whole video collection **/
 	getTagList : function(){
 		var tags = [];
-		if(this.getStreamById(id).tags !== undefined ){  
-			$.each(this.json_data, function(val){
-				$.each(this.tags, function(val){
-					tags.push({first_level: this.tagname});
-				});
+		$.each(this.json_data, function(val){
+			$.each(this.tags, function(val){
+				tags.push({first_level: this.tagname});
 			});
-		}	
+		});
 		return this.removeDuplicates(tags).sort();
 	},
 	
@@ -247,18 +232,16 @@
 	getStreamsWithSameTag : function(id){
 		var _this = this;
 		var streams = [];
-		if(this.getStreamById(id).tags !== undefined ){  
-			var tags = this.getStreamById(id).tags; 
-			$.each(tags, function(i, the_tag_name){	
-				$.each(_this.json_data, function(j, stream){  
-					$.each(stream.tags, function(k, tag){ 
-						if(this.tagname === the_tag_name.tagname){ 
-						 streams.push(stream.id); //$('#debug').val($('#debug').val() +' '+ stream.id);
-						}
-					});
-				});			
-			});
-		}	
+		var tags = this.getStreamById(id).tags; 
+		$.each(tags, function(i, the_tag_name){	
+			$.each(_this.json_data, function(j, stream){  
+				$.each(stream.tags, function(k, tag){ 
+					if(this.tagname === the_tag_name.tagname){ 
+					 streams.push(stream.id); //$('#debug').val($('#debug').val() +' '+ stream.id);
+					}
+				});
+			});			
+		});
 		return streams;
 	},
 	
@@ -279,33 +262,29 @@
 	
 		/* -- */
 	getLinkTargetsById : function(id){
-		var links = [];
-		if(this.getStreamById(id).hyperlinks !== undefined ){  
-			$.each(	this.getStreamById(id).hyperlinks, function(val){ 
-				links.push(this.target);  //$('#debug').val($('#debug').val() + this.target);
-			});
-		}	
+		var links = []; 
+		$.each(	this.getStreamById(id).hyperlinks, function(val){ 
+			links.push(this.target);  //$('#debug').val($('#debug').val() + this.target);
+		});
 		return	links;
 	},
 	
 	/* -- */
 	getLinkSourcesById : function(id){
 		var links = [];	
-		if(this.getStreamById(id).hyperlinks !== undefined ){  
-			$.each( this.json_data, function(i, stream){
-				$.each(stream.hyperlinks, function(i, link){
-					if(this.target === id){
-					 links.push(stream.id); //$('#debug').val($('#debug').val() +' '+ stream.id);
-					}
-				});
+		$.each(this.json_data, function(i, stream){
+			$.each(stream.hyperlinks, function(i, link){
+				if(this.target === id){
+				 links.push(stream.id); //$('#debug').val($('#debug').val() +' '+ stream.id);
+				}
 			});
-		}			
+		});			
 		return links;	
 	},
 	
 	/* -- */ 	
 	getLinksById : function(id){
-		return this.getStreamById(id).hyperlinks === undefined ? {} : this.getStreamById(id).hyperlinks;
+		return this.getStreamById(id).hyperlinks; 
 	},
 	
 	/* -- */ 	
@@ -320,18 +299,36 @@
 	
 	/* -- */ 	
 	getAssessmentById : function(id){
-		return this.getStreamById(id).assessment === undefined ? {} : this.getStreamById(id).assessment;
+		if(this.json_data.assessment === undefined){
+			return {};
+		}else{	
+			return this.json_data.assessment; 
+			//return this.getStreamById(id).assessment;
+		}
+	},
+	
+	/* returns all comments related to an video **/
+	getAnalysisById : function(id){  
+		return this.getStreamById(id).assessmentanalysis === null ? {} : this.getStreamById(id).assessmentanalysis;
 	},
 	
 	
 	/* returns table of content of the requested video */
 	getTocById : function(id){
-		return this.getStreamById(id).toc === undefined ? {} : this.getStreamById(id).toc;
+		if(this.json_data.toc === undefined){
+			return {};
+		}else{ 
+			return this.getStreamById(id).toc;
+		}
 	},
 	
 		/* returns highlight of the requested video */
 	getHighlightById : function(id){ 
-		return this.getStreamById(id).highlight === undefined ? {} : this.getStreamById(id).highlight;
+		if( this.json_data.highlight === undefined ){
+			return {};
+		}else{ 
+			return this.getStreamById(id).highlight;
+		}
 	},
 	
 	
@@ -340,7 +337,8 @@
 	*	@returns {Object} JSON object with temporal annotation of images/slides of video with the given id.
 	*/ 	  
 	getSlidesById : function(id){ 
-		return this.getStreamById(id).slides === undefined ? {} : this.getStreamById(id).slides;
+		//alert(JSON.stringify( this.getStreamById(id)['slides'] ))
+		return this.getStreamById(id).slides; 
 		/*
 		if(this.json_data.slides === undefined){
 			return {};
@@ -363,18 +361,19 @@
 	*
 	**/
 	hasSlides : function(id){
-		return this.getStreamById(id).slides === undefined ? false : true;
+		if(this.getStreamById(id).slides !== undefined){
+			if(this.getStreamById(id).slides.length > 0){
+				return true;
+			}
+		}
+		return false;
 	},
 	
-
-
-	/****************************************/
-	/* USER */	
 	
 	/**
 	
 	*/
-	getUserById : function(id){  
+	getUserById : function(id){  //alert(id); alert(this.json_user_data)
 		var user = {}; 
 		$.each(this.json_user_data, function(i, val){ 
 			if( Number(val.id) === Number(id) ){  
@@ -399,7 +398,7 @@
 	},
 	
 	/* --- **/
-	getUserByGroupId : function(group, pos){ 
+	getUserByGroupId : function(group, pos){ //alert(group+'  '+pos)
 		var u = [];
 		$.each(this.json_user_data, function(i, val){ 
 			if ( val.groups[pos] === group){  
@@ -439,7 +438,7 @@
 /* TO CLEAN UP */	
 
 	//
-	getVideoById : function(id){ alert('getVideoByID @ DB')
+	getVideoById : function(id){ 
 		var video = $('<div></div>')
 			.attr('type',"video")
 			.attr('starttime',0)
@@ -459,7 +458,7 @@
 			.trigger('clear');
 			//.append($('<h2></h2>').text('Lectures in category: '+title_name));
 
-		$.each(this.json_data, function(i, stream){
+		$.each(this.json_data.stream, function(i, stream){
 				if(stream.metadata[0].title == title_name){
 					var item =$('<div></div>')
 						.addClass('content-item')

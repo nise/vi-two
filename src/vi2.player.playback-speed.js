@@ -8,6 +8,7 @@
 *  - jquery.inherit-1.1.1.js
 * todo:
 * - show speed changes on video frame when they get changed with keyboard commands
+* - delay drop down select
 */
 
 

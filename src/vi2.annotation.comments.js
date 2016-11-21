@@ -33,7 +33,7 @@ Vi2.Comments = $.inherit( Vi2.Annotation, /** @lends Comments# */{
 			allowReplies : true,
 			allowEditing : true,
 			allowCreation : true, 
-			timelineSelector : '.vi2-timeline-bottom',
+			timelineSelector : '.vi2-timeline-buttom',
 			path:'/'
 		},
 		player : null,

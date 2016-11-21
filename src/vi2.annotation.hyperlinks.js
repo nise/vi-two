@@ -52,7 +52,7 @@ Vi2.Hyperlinks = $.inherit( Vi2.Annotation,/** @lends Hyperlinks# */{
 		 *
 		 **/
 		init : function(ann){
-			this.clear(); 
+			//this.clear(); 
 			var events = [];
 			$.each(ann, function(i, val){ 
 				if( val.linktype === 'cycle' || val.linktype === 'standard' || val.linktype === 'external'){ // former also  val.linktype == 'standard' ||
@@ -295,7 +295,7 @@ Vi2.Hyperlinks = $.inherit( Vi2.Annotation,/** @lends Hyperlinks# */{
 					.prepend( ltype )
 					.appendTo( this.options.displaySelector )
 					.css({left: obj.displayPosition.x+'%', top: obj.displayPosition.y+'%', position:'absolute'})
-					.effect( "highlight", 500 ) // could be improved
+					.effect( "highlight", 2000 ) // could be improved
 					; 
 		},
 	

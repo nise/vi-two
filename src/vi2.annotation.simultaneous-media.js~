@@ -34,13 +34,13 @@ Vi2.SyncronizeMedia = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
 		type : 'annotation',
 		// defaults
 		options : {    //hasTimelineMarker: true, hasMenu: true, menuSelector:'.toc'
-			selector: '.syncMedia', 
+			selector: '#seq',//.syncMedia', 
 			hasTimelineMarker: true, 
 			controls: true, 
 			timelineSelector : '.vi2-timeline-main',
 			hasMenu: false,
 			menuSelector:'.synMediaMenu',
-			prefix_path: 'slides/', 
+			prefix_path: '/static/img/slides/', 
 			sync: true, 
 			placeholder:'/static/img/placeholder.jpg'
 		},
@@ -51,7 +51,7 @@ Vi2.SyncronizeMedia = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
 		/*
 		* Initialize 
 		**/
-		init : function(ann){ // 	alert(33);
+		init : function(ann){  
   		var _this = this; 
 			this.tag_obj = [];
 			$.each(ann, function(i, val){  
@@ -86,7 +86,7 @@ Vi2.SyncronizeMedia = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
 		
 		/* 
 		* Creates menu of slides
-		* todo: has not been tested 
+		* todo: xxx has not been tested 
 		**/
 		createMenu : function(){  
 			$(this.options.selector).empty();
@@ -199,8 +199,6 @@ Vi2.SyncronizeMedia = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
 		},
 		
 		
-		
-		
 		/* */
 		placeMedia: function( e, id, obj ){ 
 			if(this.currImgId == obj.content.target){
@@ -211,7 +209,7 @@ Vi2.SyncronizeMedia = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
 				var o = new Image(); 
 				// animate transition	if image is loaded				
 				$(o) // vi2.observer.current_stream
-					.attr('src', this.options.prefix_path+'/'+obj.content.target)
+					.attr('src', this.options.prefix_path+'/' + obj.content.target.replace('700/','video5/') )
 					.addClass('slide ov-'+id)
 					//.css({ height:'100vh' })
 					.unbind('load')
@@ -221,6 +219,7 @@ Vi2.SyncronizeMedia = $.inherit( Vi2.Annotation, /** @lends Vi2.SyncMedia# */{
 					});
 			}
 		},	
+		
 		
 		/** -- */
 		get_tag_by_name : function(name){  

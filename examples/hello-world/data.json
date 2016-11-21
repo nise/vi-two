@@ -1,5 +1,155 @@
-[
+{
+	"_name": "vi2 demo",
+	"categories" :
+		[
 		{
+			"title":"Introduction", 
+			"pos":0,
+			"link":"a", 
+			"icon":"cat_0.png", 
+			"desc":"a"
+		},
+		{
+			"title":"Water and the physical environment", 
+			"pos":1,
+			"link":"Water_and_the_physical_environment", 
+			"icon":"cat_5.png", 
+			"desc":"This cluster discusses the components and processes within the hydrologic cycle and resulting management options. It includes different methods to quantify soil erosion, water balance, sediment and contaminant transport. Issues are covered that are related to groundwater quantity and quality, surface water quality, climate change and hydrological extremes."
+		},
+		{
+			"title":"Technical measures",
+			"pos":2, 
+			"link":"Technical_measures", 
+			"icon":"cat_1.png", 
+			"desc":"This cluster deals with technical measures that are important for IWRM. It covers issues from the urban water management (centralized and decentralized wastewater treatment), as well as the important issues of reservoir management. Furthermore, flood protection measures as an integral part of flood management are shown."
+			},		
+		{
+			"title":"Water governance",
+			"pos":3, 
+			"link":"Water_governance", 
+			"icon":"cat_3.png", 
+			"desc":"Issues of governance reveal to be of utmost importance for sustainable water resources management. Following an illustrated introduction into the topic of water governance, fundamentals in water law, gender issues, options for participation as well as prevailing spatial and sectoral challenges in river basin management get addressed. Particular emphasis is given to capacity development."
+			},
+		{
+			"title":"Economic instruments",
+			"pos":4, 
+			"link":"Economic_instruments", 
+			"icon":"cat_2.png", 
+			"desc":"In this part of the module, economic instruments are explained and illustrated that regulate the water demand and their interaction with hydrologic models. Furthermore, economic problems in multilateral cooperation on shared watercourses as well as the issue of water pricing are successively explained. "
+			},
+		{
+			"title":"Tools", 
+			"pos":5,
+			"link":"Tools", 
+			"icon":"cat_4.png", 
+			"desc":"Tools for understanding the natural and societal systems that facilitate decision making processes become more and more important. A wide range of tools and methods are shown, e.g. modelling, model coupling, Geographic Information Systems (GIS) and consequently their usage within decision-support-systems (DSS). The cluster further addresses issues related to vulnerability and uncertainty in decision making, e.g. showing tools like scenario planning."
+			},
+		{
+			"title":"IWRM implementation and case studies", 
+			"pos":6,
+			"link":"IWRM_implementation_and_case_studies", 
+			"icon":"cat_6.png", 
+			"desc":"The implementation of Integrated Water Resources Management (IWRM) is still in its infancy.  Thus, case studies from different hydrologically sensitive regions of the world are shown in order to discuss challenges that often occur when one tries to practically implement IWRM. Topics include such important issues like transboundary water management as well as the implementation of IWRM in Europe and in the development cooperation."
+			}
+		],
+	"_taxonomy" : 
+		[
+		{	"id": "capacity",
+				"sub": ["capacity","capacity development","capacities' strengths/weaknesses on national and on local level","coping capacities","enabling environment"] 
+	},
+	{	"id": "climate",	
+			"sub": ["climate system","climate model","climate change","regional downscaling","greenhouse effect","projection","La Nina","El Nino"]
+	},
+	{	"id": "contamination",
+			"sub": ["contaminant transport","advection","sorption","dispersion","diffusion","indicators","chemical reaction","radioactive decay"]
+	},
+	{	"id": "decision support",
+			"sub": ["decision support system","decision making","decision-making processes","multi-criteria","multi criteria assessment","GIS-based decision tool"] 
+	},
+	{	"id": "development",
+			"sub": ["german development cooperation","future development","organisational development"] 
+	},
+	{	"id": "drought",
+			"sub": ["drought","drought indices"] 
+	},
+	{	"id": "economics",
+			"sub": ["economics of water","economic analysis","political economy","market","water pricing","tariff","costs","cost of non-cooperation","benefit","benefit function","rivalry","excludability","externalities","water allocation","water pricing"] 
+		},
+		{	"id": "ecology",
+				"sub": ["river ecology","lake ecology","wetlands","nutrients","degradation","monitoring","good status","enabling environment","emission","River Continuum Concept (RCC)","immission"] 
+		},
+		{	"id": "field experiment",
+			"sub": ["experimental design","data collection","experimental layout"]
+		},
+		{	"id": "flood",
+				"sub": ["floods","flood risk","flood risk management","flood protection assets","flood mitigation","flood management","flood frequency","Floods Directive (FD)"] 
+		},
+		{	"id": "geography",
+				"sub": ["Africa","Algeria","Bali","Bangladesh","Bolivia","Burkina Faso","Ethiopia","Europe","France","Germany","Ghana","Haiti","India","Jordan","Mongolia","Morocco","Russia","South Africa","Spain","Switzerland","Tigris-Euphrates Basin","Ukraine"]
+		},
+		{	"id": "GIS",
+				"sub": ["GIS","Digital Elevation Model","point data","raster data","vector data","remote sensing","watershed delineation"]
+		},
+		{	"id": "governance",
+				"sub": ["governance","water governance","technology and related governance requirements","Compagnie d’Aménagement des Coteaux de Gascogne (CACG)","contractual relationships","principal/agent problems","tragedy of the commons","gendered water"] 
+		},
+		{	"id": "groundwater",
+				"sub": ["groundwater","groundwater recharge","groundwater flow model","recharge area","discharge area","springs","hydrostratigraphic units","aquifer hydraulic parameters","karstic aquifers"] 
+		},
+		{	"id": "hydrology",
+				"sub": ["hydrological cycle","hydrologic processes","hydrologic model","hydrological extremes","precipitation","open water evaporation","evapotranspiration","streamflow","isotropy","dendrohydrology","fractures","homogeneity","bank filtration","water balance"]
+		},
+		{	"id": "management",
+				"sub": ["management","management approach","water management principles","water management as an issue of social power","water master plan","IWRM", "IWRM as a cycle","implementation of IWRM principles","evaluation","sensible target"]
+		},
+		{	"id": "model",
+				"sub": ["Artificial Intelligence","copula modelling","crop growth modelling","crop growth model parameters","hydrological model","groundwater flow model","models","modelling urban water fluxes","modelling procedure","model misuse","climate model","nutrient flux modelling","optimization model","regionalization","river basin management model","simulation-based irrigation scheduling","vulnerability models"] 
+		},
+		{	"id": "participation",
+				"sub": ["participation","actors/relations/order/means"] 
+		},
+		{	"id": "reservoir",
+				"sub": ["reservoir","reservoir sedimentation","reservoir operation","reservoir management"] 
+		},
+		{	"id": "river basin",
+				"sub": ["river basin","river basin management","river basin management model","river basin perspective","surface water","surface and sub-surface watershed","River Continuum Concept (RCC)","transboundry river","institutional challenges of RBM (space, sector and scale)","man-environment system","evaluation","influent and effluent rivers","watershed delineation","unguaged catchments","hydromorphology"]
+		},
+		{	"id": "scenario",
+				"sub": ["scenario planning","scenario analysis","multi-criteria","multi criteria assessment"]
+		},
+		{	"id": "sectors",
+				"sub": ["sectors in water use","intra-water sector issue linkage","irrigation"]
+		},
+		{	"id": "sediment",
+				"sub": ["sediment yield","sediment transport","sediment management","suspended load","incipient motion","bed load"]
+		},
+		{	"id": "soil-water",
+				"sub": ["soil erosion","soil and water degradation","soil and water conservation","soil and water conservation policy issues","salt water intrusion","degradation"]
+		},
+		{	"id": "transboundary",
+				"sub": ["transboundary river","transboundary cooperation","transboundary aquifers","patterns of riparian constellations","unidirectional externality problems","cost of non-cooperation","altruism"]
+		},
+		{"id": "vulnerability",
+				"sub": ["vulnerability","vulnerability models","vulnerability index","hazard","disaster","resilience","coping capacities"] 
+		},
+		{	"id": "wastewater",
+				"sub": ["wastewater","wastewater treatment","centralized wastewater treatment","decentralized wastewater treatment","sludge","membrane bioreactor","urban drainage system"]
+		},
+		{	"id": "water quality",
+				"sub": ["water supply system","water sharing","water quality","groundwater","wastewater","wastewater treatment"]
+		},
+		{	"id": "water quantity",	
+				"sub": ["crop water productivity","deficit irrigation","groundwater","water harvesting","water scarcity"]
+		},
+		{	"id": "water law",
+				"sub": ["international law","soft law","Water Framework Directive (WFD)"]
+		},
+		{	"id": "Water Framework Directive (WFD)",
+				"sub": ["Basic concept and implementation","water law perspective of the WFD","Participation within the WFD"]
+		}
+		],		
+	"stream":[
+			{
 				"id": "borchardt2",
 				"metadata":[{
 					"selector":"#metadata",
@@ -137,7 +287,7 @@
 					{"type":"xlink","x": 2, "y": 90, "start": "0:46:46",  "duration": "37", "id": "details on participation", "target": "newig"},
 					{"type":"xlink","x": 2, "y": 95, "start": "0:57:48",  "duration": "55.7", "id": "flood types", "target": "cullmann"}
 				]
-		},
+		},	
 		{
 				"id": "awulachew",
 				"metadata":[{
@@ -263,7 +413,7 @@
 					{"type":"cycle","x":60,"y":88,"duration":"24","start":"00:50:40","id":"Model calibration","seek":"00:36:57","duration2":"00:43:12","target":"saliha2"},
 					{"type":"xlink","x":2,"y":88,"duration":"16.5","start":"01:26:23","id":"Surface water and Groundwater Interaction","seek":"-99","duration2":"-99","target":"balke2"}
 				]
-		},
+		},				
 		{
 				"id": "balke1",
 				"metadata":[{
@@ -318,7 +468,7 @@
 					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:21:00","id":"Aquifer","seek":"00:21:10","duration2":"00:23:48","target":"ayenew1"},
 					{"type":"cycle","x":2,"y":80,"duration":"54","start":"00:28:25","id":"Basic information on groundwater/ aquifer","seek":"00:17:37","duration2":"00:20:12","target":"balke2"},
 					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:33:08","id":"Irrigation Scheduling","seek":"00:00:00","duration2":"-99","target":"seidel1"}
-
+				
 				]
 		},{
 				"id": "balke2",
@@ -359,7 +509,7 @@
 					{"type":"xlink","x":2,"y":90,"duration":"10","start":"00:16:10","id":"Transport, sedimentation, erosion","seek":"-99","duration2":"-99","target":"awulachew"},
 					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:22:15","id":"Hydraulic conductivity","seek":"00:12:13","duration2":"00:13:14","target":"ayenew1"}
 				]
-		},
+		},				
 		{
 				"id": "berendonk",
 				"metadata":[{
@@ -397,7 +547,7 @@
 					{"type":"xlink","x":2,"y":80,"duration":"10","start":"01:16:45","id":"Governance","seek":"-99","duration2":"-99","target":"huppert1"},
 					{"type":"xlink","x":2,"y":80,"duration":"10","start":"01:18:56","id":"Capacity development","seek":"-99","duration2":"-99","target":"niemann"}
 				]
-		},
+		},				
 		{
 				"id": "bernhofer",
 				"metadata":[{
@@ -440,7 +590,7 @@
 					{"type":"cycle","x":50,"y":85,"duration":"10","start":"00:29:37","id":"Vulnerability","seek":"00:35:26","duration2":"00:39:56","target":"bogardi"},
 					{"type":"cycle","x":2,"y":90,"duration":"294","start":"01:02:34","id":"Uncertainities","seek":"00:51:15","duration2":"00:53:00","target":"lennartz"}
 				]
-		},
+		},	
 		{
 				"id": "bhaduri",
 				"metadata":[{
@@ -502,8 +652,8 @@
 					"titleselector":"h2"
 				}],
 				"video": "http://www.iwrm-education.de/videos/iwrm_bogardi.webm",
-				"tags":
-				[
+				"tags": 
+				[					
 					{"tagname":"vulnerability","occ":[0]},
 					{"tagname":"risk","occ":[0]},
 					{"tagname":"hazard","occ":[0]},
@@ -552,8 +702,8 @@
 					"titleselector":"h2"
 				}],
 				"video": "http://www.iwrm-education.de/videos/iwrm_borchardt1.webm",
-				"tags":
-				[
+				"tags": 
+				[					
 					{"tagname":"Water Framework Directive (WFD)","occ":[0]},
 					{"tagname":"good status","occ":[0]},
 					{"tagname":"hydromorphology","occ":[0]},
@@ -565,7 +715,7 @@
 					{"tagname":"Europe","occ":[0]},
 					{"tagname":"Germany","occ":[0]},
 					{"tagname":"Basic concept and implementation","occ":[0]}
-				],
+				],				
 				"toc": [
 					  {"label":"The EU-Water Framework Directive","duration":1,"start":"0"},
 					  {"label":"Introduction","duration":1,"start":"60.12"},
@@ -636,9 +786,9 @@
 					{"type":"xlink","x":2,"y":80,"duration":"12.5","start":"00:33:50","id":"Statistical distribution","seek":"-99","duration2":"-99","target":"abebe"},
 					{"type":"cycle","x":50,"y":90,"duration":"16","start":"00:52:48","id":"Flood (risk, hazard and vulnerability)","seek":"00:33:15","duration2":"00:42:00","target":"bogardi"},
 					{"type":"cycle","x":40,"y":90,"duration":"16","start":"00:55:48","id":"Flood protection measures","seek":"00:05:50","duration2":"00:19:09","target":"petersen2"},
-					{"type":"cycle","x":35,"y":95,"duration":"11","start":"01:09:27","id":"Flood protection management","seek":"00:19:10","duration2":"00:29:18","target":"petersen2"}
+					{"type":"cycle","x":35,"y":95,"duration":"11","start":"01:09:27","id":"Flood protection management","seek":"00:19:10","duration2":"00:29:18","target":"petersen2"}				
 				]
-		},
+		},	
 		{
 				"id": "demydenko",
 				"metadata":[{
@@ -661,7 +811,7 @@
 					{"tagname":"IWRM as a cycle","occ":[0]},
 					{"tagname":"Ukraine","occ":[0]},
 					{"tagname":"water governance","occ":[0]}
-
+ 
 				],
 				"toc": [
 					{"label":"Introduction","duration":1,"start":"0.000"},
@@ -698,8 +848,8 @@
 					"titleselector":"h2"
 				}],
 				"video": "http://www.iwrm-education.de/videos/iwrm_dombrowsky.webm",
-				"tags":
-				[
+				"tags": 
+				[					
 					{"tagname":"economic analysis","occ":[0]},
 					{"tagname":"transboundary river","occ":[0]},
 					{"tagname":"transboundary cooperation","occ":[0]},
@@ -751,7 +901,7 @@
 					{"tagname":"water management as an issue of social power","occ":[0]},
 					{"tagname":"dialectics of water issues","occ":[0]}
 				],
-				"toc":	[
+				"toc":	[					
 					{"label":"Gender Issues in IWRM","duration":1,"start":"0.000"},
   		    {"label":"Objectives of the lecture","duration":1,"start":"87.840"},
   		    {"label":"Outline","duration":1,"start":"150.000"},
@@ -770,7 +920,7 @@
 					{"type":"cycle","x":2,"y":85,"duration":"10.2","start":"00:55:03","id":"projects of the German development cooperation","seek":"00:17:19","duration2":"00:26:39","target":"magiera"},
 					{"type":"xlink","x":2,"y":85,"duration":"10.2","start":"00:54:36","id":"social impacts of water infrastructure","seek":"-99","duration2":"-99","target":"huppert3"}
 				]
-		},
+		},		
 		{
 				"id": "huppert1",
 				"metadata":[{
@@ -847,7 +997,7 @@
 					{"type":"cycle","x":2,"y":88,"duration":"24","start":"00:41:35","id":"Capacities","seek":"00:04:03","duration2":"00:04:55","target":"niemann"},
 					{"type":"cycle","x":2,"y":88,"duration":"10","start":"00:42:06","id":"Time needed for Capacity Development","seek":"00:03:34","duration2":"00:04:00","target":"niemann"}
 				]
-		},
+		},				
 		{
 				"id": "huppert3",
 				"metadata":[{
@@ -866,7 +1016,7 @@
 				"tags": [
 					{"tagname":"technology and related governance requirements","occ":[0]},
 					{"tagname":"Bali","occ":[0]},
-					{"tagname":"irrigation","occ":[0]}
+					{"tagname":"irrigation","occ":[0]} 
 				],
 				"toc": [
 					{"label":"Part III Water Governance","duration":1,"start":"0.000"},
@@ -919,7 +1069,7 @@
 					{"type":"cycle","x":2,"y":88,"duration":"10","start":"00:35:55","id":"Water management as an issue of power","seek":"00:58:55","duration2":"01:01:12","target":"graefe"},
 					{"type":"cycle","x":74,"y":91,"duration":"10","start":"00:37:52","id":"Capacities","seek":"00:04:03","duration2":"00:04:55","target":"niemann"}
 				]
-		},
+		},		
 		{
 				"id": "jabir",
 				"metadata":[{
@@ -990,8 +1140,8 @@
 					"titleselector":"h2"
 				}],
 				"video": "http://www.iwrm-education.de/videos/iwrm_krebs.webm",
-				"tags":
-				[
+				"tags": 
+				[					
 					{"tagname":"water supply system","occ":[0]},
 					{"tagname":"urban drainage system","occ":[0]},
 					{"tagname":"wastewater","occ":[0]},
@@ -1024,7 +1174,7 @@
 					{"type":"cycle","x":2,"y":90,"duration":"23.1","start":"00:14:51","id":"River ecology and quality","seek":"00:33:04","duration2":"00:56:32","target":"berendonk"},
 					{"type":"cycle","x":2,"y":90,"duration":"24.3","start":"00:17:23","id":"Substances in river water","seek":"00:11:23","duration2":"00:13:25","target":"balke2"}
 				]
-		},
+		},	
 			{
 				"id": "lehmann",
 				"metadata":[{
@@ -1040,8 +1190,8 @@
 					"titleselector":"h2"
 				}],
 				"video": "http://www.iwrm-education.de/videos/iwrm_lehmann.webm",
-				"tags":
-				[
+				"tags": 
+				[					
 					{"tagname":"water pricing","occ":[0]},
 					{"tagname":"economics of water","occ":[0]},
 					{"tagname":"benefit","occ":[0]},
@@ -1110,14 +1260,14 @@
 					{"type":"xlink","x":65,"y":91,"duration":"23.2","start":"00:19:12","id":"Water Balance","seek":"-99","duration2":"-99","target":"balke1"},
 					{"type":"cycle","x":3,"y":93,"duration":"14.5","start":"00:31:45","id":"Water retention curve","seek":"00:08:26","duration2":"00:08:36","target":"seidel2"},
 					{"type":"xlink","x":3,"y":93,"duration":"14.5","start":"00:47:50","id":"Model parameter calibration","seek":"-99","duration2":"-99","target":"seidel2"},
-
+				
 					{"type":"xlink","x":56,"y":88,"duration":"13","start":"00:50:48","id":"Hydrologic model","seek":"-99","duration2":"-99","target":"saliha2"},
 					{"type":"cycle","x":45,"y":49,"duration":"14.5","start":"00:54:39","id":"River basin or watershed","seek":"00:02:47","duration2":"00:04:23","target":"schanze"},
 					{"type":"cycle","x":2,"y":88,"duration":"13.2","start":"00:56:15","id":"Watershed delineation","seek":"00:59:08","duration2":"01:04:03","target":"mund"},
 					{"type":"cycle","x":53,"y":49,"duration":"10","start":"00:57:45","id":"Groundwater aquifer","seek":"00:20:57","duration2":"00:28:05","target":"ayenew1"}
-
+				
 				]
-		},
+		},	
 			{
 				"id": "liehr",
 				"metadata":[{
@@ -1153,7 +1303,7 @@
     		  {"label":"6. Take-Home Message","duration":1,"start":"5059.840"},
     		  {"label":"References I","duration":1,"start":"5204.000"},
     		  {"label":"References II","duration":1,"start":"5219.000"},
-    		  {"label":"References III","duration":1,"start":"5223.000"}
+    		  {"label":"References III","duration":1,"start":"5223.000"}  
 				],
 				"links":[
 {"type":"xlink","x":80,"y":55,"duration":"10","start":"00:05:58","id":"GIS","seek":"-99","duration2":"-99","target":"mund"},
@@ -1211,7 +1361,7 @@
     		  {"label":"5. Outlook","duration":1,"start":"4245.480"}
 				],
 				"links":[
-
+					
 					{"type":"cycle","x":2,"y":92,"duration":"10","start":"00:03:18","id":"details on basin approach","seek":"00:09:37","duration2":"00:13:50","target":"moss"},
 					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:03:13","id":"participation","seek":"00:53:32","duration2":"00:59:02","target":"newig"},
 					{"type":"xlink","x":2,"y":88,"duration":"10","start":"00:05:47","id":"capacity development","seek":"-99","duration2":"-99","target":"niemann"},
@@ -1222,7 +1372,7 @@
 					{"type":"xlink","x":2,"y":92,"duration":"10","start":"00:19:13","id":"transboundary water management","seek":"-99","duration2":"-99","target":"dombrowsky"},
 					{"type":"xlink","x":2,"y":92,"duration":"10","start":"00:22:30","id":"decenteralized sanitation system","seek":"-99","duration2":"-99","target":"mueller"},
 					{"type":"xlink","x":72,"y":23,"duration":"10","start":"00:26:15","id":"water tariff","seek":"-99","duration2":"-99","target":"lehmann"},
-					{"type":"xlink","x":50,"y":93,"duration":"10","start":"00:26:15","id":"gender issues in IWRM","seek":"-99","duration2":"-99","target":"graefe"},
+					{"type":"xlink","x":50,"y":93,"duration":"10","start":"00:26:15","id":"gender issues in IWRM","seek":"-99","duration2":"-99","target":"graefe"},			
 					{"type":"cycle","x":40,"y":74,"duration":"10","start":"00:26:47","id":"Intersectoral water allocation in Jordan","seek":"00:26:17","duration2":"00:33:56","target":"huppert4"},
 					{"type":"cycle","x":2,"y":93,"duration":"10","start":"00:26:47","id":"Decentralised wastewater management in Jordan","seek":"00:17:50","duration2":"00:37:43","target":"mueller"},
 					{"type":"cycle","x":2,"y":88,"duration":"15","start":"00:27:56","id":"groundwater","seek":"00:17:38","duration2":"00:20:10","target":"balke2"},
@@ -1242,9 +1392,9 @@
 					{"type":"xlink","x":2,"y":20,"duration":"21","start":"01:09:22","id":"water balance","seek":"-99","duration2":"-99","target":"balke1"},
 					{"type":"xlink","x":2,"y":88,"duration":"10","start":"01:09:54","id":"water tariff","seek":"-99","duration2":"-99","target":"lehmann"},
 					{"type":"xlink","x":2,"y":88,"duration":"51","start":"01:14:59","id":"governance","seek":"-99","duration2":"-99","target":"huppert1"},
-					{"type":"cycle","x":2,"y":88,"duration":"20","start":"01:17:52","id":"IWRM as a process","seek":"00:43:52","duration2":"00:44:54","target":"niemann"}
+					{"type":"cycle","x":2,"y":88,"duration":"20","start":"01:17:52","id":"IWRM as a process","seek":"00:43:52","duration2":"00:44:54","target":"niemann"}				
 				]
-		},
+		},	
 		{
 				"id": "moss",
 				"metadata":[{
@@ -1260,8 +1410,8 @@
 					"titleselector":"h2"
 				}],
 				"video": "http://www.iwrm-education.de/videos/iwrm_moss.webm",
-				"tags":
-				[
+				"tags": 
+				[					
 					{"tagname":"river basin management","occ":[0]},
 					{"tagname":"institutional challenges of RBM (space, sector and scale)","occ":[0]},
 					{"tagname":"Water Framework Directive (WFD)","occ":[0]},
@@ -1293,7 +1443,7 @@
 					{"type":"cycle","x":2,"y":90,"duration":"29.45","start":"00:31:15","id":"Participation within the WFD","seek":"00:43:00","duration2":"00:47:05","target":"newig"},
 					{"type":"standard","x":80,"y":70,"duration":"152.7","start":"00:20:47","id":"Details on EU WFD","seek":"0","duration2":"-99","target":"borchardt1"}
 				]
-		},
+		},	
 		{
 				"id": "mueller",
 				"metadata":[{
@@ -1453,15 +1603,15 @@
 					"titleselector":"h2"
 				}],
 				"video": "http://www.iwrm-education.de/videos/iwrm_niemann.webm",
-				"tags":
-				[
+				"tags": 	
+				[					
 					{"tagname":"capacity","occ":[0]},
 					{"tagname":"capacity development","occ":[0]},
 					{"tagname":"organisational development","occ":[0]},
 					{"tagname":"enabling environment","occ":[0]},
 					{"tagname":"Ukraine","occ":[0]},
 					{"tagname":"Mongolia","occ":[0]}
-				],
+				],				
 				"toc": [
 					{"label":"Capacity Development in IWRM","duration":1,"start":"0.000"},
 		      {"label":"Content","duration":1,"start":"100.240"},
@@ -1485,7 +1635,7 @@
 					{"type":"xlink","start":"00:43:06","duration":"26","x":2,"y":80,"id":"Water Governance","seek":"-99","duration2":"-99","target":"huppert1"},
 					{"type":"xlink","start":"00:49:17","duration":"20.3","x":2,"y":93,"id":"Details on the Western Bug River","seek":"-99","duration2":"-99","target":"berendonk"}
 				]
-		},
+		},		
 		{
 				"id": "ostrowski",
 				"metadata":[{
@@ -1550,7 +1700,7 @@
 					{"tagname":"soil and water conservation policy issues","occ":[0]},
 					{"tagname":"soil and water conservation","occ":[0]},
 					{"tagname":"soil and water degradation","occ":[0]},
-					{"tagname":"governance","occ":[0]}
+					{"tagname":"governance","occ":[0]} 
 				],
 				"toc": [
 					{"label":"Soil and Water Conservation Practices","duration":1,"start":"0.000"},
@@ -1566,9 +1716,9 @@
 					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:05:15","id":"Siltation in reservoir","seek":"-99","duration2":"-99","target":"saliha1"},
 					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:12:24","id":"Nutrification","seek":"00:08:51","duration2":"00:34:02","target":"berendonk"},
 					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:19:03","id":"Governance","seek":"-99","duration2":"-99","target":"huppert1"},
-					{"type":"cycle","x":2,"y":80,"duration":"39","start":"00:08:56","id":"Interface btw. groundwater and sea water","seek":"00:37:47","duration2":"00:40:01","target":"balke1"}
+					{"type":"cycle","x":2,"y":80,"duration":"39","start":"00:08:56","id":"Interface btw. groundwater and sea water","seek":"00:37:47","duration2":"00:40:01","target":"balke1"}					
 				]
-		},
+		},	
 		{
 				"id": "petersen2",
 				"metadata":[{
@@ -1635,7 +1785,7 @@
 					{"tagname":"reservoir operation","occ":[0]},
 					{"tagname":"Ethiopia","occ":[0]},
 					{"tagname":"reservoir sedimentation","occ":[0]},
-					{"tagname":"sediment management","occ":[0]}
+					{"tagname":"sediment management","occ":[0]} 
 				],
 				"toc": [
 					{"label":"Introduction to Sediment Management","duration":1,"start":"0.000"},
@@ -1651,7 +1801,7 @@
 					{"type":"xlink","x":60,"y":88,"duration":"10","start":"00:16:59","id":"Soil conservation","seek":"-99","duration2":"-99","target":"petersen1"},
 					{"type":"cycle","x":45,"y":88,"duration":"10","start":"00:49:14","id":"Koka reservoir operation","seek":"00:49:58","duration2":"00:57:40","target":"ostrowski"}
 				]
-		},
+		},	
 			{
 				"id": "saliha2",
 				"metadata":[{
@@ -1690,7 +1840,7 @@
 					{"type":"cycle","x":65,"y":73,"duration":"12.5","start":"00:26:09","id":"Modelling procedure","seek":"00:16:45","duration2":"00:19:11","target":"ayenew2"},
 					{"type":"cycle","x":85,"y":80,"duration":"14","start":"00:53:35","id":"GIS","seek":"00:25:19","duration2":"00:27:15","target":"mund"}
 				]
-		},
+		},		
 		{
 				"id": "schanze",
 				"metadata":[{
@@ -1713,7 +1863,7 @@
 					{"tagname":"evaluation","occ":[0]},
 					{"tagname":"future development","occ":[0]},
 					{"tagname":"scenario planning","occ":[0]},
-					{"tagname":"flood risk management","occ":[0]},
+					{"tagname":"flood risk management","occ":[0]},					
 					{"tagname":"decision support system","occ":[0]}
 				],
 				"toc": [
@@ -1749,7 +1899,7 @@
 					{"type":"xlink","x":2,"y":90,"duration":"53.4","start":"01:07:36","id":"Flood (mitigation and management)","seek":"-99","duration2":"-99","target":"petersen2"},
 					{"type":"xlink","x":2,"y":90,"duration":"48.1","start":"01:12:11","id":"Decision support system / tools","seek":"-99","duration2":"-99","target":"liehr"}
 				]
-		},
+		},		
 			{
 				"id": "scheumann",
 				"metadata":[{
@@ -1800,7 +1950,7 @@
 {"type":"cycle","x":2,"y":88,"duration":"40","start":"00:15:28","id":"common pool resources","seek":"00:20:35","duration2":"00:22:52","target":"lehmann"}
 
 				]
-		},
+		},		
 		{
 				"id": "seidel1",
 				"metadata":[{
@@ -1835,6 +1985,16 @@
       		{"label":"Evaluation of different irrigation strategies","duration":1,"start":"2072"},
       		{"label":"Simulation-based real-time irrigation scheduling","duration":1,"start":"2435.0"},
       		{"label":"Summary","duration":1,"start":"3300.0"}
+				],
+				"links":[
+					{"type":"xlink","x":2,"y":78,"duration":"10","start":"00:02:35","id":"Irrigation farming","seek":"00:33:08","duration2":"-99","target":"balke1"},
+					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:04:23","id":"Evapotranspiration","seek":"01:05:49","duration2":"-99","target":"lennartz"},
+					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:04:38","id":"Lysimeter","seek":"01:09:20","duration2":"-99","target":"lennartz"},
+					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:15:52","id":"Modelling concepts","seek":"00:44:18","duration2":"00:54:12","target":"lennartz"},
+					{"type":"cycle","x":2,"y":90,"duration":"10","start":"00:19:05","id":"Soil-Vegetation-Atmosphere System","seek":"00:26:26","duration2":"00:38:35","target":"lennartz"},
+					{"type":"cycle","x":2,"y":90,"duration":"10","start":"00:33:20","id":"Model parameter calibration","seek":"00:23:11","duration2":"00:23:31","target":"seidel2"},
+					
+					{"type":"cycle","x":2,"y":93,"duration":"10","start":"00:05:07","id":"irrigation methods","seek":"00:35:18","duration2":"00:54:15","target":"balke1"}
 				]
 		},
 		{
@@ -1851,52 +2011,7 @@
 					"weight": 4,
 					"titleselector":"h2"
 				}],
-				"video2": "http://www.iwrm-education.de/videos/iwrm_seidel2.webm",
-				"video": "http://localhost/elearning/vi2/vi-two/examples/iwrm/videos/iwrm_seidel2.webm",
-				"analysis": [
-				  {
-				    "id":"1",
-				    "date": "1445946251191",
-				    "author": "8",
-				    "x":"50",
-				    "y":"20",
-				    "start": "235.09",
-				    "duration":"10",
-				    "marker_type":"marker-label", "bam":"marker-plain, marker-label, marker-select, marker-desc, marker-label-desc, marker-select-desc",
-				    "marker_label":"A Label",
-				    "marker_select_option":"cat a",
-				    "marker_description":"Describe the description",
-				    "analysis": "some text"
-				  },
-				  {
-				  	"id":"1",
-				    "date": "1445946352010",
-				    "author": "9",
-				    "x":"50",
-				    "y":"20",
-				    "start": "269.51",
-				    "duration":"10",
-				    "marker_type":"marker-label-desc",
-				    "marker_label":"A Label",
-				    "marker_select_option":"cat a",
-				    "marker_description":"Describe the description",
-				    "analysis": "some more text"
-				  },
-				  {
-				  	"id":"2",
-				    "date": "1445946352010",
-				    "author": "9",
-				    "x":"50",
-				    "y":"10",
-				    "start": "369.51",
-				    "duration":"10",
-				    "marker_type":"marker-select-desc",
-				    "marker_label":"A Label",
-				    "marker_select_option":"cat a",
-				    "marker_description":"Describe the description",
-				    "analysis": "some more text"
-				  }
-				],
+				"video": "http://www.iwrm-education.de/videos/iwrm_seidel2.webm",
 				"tags": [
 					{"tagname":"experimental design","occ":[0]},
 					{"tagname":"deficit irrigation","occ":[0]},
@@ -1905,50 +2020,6 @@
 					{"tagname":"experimental layout","occ":[0]},
 					{"tagname":"irrigation","occ":[0]},
 					{"tagname":"crop growth model parameters","occ":[0]}
-				],
-		    "closedCaptions": [
-		      {
-		        "kind":"captions",
-		        "label":"English subtitles",
-		        "srclang": "en",
-		        "src": [
-		          {"cueText":"Introduction","duration":1,"start":"0.0", "end":""},
-		          {"cueText":"Objectives","duration":1,"start":"251.0", "end":""},
-		          {"cueText":"Experimental design for modelling irrigated crop production","duration":1,"start":"319.0", "end":""},
-		          {"cueText":"Data collection and instrumentation","duration":1,"start":"368.0", "end":""},
-		          {"cueText":"Experimental layout","duration":1,"start":"1191.0", "end":""},
-		          {"cueText":"Model parameter estimation","duration":1,"start":"1392", "end":""},
-		          {"cueText":"Soil parameter estimation using models Rosetta and RETC","duration":1,"start":"1659", "end":""},
-		          {"cueText":"Results","duration":1,"start":"2020.0", "end":""},
-		          {"cueText":"Summary","duration":1,"start":"2090.0", "end":""}
-		        ]
-		      },
-		      {
-		        "kind":"captions",
-		        "label":"German subtitles",
-		        "srclang": "de",
-		        "src": [
-		          {"cueText":"Einführung","duration":1,"start":"0.0", "end":""},
-		          {"cueText":"Ziele","duration":1,"start":"251.0", "end":""},
-		          {"cueText":"Etwas auf deutsch Etwas auf deutsch Etwas auf deutsch Etwas auf deutsch Etwas auf deutsch ","duration":1,"start":"319.0", "end":""},
-		          {"cueText":"Etwas auf deutsch Etwas auf deutsch ","duration":1,"start":"368.0", "end":""},
-		          {"cueText":"Etwas auf deutsch ","duration":1,"start":"1191.0", "end":""},
-		          {"cueText":"Etwas auf deutsch ","duration":1,"start":"1392", "end":""},
-		          {"cueText":"Etwas auf deutsch Etwas auf deutsch Etwas auf deutsch ","duration":1,"start":"1659", "end":""},
-		          {"cueText":"Etwas auf deutsch ","duration":1,"start":"2020.0", "end":""},
-		          {"cueText":"Etwas auf deutsch ","duration":1,"start":"2090.0", "end":""}
-		        ]
-		      }
-		    ],
-				"hyperlinks":[
-					{"type":"xlink","x":2,"y":78,"duration":"10","start":"00:02:35","id":"Irrigation farming","seek":"00:33:08","duration2":"-99","target":"balke1"},
-					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:04:23","id":"Evapotranspiration","seek":"01:05:49","duration2":"-99","target":"lennartz"},
-					{"type":"xlink","x":2,"y":80,"duration":"10","start":"00:04:38","id":"Lysimeter","seek":"01:09:20","duration2":"-99","target":"lennartz"},
-					{"type":"cycle","x":2,"y":80,"duration":"10","start":"00:15:52","id":"Modelling concepts","seek":"00:44:18","duration2":"00:54:12","target":"lennartz"},
-					{"type":"cycle","x":2,"y":90,"duration":"10","start":"00:19:05","id":"Soil-Vegetation-Atmosphere System","seek":"00:26:26","duration2":"00:38:35","target":"lennartz"},
-					{"type":"cycle","x":2,"y":90,"duration":"10","start":"00:33:20","id":"Model parameter calibration","seek":"00:23:11","duration2":"00:23:31","target":"seidel2"},
-
-					{"type":"cycle","x":2,"y":93,"duration":"10","start":"00:05:07","id":"irrigation methods","seek":"00:35:18","duration2":"00:54:15","target":"balke1"}
 				],
 				"toc": [
 					{"label":"Introduction","duration":1,"start":"0.0"},
@@ -1961,13 +2032,13 @@
       		{"label":"Results","duration":1,"start":"2020.0"},
       		{"label":"Summary","duration":1,"start":"2090.0"}
 				],
-				"hyperlinks":[
-					{"type":"xlink","x":2,"y":88,"duration":"40","start":"1199","id":"See lecture part 1","seek":"00:00:00","duration2":"-99","target":"seidel1"},
-					{"type":"xlink","x":10,"y":93,"duration":"18","start":"00:08:26","id":"Water retention and movement","seek":"00:31:45","duration2":"00:32:45","target":"lennartz"},
-					{"type":"xlink","x":2,"y":94,"duration":"40","start":"00:06:08","id":"Data collection","seek":"01:01:11","duration2":"01:02:11","target":"lennartz"},
-					{"type":"xlink","x":2,"y":88,"duration":"40","start":"00:31:11","id":"Soil hydraulic parameters","seek":"00:43:21","duration2":"00:44:21","target":"seidel1"}
+				"links":[
+					{"type":"xlink","x":2,"y":88,"duration":"40","start":"00:03:12","id":"See lecture part 1","seek":"00:00:00","duration2":"-99","target":"seidel1"},
+					{"type":"cycle","x":10,"y":93,"duration":"18","start":"00:08:26","id":"Water retention and movement","seek":"00:31:45","duration2":"00:32:45","target":"lennartz"},
+					{"type":"cycle","x":2,"y":94,"duration":"40","start":"00:06:08","id":"Data collection","seek":"01:01:11","duration2":"01:02:11","target":"lennartz"},
+					{"type":"cycle","x":2,"y":88,"duration":"40","start":"00:31:11","id":"Soil hydraulic parameters","seek":"00:43:21","duration2":"00:44:21","target":"seidel1"}
 				]
-		},
+		},	
 		{
 				"id": "tsegai",
 				"metadata":[{
@@ -2009,11 +2080,12 @@
 					{"type":"cycle","x":30,"y":93,"duration":"10","start":"00:09:16","id":"Integrated models","seek":"00:36:21","duration2":"00:42:33","target":"ostrowski"},
 					{"type":"xlink","x":58,"y":93,"duration":"7.9","start":"00:10:43","id":"Hydrologic model","seek":"-99","duration2":"-99","target":"saliha2"},
 					{"type":"cycle","x":65,"y":93,"duration":"10","start":"00:14:00","id":"GIS based DSS","seek":"01:01:09","duration2":"01:03:35","target":"liehr"},
-					{"type":"cycle","x":3,"y":93,"duration":"7.9","start":"00:17:45","id":"Crop water productivity","seek":"00:03:03","duration2":"00:03:23","target":"seidel1"},
+					{"type":"cycle","x":3,"y":93,"duration":"7.9","start":"00:17:45","id":"Crop water productivity","seek":"00:03:03","duration2":"00:03:23","target":"seidel1"},					
 					{"type":"cycle","x":75,"y":93,"duration":"10","start":"00:35:58","id":"Climate change","seek":"00:17:15","duration2":"00:24:50","target":"bernhofer"},
 					{"type":"xlink","x":3,"y":93,"duration":"10","start":"00:39:12","id":"Simulation-based irrigation scheduling","seek":"-99","duration2":"-99","target":"seidel1"}
 				]
-		}
-]
+		}						
+	]
+}
 
 

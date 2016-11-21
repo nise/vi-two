@@ -193,6 +193,14 @@ ul.inheritsList
 	
 	<li><a href="../symbols/Annotation.html">Annotation</a></li>
 	
+	<li><a href="../symbols/API.html">API</a></li>
+	
+	<li><a href="../symbols/Assessment.html">Assessment</a></li>
+	
+	<li><a href="../symbols/Assessment-fill-in.html">Assessment-fill-in</a></li>
+	
+	<li><a href="../symbols/Assessment-writing.html">Assessment-writing</a></li>
+	
 	<li><a href="../symbols/Comments.html">Comments</a></li>
 	
 	<li><a href="../symbols/DataBase.html">DataBase</a></li>
@@ -201,11 +209,19 @@ ul.inheritsList
 	
 	<li><a href="../symbols/Object.html">Object</a></li>
 	
+	<li><a href="../symbols/Observer.html">Observer</a></li>
+	
 	<li><a href="../symbols/Parser.html">Parser</a></li>
 	
-	<li>Utils </li>
+	<li><a href="../symbols/PlaybackSpeed.html">PlaybackSpeed</a></li>
 	
-	<li><a href="../symbols/Vi2.Assessment.html">Vi2.Assessment</a></li>
+	<li><a href="../symbols/Playlist.html">Playlist</a></li>
+	
+	<li><a href="../symbols/TemporalTagging.html">TemporalTagging</a></li>
+	
+	<li><a href="../symbols/Traces.html">Traces</a></li>
+	
+	<li><a href="../symbols/VI-TWO.html">VI-TWO</a></li>
 	
 	<li><a href="../symbols/vi2.core.Clock.html">vi2.core.Clock</a></li>
 	
@@ -215,9 +231,15 @@ ul.inheritsList
 	
 	<li><a href="../symbols/Vi2.RelatedVideos.html">Vi2.RelatedVideos</a></li>
 	
-	<li><a href="../symbols/Vi2.TemporalBookmarks.html">Vi2.TemporalBookmarks</a></li>
+	<li><a href="../symbols/Vi2.SyncMedia.html">Vi2.SyncMedia</a></li>
+	
+	<li><a href="../symbols/Vi2.TableOfContents.html">Vi2.TableOfContents</a></li>
+	
+	<li><a href="../symbols/VideoManager.html">VideoManager</a></li>
 	
 	<li><a href="../symbols/VideoPlayer.html">VideoPlayer</a></li>
+	
+	<li><a href="../symbols/XLink.html">XLink</a></li>
 	
 </ul>
 <hr />
@@ -287,9 +309,18 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#createPlaybackControl">createPlaybackControl</a></b>()
+								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#canPlayHandler">canPlayHandler</a></b>(e)
 								</div>
-								<div class="description">Creates video playback control</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#createSeekControl">createSeekControl</a></b>()
+								</div>
+								<div class="description">**SEEK ***********</div>
 							</td>
 						</tr>
 					
@@ -298,7 +329,16 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#createSource">createSource</a></b>(src, mime_type)
 								</div>
-								<div class="description">build video source element</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#createVideoEmbed">createVideoEmbed</a></b>()
+								</div>
+								<div class="description">**********************************************************</div>
 							</td>
 						</tr>
 					
@@ -316,7 +356,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#createVolumeControl">createVolumeControl</a></b>()
 								</div>
-								<div class="description">Creates a volume control element</div>
+								<div class="description">********* AUDIO VOLUME *******************</div>
 							</td>
 						</tr>
 					
@@ -333,15 +373,6 @@ ul.inheritsList
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#decreaseVolume">decreaseVolume</a></b>()
-								</div>
-								<div class="description">Decreases audio volume by 5 percent</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#detectBrowser">detectBrowser</a></b>()
 								</div>
 								<div class="description"></div>
 							</td>
@@ -368,6 +399,15 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#durationChangeHandler">durationChangeHandler</a></b>(e, seek)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#endedHandler">endedHandler</a></b>(e)
 								</div>
 								<div class="description"></div>
@@ -386,15 +426,6 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#getVolume">getVolume</a></b>()
-								</div>
-								<div class="description">Get volume</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#height">height</a></b>(x)
 								</div>
 								<div class="description"></div>
@@ -405,15 +436,6 @@ ul.inheritsList
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#increaseVolume">increaseVolume</a></b>()
-								</div>
-								<div class="description">Increases audio volume by 5 percent</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#isPlaying">isPlaying</a></b>(x)
 								</div>
 								<div class="description"></div>
 							</td>
@@ -431,7 +453,7 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#loadSequence">loadSequence</a></b>(sources, num, seek)
+								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#loadSequence">loadSequence</a></b>(sources, num)
 								</div>
 								<div class="description"></div>
 							</td>
@@ -458,18 +480,9 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#logger">logger</a></b>()
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#muteVolume">muteVolume</a></b>()
 								</div>
-								<div class="description">Toggles the button to mute/unmute the volume.</div>
+								<div class="description"></div>
 							</td>
 						</tr>
 					
@@ -496,16 +509,34 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#readyStateHandler">readyStateHandler</a></b>(e)
 								</div>
-								<div class="description">event handler: on can play.</div>
+								<div class="description"></div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#setVolume">setVolume</a></b>(volume)
+								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#seekUpdate">seekUpdate</a></b>()
 								</div>
-								<div class="description">Set volume</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#setProgressRail">setProgressRail</a></b>(e)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#skipBack">skipBack</a></b>()
+								</div>
+								<div class="description"></div>
 							</td>
 						</tr>
 					
@@ -522,6 +553,15 @@ ul.inheritsList
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#stopSpinning">stopSpinning</a></b>()
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/VideoPlayer.html#timeUpdate">timeUpdate</a></b>()
 								</div>
 								<div class="description"></div>
 							</td>
@@ -584,7 +624,7 @@ ul.inheritsList
 								<dd>An object containing the parameters</dd>
 						
 							<dt>
-								<span class="light fixedFont">{Observer}</span>  <b>observer</b>
+								<span class="light fixedFont">{<a href="../symbols/Observer.html">Observer</a>}</span>  <b>observer</b>
 								
 							</dt>
 								<dd>Observer of VI-TWO</dd>
@@ -610,15 +650,51 @@ ul.inheritsList
 					Method Detail
 				</div>
 				
-					<a name="createPlaybackControl"> </a>
+					<a name="canPlayHandler"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>createPlaybackControl</b>()
+					<b>canPlayHandler</b>(e)
 					
 					</div>
 					<div class="description">
-						Creates video playback control
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>e</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="createSeekControl"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>createSeekControl</b>()
+					
+					</div>
+					<div class="description">
+						**SEEK ***********
 						
 						
 					</div>
@@ -643,7 +719,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						build video source element
+						
 						
 						
 					</div>
@@ -658,7 +734,7 @@ ul.inheritsList
 									<b>src</b>
 									
 								</dt>
-								<dd>= video url; mime_type = mime_type of video</dd>
+								<dd></dd>
 							
 								<dt>
 									<b>mime_type</b>
@@ -667,6 +743,31 @@ ul.inheritsList
 								<dd></dd>
 							
 							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="createVideoEmbed"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>createVideoEmbed</b>()
+					
+					</div>
+					<div class="description">
+						**********************************************************
+						
+						
+					</div>
+					
+					
+					
 						
 						
 						
@@ -710,7 +811,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Creates a volume control element
+						********* AUDIO VOLUME *******************
 						
 						
 					</div>
@@ -771,31 +872,6 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Decreases audio volume by 5 percent
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="detectBrowser"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>detectBrowser</b>()
-					
-					</div>
-					<div class="description">
 						
 						
 						
@@ -853,6 +929,48 @@ ul.inheritsList
 					
 					
 					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="durationChangeHandler"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>durationChangeHandler</b>(e, seek)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>e</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>seek</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
 						
 						
 						
@@ -935,31 +1053,6 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="getVolume"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>getVolume</b>()
-					
-					</div>
-					<div class="description">
-						Get volume
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
 					<a name="height"> </a>
 					<div class="fixedFont">
 					
@@ -1004,31 +1097,6 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Increases audio volume by 5 percent
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="isPlaying"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>isPlaying</b>(x)
-					
-					</div>
-					<div class="description">
 						
 						
 						
@@ -1036,17 +1104,6 @@ ul.inheritsList
 					
 					
 					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>x</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
 						
 						
 						
@@ -1097,7 +1154,7 @@ ul.inheritsList
 					<div class="fixedFont">
 					
 					
-					<b>loadSequence</b>(sources, num, seek)
+					<b>loadSequence</b>(sources, num)
 					
 					</div>
 					<div class="description">
@@ -1120,12 +1177,6 @@ ul.inheritsList
 							
 								<dt>
 									<b>num</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>seek</b>
 									
 								</dt>
 								<dd></dd>
@@ -1208,31 +1259,6 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="logger"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>logger</b>()
-					
-					</div>
-					<div class="description">
-						
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
 					<a name="muteVolume"> </a>
 					<div class="fixedFont">
 					
@@ -1241,7 +1267,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Toggles the button to mute/unmute the volume. If volume get unmuted the volume will be reset to the value it had befor muting.
+						
 						
 						
 					</div>
@@ -1316,7 +1342,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						event handler: on can play. Notifies the observer about a new video.
+						
 						
 						
 					</div>
@@ -1344,15 +1370,40 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="setVolume"> </a>
+					<a name="seekUpdate"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>setVolume</b>(volume)
+					<b>seekUpdate</b>()
 					
 					</div>
 					<div class="description">
-						Set volume
+						
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setProgressRail"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setProgressRail</b>(e)
+					
+					</div>
+					<div class="description">
+						
 						
 						
 					</div>
@@ -1364,12 +1415,37 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>volume</b>
+									<b>e</b>
 									
 								</dt>
-								<dd>{Number} Number in the range of 0 and 1. Every value outside that rang will be changed to the boundaries.</dd>
+								<dd></dd>
 							
 							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="skipBack"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>skipBack</b>()
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
 						
 						
 						
@@ -1410,6 +1486,31 @@ ul.inheritsList
 					
 					
 					<b>stopSpinning</b>()
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="timeUpdate"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>timeUpdate</b>()
 					
 					</div>
 					<div class="description">
@@ -1514,7 +1615,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Thu Sep 08 2016 15:00:35 GMT+0200 (MESZ)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Thu Jun 18 2015 22:57:34 GMT+0200 (MESZ)
 		</div>
 	</body>
 </html>

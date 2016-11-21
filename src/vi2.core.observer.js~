@@ -7,6 +7,7 @@
 *  - jquery-1.11.2.min.js
 *  - jquery.inherit-1.1.1.js
 *	todo:
+* - complete interfaces for the player
 *	- clear overlay-container and other at updateVideo()
 *	- allow page back, offer bread crumb menu, ...
 *	- RSS: http://code.google.com/apis/youtube/2.0/reference.html
@@ -15,15 +16,14 @@
 Vi2.Observer = $.inherit(/* @lends Observer# **/{
 	
 	/* 
-	*		@constructs
-	*		@params {object} options  
-	**/
+	 *		@constructs
+	 *		@params {object} options  
+	 **/
 	__constructor : function(options) {
 		vi2.observer = this; 
 		this.options = $.extend(this.options, options); 
 		this.widget_list = {}; // Assoc Array is an Object // Object.size(this.widget_list)
-		this.clock = new Vi2.Clock({}, this.options.clockInterval);
-		vi2.observer.clock = this.clock; 
+		this.clock = new Vi2.Clock(this.options.clockInterval);
 	},
 	
 	// defaults
@@ -32,7 +32,14 @@ Vi2.Observer = $.inherit(/* @lends Observer# **/{
 		id: 'start', 
 		embed: true, 
 		selector: '#screen', 
-		clockInterval: 500, videoSelector: '#video1', videoWidth:500, videoHeight:375, videoControlsSelector:'.video-controls', markupType: 'wiki', childtheme:''},
+		clockInterval: 500, 
+		videoSelector: '#video1', 
+		videoWidth:500, 
+		videoHeight:375, 
+		videoControlsSelector:'.video-controls', 
+		markupType: 'wiki', 
+		childtheme:''
+	},
 	pieList : $('<ul></ul>').attr('class', 'pieContextMenu').attr('id', 'menu'),
 	player : undefined,
 	clock : undefined,
@@ -47,14 +54,12 @@ Vi2.Observer = $.inherit(/* @lends Observer# **/{
 	
 	
 	/*
-	*
-	**/
+	 *
+	 **/
 	setCurrentStream : function(stream, seek){  
 		this.current_stream = stream;
 		this.seek = seek; 
-		/*$(vi2.dom)
-			.empty()
-			.append(vi2.db.getVideoById(stream)); **/
+		
 		// append video
 	  var video = $('<div></div>')
 				.attr('type',"video")
@@ -68,7 +73,7 @@ Vi2.Observer = $.inherit(/* @lends Observer# **/{
 		this.clock.stopClock();
 		this.clock.reset(); 
 		// generate and render metadata
-		var metadata = new Vi2.Metadata(); 
+		var metadata = new Vi2.Metadata();  
 		// re-parse DOM
 		this.parse(vi2.dom, 'html'); 
 		
@@ -76,8 +81,8 @@ Vi2.Observer = $.inherit(/* @lends Observer# **/{
 
 
 	/*
-		*
-		**/
+	 *
+	 **/
 	parse : function(selector, markupType){ 
 		this.parseSelector = selector;
 		this.parser = new Parser(selector, markupType === null ? this.markupType : markupType);
@@ -90,23 +95,11 @@ Vi2.Observer = $.inherit(/* @lends Observer# **/{
 	
 
 	/*
-		*
-		**/
-	init : function(seek){  
-		seek = seek === undefined ? 0 : seek;
+	 * Initialize the video player and the bindings to it.
+	 **/
+	init : function(seek){   
 		var _this = this; 
-		// @todo remove this duplicated video 
-		var videoo = $('<video></video>')
-				.attr('controls', false)
-				.attr('autobuffer', true)
-				.attr('preload', "metadata")
-				.attr('id', this.options.videoSelector.replace(/\#|./,''))
-				.addClass('embed-responsive-item the-video')
-				.text('Your Browser does not support either this video format or videos at all');
-		$(this.options.selector)
-			.addClass('embed-responsive embed-responsive-16by9')
-		//	.html(videoo)
-			; 
+	
 		this.player = new Video({
 				embed: this.options.embed, 
 				selector: this.options.videoSelector, 
@@ -116,30 +109,30 @@ Vi2.Observer = $.inherit(/* @lends Observer# **/{
 				theme:this.options.theme, 
 				childtheme:this.options.childtheme,
 				thumbnail: this.options.thumbnail, 
-				seek:seek
+				seek: seek === undefined ? 0 : seek
 			}, this); 
-		this.clock.player = this.player;
 		
 		// some event bindings hooks
-		$(this).bind('player.ready', function(e, id, i){ 
+		$(this).bind('player.ready', function(e, id, i){  
 			_this.setAnnotations(); 
 		});
 	},
 	
 	
 	/*
-		*
-		**/
-	setAnnotations : function(){   
+	 *
+	 **/
+	setAnnotations : function(){  
 		var _this = this; 
 		this.clock.annotations = [];			 
 		this.vid_arr = this.parser.run(); 
-		
+
+		// add Annotations at the clock
 		$.each(_this.vid_arr[0].annotation, function(i, val){ 		
 			_this.clock.addAnnotation(val); 
 		}); 
 
-		// initiate widgets
+		// initializes widgets
 		$.each(_this.widget_list, function(j, widget){ 
 			if( widget.type !== 'player-widget' ){ 
 				widget.init( _this.vid_arr[0].annotation );			
@@ -151,28 +144,30 @@ Vi2.Observer = $.inherit(/* @lends Observer# **/{
   		
 	
 	/* 
-		*
-		**/
+	 *
+	 **/
 	updateLocation : function(identifier, value){ 
 		window.location.replace(window.location.href.split('#')[0] + '#!'+identifier+':'+value.replace(/\ /g, '_'));
 	},
   		  		
 
 	/* 
-		*
-		**/
-	addWidget : function(obj){ 
+	 * Add a new widget to the observer by binding events to it. One a widget has been added it can become accessible in the player or video environment.
+	 **/
+	addWidget : function( obj ){ 
 		var _this = this;   	
-		obj.player = this.player; 
+		obj.player = this.player; // xxx: no good style / tell the widget about the player 
 		this.clock.addHook(obj.name, obj);	
 
-		if(obj.type === 'annotation'){   
-			obj.appendToDOM( this.current_stream ); // former: this.options.id
+		if( obj.type === 'annotation' ){
+			// convert annotations into DOM elements that will be parsed later on.   
+			obj.appendToDOM( this.current_stream );
+			// bind time-depending events for begin and end of an annotation to the player
 			$(this.player).bind('annotation.begin.'+obj.name, function(e, a, b){ obj.begin(e, a, b);});
-			$(this.player).bind('annotation.end.'+obj.name, function(e, a){ obj.end(e, a);});
+			$(this.player).bind('annotation.end.'+obj.name, function(e, a, b){ obj.end(e, a, b);});
 		}	
 
-		// xxx needs to be put into widgets
+		// xxx: needs to be put into widgets
 		switch(obj.name){
 			case 'relatedVideos' :
 				$(this.player).bind('video.end', function(e, a){ obj.showLinkSummary(); });
@@ -182,8 +177,9 @@ Vi2.Observer = $.inherit(/* @lends Observer# **/{
 				break;
 		}
 	
-		// register widget	
-		this.widget_list[obj.name] = obj;   
+		// put widget to the list of registered / added widgets
+		this.widget_list[obj.name] = obj;
+		//   
 		return true; 
 	},
 	
@@ -197,16 +193,16 @@ Vi2.Observer = $.inherit(/* @lends Observer# **/{
 	
 	
 	/* 
-		* Returns the widget object to the given name. 
-		**/
+	 * Returns the widget object to the given name. 
+	 **/
 	getWidget : function(widget_name){
 		return this.widget_list[widget_name];
 	},
 	
 	
 	/*
-		* Removes widget from widget_list
-		**/
+	 * Removes widget from widget_list
+	 **/
 	removeWidget : function(widget_name){
 		// bugy?
 		this.widget_list[widget_name] = 0;
@@ -214,8 +210,8 @@ Vi2.Observer = $.inherit(/* @lends Observer# **/{
 	
 	
 	/* 
-		* appends annotation data of widgets to DOM 
-		**/
+	 * appends all annotation data of the widgets to DOM of the current HTML page
+	 **/
 	annotationsToDOM : function(){ 
 		var _this = this; 
 		$.each(this.widget_list, function(i, widget){ 
@@ -227,7 +223,7 @@ Vi2.Observer = $.inherit(/* @lends Observer# **/{
   		  		
 
 	/*
-	*
+	* xxx
 	**/
 	ended : function(){ 
 		//this.clock.reset(); // if enabled slide sync does not work after vides has ended.
@@ -235,32 +231,32 @@ Vi2.Observer = $.inherit(/* @lends Observer# **/{
 
 
 	/*
-	*
-	**/
+	 *
+	 **/
 	pause : function(){ 
 		this.clock.stopClock();
 	},
 
 
 	/*
-	*
-	**/
+	 *
+	 **/
 	play : function(){ 
-		this.clock.startClock();
+		//this.clock.startClock();
 	},
 
 
 	/*
-	* Proxy function to trigger the logger
-	**/
+	 * Proxy function to trigger the logger
+	 **/
 	log : function(msg){
 		$(this.player).trigger('log', [msg]);
 	},
 
 
 	/*
-	*
-	**/
+	 *
+	 **/
 	destroy : function(){
 		$('video').stop();
 		this.clock.reset();

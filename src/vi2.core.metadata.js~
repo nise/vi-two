@@ -23,9 +23,9 @@ Vi2.Metadata = $.inherit(/** @lends Vi2.Metadata# */
 			*		@param {object} options An object containing the parameters
 			*/
   		__constructor : function( options ) { 
-  			this.metadata = vi2.db.getMetadataById( vi2.observer.current_stream );
+  			//this.metadata = vi2.db.getMetadataById( vi2.observer.current_stream );
   			this.options = $.extend(this.options, options);
-  			this.update();
+  			//this.update();
   		},
   		
   		// defaults
