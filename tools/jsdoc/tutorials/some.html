@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/style.css" rel="stylesheet">
+  <title>Demo video player</title>
+
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="container clearfix">
+
+  <div class="player-wrapper clearfix">
+
+    <!-- video part -->
+    <div class="media-content media-content--video" id="media-content--video">
+      <!-- crossorigin="anonymous" should be probably deleted, if we have an opportunity tu use files from our trusted server -->
+      <video id="presentation-video" width="100%" height="300px" controls muted crossorigin="anonymous">
+        <!-- always include mp4 in the first source, because iPad had a bug, iPad will recognize only the first source -->
+        <source src="http://simpl.info/track/video/developerStories-en.webm" type='video/webm; codecs="vp8, vorbis"'>
+        <!--<track src="subs/subs.en.vtt" kind="subtitles" srclang="en" label="English" default>-->
+        <track src="http://simpl.info/track/tracks/developerStories-subtitles-en.vtt" kind="subtitles" srclang="en" label="English" default>
+      </video>
+    </div>
+
+    <!-- splitter part -->
+    <div id="splitter" class="splitter"></div>
+
+    <!-- transcript part -->
+    <div class="media-content media-content--transcript" id="media-content--transcript"></div>
+
+  </div>
+
+</div>
+
+<!-- my js code -->
+<script src="js/transcript.js"></script>
+</body>
+</html>

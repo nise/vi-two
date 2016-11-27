@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>PlaybackSpeed - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Analysis.html">Analysis</a></li><li><a href="Annotation.html">Annotation</a><ul class='methods'><li data-type='method'><a href="Annotation.html#init">init</a></li></ul></li><li><a href="Comments.html">Comments</a></li><li><a href="DataBase.html">DataBase</a><ul class='methods'><li data-type='method'><a href="DataBase.html#getGroupById">getGroupById</a></li><li data-type='method'><a href="DataBase.html#getSlidesById">getSlidesById</a></li><li data-type='method'><a href="DataBase.html#getUserById">getUserById</a></li><li data-type='method'><a href="DataBase.html#loadJSON">loadJSON</a></li></ul></li><li><a href="Log.html">Log</a></li><li><a href="Loop.html">Loop</a></li><li><a href="Maintain.html">Maintain</a><ul class='methods'><li data-type='method'><a href="Maintain.html#validateTags">validateTags</a></li></ul></li><li><a href="Parser.html">Parser</a><ul class='methods'><li data-type='method'><a href="Parser.html#parseHtml">parseHtml</a></li><li data-type='method'><a href="Parser.html#parseWiki">parseWiki</a></li><li data-type='method'><a href="Parser.html#parseWikiHyperlink">parseWikiHyperlink</a></li><li data-type='method'><a href="Parser.html#parseWikiVideo">parseWikiVideo</a></li><li data-type='method'><a href="Parser.html#run">run</a></li></ul></li><li><a href="Utils.html">Utils</a></li><li><a href="Vi2.Assessment.html">Assessment</a></li><li><a href="vi2.core.Clock.html">Clock</a><ul class='methods'><li data-type='method'><a href="vi2.core.Clock.html#isHook">isHook</a></li></ul></li><li><a href="Vi2.Metadata.html">Metadata</a><ul class='methods'><li data-type='method'><a href="Vi2.Metadata.html#buildMetaTags">buildMetaTags</a></li><li data-type='method'><a href="Vi2.Metadata.html#displayMetadata">displayMetadata</a></li><li data-type='method'><a href="Vi2.Metadata.html#update">update</a></li></ul></li><li><a href="Vi2.PlaybackSpeed.html">PlaybackSpeed</a><ul class='methods'><li data-type='method'><a href="Vi2.PlaybackSpeed.html#decreaseSpeed">decreaseSpeed</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#displaySpeed">displaySpeed</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#getCurrentSpeed">getCurrentSpeed</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#increaseSpeed">increaseSpeed</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#init">init</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#setCurrentSpeed">setCurrentSpeed</a></li></ul></li><li><a href="Vi2.RelatedVideos.html">RelatedVideos</a><ul class='methods'><li data-type='method'><a href="Vi2.RelatedVideos.html#showRelatedVideos">showRelatedVideos</a></li><li data-type='method'><a href="Vi2.RelatedVideos.html#sortByRelevance">sortByRelevance</a></li></ul></li><li><a href="Vi2.Sharing.html">Sharing</a><ul class='methods'><li data-type='method'><a href="Vi2.Sharing.html#init">init</a></li><li data-type='method'><a href="Vi2.Sharing.html#prepareEmbedMarkup">prepareEmbedMarkup</a></li></ul></li><li><a href="Vi2.SkipBack.html">SkipBack</a><ul class='methods'><li data-type='method'><a href="Vi2.SkipBack.html#init">init</a></li></ul></li><li><a href="Vi2.SyncMedia.html">SyncMedia</a><ul class='methods'><li data-type='method'><a href="Vi2.SyncMedia.html#get_tag_by_name">get_tag_by_name</a></li><li data-type='method'><a href="Vi2.SyncMedia.html#init">init</a></li></ul></li><li><a href="Vi2.TableOfContents.html">TableOfContents</a><ul class='methods'><li data-type='method'><a href="Vi2.TableOfContents.html#addTimelineMarkers">addTimelineMarkers</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#appendToDOM">appendToDOM</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#begin">begin</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#createMenu">createMenu</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#createTimelineControl">createTimelineControl</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#end">end</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#init">init</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#init">init</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#nextElement">nextElement</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#previousElement">previousElement</a></li></ul></li><li><a href="Vi2.TemporalBookmarks.html">TemporalBookmarks</a><ul class='methods'><li data-type='method'><a href="Vi2.TemporalBookmarks.html#init">init</a></li></ul></li><li><a href="Vi2.VideoManager.html">VideoManager</a><ul class='methods'><li data-type='method'><a href="Vi2.VideoManager.html#handleAllStreams">handleAllStreams</a></li><li data-type='method'><a href="Vi2.VideoManager.html#handleCategory">handleCategory</a></li><li data-type='method'><a href="Vi2.VideoManager.html#handleNewStream">handleNewStream</a></li><li data-type='method'><a href="Vi2.VideoManager.html#handleTags">handleTags</a></li><li data-type='method'><a href="Vi2.VideoManager.html#init">init</a></li><li data-type='method'><a href="Vi2.VideoManager.html#loadWidgets">loadWidgets</a></li></ul></li><li><a href="Vi2.ViewingHistory.html">ViewingHistory</a><ul class='methods'><li data-type='method'><a href="Vi2.ViewingHistory.html#init">init</a></li></ul></li><li><a href="Vi2.Zoom.html">Zoom</a><ul class='methods'><li data-type='method'><a href="Vi2.Zoom.html#init">init</a></li></ul></li><li><a href="VideoPlayer.html">VideoPlayer</a><ul class='methods'><li data-type='method'><a href="VideoPlayer.html#createPlaybackControl">createPlaybackControl</a></li><li data-type='method'><a href="VideoPlayer.html#createSource">createSource</a></li><li data-type='method'><a href="VideoPlayer.html#createVolumeControl">createVolumeControl</a></li><li data-type='method'><a href="VideoPlayer.html#decreaseVolume">decreaseVolume</a></li><li data-type='method'><a href="VideoPlayer.html#getVolume">getVolume</a></li><li data-type='method'><a href="VideoPlayer.html#increaseVolume">increaseVolume</a></li><li data-type='method'><a href="VideoPlayer.html#loadUI">loadUI</a></li><li data-type='method'><a href="VideoPlayer.html#muteVolume">muteVolume</a></li><li data-type='method'><a href="VideoPlayer.html#readyStateHandler">readyStateHandler</a></li><li data-type='method'><a href="VideoPlayer.html#setVolume">setVolume</a></li></ul></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-some.html">some</a></li></ul><h3>Global</h3><ul><li><a href="global.html#init">init</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">PlaybackSpeed</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+        PlaybackSpeed
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+
+    <h4 class="name" id="PlaybackSpeed"><span class="type-signature"></span>new PlaybackSpeed<span class="signature">(options)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>videoSelector</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>speed_steps</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Float array with the available steps to increase or decrease the playback speed</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vi2.player.playback-speed.js.html">vi2.player.playback-speed.js</a>, <a href="vi2.player.playback-speed.js.html#line23">line 23</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="decreaseSpeed"><span class="type-signature"></span>decreaseSpeed<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Interface to decreases the playback speed by one step in the index of the given values
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vi2.player.playback-speed.js.html">vi2.player.playback-speed.js</a>, <a href="vi2.player.playback-speed.js.html#line134">line 134</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="displaySpeed"><span class="type-signature"></span>displaySpeed<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Shows the currently changed speed option inside the video frame. This indicator disappears after a few seconds
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vi2.player.playback-speed.js.html">vi2.player.playback-speed.js</a>, <a href="vi2.player.playback-speed.js.html#line87">line 87</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getCurrentSpeed"><span class="type-signature"></span>getCurrentSpeed<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Interface that returns the current playback speed
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vi2.player.playback-speed.js.html">vi2.player.playback-speed.js</a>, <a href="vi2.player.playback-speed.js.html#line95">line 95</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="increaseSpeed"><span class="type-signature"></span>increaseSpeed<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Interface to increases the playback speed by one step in the index of the given values
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vi2.player.playback-speed.js.html">vi2.player.playback-speed.js</a>, <a href="vi2.player.playback-speed.js.html#line124">line 124</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="init"><span class="type-signature"></span>init<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Initializes the playback speed controls
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vi2.player.playback-speed.js.html">vi2.player.playback-speed.js</a>, <a href="vi2.player.playback-speed.js.html#line43">line 43</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="setCurrentSpeed"><span class="type-signature"></span>setCurrentSpeed<span class="signature">(speed)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Interface to sets the playback speed
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>speed</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vi2.player.playback-speed.js.html">vi2.player.playback-speed.js</a>, <a href="vi2.player.playback-speed.js.html#line104">line 104</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sun Nov 27 2016 13:13:03 GMT+0100 (Западная Европа (зима)) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>vi2.annotation.toc.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Analysis.html">Analysis</a></li><li><a href="Annotation.html">Annotation</a><ul class='methods'><li data-type='method'><a href="Annotation.html#init">init</a></li></ul></li><li><a href="Comments.html">Comments</a></li><li><a href="DataBase.html">DataBase</a><ul class='methods'><li data-type='method'><a href="DataBase.html#getGroupById">getGroupById</a></li><li data-type='method'><a href="DataBase.html#getSlidesById">getSlidesById</a></li><li data-type='method'><a href="DataBase.html#getUserById">getUserById</a></li><li data-type='method'><a href="DataBase.html#loadJSON">loadJSON</a></li></ul></li><li><a href="Log.html">Log</a></li><li><a href="Loop.html">Loop</a></li><li><a href="Maintain.html">Maintain</a><ul class='methods'><li data-type='method'><a href="Maintain.html#validateTags">validateTags</a></li></ul></li><li><a href="Parser.html">Parser</a><ul class='methods'><li data-type='method'><a href="Parser.html#parseHtml">parseHtml</a></li><li data-type='method'><a href="Parser.html#parseWiki">parseWiki</a></li><li data-type='method'><a href="Parser.html#parseWikiHyperlink">parseWikiHyperlink</a></li><li data-type='method'><a href="Parser.html#parseWikiVideo">parseWikiVideo</a></li><li data-type='method'><a href="Parser.html#run">run</a></li></ul></li><li><a href="Utils.html">Utils</a></li><li><a href="Vi2.Assessment.html">Assessment</a></li><li><a href="vi2.core.Clock.html">Clock</a><ul class='methods'><li data-type='method'><a href="vi2.core.Clock.html#isHook">isHook</a></li></ul></li><li><a href="Vi2.Metadata.html">Metadata</a><ul class='methods'><li data-type='method'><a href="Vi2.Metadata.html#buildMetaTags">buildMetaTags</a></li><li data-type='method'><a href="Vi2.Metadata.html#displayMetadata">displayMetadata</a></li><li data-type='method'><a href="Vi2.Metadata.html#update">update</a></li></ul></li><li><a href="Vi2.PlaybackSpeed.html">PlaybackSpeed</a><ul class='methods'><li data-type='method'><a href="Vi2.PlaybackSpeed.html#decreaseSpeed">decreaseSpeed</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#displaySpeed">displaySpeed</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#getCurrentSpeed">getCurrentSpeed</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#increaseSpeed">increaseSpeed</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#init">init</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#setCurrentSpeed">setCurrentSpeed</a></li></ul></li><li><a href="Vi2.RelatedVideos.html">RelatedVideos</a><ul class='methods'><li data-type='method'><a href="Vi2.RelatedVideos.html#showRelatedVideos">showRelatedVideos</a></li><li data-type='method'><a href="Vi2.RelatedVideos.html#sortByRelevance">sortByRelevance</a></li></ul></li><li><a href="Vi2.Sharing.html">Sharing</a><ul class='methods'><li data-type='method'><a href="Vi2.Sharing.html#init">init</a></li><li data-type='method'><a href="Vi2.Sharing.html#prepareEmbedMarkup">prepareEmbedMarkup</a></li></ul></li><li><a href="Vi2.SkipBack.html">SkipBack</a><ul class='methods'><li data-type='method'><a href="Vi2.SkipBack.html#init">init</a></li></ul></li><li><a href="Vi2.SyncMedia.html">SyncMedia</a><ul class='methods'><li data-type='method'><a href="Vi2.SyncMedia.html#get_tag_by_name">get_tag_by_name</a></li><li data-type='method'><a href="Vi2.SyncMedia.html#init">init</a></li></ul></li><li><a href="Vi2.TableOfContents.html">TableOfContents</a><ul class='methods'><li data-type='method'><a href="Vi2.TableOfContents.html#addTimelineMarkers">addTimelineMarkers</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#appendToDOM">appendToDOM</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#begin">begin</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#createMenu">createMenu</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#createTimelineControl">createTimelineControl</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#end">end</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#init">init</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#init">init</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#nextElement">nextElement</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#previousElement">previousElement</a></li></ul></li><li><a href="Vi2.TemporalBookmarks.html">TemporalBookmarks</a><ul class='methods'><li data-type='method'><a href="Vi2.TemporalBookmarks.html#init">init</a></li></ul></li><li><a href="Vi2.VideoManager.html">VideoManager</a><ul class='methods'><li data-type='method'><a href="Vi2.VideoManager.html#handleAllStreams">handleAllStreams</a></li><li data-type='method'><a href="Vi2.VideoManager.html#handleCategory">handleCategory</a></li><li data-type='method'><a href="Vi2.VideoManager.html#handleNewStream">handleNewStream</a></li><li data-type='method'><a href="Vi2.VideoManager.html#handleTags">handleTags</a></li><li data-type='method'><a href="Vi2.VideoManager.html#init">init</a></li><li data-type='method'><a href="Vi2.VideoManager.html#loadWidgets">loadWidgets</a></li></ul></li><li><a href="Vi2.ViewingHistory.html">ViewingHistory</a><ul class='methods'><li data-type='method'><a href="Vi2.ViewingHistory.html#init">init</a></li></ul></li><li><a href="Vi2.Zoom.html">Zoom</a><ul class='methods'><li data-type='method'><a href="Vi2.Zoom.html#init">init</a></li></ul></li><li><a href="VideoPlayer.html">VideoPlayer</a><ul class='methods'><li data-type='method'><a href="VideoPlayer.html#createPlaybackControl">createPlaybackControl</a></li><li data-type='method'><a href="VideoPlayer.html#createSource">createSource</a></li><li data-type='method'><a href="VideoPlayer.html#createVolumeControl">createVolumeControl</a></li><li data-type='method'><a href="VideoPlayer.html#decreaseVolume">decreaseVolume</a></li><li data-type='method'><a href="VideoPlayer.html#getVolume">getVolume</a></li><li data-type='method'><a href="VideoPlayer.html#increaseVolume">increaseVolume</a></li><li data-type='method'><a href="VideoPlayer.html#loadUI">loadUI</a></li><li data-type='method'><a href="VideoPlayer.html#muteVolume">muteVolume</a></li><li data-type='method'><a href="VideoPlayer.html#readyStateHandler">readyStateHandler</a></li><li data-type='method'><a href="VideoPlayer.html#setVolume">setVolume</a></li></ul></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-some.html">some</a></li></ul><h3>Global</h3><ul><li><a href="global.html#init">init</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">vi2.annotation.toc.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/* 
+* name: Vi2.TableOfContent
+* author: niels.seidel@nise81.com
+* license: MIT License
+* description:
+* depends on:
+*  - embedded java script
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+* todo:
+*  - highlight on skip ... this.player.video.addEventListener('timeupdat
+*  - realize a toc for concatinated video clips
+*/
+
+
+Vi2.TableOfContents = $.inherit( Vi2.Annotation, /** @lends Vi2.TableOfContents# */{ // 
+
+		/** @constructs
+		*		@extends Annotation
+		*		@param {object} options An object containing the parameters
+		*		@param {boolean} options.hasTimelineMarker Whether the TOC should be annotated on the timeline or not.
+		*		@param {boolean} options.hasMenu Wether the TOC should be listed in a menu or not.
+		*		@param {string} options.menuSelector Class or id of the DOM element for the menu.
+		*		@param {sring} options.timelineSelector Class or id of the DOM element for the annotated timeline.
+		*		@param {string} options.path Path to folder where user icons are stored.
+		*/
+  	__constructor : function(options) { 
+  			this.options = $.extend(this.options, options);  
+		},
+		
+		name : 'toc',
+		type : 'annotation',
+		options : {
+			hasTimelineMarker: true, 
+			hasMenu : true,
+			menuSelector: '#toc', 
+			timelineSelector : '.vi2-timeline-main',
+			allowEditing : true,
+			allowCreation : true,
+			path:'/'
+		},
+		currentTocElement : 0,
+		elements : [],
+
+		/**
+		Initializes the table of content and handles options
+		*/
+		init : function(annotations){
+			var _this = this;
+			// prepare toc data
+			var events = [];
+			$.each(annotations, function(i, val){
+				if(val.type === _this.name ){
+					if( val.note !== "missing"){ 
+						_this.elements.push(val.t1);
+					}	 
+					events.push( { 
+						name: val.title, 
+						note:val.note, 
+						occ:[val.t1], 
+						time:[val.t1], 
+						author: val.author, 
+						date: val.date 
+					});
+				}
+			});
+			// 
+			if( this.options.hasMenu ){
+				this.createMenu( events );
+			}	
+			// 
+			if( this.options.hasTimelineMarker ){
+				vi2.observer.player.timeline.addTimelineMarkers( 'toc', events, this.options.timelineSelector );
+			}
+					
+			// update toc highlight on time update
+			vi2.observer.player.video.addEventListener('timeupdate', function(e) { 
+				// reset highlight
+				//		$(_this.options.menuSelector+' li').each(function(i, val){ $(this).removeClass('toc-hightlight');})
+				// highlight toc entry
+				//		$(_this.options.menuSelector+ ' li#t'+this.formatTime(obj.content.target)).addClass('toc-highlight');
+			});
+		},		
+		
+		
+		/**
+		* Loads toc data from database in order to generate corresponding DOM elements.
+		* @ Resulting format of DOM element: &lt;div type="toc" starttime=83 duration=1 id="">Objectives of the lecture&lt;/div>
+		*/
+		appendToDOM : function(id){ 
+			var frag = document.createDocumentFragment();
+			$( vi2.dom ).find('[type="toc"]').each(function(i,val){ $(this).remove(); });
+			$.each(	vi2.db.getTocById(id), function( i, val ){
+				var toc = document.createElement( "div" );
+				toc.setAttribute("type", "toc" );
+				toc.setAttribute("note", val.note );
+				toc.setAttribute("starttime", val.start );
+				toc.setAttribute("duration", 10 );
+				toc.setAttribute("author", val.author );
+				toc.setAttribute("date", val.date );
+				var itemText = document.createTextNode( decodeURIComponent(val.label) );
+		 		toc.appendChild( itemText );
+				frag.appendChild( toc );
+			});
+			$( vi2.dom ).append( frag );
+		},
+		
+		/*
+		**/
+		updateDOMElement : function( obj ){ 
+			$(vi2.dom)
+				.find('[date="'+ obj.date +'"]')
+				.attr('author', vi2.wp_user )
+				.attr('date', obj.date )  // its the creation date
+				.attr('starttime', obj.time )
+				.text( obj.content ); 
+		},	
+		
+		/*
+		* { type: type, date: new Date().getTime(), time: formData.time, content: formData.content); 
+		**/
+		addDOMElement : function( obj ){
+			$('&lt;div>&lt;/div>')
+				.attr('type', obj.type)
+				.attr('author', vi2.wp_user )
+				.attr('date', obj.date )
+				.attr('starttime', obj.time )
+				.text( obj.content ) 
+				.appendTo( vi2.dom );
+		},				
+				
+				
+		/** 
+		* During the playback corresponding toc entries will be highlighted.
+		*/
+		begin : function(e, id, obj){ 
+				// reset highlight
+				$(this.options.menuSelector+' li').each(function(i, val){ 
+					$(this).removeClass('toc-highlight');
+				});
+				// highlight toc entry
+				$('.toc-'+obj.displayPosition.t1).addClass('toc-highlight');
+			
+		},
+	
+	
+		/** 
+		* Terminates time-depended toc entries
+		*/
+		end : function(e, id, obj){ 
+			//$('.toc-'+obj.displayPosition.t1).removeClass('toc-highlight');
+		},
+		
+		
+		/**
+		* Builds a list menu of all entries of the table of content
+		* todo: improve performance
+		*/
+		createMenu : function(tocData){
+			var _this = this;
+			var toc = $('&lt;ul>&lt;/ul>')
+				.addClass('toc-list');
+			$( this.options.menuSelector ).html( toc );	 
+			
+			$.each(tocData, function(i, val){ 
+					var a = $('&lt;a>&lt;/a>')
+					.text( val.name )
+					.addClass('id-'+ val.occ[0]+' toc-menu-link')
+					.attr('href', '#!/video/' + vi2.observer.current_stream + '/t=npt:' + val.occ[0] + '') // former: main.options.id
+					;				
+					
+					var user = vi2.db.getUserById( val.author );	
+					
+					var li = $('&lt;li>&lt;/li>')
+						.addClass('toc-'+val.occ[0])
+						.attr('id', 'toc'+ val.occ[0])
+						.attr('title', user.username+', ' + moment(Number(val.date), "x").fromNow())
+						//.css('list-style-image',  "url('"+_this.options.path+"user-"+val.author+".png')")
+						.html(a)
+						.appendTo( toc )
+						;
+				
+					// editing		
+					if( _this.options.allowEditing ){		 
+						var edit_btn = $('&lt;a>&lt;/a>')
+							.addClass('tiny-edit-btn glyphicon glyphicon-pencil tiny-edit-btn-'+ _this.name)
+							.attr('data-toggle', "modal")
+							.attr('data-target', "#myModal")
+							.attr('data-annotationtype', 'toc')
+							.data('annotationdata', { 
+								content: val.name, 
+								time: val.occ[0], 
+								date: val.date,
+								author: val.author 
+							} )
+							.appendTo( li )
+							;
+					}
+					// feature for (historic) movies where certain scenes are not available or lost	 
+					if( val.note === "missing"){
+						li.addClass('toc-disabled');
+					}else{
+						li.click(function(){
+							vi2.observer.log({context:'toc',action:'menu-click',values: [val.name.replace(/,/g,'##'), val.author,  val.occ[0]] } ); 
+							vi2.observer.player.currentTime( val.occ[0] );
+							_this.currentTocElement = i;
+						});	
+					}	
+			});// end each
+		
+			// sort list entries by time and append them
+			//toc.find('li').tsort( { attr:"id" } );  // tsort is error prune under chromium
+					
+			
+		},
+		
+		
+		/*
+		*
+		**/
+		createAnnotationForm : function( data ){ 
+			/*jshint multistr: true */
+			var str = "\
+				&lt;div class='input-group'>\
+				&lt;span class='input-group-addon' id='toc-form1'>Kapitelbezeichnung&lt;/span>\
+				&lt;input type='text' class='form-control' value='&lt;%= content %>' name='toc-entry' data-datatype='string' placeholder='' aria-describedby='toc-form1'>\
+				&lt;/div>&lt;br>\
+				&lt;div class='input-group'>\
+				&lt;span class='input-group-addon' id='toc-form1'>Wiedergabezeit&lt;/span>\
+				&lt;input type='text' class='form-control' value='&lt;%= time %>' name='toc-entry-time' data-datatype='decimal-time' placeholder='' aria-describedby='toc-form1'>\
+				&lt;/div>\
+				"
+				;
+			if( data ){
+				return ejs.render(str, data);
+			}	else{
+				return ejs.render(str, { 
+					content:'', 
+					time: vi2.observer.player.currentTime(),
+					author: vi2.wp_user,
+					date: (new Date().getTime())	 
+				});	
+			}	
+		},
+		
+		
+		/*
+		*
+		**/
+		getAnnotationFormData : function( selector ){
+			var obj = {};
+			obj.content = $( selector ).find('[name="toc-entry"]').attr('value');
+			obj.time = $( selector ).find('[name="toc-entry-time"]').attr('value');
+			return obj;
+		},
+		
+		
+		/** 
+		* Jumps to the next element of the table of content 
+		*/
+		nextElement : function(){
+			//$('.toc-'+ (this.currentTocElement + 1) ).click();
+			this.currentTocElement = this.currentTocElement &lt; this.elements.length ? this.currentTocElement + 1 : this.currentTocElement;
+			vi2.observer.player.currentTime( this.elements[ this.currentTocElement ] );
+			vi2.observer.log({context:'toc',action:'jump-next',values:[this.currentTocElement]});
+		},
+		
+		
+		/** 
+		* Jumps to the previous element of the table of content. 
+		*/
+		previousElement : function(){
+			this.currentTocElement = this.currentTocElement === 0 ? this.currentTocElement : this.currentTocElement -1 ;
+			vi2.observer.player.currentTime( this.elements[ this.currentTocElement ] );
+			vi2.observer.log( {context:'toc',action:'jump-back',values: [this.currentTocElement ]} );
+		}
+		
+	}); // end class
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sun Nov 27 2016 13:13:03 GMT+0100 (Западная Европа (зима)) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

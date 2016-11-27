@@ -1,0 +1,15 @@
+{
+  "source": {
+    "includePattern": ".js$"
+  },
+  "templates": {
+    "cleverLinks": true
+  },
+  "opts": {
+    "destination": "../doc/",
+    "encoding": "utf8",
+    "private": true,
+    "template": "../../node_modules/minami",
+    "tutorials": "./tools/jsdoc/tutorials"
+  }
+}

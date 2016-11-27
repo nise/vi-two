@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>vi2.core.database.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Analysis.html">Analysis</a></li><li><a href="Annotation.html">Annotation</a><ul class='methods'><li data-type='method'><a href="Annotation.html#init">init</a></li></ul></li><li><a href="Comments.html">Comments</a></li><li><a href="DataBase.html">DataBase</a><ul class='methods'><li data-type='method'><a href="DataBase.html#getGroupById">getGroupById</a></li><li data-type='method'><a href="DataBase.html#getSlidesById">getSlidesById</a></li><li data-type='method'><a href="DataBase.html#getUserById">getUserById</a></li><li data-type='method'><a href="DataBase.html#loadJSON">loadJSON</a></li></ul></li><li><a href="Log.html">Log</a></li><li><a href="Loop.html">Loop</a></li><li><a href="Maintain.html">Maintain</a><ul class='methods'><li data-type='method'><a href="Maintain.html#validateTags">validateTags</a></li></ul></li><li><a href="Parser.html">Parser</a><ul class='methods'><li data-type='method'><a href="Parser.html#parseHtml">parseHtml</a></li><li data-type='method'><a href="Parser.html#parseWiki">parseWiki</a></li><li data-type='method'><a href="Parser.html#parseWikiHyperlink">parseWikiHyperlink</a></li><li data-type='method'><a href="Parser.html#parseWikiVideo">parseWikiVideo</a></li><li data-type='method'><a href="Parser.html#run">run</a></li></ul></li><li><a href="Utils.html">Utils</a></li><li><a href="Vi2.Assessment.html">Assessment</a></li><li><a href="vi2.core.Clock.html">Clock</a><ul class='methods'><li data-type='method'><a href="vi2.core.Clock.html#isHook">isHook</a></li></ul></li><li><a href="Vi2.Metadata.html">Metadata</a><ul class='methods'><li data-type='method'><a href="Vi2.Metadata.html#buildMetaTags">buildMetaTags</a></li><li data-type='method'><a href="Vi2.Metadata.html#displayMetadata">displayMetadata</a></li><li data-type='method'><a href="Vi2.Metadata.html#update">update</a></li></ul></li><li><a href="Vi2.PlaybackSpeed.html">PlaybackSpeed</a><ul class='methods'><li data-type='method'><a href="Vi2.PlaybackSpeed.html#decreaseSpeed">decreaseSpeed</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#displaySpeed">displaySpeed</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#getCurrentSpeed">getCurrentSpeed</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#increaseSpeed">increaseSpeed</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#init">init</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#setCurrentSpeed">setCurrentSpeed</a></li></ul></li><li><a href="Vi2.RelatedVideos.html">RelatedVideos</a><ul class='methods'><li data-type='method'><a href="Vi2.RelatedVideos.html#showRelatedVideos">showRelatedVideos</a></li><li data-type='method'><a href="Vi2.RelatedVideos.html#sortByRelevance">sortByRelevance</a></li></ul></li><li><a href="Vi2.Sharing.html">Sharing</a><ul class='methods'><li data-type='method'><a href="Vi2.Sharing.html#init">init</a></li><li data-type='method'><a href="Vi2.Sharing.html#prepareEmbedMarkup">prepareEmbedMarkup</a></li></ul></li><li><a href="Vi2.SkipBack.html">SkipBack</a><ul class='methods'><li data-type='method'><a href="Vi2.SkipBack.html#init">init</a></li></ul></li><li><a href="Vi2.SyncMedia.html">SyncMedia</a><ul class='methods'><li data-type='method'><a href="Vi2.SyncMedia.html#get_tag_by_name">get_tag_by_name</a></li><li data-type='method'><a href="Vi2.SyncMedia.html#init">init</a></li></ul></li><li><a href="Vi2.TableOfContents.html">TableOfContents</a><ul class='methods'><li data-type='method'><a href="Vi2.TableOfContents.html#addTimelineMarkers">addTimelineMarkers</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#appendToDOM">appendToDOM</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#begin">begin</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#createMenu">createMenu</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#createTimelineControl">createTimelineControl</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#end">end</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#init">init</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#init">init</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#nextElement">nextElement</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#previousElement">previousElement</a></li></ul></li><li><a href="Vi2.TemporalBookmarks.html">TemporalBookmarks</a><ul class='methods'><li data-type='method'><a href="Vi2.TemporalBookmarks.html#init">init</a></li></ul></li><li><a href="Vi2.VideoManager.html">VideoManager</a><ul class='methods'><li data-type='method'><a href="Vi2.VideoManager.html#handleAllStreams">handleAllStreams</a></li><li data-type='method'><a href="Vi2.VideoManager.html#handleCategory">handleCategory</a></li><li data-type='method'><a href="Vi2.VideoManager.html#handleNewStream">handleNewStream</a></li><li data-type='method'><a href="Vi2.VideoManager.html#handleTags">handleTags</a></li><li data-type='method'><a href="Vi2.VideoManager.html#init">init</a></li><li data-type='method'><a href="Vi2.VideoManager.html#loadWidgets">loadWidgets</a></li></ul></li><li><a href="Vi2.ViewingHistory.html">ViewingHistory</a><ul class='methods'><li data-type='method'><a href="Vi2.ViewingHistory.html#init">init</a></li></ul></li><li><a href="Vi2.Zoom.html">Zoom</a><ul class='methods'><li data-type='method'><a href="Vi2.Zoom.html#init">init</a></li></ul></li><li><a href="VideoPlayer.html">VideoPlayer</a><ul class='methods'><li data-type='method'><a href="VideoPlayer.html#createPlaybackControl">createPlaybackControl</a></li><li data-type='method'><a href="VideoPlayer.html#createSource">createSource</a></li><li data-type='method'><a href="VideoPlayer.html#createVolumeControl">createVolumeControl</a></li><li data-type='method'><a href="VideoPlayer.html#decreaseVolume">decreaseVolume</a></li><li data-type='method'><a href="VideoPlayer.html#getVolume">getVolume</a></li><li data-type='method'><a href="VideoPlayer.html#increaseVolume">increaseVolume</a></li><li data-type='method'><a href="VideoPlayer.html#loadUI">loadUI</a></li><li data-type='method'><a href="VideoPlayer.html#muteVolume">muteVolume</a></li><li data-type='method'><a href="VideoPlayer.html#readyStateHandler">readyStateHandler</a></li><li data-type='method'><a href="VideoPlayer.html#setVolume">setVolume</a></li></ul></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-some.html">some</a></li></ul><h3>Global</h3><ul><li><a href="global.html#init">init</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">vi2.core.database.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/* DataBase
+* author: niels.seidel@nise81.com
+* license: MIT License
+
+* todo:
+- call_back als Event umsetzen
+- filenames as parameter
+- handle different data sets
+
+*/
+
+
+	/* class DataBase **/ 
+	Vi2.DataBase = $.inherit(/** @lends DataBase# */{
+
+		/** 
+		*		@constructs
+		*		@param {object} options An object containing the parameters
+		*		@param {function} call_back Function that will be called after relevant data is available 
+		*/
+  	__constructor : function(options, call_back, fn, video_id) {  
+  		this.call_back = call_back;
+  		var _this = this; 
+  		this.options = $.extend(this.options, options); 
+  		this._d = 0; 
+  		$.each(this.options.jsonFiles, function(key, file) { 
+        console.log("making requst for " + file.path);  
+        _this.loadJSON(file.path, file.storage, fn);
+       });
+		},
+				
+		name : 'dataBase',
+		options : {
+			path :'',
+			jsonFiles: [
+  			//{path: '/json/videos/', storage: 'json_data'}, 
+  			//{path: '/groups', storage: 'json_group_data'},
+				//{path: this.options.path+'data-slides.json', storage: 'json_slide_data'},
+  		//	{path: '/json/users', storage: 'json_user_data'}
+  		]
+		}, // ?
+		call_back : {},
+		_d : 0,
+		json_data : {},
+		json_slide_data : {},
+		json_user_data : {},
+		content_selector : '#content',
+		dom : '#hydro1', // unused
+		
+
+	/**
+	*	@param {String} URL of JSON file
+	*	@param {Object} Internal Object where the fetched data will be stored for processing within the class 
+	* @param {String} String literal of function name to be called after the data has been loaded
+	*/
+	loadJSON : function(jsonURL, storage, fn){ 
+		var _this = this;
+    $.ajax({
+        type: "get",
+        beforeSend: function(xhr){
+    				if (xhr.overrideMimeType){
+				      xhr.overrideMimeType("application/json");
+    				}
+  			},
+        url: _this.options.path + jsonURL,
+        dataType: 'json',
+        success: function(data){ 
+		      _this[storage] = data;  
+		      _this._d++; 
+		      if (_this._d === Object.size( _this.options.jsonFiles ) ){ 
+		      	console.log('done'); 
+		      	// call
+		      	_this.call_back[fn]();
+		      	
+		      }
+        },
+        error: function(e){
+        	//window.location = "/login"; 
+        	console.log(e)
+					var err = new Error('Could not catch data');
+				}
+    });
+	},
+
+
+/**********************************/
+/* DB Calls */	
+	
+	/* returns true if stream of id exists */
+	isStream : function(id){
+		var t = false;
+		$.each(this.json_data, function(val){
+			if (this.id === id){
+				t = true;
+			}
+		});
+		return t;
+	},
+	
+	
+	/*
+	 *
+	 **/
+	getStreams : function(id){  
+		if(this.json_data === undefined){
+			return {};
+		}else{
+			return this.json_data;
+		}
+	},
+	
+			
+	/*
+	 *
+	 **/
+	getStreamById : function(id){  
+		var stream = {};  
+		$.each(this.json_data, function(i, val){  
+			if (val.id === id){  
+				stream = this; 
+			}
+		});
+		return stream;
+	},
+			
+
+
+	/****************************************************/
+	/* CATEGORIES*/
+
+	/* returns data of all categories */
+	getAllCategories : function(){ 
+		return this.json_data.categories;
+	},
+	
+	
+	// returns ordered list of all categories || xxx: outdated
+	getCategoryTaxonomie : function(){
+		var cat = {};
+		$.each(this.json_data.categories, function(i,val){ 
+				cat[this.pos] = {first_level: this.title, desc: this.desc};
+		}); 
+		return cat;
+	},
+	
+	
+	/* returns data of the requested category */
+	getCategory : function(cat_name){
+		var data = {};
+		$.each(this.json_data.categories, function(i,val){ 
+			if(this.title === cat_name){
+				data = {first_level: this.title, desc: this.desc, pos: this.pos, link: this.link, icon:this.icon};
+			} 
+		}); 
+		return data;
+	},
+	
+
+
+
+	/*****************************************************/
+	/* META DATA */
+
+	//
+	getMetadataById : function(id){
+		if( this.getStreamById(id).metadata !== undefined ){ 
+				return this.getStreamById(id).metadata[0];
+		}		
+	},
+		
+	//get all titles
+	getTitles : function(){
+		var titles = [];
+		$.each(this.json_data, function(val){
+				titles.push({first_level: this.metadata[0].title});
+		});
+		return removeDuplicates(titles);
+	},
+	
+	//get all authors
+	getAuthors : function(){
+		var authors = [];
+		$.each(this.json_data, function(val){
+				authors.push({first_level: this.metadata[0].author});
+		});
+		return removeDuplicates(authors);
+	},
+	
+	/* - - */
+	getStreamsOfSameAuthor : function(id){
+		var author = this.getMetadataById(id).author; 
+		var authors = [];
+		$.each(this.json_data, function(i, stream){ 
+				if(stream.metadata[0].author === author &amp;&amp; stream.id != id){ 
+					authors.push(stream.id); //$('#debug').val($('#debug').val() + stream.id);
+				}
+		});
+		return authors;
+	},
+
+	/* returns all tags of a video/stream **/
+	getClosedCaptionsById : function(id){ 
+		return this.getStreamById(id).closedCaptions === undefined ? undefined : this.getStreamById(id).closedCaptions;
+	},
+
+	/*****************************************************/
+	/* TAGS */	
+
+	/* returns all tags of a video/stream **/
+	getTagsById : function(id){
+		return this.getStreamById(id).tags === undefined ? {} : this.getStreamById(id).tags;
+	},
+	
+	/* returns all comments related to an video **/
+	getCommentsById : function(id){
+		return this.getStreamById(id).comments === undefined ? {} : this.getStreamById(id).comments;
+	},
+	
+	/* returns all comments related to an video **/
+	getAnalysisById : function(id){
+		return this.getStreamById(id).analysis === undefined ? {} : this.getStreamById(id).analysis;
+	},
+
+	/* returns all tags related to the whole video collection **/
+	getTagList : function(){
+		var tags = [];
+		if(this.getStreamById(id).tags !== undefined ){  
+			$.each(this.json_data, function(val){
+				$.each(this.tags, function(val){
+					tags.push({first_level: this.tagname});
+				});
+			});
+		}	
+		return this.removeDuplicates(tags).sort();
+	},
+	
+	/* returns ordered list of all tags */
+	getTagTaxonomie : function(){ 
+		var tax = [];
+		$.each(this.json_data._taxonomy, function(i, stream){
+			tax.push({first_level: this.id, second_level: this.sub});	
+		});
+		return tax;
+	},
+	
+	/* -- */ 
+	getStreamsWithSameTag : function(id){
+		var _this = this;
+		var streams = [];
+		if(this.getStreamById(id).tags !== undefined ){  
+			var tags = this.getStreamById(id).tags; 
+			$.each(tags, function(i, the_tag_name){	
+				$.each(_this.json_data, function(j, stream){  
+					$.each(stream.tags, function(k, tag){ 
+						if(this.tagname === the_tag_name.tagname){ 
+						 streams.push(stream.id); //$('#debug').val($('#debug').val() +' '+ stream.id);
+						}
+					});
+				});			
+			});
+		}	
+		return streams;
+	},
+	
+	
+	/* -- */
+	getRandomStreams : function( id ){
+		var _this = this;
+		var streams = [];
+		$.each(_this.json_data, function(j, stream){ 
+			streams.push(stream.id);
+		});
+		return streams; // xxx need to be sort random
+	},
+	
+	
+
+	/* LINKS */
+	
+		/* -- */
+	getLinkTargetsById : function(id){
+		var links = [];
+		if(this.getStreamById(id).hyperlinks !== undefined ){  
+			$.each(	this.getStreamById(id).hyperlinks, function(val){ 
+				links.push(this.target);  //$('#debug').val($('#debug').val() + this.target);
+			});
+		}	
+		return	links;
+	},
+	
+	/* -- */
+	getLinkSourcesById : function(id){
+		var links = [];	
+		if(this.getStreamById(id).hyperlinks !== undefined ){  
+			$.each( this.json_data, function(i, stream){
+				$.each(stream.hyperlinks, function(i, link){
+					if(this.target === id){
+					 links.push(stream.id); //$('#debug').val($('#debug').val() +' '+ stream.id);
+					}
+				});
+			});
+		}			
+		return links;	
+	},
+	
+	/* -- */ 	
+	getLinksById : function(id){
+		return this.getStreamById(id).hyperlinks === undefined ? {} : this.getStreamById(id).hyperlinks;
+	},
+	
+	/* -- */ 	
+	getAssessmentFillInById : function(id){
+		return this.getStreamById(id).assessmentfillin; 
+	},
+	
+	/* -- */ 	
+	getAssessmentWritingById : function(id){
+		return this.getStreamById(id).assessmentwriting; 
+	},
+	
+	/* -- */ 	
+	getAssessmentById : function(id){
+		return this.getStreamById(id).assessment === undefined ? {} : this.getStreamById(id).assessment;
+	},
+	
+	
+	/* returns table of content of the requested video */
+	getTocById : function(id){
+		return this.getStreamById(id).toc === undefined ? {} : this.getStreamById(id).toc;
+	},
+	
+		/* returns highlight of the requested video */
+	getHighlightById : function(id){ 
+		return this.getStreamById(id).highlight === undefined ? {} : this.getStreamById(id).highlight;
+	},
+	
+	
+	/** 
+	*	@param {String} Video id
+	*	@returns {Object} JSON object with temporal annotation of images/slides of video with the given id.
+	*/ 	  
+	getSlidesById : function(id){ 
+		return this.getStreamById(id).slides === undefined ? {} : this.getStreamById(id).slides;
+		/*
+		if(this.json_data.slides === undefined){
+			return {};
+		}else{
+			return this.json_data.slides;
+		}
+		*/
+		/*
+		var slides = {}; 
+		$.each(this.json_data, function(i, val){ 
+			if (this._id === id){  
+				slides = this.slides;
+			}
+		}); 
+		return slides;
+		*/
+	}, 
+	
+	/*
+	*
+	**/
+	hasSlides : function(id){
+		return this.getStreamById(id).slides === undefined ? false : true;
+	},
+	
+
+
+	/****************************************/
+	/* USER */	
+	
+	/**
+	
+	*/
+	getUserById : function(id){  
+		var user = {}; 
+		$.each(this.json_user_data, function(i, val){ 
+			if( Number(val.id) === Number(id) ){  
+				user = val;
+			}
+		}); 
+		return user;
+	}, 
+		
+		
+	/**
+	
+	*/
+	getGroupById : function(id){
+		var group = {}; 
+		$.each(this.json_group_data, function(i, val){ 
+			if ( Number(val.id) === Number(id) ){  
+				group = val;
+			}
+		}); 
+		return group;
+	},
+	
+	/* --- **/
+	getUserByGroupId : function(group, pos){ 
+		var u = [];
+		$.each(this.json_user_data, function(i, val){ 
+			if ( val.groups[pos] === group){  
+				u.push( val );
+			}
+		});
+		
+		return u;
+	}, 
+				
+	
+
+
+
+
+
+
+	
+
+	
+
+
+
+	
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/* TO CLEAN UP */	
+
+	//
+	getVideoById : function(id){ alert('getVideoByID @ DB')
+		var video = $('&lt;div>&lt;/div>')
+			.attr('type',"video")
+			.attr('starttime',0)
+			.attr('duration',7)
+			.attr('id', "myvideo")
+			.text(this.getStreamById(id).video);  
+		return video;
+	}
+	
+	/* returns stream by its title  // xxx remove rendering code
+	getStreamsByTitle : function(title_name){
+		var _this = this;
+		var template = $("#item_template").val();
+		
+		$(_this.content_selector)
+			.empty()
+			.trigger('clear');
+			//.append($('&lt;h2>&lt;/h2>').text('Lectures in category: '+title_name));
+
+		$.each(this.json_data, function(i, stream){
+				if(stream.metadata[0].title == title_name){
+					var item =$('&lt;div>&lt;/div>')
+						.addClass('content-item')
+						.setTemplate(template)
+						.processTemplate(stream)
+						.appendTo($(_this.content_selector));
+				}
+		});
+		//$('.text').hidetext();
+		// reset drop downs
+		$('.getStreamsByTag').val(-1);
+		$('.getStreamsByCategory').val(-1);
+	},
+	*/
+	
+	
+	
+	}); // end class DataBase	
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sun Nov 27 2016 13:13:03 GMT+0100 (Западная Европа (зима)) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
