@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>VideoPlayer - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Analysis.html">Analysis</a></li><li><a href="Annotation.html">Annotation</a><ul class='methods'><li data-type='method'><a href="Annotation.html#init">init</a></li></ul></li><li><a href="Comments.html">Comments</a></li><li><a href="DataBase.html">DataBase</a><ul class='methods'><li data-type='method'><a href="DataBase.html#getGroupById">getGroupById</a></li><li data-type='method'><a href="DataBase.html#getSlidesById">getSlidesById</a></li><li data-type='method'><a href="DataBase.html#getUserById">getUserById</a></li><li data-type='method'><a href="DataBase.html#loadJSON">loadJSON</a></li></ul></li><li><a href="Log.html">Log</a></li><li><a href="Loop.html">Loop</a></li><li><a href="Maintain.html">Maintain</a><ul class='methods'><li data-type='method'><a href="Maintain.html#validateTags">validateTags</a></li></ul></li><li><a href="Parser.html">Parser</a><ul class='methods'><li data-type='method'><a href="Parser.html#parseHtml">parseHtml</a></li><li data-type='method'><a href="Parser.html#parseWiki">parseWiki</a></li><li data-type='method'><a href="Parser.html#parseWikiHyperlink">parseWikiHyperlink</a></li><li data-type='method'><a href="Parser.html#parseWikiVideo">parseWikiVideo</a></li><li data-type='method'><a href="Parser.html#run">run</a></li></ul></li><li><a href="Utils.html">Utils</a></li><li><a href="Vi2.Assessment.html">Assessment</a></li><li><a href="vi2.core.Clock.html">Clock</a><ul class='methods'><li data-type='method'><a href="vi2.core.Clock.html#isHook">isHook</a></li></ul></li><li><a href="Vi2.Metadata.html">Metadata</a><ul class='methods'><li data-type='method'><a href="Vi2.Metadata.html#buildMetaTags">buildMetaTags</a></li><li data-type='method'><a href="Vi2.Metadata.html#displayMetadata">displayMetadata</a></li><li data-type='method'><a href="Vi2.Metadata.html#update">update</a></li></ul></li><li><a href="Vi2.PlaybackSpeed.html">PlaybackSpeed</a><ul class='methods'><li data-type='method'><a href="Vi2.PlaybackSpeed.html#decreaseSpeed">decreaseSpeed</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#displaySpeed">displaySpeed</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#getCurrentSpeed">getCurrentSpeed</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#increaseSpeed">increaseSpeed</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#init">init</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#setCurrentSpeed">setCurrentSpeed</a></li></ul></li><li><a href="Vi2.RelatedVideos.html">RelatedVideos</a><ul class='methods'><li data-type='method'><a href="Vi2.RelatedVideos.html#showRelatedVideos">showRelatedVideos</a></li><li data-type='method'><a href="Vi2.RelatedVideos.html#sortByRelevance">sortByRelevance</a></li></ul></li><li><a href="Vi2.Sharing.html">Sharing</a><ul class='methods'><li data-type='method'><a href="Vi2.Sharing.html#init">init</a></li><li data-type='method'><a href="Vi2.Sharing.html#prepareEmbedMarkup">prepareEmbedMarkup</a></li></ul></li><li><a href="Vi2.SkipBack.html">SkipBack</a><ul class='methods'><li data-type='method'><a href="Vi2.SkipBack.html#init">init</a></li></ul></li><li><a href="Vi2.SyncMedia.html">SyncMedia</a><ul class='methods'><li data-type='method'><a href="Vi2.SyncMedia.html#get_tag_by_name">get_tag_by_name</a></li><li data-type='method'><a href="Vi2.SyncMedia.html#init">init</a></li></ul></li><li><a href="Vi2.TableOfContents.html">TableOfContents</a><ul class='methods'><li data-type='method'><a href="Vi2.TableOfContents.html#addTimelineMarkers">addTimelineMarkers</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#appendToDOM">appendToDOM</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#begin">begin</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#createMenu">createMenu</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#createTimelineControl">createTimelineControl</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#end">end</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#init">init</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#init">init</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#nextElement">nextElement</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#previousElement">previousElement</a></li></ul></li><li><a href="Vi2.TemporalBookmarks.html">TemporalBookmarks</a><ul class='methods'><li data-type='method'><a href="Vi2.TemporalBookmarks.html#init">init</a></li></ul></li><li><a href="Vi2.VideoManager.html">VideoManager</a><ul class='methods'><li data-type='method'><a href="Vi2.VideoManager.html#handleAllStreams">handleAllStreams</a></li><li data-type='method'><a href="Vi2.VideoManager.html#handleCategory">handleCategory</a></li><li data-type='method'><a href="Vi2.VideoManager.html#handleNewStream">handleNewStream</a></li><li data-type='method'><a href="Vi2.VideoManager.html#handleTags">handleTags</a></li><li data-type='method'><a href="Vi2.VideoManager.html#init">init</a></li><li data-type='method'><a href="Vi2.VideoManager.html#loadWidgets">loadWidgets</a></li></ul></li><li><a href="Vi2.ViewingHistory.html">ViewingHistory</a><ul class='methods'><li data-type='method'><a href="Vi2.ViewingHistory.html#init">init</a></li></ul></li><li><a href="Vi2.Zoom.html">Zoom</a><ul class='methods'><li data-type='method'><a href="Vi2.Zoom.html#init">init</a></li></ul></li><li><a href="VideoPlayer.html">VideoPlayer</a><ul class='methods'><li data-type='method'><a href="VideoPlayer.html#createPlaybackControl">createPlaybackControl</a></li><li data-type='method'><a href="VideoPlayer.html#createSource">createSource</a></li><li data-type='method'><a href="VideoPlayer.html#createVolumeControl">createVolumeControl</a></li><li data-type='method'><a href="VideoPlayer.html#decreaseVolume">decreaseVolume</a></li><li data-type='method'><a href="VideoPlayer.html#getVolume">getVolume</a></li><li data-type='method'><a href="VideoPlayer.html#increaseVolume">increaseVolume</a></li><li data-type='method'><a href="VideoPlayer.html#loadUI">loadUI</a></li><li data-type='method'><a href="VideoPlayer.html#muteVolume">muteVolume</a></li><li data-type='method'><a href="VideoPlayer.html#readyStateHandler">readyStateHandler</a></li><li data-type='method'><a href="VideoPlayer.html#setVolume">setVolume</a></li></ul></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-some.html">some</a></li></ul><h3>Global</h3><ul><li><a href="global.html#init">init</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">VideoPlayer</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+        VideoPlayer
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+
+    <h4 class="name" id="VideoPlayer"><span class="type-signature"></span>new VideoPlayer<span class="signature">(options, observer)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object containing the parameters</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>observer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Observer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Observer of VI-TWO</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vi2.core.videoplayer.js.html">vi2.core.videoplayer.js</a>, <a href="vi2.core.videoplayer.js.html#line99">line 99</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="createPlaybackControl"><span class="type-signature"></span>createPlaybackControl<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Creates video playback control
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vi2.core.videoplayer.js.html">vi2.core.videoplayer.js</a>, <a href="vi2.core.videoplayer.js.html#line412">line 412</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="createSource"><span class="type-signature"></span>createSource<span class="signature">(src)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    build video source element
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>src</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">= video url; mime_type = mime_type of video</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vi2.core.videoplayer.js.html">vi2.core.videoplayer.js</a>, <a href="vi2.core.videoplayer.js.html#line335">line 335</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="createVolumeControl"><span class="type-signature"></span>createVolumeControl<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Creates a volume control element
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vi2.core.videoplayer.js.html">vi2.core.videoplayer.js</a>, <a href="vi2.core.videoplayer.js.html#line445">line 445</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="decreaseVolume"><span class="type-signature"></span>decreaseVolume<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Decreases audio volume by 5 percent
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vi2.core.videoplayer.js.html">vi2.core.videoplayer.js</a>, <a href="vi2.core.videoplayer.js.html#line550">line 550</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getVolume"><span class="type-signature"></span>getVolume<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Get volume
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vi2.core.videoplayer.js.html">vi2.core.videoplayer.js</a>, <a href="vi2.core.videoplayer.js.html#line524">line 524</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="increaseVolume"><span class="type-signature"></span>increaseVolume<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Increases audio volume by 5 percent
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vi2.core.videoplayer.js.html">vi2.core.videoplayer.js</a>, <a href="vi2.core.videoplayer.js.html#line542">line 542</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="loadUI"><span class="type-signature"></span>loadUI<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    load UI
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vi2.core.videoplayer.js.html">vi2.core.videoplayer.js</a>, <a href="vi2.core.videoplayer.js.html#line359">line 359</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="muteVolume"><span class="type-signature"></span>muteVolume<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Toggles the button to mute/unmute the volume. If volume get unmuted the volume will be reset to the value it had befor muting.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vi2.core.videoplayer.js.html">vi2.core.videoplayer.js</a>, <a href="vi2.core.videoplayer.js.html#line559">line 559</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="readyStateHandler"><span class="type-signature"></span>readyStateHandler<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    event handler: on can play. Notifies the observer about a new video.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vi2.core.videoplayer.js.html">vi2.core.videoplayer.js</a>, <a href="vi2.core.videoplayer.js.html#line629">line 629</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="setVolume"><span class="type-signature"></span>setVolume<span class="signature">(volume)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Set volume
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>volume</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Number in the range of 0 and 1. Every value outside that rang will be changed to the boundaries.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="vi2.core.videoplayer.js.html">vi2.core.videoplayer.js</a>, <a href="vi2.core.videoplayer.js.html#line533">line 533</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sun Nov 27 2016 13:13:03 GMT+0100 (Западная Европа (зима)) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

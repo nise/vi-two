@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>vi2.annotation.assessment.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Analysis.html">Analysis</a></li><li><a href="Annotation.html">Annotation</a><ul class='methods'><li data-type='method'><a href="Annotation.html#init">init</a></li></ul></li><li><a href="Comments.html">Comments</a></li><li><a href="DataBase.html">DataBase</a><ul class='methods'><li data-type='method'><a href="DataBase.html#getGroupById">getGroupById</a></li><li data-type='method'><a href="DataBase.html#getSlidesById">getSlidesById</a></li><li data-type='method'><a href="DataBase.html#getUserById">getUserById</a></li><li data-type='method'><a href="DataBase.html#loadJSON">loadJSON</a></li></ul></li><li><a href="Log.html">Log</a></li><li><a href="Loop.html">Loop</a></li><li><a href="Maintain.html">Maintain</a><ul class='methods'><li data-type='method'><a href="Maintain.html#validateTags">validateTags</a></li></ul></li><li><a href="Parser.html">Parser</a><ul class='methods'><li data-type='method'><a href="Parser.html#parseHtml">parseHtml</a></li><li data-type='method'><a href="Parser.html#parseWiki">parseWiki</a></li><li data-type='method'><a href="Parser.html#parseWikiHyperlink">parseWikiHyperlink</a></li><li data-type='method'><a href="Parser.html#parseWikiVideo">parseWikiVideo</a></li><li data-type='method'><a href="Parser.html#run">run</a></li></ul></li><li><a href="Utils.html">Utils</a></li><li><a href="Vi2.Assessment.html">Assessment</a></li><li><a href="vi2.core.Clock.html">Clock</a><ul class='methods'><li data-type='method'><a href="vi2.core.Clock.html#isHook">isHook</a></li></ul></li><li><a href="Vi2.Metadata.html">Metadata</a><ul class='methods'><li data-type='method'><a href="Vi2.Metadata.html#buildMetaTags">buildMetaTags</a></li><li data-type='method'><a href="Vi2.Metadata.html#displayMetadata">displayMetadata</a></li><li data-type='method'><a href="Vi2.Metadata.html#update">update</a></li></ul></li><li><a href="Vi2.PlaybackSpeed.html">PlaybackSpeed</a><ul class='methods'><li data-type='method'><a href="Vi2.PlaybackSpeed.html#decreaseSpeed">decreaseSpeed</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#displaySpeed">displaySpeed</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#getCurrentSpeed">getCurrentSpeed</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#increaseSpeed">increaseSpeed</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#init">init</a></li><li data-type='method'><a href="Vi2.PlaybackSpeed.html#setCurrentSpeed">setCurrentSpeed</a></li></ul></li><li><a href="Vi2.RelatedVideos.html">RelatedVideos</a><ul class='methods'><li data-type='method'><a href="Vi2.RelatedVideos.html#showRelatedVideos">showRelatedVideos</a></li><li data-type='method'><a href="Vi2.RelatedVideos.html#sortByRelevance">sortByRelevance</a></li></ul></li><li><a href="Vi2.Sharing.html">Sharing</a><ul class='methods'><li data-type='method'><a href="Vi2.Sharing.html#init">init</a></li><li data-type='method'><a href="Vi2.Sharing.html#prepareEmbedMarkup">prepareEmbedMarkup</a></li></ul></li><li><a href="Vi2.SkipBack.html">SkipBack</a><ul class='methods'><li data-type='method'><a href="Vi2.SkipBack.html#init">init</a></li></ul></li><li><a href="Vi2.SyncMedia.html">SyncMedia</a><ul class='methods'><li data-type='method'><a href="Vi2.SyncMedia.html#get_tag_by_name">get_tag_by_name</a></li><li data-type='method'><a href="Vi2.SyncMedia.html#init">init</a></li></ul></li><li><a href="Vi2.TableOfContents.html">TableOfContents</a><ul class='methods'><li data-type='method'><a href="Vi2.TableOfContents.html#addTimelineMarkers">addTimelineMarkers</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#appendToDOM">appendToDOM</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#begin">begin</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#createMenu">createMenu</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#createTimelineControl">createTimelineControl</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#end">end</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#init">init</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#init">init</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#nextElement">nextElement</a></li><li data-type='method'><a href="Vi2.TableOfContents.html#previousElement">previousElement</a></li></ul></li><li><a href="Vi2.TemporalBookmarks.html">TemporalBookmarks</a><ul class='methods'><li data-type='method'><a href="Vi2.TemporalBookmarks.html#init">init</a></li></ul></li><li><a href="Vi2.VideoManager.html">VideoManager</a><ul class='methods'><li data-type='method'><a href="Vi2.VideoManager.html#handleAllStreams">handleAllStreams</a></li><li data-type='method'><a href="Vi2.VideoManager.html#handleCategory">handleCategory</a></li><li data-type='method'><a href="Vi2.VideoManager.html#handleNewStream">handleNewStream</a></li><li data-type='method'><a href="Vi2.VideoManager.html#handleTags">handleTags</a></li><li data-type='method'><a href="Vi2.VideoManager.html#init">init</a></li><li data-type='method'><a href="Vi2.VideoManager.html#loadWidgets">loadWidgets</a></li></ul></li><li><a href="Vi2.ViewingHistory.html">ViewingHistory</a><ul class='methods'><li data-type='method'><a href="Vi2.ViewingHistory.html#init">init</a></li></ul></li><li><a href="Vi2.Zoom.html">Zoom</a><ul class='methods'><li data-type='method'><a href="Vi2.Zoom.html#init">init</a></li></ul></li><li><a href="VideoPlayer.html">VideoPlayer</a><ul class='methods'><li data-type='method'><a href="VideoPlayer.html#createPlaybackControl">createPlaybackControl</a></li><li data-type='method'><a href="VideoPlayer.html#createSource">createSource</a></li><li data-type='method'><a href="VideoPlayer.html#createVolumeControl">createVolumeControl</a></li><li data-type='method'><a href="VideoPlayer.html#decreaseVolume">decreaseVolume</a></li><li data-type='method'><a href="VideoPlayer.html#getVolume">getVolume</a></li><li data-type='method'><a href="VideoPlayer.html#increaseVolume">increaseVolume</a></li><li data-type='method'><a href="VideoPlayer.html#loadUI">loadUI</a></li><li data-type='method'><a href="VideoPlayer.html#muteVolume">muteVolume</a></li><li data-type='method'><a href="VideoPlayer.html#readyStateHandler">readyStateHandler</a></li><li data-type='method'><a href="VideoPlayer.html#setVolume">setVolume</a></li></ul></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-some.html">some</a></li></ul><h3>Global</h3><ul><li><a href="global.html#init">init</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">vi2.annotation.assessment.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/* 
+*	name: Vi2.Assessment
+*	author: niels.seidel@nise81.com
+* license: MIT License
+*	description: 
+* dependencies:
+*  - jquery-1.11.2.min.js
+*  - jquery.inherit-1.1.1.js
+*	todo:
+	- zeitliche trennung von frage und antwort
+	- wiederholung der frage erlauben
+	- ...
+*/
+
+Vi2.Assessment = $.inherit( Vi2.Annotation, /** @lends Vi2.Assessment# */{
+
+		/** 
+		*		@constructs 
+		*		@param {object} options An object containing the parameters	
+		*/
+  	__constructor : function(options) { 
+  			this.options = $.extend(this.options, options); 
+		},
+		
+		name : 'assessment',
+		type : 'annotation',
+		options : { 
+			displaySelector: '#overlay',
+			hasTimelineMarker: true,
+		  timelineSelector : '.vi2-timeline-top', 
+			hasMenu : true,
+			menuSelector: '#assessment',
+			allowComments : true,
+			allowEditing : true,
+			allowCreation : true, 
+			path: '/static/img/user-icons/'
+		 },
+
+		/* ... */
+		init : function(ann){  
+			var _this = this;
+			var events = []; 
+			$.each(ann, function(i, val){  
+				if(val.type === 'assessment' &amp;&amp; val.title !== '' ){ 
+					//var obj = JSON.parse( decodeURIComponent( val.title ) );  
+					events.push({ 
+						name: val.title,
+						occ:[val.t1],
+						time:[val.t1], 
+						author: val.author, 
+						date: val.date 
+					}); 
+				}
+			}); 
+			
+			// show comments in a menu
+			if( this.options.hasMenu ){
+				this.createMenu(events);
+			}
+			
+			// map events on the timeline
+			if( this.options.hasTimelineMarker ){ 
+				vi2.observer.player.timeline.addTimelineMarkers( 'assessment', events, this.options.timelineSelector );
+			}		
+					
+		},
+		
+		
+		/*
+		**/
+		createMenu : function( assessmentData ){
+			var _this = this;
+			$(this.options.menuSelector).empty();
+			var assess = $('&lt;ul>&lt;/ul>')
+				.addClass('assessment-list')
+				.appendTo( this.options.menuSelector )
+				;
+			$.each( assessmentData, function(i, val){
+				var user = vi2.db.getUserById(val.author);	
+				
+				var header = $('&lt;span>&lt;/span>')
+					.addClass('assessment-header');
+					
+				$('&lt;span>&lt;/span>')
+					//.text( user.firstname +' '+user.name )
+					.text( user.username )
+					.addClass('assessment-user')
+					.appendTo( header )
+					;  
+				header.append(' ' + moment(Number(val.date), "x").fromNow() );	
+				
+				
+				var userIcon = new Image();
+				$(userIcon)
+				//	.attr('src', _this.options.path+'icon.png')
+					.addClass('assessment-user-icon');
+				var a = $('&lt;a>&lt;/a>')
+					//.append(userIcon)
+					.append( val.name.question )
+					.attr('author', val.author)
+					//.attr('href', '#'+vi2.observer.options.id)
+					.addClass('id-'+ val.time+' assessment-menu-question')
+					.click(function(){
+						vi2.observer.log({context:'assessment', action:'menu-click', values:[ val.name.question, val.author, val.time ]});
+						vi2.observer.player.currentTime( val.time );
+					});			
+				
+				var li = $('&lt;li>&lt;/li>')
+					.attr('id', 't'+ val.time)
+					.attr('author', val.author)
+					.addClass('list-item')
+					//.css('list-style-image',  "url('"+_this.options.path+"user-"+author+".png')")
+					.html( header )
+					.append( a )
+					.appendTo( assess )
+					;	
+				
+				// edit
+				if( _this.options.allowEditing &amp;&amp; Number(val.author) === Number(vi2.wp_user) ){	 
+					var edit_btn = $('&lt;a>&lt;/a>')
+						.addClass('tiny-edit-btn glyphicon glyphicon-pencil' )
+						.attr('data-toggle', "modal")
+						.attr('data-target', "#myModal")
+						.attr('data-annotationtype', 'assessment')
+						.data('annotationdata', { 
+							content: val.name, 
+							time: val.time[0], 
+							date: val.date,
+							author: val.author 
+						} )
+						.appendTo( header )
+						;
+				}		
+				
+			});	
+			// sort list entries by time and append them
+			assess.find('li').tsort({attr:"id"}); 
+			
+		},							
+		
+		appendToDOM : function(id){ 
+			var _this = this; 
+			$(vi2.dom).find('[type="assessment"]').each(function(i,val){ $(this).remove(); });
+			$.each(	vi2.db.getAssessmentById(id), function( i, val ){  
+				var toc = $('&lt;div>&lt;/div>')
+					.attr('type',"assessment")
+					.attr('starttime', val.start)
+					//.attr('data', val.start)
+					.attr('duration', 10)
+					.attr('author', val.author)
+					.attr('date', val.date)
+					.attr('id', "assessment-"+i)
+					.data('task', val.title )
+					.appendTo( vi2.dom )
+					; 
+			});
+		},
+		
+			/*
+		**/
+		updateDOMElement : function( obj ){ 
+			$(vi2.dom)
+				.find('[date="'+ obj.date +'"]') // .date
+				.attr('author', vi2.wp_user )
+				.attr('date', new Date().getTime())
+				.attr('starttime', obj.time )
+				.data('task', obj.content )
+				;
+		},
+		
+		
+		/*
+		* { type: type, date: new Date().getTime(), time: formData.time, content: formData.content); 
+		**/
+		addDOMElement : function( obj ){ 
+			$('&lt;div>&lt;/div>')
+				.attr('type', obj.type)
+				.attr('author', vi2.wp_user )
+				.attr('date', new Date().getTime())
+				.attr('starttime', obj.time )
+				.data('task', obj.content )
+				.appendTo( vi2.dom )
+				;
+		},			
+		
+				
+		/* ... */
+		begin : function(e, id, obj){ 
+			$('body').unbind('keydown'); 
+			 
+			var _this = this;
+			var question_selector = 'vi2assessment'+id; 
+			vi2.observer.player.pause();
+			vi2.observer.log({context:'assessment', action:'display-question',values:[encodeURIComponent(obj.content.title.question), obj.author, vi2.observer.player.currentTime() ]});
+			//{"question":"bimel","answ":[{"id":"answ0","answ":"hier"},{"id":"answ1","answ":"we"},{"id":"answ2","answ":"go"}],"correct":"answ2"}
+			var o = $('&lt;div>&lt;/div>')
+				.attr('id', 'vi2assessment')
+				.addClass(question_selector)
+				.html('')
+				.show();
+				
+			var head = $('&lt;h3>&lt;/h3>')
+				.text('Testfrage');
+			var quest = $('&lt;div>&lt;/div>')
+				.addClass('assessment-question')
+				.text(''+obj.content.title.question);	
+			var answ = $('&lt;div>&lt;/div>')
+				.addClass('assessment-answers');
+			
+			
+			if( obj.content.title.answ.length > 0 ){
+				
+				if(obj.content.title.answ.length === 1 &amp;&amp; obj.content.title.answ[0].questiontype === 'fi'){
+					// fill in answers box 
+					var answer = $('&lt;div>&lt;/div>')
+						.attr('id', 'answ0')
+						.addClass('assessment-answer')
+						.append('&lt;textarea name="quest">&lt;/textarea>')
+						.append('&lt;br/>')
+						.appendTo(answ);
+				}else{ 
+					// mc answer options
+					$.each(obj.content.title.answ, function(i, val){
+						var answer = $('&lt;div>&lt;/div>')
+							.attr('id', val.id)
+							.addClass('assessment-answer')
+							.append( $('&lt;input type="checkbox" name="quest" value="1" />').attr('id', val.id))
+							.append(val.answ)
+							.click(function(){ 
+								$(this).find('input[type="checkbox"]').trigger('click'); 
+							})	
+							.append('&lt;br/>')
+							.appendTo(answ);
+							
+					});
+				}
+			}		
+			
+			var solve = $('&lt;button>&lt;/button>')
+				.addClass('btn btn-default assessment-btn')
+				.text('abschicken')
+				.click(function(){
+					$(this).hide();					
+					_this.evaluateAnswer('.'+question_selector, obj.content.title, obj.author);
+				});
+			
+			// skip test
+			var skip = $('&lt;a>&lt;/a>')
+				.text(' Frage überspringen')
+				.click(function(){
+					$(question_selector).remove();
+					vi2.observer.log({context:'assessment', action:'skip-question',values:[ encodeURIComponent(obj.content.title.question), obj.author, vi2.observer.player.currentTime() ]});
+					vi2.observer.player.play();
+					$('body').unbind('keydown').bind('keydown', function(e) { 
+						vi2.observer.player.keyboardCommandHandler(e); 
+					});
+				});
+				
+			$(o).append(head).append(quest).append(answ).append(solve).append(skip); 
+			$(this.options.displaySelector).append(o);
+	
+			/*
+			if(this.currImgId === obj.content.target){
+				return false;
+			}else{
+				// reset highlight
+				$(this.options.selector+' li').each(function(i){ $(this).removeClass('highcomment');})
+				// highlight comment entry
+				$(this.options.selector+' li#t'+this.formatTime(obj.content.target)).addClass('highcomment');
+			}
+			*/
+		},
+	
+		/* ... */
+		end : function(e, id){ 
+			$('.vi2assessment'+id).remove();
+		},
+		
+		
+		/* 
+		* This function gets called in order to fill a user dialog with a form in order to define assessment task (multiple choice and fill-in text. 
+		* * {"content":{"question":"Eine Frage","answ":[{"id":"answ78","answ":"Antwort a","questiontype":"mc"},{"id":"answ32","answ":"Antwort b","questiontype":"mc"},{"id":"answ43","answ":"Antwort c","questiontype":"mc"}],"correct":["answ43"]},"time":["300"],"date":"1386505607283"}
+  	**/
+		createAnnotationForm : function(json){ 
+			
+			if( json.content === '' ){ // form with existing data
+				json = {
+					time: vi2.observer.player.currentTime(),
+					date: (new Date().getTime()),
+					author : vi2.wp_user,
+					content: {
+						question:'', 
+						answ:[], 
+						correct:[], 
+						time: vi2.observer.player.currentTime(), 
+						date: (new Date().getTime())
+					}	
+				}; 
+			}
+			
+			var question = $('&lt;textarea>&lt;/textarea>')
+				.attr('id', 'annotationQuestion')
+				.val(json.content.question);
+			var answer_box = $('&lt;div>&lt;/div>').attr('id','answerbox');
+		
+				var ii = 0;
+				var add = $('&lt;div>&lt;/div>')
+					.append( $('&lt;span>&lt;/span>').addClass('glyphicon glyphicon-plus ') ) // glyphicon glyphicon-list
+					.addClass('mc-question add-btn')
+					.append(' Multiple-Choice-Antwort hinzufügen')
+					.click(function(){
+						var rm = $('&lt;span>&lt;/span>')
+							.addClass('close-btn glyphicon glyphicon-remove-circle')
+							.attr('title', 'Antwortoption entfernen')
+							.click(function(){ 
+								$(this).parent().remove();
+								if($('.answer').length === 0){
+									$('.fi-question').show();
+									$('.mc-question').show();
+								}else{
+									$('.fi-question').hide();
+									$('.mc-question').show();
+								}	
+							})
+							;
+						$('.fi-question').hide();	
+						var idd = 'answ'+Math.ceil(Math.random()*100);
+						var answ = $('&lt;div>&lt;/div>')
+							.attr('id', idd)
+							.addClass('answer')
+							.append('&lt;input id="'+idd+'" type="checkbox" title="Setze ein Häckchen für richtige Lösungen" name="quest" value="1" />')
+							.append('&lt;input id="'+idd+'" type="text" class="mc-option" value=""/>')
+							.append(rm)
+							.append('&lt;br/>');
+						ii++;
+						answer_box.append(answ);
+					});
+			
+				// fill in questions
+				var add2 = $('&lt;div>&lt;/div>')
+					.append( $('&lt;span>&lt;/span>').addClass('glyphicon glyphicon-align-left') ) // glyphicon glyphicon-list
+					.addClass('fi-question  add-btn')
+					.append(' Freitext-Antwort hinzufügen')
+					.click(function(){
+						var rm = $('&lt;span>&lt;/span>')
+							.addClass('close-btn glyphicon glyphicon-remove-circle')
+							.attr('title', 'Lösung entfernen')
+							.click(function(){ 
+								$(this).parent().remove();
+								if($('.answer').length === 0){
+									$('.fi-question').show();
+									$('.mc-question').show();
+								}else{
+									$('.fi-question').hide();
+									$('.mc-question').hide();
+								}	
+							})
+							;
+						$('.mc-question').hide();
+						$('.fi-question').hide();
+						var answ = $('&lt;div>&lt;/div>')
+							.attr('id', 'answ'+Math.ceil(Math.random()*100))
+							.addClass('answer fi-answer')
+							.append($('&lt;label>&lt;/label>').text('Lösung:'))
+							.append('&lt;textarea>&lt;/textarea>')
+							.append(rm)
+							.append('&lt;br/>');
+						ii++;
+						answer_box.append(answ);
+					});	
+		
+		
+		
+			// handle existing answers
+			if( json.content.answ.length > 0 ){
+				if(json.content.answ[0].questiontype === 'mc'){
+					// add existing answers
+					$.each(json.content.answ, function(i, val){ 
+						var rm = $('&lt;span>&lt;/span>')
+							.addClass('close-btn glyphicon glyphicon-remove-circle')
+							.attr('title', 'Antwortoption entfernen')
+							.click(function(){ 
+								$(this).parent().remove(); 
+								if($('.answer').length === 0){
+									$('.fi-question').show();
+									$('.mc-question').show();
+								}else{
+									$('.fi-question').hide();
+									$('.mc-question').show();
+								}
+							});
+						var checkbox = $('&lt;input type="checkbox" title="Setze ein Häckchen für richtige Lösungen" name="quest" value="1" />')
+							.attr('id', val.id);
+							
+						if( json.content.correct.indexOf( val.id ) !== -1 ){
+//							checkbox.attr('checked', 'checked');
+							checkbox.attr('checked', true);
+						}	
+						var answ = $('&lt;div>&lt;/div>')
+							.attr('id', val.id)
+							.addClass('answer')
+							.append(checkbox)
+							.append($('&lt;input type="text" class="mc-option" />')
+								.attr('id', val.id)
+								.val(val.answ)
+							)
+							.append(rm)
+							.append('&lt;br/>')
+							.appendTo(answer_box)
+							;
+					}); 
+				}else if(json.content.answ[0].questiontype === 'fi'){ 
+					var rm = $('&lt;span>&lt;/span>')
+						.addClass('close-btn glyphicon glyphicon-remove-circle')
+						.attr('title', 'Lösung entfernen')
+						.click(function(){ 
+							$(this).parent().remove();
+							if($('.answer').length === 0){
+								$('.fi-question').show();
+								$('.mc-question').show();
+							}else{
+								$('.fi-question').hide();
+								$('.mc-question').hide();
+							}
+						})
+						;
+					var answ = $('&lt;div>&lt;/div>')
+							.attr('id', 'answ'+Math.ceil(Math.random()*100))
+							.addClass('answer fi-answer')
+							.append($('&lt;label>&lt;/label>').text('Lösung:'))
+							.append($('&lt;textarea>&lt;/textarea>').val(json.content.answ[0].answ))
+							.append(rm)
+							.append('&lt;br/>')
+							.appendTo(answer_box)
+							;	 
+				}
+			}
+			/*jshint multistr: true */
+			var time_field = "\
+				&lt;div class='input-group'>\
+					&lt;span class='input-group-addon' id='hyperlinks-form3'>Zeitpunkt (s)&lt;/span>\
+					&lt;input type='text' class='form-control' value='" + json.time + "' name='assessment-entry-time' data-datatype='decimal-time' placeholder='' aria-describedby='hyperlinks-form3'>\
+				&lt;/div>";
+		
+			var form =  $('&lt;div>&lt;/div>')
+			.addClass('questionanswers')
+			.append($('&lt;label>&lt;/label>').text('Frage:'))
+			.append(question)
+			.append(answer_box)
+			.append(add)
+			.append(add2)
+			.append( time_field )
+			;
+			
+			if( json.content.answ !== undefined){
+				if( json.content.answ[0] !== undefined  &amp;&amp; json.content.answ[0].questiontype === 'mc'){
+					add2.hide();
+				}
+			
+				if( json.content.answ[0] !== undefined  &amp;&amp; json.content.answ[0].questiontype === 'fi'){
+					add.hide();
+					add2.hide();
+				}
+			}	
+			return form;
+			
+		},
+		
+		
+		
+		/*
+		* todo: 
+		*  - check data types: string, number, decimal-time, ... from .data('datatype', 'decimal-time')
+		*  - change messages
+		**/
+		validateAnnotationForm : function(selector, type){ 
+			var textarea_flag = 0, textinput_flag = 0, msg = '', sum_checked = 0, sum_checkbox = 0;
+			
+			
+			// validate textareas
+			$(selector).find('#annotationQuestion').each(function(i,val){
+				if(String($(val).val()).length &lt; 2){
+					$(val).addClass( 'validation-conflict' );
+					textarea_flag = true;
+				}else{
+					$(val).removeClass( 'validation-conflict' );
+				}
+			});
+			if(textarea_flag){
+				msg += "&lt;br> Definieren Sie bitte einen Text für diese Frage.";
+			}
+			
+			if( $('#answerbox').find('div').length === 0 ) {
+				msg += '&lt;br> Bitte definieren Sie für diese Frage entsprechende Antwortoptionen oder Lösungen.';
+			}else{
+				// if its a fill-in task
+				$('#answerbox').find('textarea').each(function(i,val){
+					if(String($(val).val()).length &lt; 2){
+						$(val).addClass( 'validation-conflict' );
+						textarea_flag = true;
+					}else{
+						$(val).removeClass( 'validation-conflict' );
+					}
+				});
+				if(textarea_flag){
+					msg += "&lt;br> Definieren Sie bitte die Lösung zu der Frage.";
+				}
+				
+				//alert($('#answerbox').find('input[type=text]').length)
+				// validate input fields
+				$('#answerbox').find('input[type=text]').each(function(i,val){
+					if($(val).val() === ''){
+						$(val).addClass( 'validation-conflict' );
+						textinput_flag = true;
+					}else{
+						$(val).removeClass( 'validation-conflict' );
+					}
+				});
+				if(textinput_flag){
+					msg += "&lt;br> Versehen Sie bitte jede Antwortoption mit einem Text.";
+				}
+		
+				// validate checkboxes
+				if($('#answerbox').find('input[type=checkbox]').length > 0 &amp;&amp; $('#answerbox').find('input:checked').length === 0){ 
+					$('#answerbox').find('input[type=checkbox]').addClass( 'validation-conflict' );
+					msg += "&lt;br> Mindestens eine Antwortoption sollte als richtig markiert werden.";
+				}else{
+					$('#answerbox').find('input[type=checkbox]').removeClass( 'validation-conflict' );
+				}
+			}
+			
+			// final output of validation messages
+			if(String(msg).length === 0){ 
+				return msg; 
+			}else{ 
+				console.log('Validation Error:' + msg); 
+				return msg;
+			}
+		},
+		
+		
+		/*
+		* example: {"content":{"question":"Eine Frage","answ":[{"id":"answ78","answ":"Antwort a","questiontype":"mc"},{"id":"answ32","answ":"Antwort b","questiontype":"mc"},{"id":"answ43","answ":"Antwort c","questiontype":"mc"}],"correct":["answ43"]},"time":["300"],"date":"1386505607283"}
+		**/
+		getAnnotationFormData : function( selector ){
+			var obj = {
+				time : $( selector ).find('[name="assessment-entry-time"]').val(),
+				content : {
+					question : $('#annotationQuestion').val(),
+					time : $('#annotationTime').attr('value'),
+					date : String( new Date().getTime() ),
+					answ : [],
+					correct : []
+				}	
+			};
+			// get fill-in solution
+			$('#answerbox').find('textarea').each(function(i,val){
+					obj.content.answ[i] = { id: $(val).attr('id'), answ: $(val).val(), questiontype:"fi" };
+			});
+			
+			// get multiple choice answer options
+			$('#answerbox').find('input[type=text]').each(function(i,val){ 
+					obj.content.answ[i] = { id: $(val).attr('id'), answ: $(val).val(), questiontype:"mc" };	
+			});
+			
+			
+			// find correct answers
+			$('#answerbox').find(':checked').each(function(i, val){ 
+					obj.content.correct.push( $(val).attr('id') );
+			});
+			return obj;
+			/*
+			{	"content": {
+					"question":"Eine Frage",
+					"answ": [
+						{"id":"answ78","answ":"Antwort a","questiontype":"mc"}
+					],
+					"correct":["answ43"]},
+					"time":["300"],
+					"date":"1386505607283"
+				}
+			*/
+			//return obj;
+		},
+		
+		
+		
+		
+		
+		
+		/*
+		* Evaluates the quizz results provided by the user. 
+		**/
+		evaluateAnswer : function(question_selector, obj, author){
+			var one_checked = false, correct = [];
+			if(obj.answ[0].questiontype === 'fi'){ //alert($('#answ0').find('textarea').val())
+				if( String($('#answ0 > textarea').val()).length > 3){
+					correct.push(true);
+					vi2.observer.log({context:'assessment', action:'submited-answer',values:[encodeURIComponent(obj.question), author, vi2.observer.player.currentTime(), encodeURIComponent($('.assessment-answers').find('textarea').val()) ]});
+					$(question_selector)
+						.append($('&lt;p>&lt;strong>Vielen Dank für die Bearbeitung der Frage. Folgende Musterlösung wurde für diese Frage hinterlegt:&lt;/strong>&lt;/p>'))
+						.addClass('assessment-msg-correct');
+					$('&lt;div>&lt;/div>')
+						.text( obj.answ[0].answ )
+						.addClass('correct-answ')
+						.appendTo(question_selector)
+						;
+				}		
+			}else{ 
+				
+				obj.checked = [];
+				$('.assessment-msg-warning').hide();
+				$('div.assessment-answers').find("input[type='checkbox']:checked").each(function(i, val){ 
+					
+					obj.checked.push( $(val).attr('id') );
+					one_checked = true;
+					if( obj.correct.indexOf( $(val).attr('id') ) > -1 ){
+						correct.push(true); 
+					}else{
+						correct.push(false); 
+					}
+				});
+			
+				// check whether a option has been selected
+				if( ! one_checked ){
+					//vi2.observer.log('[call:run_assessment, result:empty_selection]'); 
+					$(question_selector)
+						.append($('&lt;p>Bitte wählen Sie eine Antwortoption&lt;/p>')
+						.addClass('assessment-msg-warning'));
+					$('.assessment-btn').show();
+					return false;
+				}
+			
+				
+				// log event
+				vi2.observer.log({context:'assessment', action:'submited-answer',values:[ encodeURIComponent(obj.question), author, vi2.observer.player.currentTime(), (obj.checked).toString() ]});
+				
+				// give feedback to the user
+				if( correct.indexOf(false) === -1){
+					vi2.observer.log({context:'assessment', action:'submited-correct-result',values:[encodeURIComponent(obj.question), author, vi2.observer.player.currentTime() ]});
+					$(question_selector).append($('&lt;p>Ihre Antwort ist richtig.&lt;/p>').addClass('assessment-msg-correct'));
+				}else{ // wrong
+					vi2.observer.log({context:'assessment', action:'submited-incorrect-result',values:[encodeURIComponent(obj.question), author, vi2.observer.player.currentTime() ]});
+					$(question_selector).append($('&lt;p>Ihre Antwort ist leider falsch.&lt;/p>').addClass('assessment-msg-wrong'));
+				}
+			}
+			// save result to node
+			obj.type = obj.answ[0].questiontype;
+			
+			var question_result = {
+		  	from : vi2.wp_user, // the user that answered the question
+		  	//to : obj.author, // the author of the question // bug xxx
+		  	date : (new Date()).getTime(),
+		  	type : 'test-result',
+		  	read : false, 
+		  	replied: false,
+		  	title : 'Result: '+encodeURIComponent(obj.question),
+		  	content : {
+					correct: correct,
+					question : encodeURIComponent(obj.question),
+					answ : obj.answ,
+					res : obj.type === 'mc' ? encodeURIComponent(obj.checked) : encodeURIComponent($('.assessment-answers').find('textarea').val()),
+					videoid : vi2.currentVideo
+				} 
+    	};
+			/*
+			$.post('/messages', {"data":question_result}, function(res){ 
+        //alert('Has been saved: '+ JSON.stringify(res)); 
+    	});
+    	*/
+		
+			// proceed	
+			var proceed = $('&lt;button>&lt;/button>')
+				.addClass('btn btn-default')
+				.text('Video fortsetzen')
+				.click(function(){
+					$(question_selector).remove();
+					vi2.observer.log({context:'assessment', action:'continue-playback',values:[encodeURIComponent(obj.question), author, vi2.observer.player.currentTime() ]});
+					vi2.observer.player.play();
+					$('body').unbind('keydown').bind('keydown', function(e) { 
+						vi2.observer.player.keyboardCommandHandler(e); 
+					});
+				})
+				.appendTo( question_selector )
+				;
+				
+		}
+		
+	
+		
+	}); // end class Comments
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sun Nov 27 2016 13:13:03 GMT+0100 (Западная Европа (зима)) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

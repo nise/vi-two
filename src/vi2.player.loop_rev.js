@@ -15,7 +15,7 @@
 
 Vi2.Loop = $.inherit({
 
-  /** @constructs
+  /** @constructs Loop
    *		@param {object} options An object containing the parameters
    *		@param {boolean} options.hasTimelineMarker Whether the TOC should be annotated on the timeline or not.
    *

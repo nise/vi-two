@@ -25,7 +25,19 @@ Vi2.Annotation = $.inherit(/** @lends Annotation# */{
 		type : 'annotation',
 		options : {},
 
-		/* ... */
+  // ================================================================
+  // jsdoc comment to test the tutorial and example
+  /**
+   * @tutorial some
+   * @example
+   *   <!DOCTYPE html>
+   *   <html>
+   *     <head></head>
+   *     <body>
+   *       <div>hi</div>
+   *     </body>
+   *   </html>
+   */
 		init : function(ann){},	
 		
 		/* -- */
